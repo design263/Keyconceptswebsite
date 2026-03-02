@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  Menu, 
-  X, 
+import {
+  Menu,
+  X,
   ChevronDown,
   Users,
   Target,
@@ -28,17 +28,26 @@ import {
   Settings,
   Shield,
   Heart,
-  Briefcase
+  Briefcase,
+  Lightbulb,
+  FolderOpen,
 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import logo from "figma:asset/86d73f4575e82c2f8cca971638d48b77628092fb.png";
+import { useEnquiryModal } from "../context/enquiry-modal-context";
+import { useCareerModal } from "../context/career-modal-context";
 
-type MegaMenuType = "services" | "products" | "company" | null;
+type MegaMenuType =
+  | "services"
+  | "products"
+  | "company"
+  | "insights"
+  | null;
 
 const products = [
   {
-    name: "Visitorz",
-    description: "Visitor & gate management system",
+    name: "Visitorz Management System",
+    description: "Visitors & gate management system",
     icon: Users,
     link: "/visitor-management",
   },
@@ -46,12 +55,14 @@ const products = [
     name: "Younited Communities",
     description: "Community & association management",
     icon: Building2,
+    link: "/younited-communities",
   },
   {
-    name: "Election Mobilization",
+    name: "Election Mobilization APP",
     description: "Digital campaign + voter outreach platform",
     icon: Vote,
-  }
+    link: "/election-mobilization",
+  },
 ];
 
 const services = [
@@ -59,34 +70,44 @@ const services = [
     name: "Product Development",
     description: "Crafting Scalable Product Experiences",
     icon: Layers,
+    link: "/product-development",
   },
   {
     name: "MVP Development",
     description: "Build, Test, Launch, Scale.",
     icon: Rocket,
+    link: "/mvp-studio",
   },
   {
-    name: "Odoo ERP Services",
+    name: "Odoo Development",
     description: "Implement, customize, integrate, support",
     icon: Settings,
+    link: "/odoo-erp",
   },
   {
     name: "Support Maintenance",
     description: "Performance Optimized, Always Secure",
     icon: Shield,
-  }
+    link: "/support-maintenance",
+  },
 ];
 
 const company = [
   {
     name: "Our Story",
-    description: "Learn about our journey and mission",
+    description: "Learn about our journey",
     icon: Heart,
-    link: "/about",
+    link: "/our-story",
+  },
+  {
+    name: "Process",
+    description: "How we deliver exceptional results",
+    icon: Target,
+    link: "/process",
   },
   {
     name: "Team",
-    description: "Meet the people behind Key Concepts",
+    description: "Meet the people behind us",
     icon: Users,
     link: "/about#team",
   },
@@ -94,24 +115,46 @@ const company = [
     name: "Careers",
     description: "Join our growing team",
     icon: Briefcase,
-    link: "/about#careers",
-  }
+    link: "/careers",
+  },
+];
+
+const insights = [
+  {
+    name: "Industry Trends",
+    description: "Stay ahead with the latest industry insights",
+    icon: Lightbulb,
+    link: "/insights/trends",
+  },
+  {
+    name: "Case Studies",
+    description: "Explore our success stories",
+    icon: FolderOpen,
+    link: "/insights/case-studies",
+  },
 ];
 
 export function MegaMenuHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeMegaMenu, setActiveMegaMenu] = useState<MegaMenuType>(null);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] =
+    useState(false);
+  const [activeMegaMenu, setActiveMegaMenu] =
+    useState<MegaMenuType>(null);
+  const [activeDropdown, setActiveDropdown] = useState<
+    string | null
+  >(null);
   const location = useLocation();
   const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const { openModal } = useEnquiryModal();
+  const { openModal: openCareerModal } = useCareerModal();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () =>
+      window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleMouseEnter = (menuType: MegaMenuType) => {
@@ -156,9 +199,9 @@ export function MegaMenuHeader() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center group">
-            <img 
-              src={logo} 
-              alt="Key Concepts" 
+            <img
+              src={logo}
+              alt="Key Concepts"
               className="h-12 w-auto transition-transform group-hover:scale-105"
             />
           </Link>
@@ -182,18 +225,28 @@ export function MegaMenuHeader() {
             >
               <button className="group flex items-center space-x-1 px-4 py-2 text-gray-700 hover:text-[#f1592a] transition-colors font-medium">
                 <span>Services</span>
-                <ChevronDown size={16} className={`transition-transform duration-200 ${activeMegaMenu === "services" ? "rotate-180" : ""}`} />
+                <ChevronDown
+                  size={16}
+                  className={`transition-transform duration-200 ${activeMegaMenu === "services" ? "rotate-180" : ""}`}
+                />
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] group-hover:w-full transition-all duration-300 ease-out" />
               </button>
 
               <AnimatePresence>
                 {activeMegaMenu === "services" && (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                    initial={{
+                      opacity: 0,
+                      scale: 0.95,
+                      y: -10,
+                    }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[800px] bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-100 overflow-hidden"
+                    transition={{
+                      duration: 0.3,
+                      ease: "easeOut",
+                    }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[800px] bg-white backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-100 overflow-hidden"
                   >
                     <div className="p-8">
                       {/* Services Grid */}
@@ -212,7 +265,11 @@ export function MegaMenuHeader() {
                             >
                               <div className="relative w-12 h-12 mb-4">
                                 <div className="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center group-hover/item:bg-white transition-all">
-                                  <service.icon className="text-gray-700" size={24} strokeWidth={1.5} />
+                                  <service.icon
+                                    className="text-gray-700"
+                                    size={24}
+                                    strokeWidth={1.5}
+                                  />
                                 </div>
                                 <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-[#f1592a] rounded-full border-2 border-white" />
                               </div>
@@ -236,17 +293,22 @@ export function MegaMenuHeader() {
                       >
                         <div className="flex items-center space-x-3">
                           <div className="w-10 h-10 bg-[#f1592a]/10 rounded-lg flex items-center justify-center">
-                            <Sparkles className="text-[#f1592a]" size={20} />
+                            <Sparkles
+                              className="text-[#f1592a]"
+                              size={20}
+                            />
                           </div>
                           <p className="text-gray-900 font-semibold">
-                            Need a custom solution? Talk to our experts.
+                            Need a custom solution? Talk to our
+                            experts.
                           </p>
                         </div>
-                        <Link to="/contact">
-                          <button className="px-6 py-2 bg-[#f1592a] text-white rounded-full font-semibold hover:bg-[#d94d24] transition-colors">
-                            Get Started
-                          </button>
-                        </Link>
+                        <button
+                          onClick={openModal}
+                          className="px-6 py-2 bg-[#f1592a] text-white rounded-full font-semibold hover:bg-[#d94d24] transition-colors"
+                        >
+                          Get Started
+                        </button>
                       </motion.div>
                     </div>
                   </motion.div>
@@ -261,19 +323,29 @@ export function MegaMenuHeader() {
               onMouseLeave={handleMouseLeave}
             >
               <button className="group flex items-center space-x-1 px-4 py-2 text-gray-700 hover:text-[#f1592a] transition-colors font-medium">
-                <span>Products</span>
-                <ChevronDown size={16} className={`transition-transform duration-200 ${activeMegaMenu === "products" ? "rotate-180" : ""}`} />
+                <span>Our Platforms</span>
+                <ChevronDown
+                  size={16}
+                  className={`transition-transform duration-200 ${activeMegaMenu === "products" ? "rotate-180" : ""}`}
+                />
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] group-hover:w-full transition-all duration-300 ease-out" />
               </button>
 
               <AnimatePresence>
                 {activeMegaMenu === "products" && (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                    initial={{
+                      opacity: 0,
+                      scale: 0.95,
+                      y: -10,
+                    }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[800px] bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-100 overflow-hidden"
+                    transition={{
+                      duration: 0.3,
+                      ease: "easeOut",
+                    }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[800px] bg-white backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-100 overflow-hidden"
                   >
                     <div className="p-8">
                       {/* Category Header */}
@@ -300,7 +372,11 @@ export function MegaMenuHeader() {
                             >
                               <div className="relative w-12 h-12 mb-4">
                                 <div className="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center group-hover/item:bg-white transition-all">
-                                  <product.icon className="text-gray-700" size={24} strokeWidth={1.5} />
+                                  <product.icon
+                                    className="text-gray-700"
+                                    size={24}
+                                    strokeWidth={1.5}
+                                  />
                                 </div>
                                 <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-[#f1592a] rounded-full border-2 border-white" />
                               </div>
@@ -324,17 +400,22 @@ export function MegaMenuHeader() {
                       >
                         <div className="flex items-center space-x-3">
                           <div className="w-10 h-10 bg-[#f1592a]/10 rounded-lg flex items-center justify-center">
-                            <Package className="text-[#f1592a]" size={20} />
+                            <Package
+                              className="text-[#f1592a]"
+                              size={20}
+                            />
                           </div>
                           <p className="text-gray-900 font-semibold">
-                            Looking for a custom platform? Let's build it together.
+                            Looking for a custom platform? Let's
+                            build it together.
                           </p>
                         </div>
-                        <Link to="/contact">
-                          <button className="px-6 py-2 bg-[#f1592a] text-white rounded-full font-semibold hover:bg-[#d94d24] transition-colors">
-                            Get Started
-                          </button>
-                        </Link>
+                        <button
+                          onClick={openModal}
+                          className="px-6 py-2 bg-[#f1592a] text-white rounded-full font-semibold hover:bg-[#d94d24] transition-colors"
+                        >
+                          Get Started
+                        </button>
                       </motion.div>
                     </div>
                   </motion.div>
@@ -350,22 +431,32 @@ export function MegaMenuHeader() {
             >
               <button className="group flex items-center space-x-1 px-4 py-2 text-gray-700 hover:text-[#f1592a] transition-colors font-medium">
                 <span>Company</span>
-                <ChevronDown size={16} className={`transition-transform duration-200 ${activeMegaMenu === "company" ? "rotate-180" : ""}`} />
+                <ChevronDown
+                  size={16}
+                  className={`transition-transform duration-200 ${activeMegaMenu === "company" ? "rotate-180" : ""}`}
+                />
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] group-hover:w-full transition-all duration-300 ease-out" />
               </button>
 
               <AnimatePresence>
                 {activeMegaMenu === "company" && (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                    initial={{
+                      opacity: 0,
+                      scale: 0.95,
+                      y: -10,
+                    }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[650px] bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-100 overflow-hidden"
+                    transition={{
+                      duration: 0.3,
+                      ease: "easeOut",
+                    }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[800px] bg-white backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-100 overflow-hidden"
                   >
                     <div className="p-8">
-                      {/* Company Grid */}
-                      <div className="grid grid-cols-3 gap-6">
+                      {/* Company Grid - 4 columns in 1 row */}
+                      <div className="grid grid-cols-4 gap-6">
                         {company.map((item, index) => (
                           <motion.div
                             key={item.name}
@@ -380,7 +471,11 @@ export function MegaMenuHeader() {
                             >
                               <div className="relative w-12 h-12 mb-4">
                                 <div className="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center group-hover/item:bg-white transition-all">
-                                  <item.icon className="text-gray-700" size={24} strokeWidth={1.5} />
+                                  <item.icon
+                                    className="text-gray-700"
+                                    size={24}
+                                    strokeWidth={1.5}
+                                  />
                                 </div>
                                 <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-[#f1592a] rounded-full border-2 border-white" />
                               </div>
@@ -394,7 +489,6 @@ export function MegaMenuHeader() {
                           </motion.div>
                         ))}
                       </div>
-
                       {/* Featured Banner */}
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -404,18 +498,95 @@ export function MegaMenuHeader() {
                       >
                         <div className="flex items-center space-x-3">
                           <div className="w-10 h-10 bg-[#f1592a]/10 rounded-lg flex items-center justify-center">
-                            <Heart className="text-[#f1592a]" size={20} />
+                            <Sparkles
+                              className="text-[#f1592a]"
+                              size={20}
+                            />
                           </div>
                           <p className="text-gray-900 font-semibold">
-                            Interested in joining our team? We're hiring!
+                            Want to build your career with Key
+                            Concepts?
                           </p>
                         </div>
-                        <Link to="/about#careers">
-                          <button className="px-6 py-2 bg-[#f1592a] text-white rounded-full font-semibold hover:bg-[#d94d24] transition-colors">
-                            View Careers
-                          </button>
-                        </Link>
+                        <button
+                          onClick={openCareerModal}
+                          className="px-6 py-2 bg-[#f1592a] text-white rounded-full font-semibold hover:bg-[#d94d24] transition-colors"
+                        >
+                          Join Our Team
+                        </button>
                       </motion.div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Insights Mega Menu */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleMouseEnter("insights")}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button className="group flex items-center space-x-1 px-4 py-2 text-gray-700 hover:text-[#f1592a] transition-colors font-medium">
+                <span>Insights</span>
+                <ChevronDown
+                  size={16}
+                  className={`transition-transform duration-200 ${activeMegaMenu === "insights" ? "rotate-180" : ""}`}
+                />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] group-hover:w-full transition-all duration-300 ease-out" />
+              </button>
+
+              <AnimatePresence>
+                {activeMegaMenu === "insights" && (
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      scale: 0.95,
+                      y: -10,
+                    }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                    transition={{
+                      duration: 0.3,
+                      ease: "easeOut",
+                    }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[500px] bg-white backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-100 overflow-hidden"
+                  >
+                    <div className="p-8">
+                      {/* Insights Grid */}
+                      <div className="grid grid-cols-2 gap-6">
+                        {insights.map((item, index) => (
+                          <motion.div
+                            key={item.name}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.05 }}
+                            className="group/item"
+                          >
+                            <Link
+                              to={item.link}
+                              className="block p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
+                            >
+                              <div className="relative w-12 h-12 mb-4">
+                                <div className="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center group-hover/item:bg-white transition-all">
+                                  <item.icon
+                                    className="text-gray-700"
+                                    size={24}
+                                    strokeWidth={1.5}
+                                  />
+                                </div>
+                                <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-[#f1592a] rounded-full border-2 border-white" />
+                              </div>
+                              <h3 className="font-bold text-gray-900 mb-2 group-hover/item:text-[#f1592a] transition-colors">
+                                {item.name}
+                              </h3>
+                              <p className="text-sm text-gray-600 leading-relaxed">
+                                {item.description}
+                              </p>
+                            </Link>
+                          </motion.div>
+                        ))}
+                      </div>
                     </div>
                   </motion.div>
                 )}
@@ -438,10 +609,16 @@ export function MegaMenuHeader() {
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() =>
+              setIsMobileMenuOpen(!isMobileMenuOpen)
+            }
             className="lg:hidden p-2 text-gray-700 hover:text-[#f1592a] transition-colors"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? (
+              <X size={24} />
+            ) : (
+              <Menu size={24} />
+            )}
           </button>
         </div>
       </div>
@@ -475,7 +652,7 @@ export function MegaMenuHeader() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="px-4 py-3 rounded-xl text-gray-700 hover:bg-gradient-to-r hover:from-[#f1592a]/5 hover:to-[#ff7a45]/5 hover:text-[#f1592a] transition-all font-medium"
               >
-                Products
+                Our Platforms
               </Link>
               <Link
                 to="/about"
@@ -484,7 +661,17 @@ export function MegaMenuHeader() {
               >
                 Company
               </Link>
-              <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link
+                to="/insights/trends"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="px-4 py-3 rounded-xl text-gray-700 hover:bg-gradient-to-r hover:from-[#f1592a]/5 hover:to-[#ff7a45]/5 hover:text-[#f1592a] transition-all font-medium"
+              >
+                Insights
+              </Link>
+              <Link
+                to="/contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 <button className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg font-semibold">
                   Contact Us
                 </button>

@@ -24,9 +24,7 @@ export function ClientLogos() {
           <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
             Trusted By Industry Leaders
           </p>
-          <h2 className="text-2xl font-bold text-gray-900">
-            150+ Companies Trust Key Concepts
-          </h2>
+          
         </motion.div>
 
         {/* Logo Grid */}
@@ -67,26 +65,7 @@ export function ClientLogos() {
         </div>
 
         {/* Additional Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8"
-        >
-          <div className="text-center p-6 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-100">
-            <div className="text-4xl font-bold text-[#f1592a] mb-2">98%</div>
-            <p className="text-sm text-gray-600">Client Retention Rate</p>
-          </div>
-          <div className="text-center p-6 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-100">
-            <div className="text-4xl font-bold text-[#f1592a] mb-2">150+</div>
-            <p className="text-sm text-gray-600">Active Enterprise Clients</p>
-          </div>
-          <div className="text-center p-6 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-100">
-            <div className="text-4xl font-bold text-[#f1592a] mb-2">25+</div>
-            <p className="text-sm text-gray-600">Countries Served</p>
-          </div>
-        </motion.div>
+        
       </div>
     </section>
   );

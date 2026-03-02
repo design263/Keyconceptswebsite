@@ -7,70 +7,75 @@ import {
   Search,
   Shield,
   Brain,
-  Cloud
+  Cloud,
+  Layers,
+  Rocket,
+  Settings,
+  Wrench
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const services = [
   {
-    icon: TrendingUp,
-    title: "Digital Marketing",
-    description: "Data-driven marketing strategies to grow your brand and reach your target audience effectively.",
-    image: "https://images.unsplash.com/photo-1599658880436-c61792e70672?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nJTIwYW5hbHl0aWNzfGVufDF8fHx8MTc3MDYxNjg3M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    color: "from-[#f1592a] to-[#ff7a45]",
+    icon: Layers,
+    title: "Product Development",
+    description: "End-to-end product development from ideation to launch, building scalable and innovative solutions.",
+    image: "https://images.unsplash.com/photo-1765445666407-c8535808a4a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9kdWN0JTIwZGV2ZWxvcG1lbnQlMjBzb2Z0d2FyZXxlbnwxfHx8fDE3NzE4MzUxMDB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    color: "from-gray-600 to-gray-800",
     span: "row-span-2"
   },
   {
+    icon: Rocket,
+    title: "Specialized Platforms",
+    description: "Custom-built platforms including Visitorz, Younited Communities, and Election Mobilization solutions.",
+    image: "https://images.unsplash.com/photo-1769541607705-3b3c5095679b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGVjaWFsaXplZCUyMHBsYXRmb3JtJTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NzE4MzUxMDF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    color: "from-[#f1592a] to-[#ff7a45]",
+    span: "col-span-2"
+  },
+  {
     icon: Database,
-    title: "ERP Solutions (Odoo Partner)",
-    description: "Comprehensive ERP implementation and customization as an official Odoo partner.",
-    image: "https://images.unsplash.com/photo-1662027067763-770376e710f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlcnAlMjBlbnRlcnByaXNlJTIwc29mdHdhcmV8ZW58MXx8fHwxNzcwNzAyNTQ3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    title: "Odoo Development",
+    description: "Expert Odoo ERP implementation, customization, and integration tailored to your business needs.",
+    image: "https://images.unsplash.com/photo-1587822766378-e47b139c56ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbnRlcnByaXNlJTIwcmVzb3VyY2UlMjBwbGFubmluZyUyMHNvZnR3YXJlfGVufDF8fHx8MTc3MTgzNTEwNHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     color: "from-gray-700 to-gray-900",
     span: "col-span-2"
   },
   {
-    icon: Smartphone,
-    title: "Web & Mobile Development",
-    description: "Custom Android/iOS and web applications built with cutting-edge technology.",
-    image: "https://images.unsplash.com/photo-1633250391894-397930e3f5f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXZlbG9wbWVudHxlbnwxfHx8fDE3NzA1ODQ0MjR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    icon: Settings,
+    title: "MVP Development",
+    description: "Rapidly build and validate your minimum viable product with our agile development approach.",
+    image: "https://images.unsplash.com/photo-1592660681825-70364e4dd0b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtdnAlMjBtaW5pbXVtJTIwdmlhYmxlJTIwcHJvZHVjdHxlbnwxfHx8fDE3NzE4MzUxMDB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     color: "from-gray-600 to-gray-800",
     span: "col-span-2"
   },
   {
-    icon: Plug,
-    title: "API Integration",
-    description: "Seamless integration of third-party services and custom API development.",
-    image: "https://images.unsplash.com/photo-1649451844931-57e22fc82de3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcGklMjBpbnRlZ3JhdGlvbiUyMGNvZGV8ZW58MXx8fHwxNzcwNzAyNTQ3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    color: "from-gray-500 to-gray-700",
-    span: "row-span-2"
+    icon: Wrench,
+    title: "Support & Maintenance",
+    description: "24/7 technical support and ongoing maintenance to keep your systems running smoothly.",
+    image: "https://images.unsplash.com/photo-1768633647910-7e6fb53e5b0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNobmljYWwlMjBzdXBwb3J0JTIwbWFpbnRlbmFuY2V8ZW58MXx8fHwxNzcxODM1MTAwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    color: "from-[#f1592a] to-[#ff7a45]",
+    
   },
-  {
-    icon: Search,
-    title: "SEO/SMO Services",
-    description: "Optimize your online presence and dominate search engine rankings.",
-    image: "https://images.unsplash.com/photo-1657812160299-6b656decd5b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZW8lMjBzZWFyY2glMjBlbmdpbmUlMjBvcHRpbWl6YXRpb258ZW58MXx8fHwxNzcwNzAyNTQ4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    color: "from-[#f1592a] to-[#d94d24]",
-    span: "col-span-2"
-  },
+  
 ];
 
 const trendingServices = [
   {
-    icon: Brain,
-    title: "AI-Powered Odoo Implementation",
-    description: "Leverage artificial intelligence to automate and optimize your Odoo ERP workflows.",
-    gradient: "from-gray-600 to-gray-800"
+    icon: Layers,
+    title: "Product Development",
+    description: "Transform your ideas into scalable, market-ready products with our end-to-end development expertise.",
+    gradient: "from-[#f1592a] to-[#d94d24]"
   },
   {
-    icon: Cloud,
-    title: "Cloud-Native App Development",
-    description: "Build scalable, resilient applications designed for the cloud from day one.",
-    gradient: "from-gray-700 to-gray-900"
+    icon: Rocket,
+    title: "MVP Studio",
+    description: "Rapidly build, test, and launch your minimum viable product to validate your business concept.",
+    gradient: "from-[#f1592a] to-[#d94d24]"
   },
   {
-    icon: Shield,
-    title: "Digital Immune Systems (Security)",
-    description: "Protect your digital assets with advanced security and resilience strategies.",
+    icon: Database,
+    title: "Odoo Development",
+    description: "Streamline your business operations with our expert Odoo development and customization services.",
     gradient: "from-[#f1592a] to-[#d94d24]"
   },
 ];
@@ -93,13 +98,13 @@ export function ServicesSection() {
               viewport={{ once: true }}
               className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
             >
-              What's Trending
+              What we do
             </motion.span>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Next-Gen IT Solutions
+              Core Capabilities
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Stay ahead with our cutting-edge technology solutions designed for the future
+              Empowering businesses with innovative solutions across product development, rapid MVP creation, and enterprise ERP systems
             </p>
           </div>
 
@@ -112,20 +117,27 @@ export function ServicesSection() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="group relative overflow-hidden"
+                className="group relative overflow-visible"
               >
-                <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-8 shadow-lg border border-white/60 hover:shadow-2xl transition-all duration-300">
-                  <div className="relative w-14 h-14 mb-6 group-hover:scale-110 transition-transform">
-                    <div className="w-full h-full bg-gray-100 rounded-xl flex items-center justify-center">
-                      <service.icon className="text-gray-700" size={28} strokeWidth={1.5} />
+                <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300">
+                  <div className="flex items-start gap-6">
+                    {/* Icon */}
+                    <div className="relative w-14 h-14 flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <div className="w-full h-full bg-gray-100 rounded-xl flex items-center justify-center">
+                        <service.icon className="text-gray-700" size={28} strokeWidth={1.5} />
+                      </div>
+                      <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#f1592a] rounded-full border-2 border-white" />
                     </div>
-                    <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#f1592a] rounded-full border-2 border-white" />
+
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+                      <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{service.description}</p>
                   
                   {/* Glow Effect on Hover */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity rounded-2xl`} />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity rounded-2xl shadow-lg`} />
                 </div>
               </motion.div>
             ))}
@@ -181,7 +193,7 @@ export function ServicesSection() {
                 {/* Content */}
                 <div className="relative h-full p-8 flex flex-col justify-end text-white">
                   <div className="mb-4 transform group-hover:scale-110 transition-transform origin-left">
-                    <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
                       <service.icon size={24} />
                     </div>
                   </div>
@@ -190,12 +202,12 @@ export function ServicesSection() {
                   
                   {/* Glow effect */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className={`absolute inset-0 bg-gradient-to-t ${service.color} blur-xl`} style={{ transform: "translateY(50%)" }} />
+                    <div className={`absolute inset-0 ${service.color} blur-xl`} style={{ transform: "translateY(50%)" }} />
                   </div>
                 </div>
 
                 {/* Glassmorphism overlay on hover */}
-                <div className="absolute inset-0 bg-white/5 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-[#f1592a]/10 opacity-0 group-hover:opacity-100 transition-opacity" />
               </motion.div>
             ))}
           </div>

@@ -204,11 +204,11 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight"
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
               >
-               We Build & Maintain {" "}
+               Product Engineering & Digital {" "}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Software Products
+                  Transformation Partner
                 </span>
               </motion.h1>
 
@@ -262,25 +262,7 @@ export function HeroSection() {
             </motion.div>
 
             {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.1 }}
-              className="grid grid-cols-3 gap-6 pt-8"
-            >
-              <div className="text-center">
-                <div className="text-3xl font-bold text-[#f1592a]">500+</div>
-                <div className="text-sm text-gray-600 mt-1">Projects Delivered</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-[#f1592a]">98%</div>
-                <div className="text-sm text-gray-600 mt-1">Client Satisfaction</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-[#f1592a]">15+</div>
-                <div className="text-sm text-gray-600 mt-1">Years Experience</div>
-              </div>
-            </motion.div>
+            
           </motion.div>
 
           {/* Right Side - Particle Animation */}

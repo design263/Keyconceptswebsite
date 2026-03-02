@@ -165,7 +165,7 @@ export function AboutPage() {
               transition={{ delay: 0.2 }}
               className="relative group"
             >
-              <div className="bg-white/60 backdrop-blur-lg rounded-3xl p-12 shadow-lg border border-white/60 hover:shadow-2xl transition-all">
+              <div className="bg-white/60 backdrop-blur-lg rounded-3xl p-12 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all">
                 <div className="relative w-16 h-16 mb-6 group-hover:scale-110 transition-transform">
                   <div className="w-full h-full bg-gray-700 rounded-2xl flex items-center justify-center">
                     <Users className="text-white" size={32} strokeWidth={1.5} />

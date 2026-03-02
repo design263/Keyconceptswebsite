@@ -168,7 +168,7 @@ export function ServicesPage() {
                 whileHover={{ y: -10 }}
                 className="group"
               >
-                <div className="relative bg-white/60 backdrop-blur-lg rounded-3xl p-8 shadow-lg border border-white/60 hover:shadow-2xl transition-all duration-300">
+                <div className="relative bg-white/60 backdrop-blur-lg rounded-3xl p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300">
                   <div className="relative w-16 h-16 mb-6">
                     <div className={`w-full h-full bg-gray-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform`}>
                       <service.icon className="text-gray-700" size={32} strokeWidth={1.5} />
