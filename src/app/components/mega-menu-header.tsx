@@ -33,7 +33,7 @@ import {
   FolderOpen,
 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-import logo from "figma:asset/86d73f4575e82c2f8cca971638d48b77628092fb.png";
+import logo from "@/assets/86d73f4575e82c2f8cca971638d48b77628092fb.png";
 import { useEnquiryModal } from "../context/enquiry-modal-context";
 import { useCareerModal } from "../context/career-modal-context";
 
