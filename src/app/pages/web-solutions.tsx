@@ -43,78 +43,78 @@ vercel deploy --prod`
 const webSolutionTypes = [
   {
     icon: Layout,
-    title: "Brand Website",
-    description: "Professional corporate websites that establish your brand identity and build trust with your audience",
+    title: "Enterprise Portals",
+    description: "Enterprise portals and partner/vendor management systems that centralise operations and streamline collaboration",
     features: [
-      "Custom Design System",
-      "SEO Optimized",
-      "Content Management",
-      "Analytics Integration",
-      "Mobile Responsive",
-      "Fast Loading"
+      "Role-based access and permissions",
+      "Partner and vendor management",
+      "Document management",
+      "Workflow automation",
+      "Audit trails",
+      "Integration with core systems"
     ],
     color: "from-[#f1592a] to-[#ff7a45]",
     technologies: ["Next.js", "Tailwind CSS", "Headless CMS"]
   },
   {
     icon: ShoppingCart,
-    title: "E-Commerce",
-    description: "Scalable online stores with seamless checkout experiences and inventory management",
+    title: "Operational Dashboards",
+    description: "Operational dashboards and exception reporting interfaces that give your team real-time visibility into what matters",
     features: [
-      "Product Catalog",
-      "Payment Gateway",
-      "Cart & Checkout",
-      "Order Management",
-      "Customer Accounts",
-      "Admin Dashboard"
+      "Real-time data visualisation",
+      "Exception reporting",
+      "KPI tracking",
+      "Configurable views",
+      "Export and reporting",
+      "Role-based access"
     ],
     color: "from-gray-700 to-gray-900",
-    technologies: ["React", "Stripe", "PostgreSQL"]
+    technologies: ["React", "Node.js", "PostgreSQL"]
   },
   {
     icon: Code2,
-    title: "Web Application",
-    description: "Complex web apps with real-time features, database integration, and advanced functionality",
+    title: "Integration Platforms",
+    description: "Integration platforms connecting ERP, CRM, and third-party tools—eliminating manual hand-offs and data silos",
     features: [
-      "User Authentication",
-      "Real-time Updates",
-      "Data Visualization",
-      "File Management",
-      "Role-based Access",
-      "API Integration"
+      "ERP and CRM integration",
+      "Third-party API connectivity",
+      "Data transformation and mapping",
+      "Automated data flows",
+      "Error handling and alerting",
+      "Audit logging"
     ],
     color: "from-gray-600 to-gray-800",
     technologies: ["React", "Node.js", "MongoDB"]
   },
   {
     icon: Puzzle,
-    title: "Chrome Extensions",
-    description: "Browser extensions that enhance productivity and provide seamless integration with web services",
+    title: "Workflow & Document Management",
+    description: "Workflow and document management systems that bring structure and accountability to your internal processes",
     features: [
-      "Cross-browser Support",
-      "Background Scripts",
-      "Content Scripts",
-      "Storage Sync",
-      "Popup Interface",
-      "Context Menus"
+      "Approval workflow configuration",
+      "Document versioning",
+      "Role-based access",
+      "Notification and escalation",
+      "Audit trails",
+      "Integration with existing tools"
     ],
     color: "from-gray-500 to-gray-700",
-    technologies: ["JavaScript", "Chrome API", "Manifest V3"]
+    technologies: ["React", "Node.js", "PostgreSQL"]
   },
   {
     icon: Network,
-    title: "API Development",
-    description: "RESTful and GraphQL APIs with comprehensive documentation and robust security",
+    title: "Customer-Facing Web Applications",
+    description: "Customer-facing web applications and self-service portals that extend your operations to your customers and partners",
     features: [
-      "RESTful Endpoints",
-      "GraphQL Schema",
-      "Authentication",
-      "Rate Limiting",
-      "API Documentation",
-      "WebSocket Support"
+      "Self-service account management",
+      "Order and request tracking",
+      "Secure authentication",
+      "Mobile-responsive design",
+      "Integration with backend systems",
+      "Notification and communication"
     ],
     color: "from-gray-400 to-gray-600",
-    technologies: ["Node.js", "Express", "Swagger"]
+    technologies: ["Next.js", "Node.js", "Tailwind CSS"]
   },
 ];
 
@@ -205,15 +205,14 @@ export function WebSolutionsPage() {
                 </motion.div>
 
                 <h1 className="text-6xl lg:text-7xl font-bold mb-8 tracking-tight">
-                  Web
+                  Web platforms that run
                   <span className="block mt-2 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                    Solutions
+                    your operations.
                   </span>
                 </h1>
 
                 <p className="text-xl text-gray-600 mb-8 leading-relaxed font-light">
-                  Build lightning-fast, secure, and scalable web applications with modern 
-                  technologies. From concept to deployment, we deliver exceptional digital experiences.
+                  Beyond websites. We build the portals, dashboards, integrations, and internal platforms that your business depends on every day.
                 </p>
 
                 <div className="flex flex-wrap gap-4 mb-8">
@@ -643,11 +642,11 @@ export function WebSolutionsPage() {
               </motion.div>
 
               <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
-                Ready to Build Something Amazing?
+                Discuss your web requirements
               </h2>
               <p className="text-xl text-white/90 mb-8 font-light">
-                Let's create a lightning-fast, secure web application that exceeds expectations. 
-                Get started with a free consultation today.
+                Let's create a web platform that runs your operations. Get started with a
+                free consultation today.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -657,7 +656,7 @@ export function WebSolutionsPage() {
                     whileTap={{ scale: 0.95 }}
                     className="px-8 py-4 bg-white text-[#f1592a] rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all"
                   >
-                    Start Your Project
+                    Start a Conversation
                   </motion.button>
                 </Link>
                 <motion.button

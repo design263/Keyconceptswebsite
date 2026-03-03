@@ -43,33 +43,33 @@ import "slick-carousel/slick/slick-theme.css";
 const whyWorkHere = [
   {
     icon: Rocket,
-    title: "Impactful Work",
-    description: "Build products that transform businesses and communities. Your code, your designs, your ideas—they all make a real difference."
+    title: "Real Enterprise Systems",
+    description: "Work on real enterprise systems—not trivial CRUD apps. You'll build solutions that handle genuine operational complexity."
   },
   {
     icon: TrendingUp,
-    title: "Career Growth",
-    description: "Continuous learning opportunities, mentorship programs, and clear paths for advancement. We invest in your professional development."
+    title: "Predictable Engineering",
+    description: "Structured delivery processes that make engineering predictable. Clear scope, documented decisions, and disciplined sprints."
   },
   {
     icon: Users,
-    title: "Collaborative Culture",
-    description: "Work with talented, passionate people who value teamwork, open communication, and mutual respect. No egos, just great collaboration."
+    title: "Communication First",
+    description: "A team where communication and documentation are taken seriously. We work with clarity and accountability at every level."
   },
   {
     icon: Zap,
-    title: "Innovation First",
-    description: "Experiment with cutting-edge technologies, contribute to open-source, and bring bold ideas to life. We encourage innovation at every level."
+    title: "Deep Product Ownership",
+    description: "Long-term client relationships that allow for deep product ownership. You'll understand the business context, not just the ticket."
   },
   {
     icon: Coffee,
-    title: "Work-Life Balance",
-    description: "Flexible schedules, remote work options, and a culture that values your well-being. We believe great work happens when you're energized."
+    title: "Surat-Based, Remote-Ready",
+    description: "Surat-based team with remote delivery experience. We know how to collaborate effectively across time zones and geographies."
   },
   {
     icon: Award,
-    title: "Competitive Benefits",
-    description: "Competitive salary, health insurance, performance bonuses, and team outings. We take care of our people."
+    title: "Disciplined Delivery",
+    description: "A culture that values disciplined delivery and long-term thinking over short-term shortcuts and technical debt."
   }
 ];
 
@@ -264,7 +264,7 @@ function CultureImageSlider() {
             <Users className="text-white" size={24} />
           </div>
           <div>
-            <div className="text-2xl font-bold text-gray-900">50+</div>
+            <div className="text-2xl font-bold text-gray-900">25+</div>
             <div className="text-sm text-gray-600">Team Members</div>
           </div>
         </div>
@@ -343,9 +343,9 @@ export function CareersPage() {
                 transition={{ delay: 0.3 }}
                 className="text-4xl md:text-6xl font-bold mb-6"
               >
-                Build Your Career with{" "}
+                Build systems that matter.{" "}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Key Concepts
+                  With a team that cares.
                 </span>
               </motion.h1>
 
@@ -356,9 +356,7 @@ export function CareersPage() {
                 transition={{ delay: 0.4 }}
                 className="text-lg text-gray-600 mb-8 leading-relaxed"
               >
-                Join a team of passionate builders, designers, and problem-solvers who are 
-                architecting the digital future. We're on a mission to transform businesses through 
-                innovative technology—and we want you to be part of it.
+                KCIPL is a 25+ member engineering organization based in Surat. We work on enterprise software, Odoo ERP, and product engineering engagements for clients across India, USA, and MENA. We value disciplined delivery, clean communication, and long-term thinking.
               </motion.p>
 
               {/* CTA Buttons */}
@@ -409,12 +407,11 @@ export function CareersPage() {
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
               Why Work at{" "}
               <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                Key Concepts
+                KCIPL
               </span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We're building more than products—we're building careers, relationships, and a culture 
-              that celebrates growth, innovation, and collaboration.
+              We're an engineering organization that takes delivery seriously. Here's what that means for you as a team member.
             </p>
           </motion.div>
 
@@ -727,15 +724,14 @@ export function CareersPage() {
             </div>
 
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              Let's Build Something{" "}
+              Don't see a role{" "}
               <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                Amazing Together
+                that fits?
               </span>
             </h2>
 
             <p className="text-lg text-gray-300 mb-10 leading-relaxed">
-              Don't see a role that fits? Send us your resume anyway! We're always looking for 
-              talented people to join our growing team.
+              We're always interested in hearing from engineers, QA specialists, and project leads who value disciplined delivery. Apply anyway — we'd like to meet you.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -745,7 +741,7 @@ export function CareersPage() {
                 whileTap={{ scale: 0.95 }}
                 className="group px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
               >
-                <span className="font-semibold">Send Your Resume</span>
+                <span className="font-semibold">Apply Anyway</span>
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
               </motion.a>
 

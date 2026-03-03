@@ -66,9 +66,9 @@ export function ContactPage() {
               transition={{ delay: 0.3 }}
               className="text-4xl md:text-6xl font-bold mb-6"
             >
-              Let's Start{" "}
+              Let's talk about{" "}
               <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                Building Together
+                your project.
               </span>
             </motion.h1>
 
@@ -79,8 +79,7 @@ export function ContactPage() {
               transition={{ delay: 0.4 }}
               className="text-xl text-gray-600 mb-12 leading-relaxed max-w-3xl mx-auto"
             >
-              We're here to help transform your business with cutting-edge ERP solutions, 
-              custom development, and intelligent technology services.
+              Tell us what you're building or what you need to fix. We'll respond within 1 business day.
             </motion.p>
           </div>
         </div>
@@ -167,7 +166,7 @@ export function ContactPage() {
 
                   <div>
                     <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
-                      Service Interested In *
+                      Type of Enquiry *
                     </label>
                     <select
                       id="service"
@@ -178,13 +177,10 @@ export function ContactPage() {
                       className="w-full px-4 py-3 rounded-lg border-1 border-gray-200 focus:border-[#f1592a] focus:outline-none transition-colors"
                     >
                       <option value="">Select a service</option>
-                      <option value="odoo-erp">Odoo ERP Solutions</option>
-                      <option value="custom-development">Custom Product Development</option>
-                      <option value="mvp-studio">MVP Studio</option>
-                      <option value="web-mobile">Web & Mobile Development</option>
-                      <option value="api-integration">API Integration</option>
-                      <option value="digital-marketing">Digital Marketing</option>
-                      <option value="seo-smo">SEO/SMO Services</option>
+                      <option value="product-engineering">Product Engineering</option>
+                      <option value="mvp-development">MVP Development</option>
+                      <option value="odoo-erp">Odoo ERP</option>
+                      <option value="mobile-app">Mobile App</option>
                       <option value="support-maintenance">Support & Maintenance</option>
                       <option value="other">Other</option>
                     </select>
@@ -202,7 +198,7 @@ export function ContactPage() {
                       required
                       rows={3}
                       className="w-full px-4 py-3 rounded-lg border-1 border-gray-200 focus:border-[#f1592a] focus:outline-none transition-colors resize-none"
-                      placeholder="Tell us about your project..."
+                      placeholder="Tell us about your project"
                     />
                   </div>
 
@@ -212,7 +208,7 @@ export function ContactPage() {
                     whileTap={{ scale: 0.98 }}
                     className="group w-full px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center space-x-2 font-semibold"
                   >
-                    <span>Book a Descovery Call</span>
+                    <span>Send Enquiry</span>
                     <Send className="group-hover:translate-x-1 transition-transform" size={20} />
                   </motion.button>
                 </form>
@@ -229,7 +225,10 @@ export function ContactPage() {
               <div>
                 <h2 className="text-3xl font-bold mb-4">Contact Information</h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Have questions? We're here to help. Reach out to us through any of these channels.
+                  Key Concepts Innovations Pvt. Ltd. (KCIPL) — based in Surat, Gujarat, India. Serving clients across India, USA, and MENA.
+                </p>
+                <p className="text-sm text-gray-500 mt-2">
+                  <a href="https://keyconcepts.co.in" target="_blank" rel="noopener noreferrer" className="hover:text-[#f1592a] transition-colors">keyconcepts.co.in</a>
                 </p>
               </div>
 

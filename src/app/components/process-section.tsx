@@ -12,42 +12,48 @@ const processSteps = [
   {
     number: "01",
     title: "Discover",
-    description: "We dive deep into your business goals, target audience, and challenges to understand your unique needs.",
+    subtitle: "Alignment before action",
+    description: "We run structured stakeholder workshops to map goals, scope boundaries, dependencies, and success metrics. Risk is identified early—not discovered mid-build.",
     icon: Search,
     color: "from-[#f1592a] to-[#ff7a45]"
   },
   {
     number: "02",
     title: "Define",
-    description: "Clear objectives and requirements are established, creating a roadmap for your project success.",
+    subtitle: "Clarity before code",
+    description: "Module breakdown, milestone planning, architecture outline, effort estimates, and a change control mechanism. You know exactly what's being built and when.",
     icon: Target,
     color: "from-gray-600 to-gray-800"
   },
   {
     number: "03",
     title: "Design",
-    description: "Our designers craft intuitive, beautiful interfaces that align with your brand and user expectations.",
+    subtitle: "Adoption-first UX",
+    description: "User flows, wireframes, and prototypes focused on operational adoption. We design for the person using the system every day, not just for the demo.",
     icon: Palette,
     color: "from-gray-700 to-gray-900"
   },
   {
     number: "04",
     title: "Develop",
-    description: "Expert developers bring designs to life with clean, scalable code and cutting-edge technologies.",
+    subtitle: "Disciplined execution",
+    description: "Sprint-based development with code review discipline, structured QA cycles, defect triage, and staging environments. Progress is visible; surprises are minimised.",
     icon: Code,
     color: "from-gray-600 to-gray-800"
   },
   {
     number: "05",
     title: "Deploy",
-    description: "We launch your solution with rigorous testing, ensuring a smooth and successful go-live experience.",
+    subtitle: "Controlled go-live",
+    description: "UAT support, sign-off readiness, training documentation, and go-live planning. We don't hand over and disappear—we stabilise before we step back.",
     icon: Rocket,
     color: "from-[#f1592a] to-[#d94d24]"
   },
   {
     number: "06",
-    title: "Maintain",
-    description: "Continuous support and optimization keep your solution running at peak performance.",
+    title: "Operate & Improve",
+    subtitle: "Long-term ownership",
+    description: "SLA-based support, continuous improvement cycles, roadmap execution, and monitoring. We treat your product as an evolving system, not a closed project.",
     icon: Settings,
     color: "from-gray-700 to-gray-900"
   }
@@ -79,10 +85,10 @@ export function ProcessSection() {
             Our Process
           </motion.span>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            How We Work
+            How We Deliver
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            A proven methodology that transforms your vision into reality through six strategic phases
+            A six-step system built for predictable results and stakeholder alignment—from first conversation to long-term ownership.
           </p>
         </motion.div>
 
@@ -129,9 +135,10 @@ export function ProcessSection() {
 
                     {/* Content */}
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-2xl font-bold mb-2 group-hover:text-[#f1592a] transition-colors">
+                      <h3 className="text-2xl font-bold mb-1 group-hover:text-[#f1592a] transition-colors">
                         {step.title}
                       </h3>
+                      <p className="text-xs font-semibold text-[#f1592a] italic mb-2">{step.subtitle}</p>
                       <p className="text-gray-600 leading-relaxed">
                         {step.description}
                       </p>
@@ -171,7 +178,7 @@ export function ProcessSection() {
           className="text-center mt-16"
         >
           <p className="text-gray-600 mb-6">
-            Ready to start your project journey?
+            Want to understand how we'd run your engagement?
           </p>
           <motion.a
             href="/contact"
@@ -179,7 +186,7 @@ export function ProcessSection() {
             whileTap={{ scale: 0.95 }}
             className="inline-block px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg hover:shadow-2xl hover:shadow-[#f1592a]/30 transition-all font-semibold"
           >
-            Book a Discovery Call
+            Start a Conversation
           </motion.a>
         </motion.div>
       </div>

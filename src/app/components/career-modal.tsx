@@ -103,10 +103,10 @@ export function CareerModal({ isOpen, onClose }: CareerModalProps) {
                   transition={{ delay: 0.2 }}
                 >
                   <h2 className="text-xl md:text-2xl font-bold text-white mb-1.5">
-                    Join Our Team
+                    Apply for This Role
                   </h2>
                   <p className="text-white/90 text-xs md:text-sm">
-                    Start your career journey with Key Concepts
+                    Our team will review your application and be in touch.
                   </p>
                 </motion.div>
               </div>
@@ -138,7 +138,7 @@ export function CareerModal({ isOpen, onClose }: CareerModalProps) {
                       Application Received!
                     </h3>
                     <p className="text-gray-600 text-sm">
-                      Thank you for your interest. We'll review your application and get back to you soon.
+                      Thank you for applying! Our team will review your application and be in touch.
                     </p>
                   </motion.div>
                 ) : (

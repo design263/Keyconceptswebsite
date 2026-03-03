@@ -1,14 +1,11 @@
 import { motion } from "motion/react";
 
 const clients = [
-  { name: "TechCorp", logo: "TC" },
-  { name: "InnovateLab", logo: "IL" },
-  { name: "DataFlow Systems", logo: "DFS" },
-  { name: "CloudScale", logo: "CS" },
-  { name: "SmartBiz", logo: "SB" },
-  { name: "DigitalWave", logo: "DW" },
-  { name: "NexGen Solutions", logo: "NS" },
-  { name: "FutureTech", logo: "FT" },
+  { name: "Puri Crawford", logo: "PC", industry: "Insurance" },
+  { name: "Anupam Rasayan", logo: "AR", industry: "Pharma / Chemicals" },
+  { name: "Goldi Solar", logo: "GS", industry: "Solar / Manufacturing" },
+  { name: "Enterprise Client", logo: "EC", industry: "Manufacturing" },
+  { name: "Enterprise Client", logo: "EC", industry: "Operations" },
 ];
 
 export function ClientLogos() {
@@ -22,13 +19,13 @@ export function ClientLogos() {
           className="text-center mb-12"
         >
           <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
-            Trusted By Industry Leaders
+            Trusted by organizations across industries
           </p>
           
         </motion.div>
 
         {/* Logo Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-8 items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
           {clients.map((client, index) => (
             <motion.div
               key={client.name}
@@ -55,9 +52,10 @@ export function ClientLogos() {
               </div>
               
               {/* Tooltip */}
-              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                <div className="bg-gray-900 text-white text-xs px-3 py-1 rounded whitespace-nowrap">
-                  {client.name}
+              <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+                <div className="bg-gray-900 text-white text-xs px-3 py-1.5 rounded whitespace-nowrap text-center">
+                  <div>{client.name}</div>
+                  <div className="text-gray-400">{client.industry}</div>
                 </div>
               </div>
             </motion.div>

@@ -31,16 +31,16 @@ const includedServices = [
   {
     id: "discovery",
     icon: Lightbulb,
-    title: "Discovery & Planning",
-    description: "Define your product vision and roadmap",
+    title: "Stakeholder Discovery & Scope",
+    description: "Stakeholder discovery and scope definition",
     longDescription: "We start with a deep-dive discovery session to understand your business goals, target users, and market positioning. Our team helps you prioritize features, define user stories, and create a clear product roadmap that maximizes ROI.",
     features: [
-      "Product strategy workshop",
-      "Competitive analysis & research",
-      "User persona development",
-      "Feature prioritization (MoSCoW)",
-      "Technical feasibility assessment",
-      "Project timeline & milestones"
+      "Stakeholder discovery and scope definition",
+      "Architecture decisions documented (not assumed)",
+      "Core feature delivery in sprint cycles",
+      "QA coverage and staging environment",
+      "UAT support and go-live preparation",
+      "Version roadmap: MVP → v1 → v2 planning"
     ],
     image: "https://images.unsplash.com/photo-1695634621145-9133286e0247?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdGFydHVwJTIwTVZQJTIwbGF1bmNoJTIwcHJvdG90eXBlfGVufDF8fHx8MTc3MTg1MTI2NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
   },
@@ -225,9 +225,9 @@ export function MVPStudioPage() {
               transition={{ delay: 0.3 }}
               className="text-4xl md:text-6xl font-bold mb-6"
             >
-              Launch Your MVP{" "}
+              MVP that grows.{" "}
               <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                Fast, Clean, Scalable
+                Not one you'll rebuild.
               </span>
             </motion.h1>
 
@@ -238,8 +238,7 @@ export function MVPStudioPage() {
               transition={{ delay: 0.4 }}
               className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed"
             >
-              From idea to launch in 6-10 weeks. We validate your concept, design the experience, 
-              build production-ready code, and deploy to real users — so you can focus on growing your business.
+              Most MVPs are built to ship, not to scale. We build MVPs with the architectural foundations that support real growth—so version 1 is an upgrade, not a rewrite.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -255,7 +254,7 @@ export function MVPStudioPage() {
                 whileTap={{ scale: 0.95 }}
                 className="group px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
               >
-                <span className="font-semibold">Get Your MVP Plan</span>
+                <span className="font-semibold">Start the Conversation</span>
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
               </motion.a>
 
@@ -310,11 +309,10 @@ export function MVPStudioPage() {
             className="max-w-4xl mx-auto text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Our Promise to You
+              Who This Is For
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed">
-              We don't just build features — we build products that users love and investors notice. 
-              Your MVP will be production-ready, scalable, and designed to evolve as you learn from real users.
+              Speed matters. But architecture shortcuts taken at the MVP stage compound into technical debt that can cost more to fix than the original build. We balance velocity with the fundamentals that let you move fast later.
             </p>
           </motion.div>
 
@@ -322,18 +320,18 @@ export function MVPStudioPage() {
             {[
               {
                 icon: Zap,
-                title: "Fast Time to Market",
-                description: "Launch in 6-10 weeks, not 6 months. Speed is your competitive advantage."
+                title: "Founders validating a product idea",
+                description: "Founders validating a product idea with real users."
               },
               {
                 icon: Shield,
-                title: "Clean, Scalable Code",
-                description: "Built with best practices so you can scale from 100 to 100K users seamlessly."
+                title: "Enterprise teams launching internal tools",
+                description: "Enterprise teams launching internal tools."
               },
               {
                 icon: Users,
-                title: "100% Code Ownership",
-                description: "Full access to source code, documentation, and deployment credentials. No lock-in."
+                title: "Organizations replacing manual processes",
+                description: "Organizations replacing a manual process with a governed system."
               }
             ].map((item, index) => (
               <motion.div
@@ -725,10 +723,10 @@ export function MVPStudioPage() {
             </motion.span>
 
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Get Your Custom MVP Plan Today
+              Let's scope your MVP together
             </h2>
             <p className="text-xl text-white/90 mb-10 leading-relaxed">
-              Book a free 30-minute consultation. We'll review your idea, discuss technical requirements, 
+              Book a free 30-minute consultation. We'll review your idea, discuss technical requirements,
               and provide a detailed proposal with timeline and pricing.
             </p>
 
@@ -739,7 +737,7 @@ export function MVPStudioPage() {
                 whileTap={{ scale: 0.95 }}
                 className="group px-8 py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all flex items-center justify-center space-x-2 font-semibold"
               >
-                <span>Get Your MVP Plan</span>
+                <span>Start the Conversation</span>
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
               </motion.a>
 

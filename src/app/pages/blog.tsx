@@ -5,69 +5,63 @@ import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 const blogPosts = [
   {
-    title: "The Future of AI-Powered ERP Systems in 2026",
-    excerpt: "Discover how artificial intelligence is revolutionizing enterprise resource planning and what it means for your business.",
-    author: "Sarah Johnson",
+    title: "Why MVPs fail—and how architecture decisions made in week 1 cause problems in month 6",
+    excerpt: "Most MVP failures aren't caused by bad ideas—they're caused by structural shortcuts taken in the first sprint that compound into unscalable systems by the time the product finds traction.",
+    author: "KCIPL Engineering",
     date: "February 8, 2026",
-    category: "AI & Automation",
+    category: "Product Engineering",
     image: "https://images.unsplash.com/photo-1770233621425-5d9ee7a0a700?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlJTIwZGlnaXRhbCUyMGJyYWlufGVufDF8fHx8MTc3MDcwMjUwMnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     featured: true
   },
   {
-    title: "Why Cloud-Native Architecture is Essential for Modern Businesses",
-    excerpt: "Learn about the benefits of cloud-native development and how it can transform your application infrastructure.",
-    author: "Michael Chen",
+    title: "What enterprise clients actually need from a software partner (it's not just good code)",
+    excerpt: "Enterprise software engagements fail not because of technical gaps but because of misaligned expectations around governance, communication, and long-term ownership.",
+    author: "KCIPL Delivery",
     date: "February 5, 2026",
-    category: "Cloud Computing",
+    category: "Delivery",
     image: "https://images.unsplash.com/photo-1744868562210-fffb7fa882d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMGNvbXB1dGluZyUyMGRhdGElMjBjZW50ZXJ8ZW58MXx8fHwxNzcwNjM3OTYwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     featured: false
   },
   {
-    title: "Building a Digital Immune System: Complete Security Guide",
-    excerpt: "A comprehensive guide to protecting your digital infrastructure from modern cyber threats.",
-    author: "David Thompson",
+    title: "Our 6-step delivery process—and why each step exists",
+    excerpt: "A transparent look at how KCIPL structures every engagement—from discovery through deployment and ongoing support—and the reasoning behind each stage.",
+    author: "KCIPL Delivery",
     date: "February 2, 2026",
-    category: "Cybersecurity",
+    category: "Process",
     image: "https://images.unsplash.com/photo-1762340916350-ad5a3d620c16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjeWJlcnNlY3VyaXR5JTIwbmV0d29yayUyMHByb3RlY3Rpb258ZW58MXx8fHwxNzcwNjQyODA1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     featured: false
   },
   {
-    title: "Odoo 18: New Features and Implementation Best Practices",
-    excerpt: "Everything you need to know about the latest Odoo release and how to implement it effectively.",
-    author: "Emily Rodriguez",
+    title: "Odoo ERP: what goes wrong in implementations (and how to prevent it)",
+    excerpt: "After dozens of Odoo deployments across manufacturing, pharmaceuticals, and logistics, we've identified the patterns that consistently cause implementation failures—and how to avoid them.",
+    author: "KCIPL Engineering",
     date: "January 30, 2026",
-    category: "ERP Solutions",
+    category: "Odoo",
     image: "https://images.unsplash.com/photo-1662027067763-770376e710f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlcnAlMjBlbnRlcnByaXNlJTIwc29mdHdhcmV8ZW58MXx8fHwxNzcwNzAyNTQ3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     featured: false
   },
   {
-    title: "Mobile-First Development: Why It Matters in 2026",
-    excerpt: "Understanding the importance of mobile-first approach in modern web and app development.",
-    author: "John Anderson",
+    title: "Why audit readiness should be designed in—not bolted on",
+    excerpt: "Adding compliance controls after a system is built is expensive, brittle, and often incomplete. Here's how we architect audit readiness from the first sprint.",
+    author: "KCIPL Engineering",
     date: "January 28, 2026",
-    category: "Mobile Development",
+    category: "Security",
     image: "https://images.unsplash.com/photo-1633250391894-397930e3f5f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXZlbG9wbWVudHxlbnwxfHx8fDE3NzA1ODQ0MjR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    featured: false
-  },
-  {
-    title: "SEO Trends and Strategies for 2026: Complete Guide",
-    excerpt: "Stay ahead of the competition with the latest SEO trends and proven optimization strategies.",
-    author: "Sarah Johnson",
-    date: "January 25, 2026",
-    category: "Digital Marketing",
-    image: "https://images.unsplash.com/photo-1657812160299-6b656decd5b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZW8lMjBzZWFyY2glMjBlbmdpbmUlMjBvcHRpbWl6YXRpb258ZW58MXx8fHwxNzcwNzAyNTQ4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     featured: false
   },
 ];
 
 const categories = [
   "All Posts",
-  "AI & Automation",
-  "Cloud Computing",
-  "Cybersecurity",
-  "ERP Solutions",
-  "Mobile Development",
-  "Digital Marketing"
+  "Product Engineering",
+  "Delivery",
+  "Governance",
+  "Process",
+  "Odoo",
+  "ERP",
+  "Security",
+  "Compliance",
+  "Enterprise"
 ];
 
 export function BlogPage() {
@@ -99,10 +93,10 @@ export function BlogPage() {
               <span>Knowledge Hub</span>
             </motion.span>
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Insights & Articles
+              Insights from the delivery floor.
             </h1>
             <p className="text-xl text-gray-300 leading-relaxed">
-              Stay updated with the latest trends, insights, and best practices in technology and digital transformation
+              Practical thinking on product engineering, enterprise software, and what actually works in delivery—from a team that's been doing it for 16 years.
             </p>
           </motion.div>
         </div>

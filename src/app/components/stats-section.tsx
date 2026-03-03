@@ -15,21 +15,7 @@ const stats: StatItem[] = [
     icon: Award,
     value: 16,
     suffix: "+",
-    label: "Years in Software Delivery",
-    color: "from-[#f1592a] to-[#ff7a45]"
-  },
-  {
-    icon: Users,
-    value: 25,
-    suffix: "+",
-    label: "Experienced Team Members",
-    color: "from-[#f1592a] to-[#ff7a45]"
-  },
-  {
-    icon: Clock,
-    value: 1,
-    suffix: "Mn+",
-    label: "Hours of Development Experience",
+    label: "Years of Delivery Experience",
     color: "from-[#f1592a] to-[#ff7a45]"
   },
   {
@@ -37,6 +23,20 @@ const stats: StatItem[] = [
     value: 400,
     suffix: "+",
     label: "Clients Worldwide",
+    color: "from-[#f1592a] to-[#ff7a45]"
+  },
+  {
+    icon: Clock,
+    value: 10,
+    suffix: "L+",
+    label: "Development Hours",
+    color: "from-[#f1592a] to-[#ff7a45]"
+  },
+  {
+    icon: Users,
+    value: 25,
+    suffix: "+",
+    label: "Experienced Team Members",
     color: "from-[#f1592a] to-[#ff7a45]"
   },
 ];
@@ -100,10 +100,10 @@ export function StatsSection() {
             Our Impact
           </motion.span>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Delivering Excellence Globally
+            16 Years of Delivery Discipline
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Trusted by enterprises and startups worldwide for innovative software solutions
+            Trusted by enterprises and growth-stage organizations across India, USA, and MENA
           </p>
         </motion.div>
 
@@ -161,12 +161,12 @@ export function StatsSection() {
           className="text-center mt-12"
         >
           <p className="text-gray-600 text-lg">
-            Ready to transform your business with proven expertise?{" "}
+            Ready to build with a partner who stays accountable after go-live?{" "}
             <a
               href="/contact"
               className="text-[#f1592a] font-semibold hover:underline"
             >
-              Let's talk
+              Start a Conversation
             </a>
           </p>
         </motion.div>

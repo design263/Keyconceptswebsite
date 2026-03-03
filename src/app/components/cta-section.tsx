@@ -27,16 +27,15 @@ export function CTASection() {
             className="inline-flex items-center space-x-2 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/40 mb-8"
           >
             <Sparkles className="text-white" size={20} />
-            <span className="text-white font-medium">Ready to Transform?</span>
+            <span className="text-white font-medium">Ready to Build?</span>
           </motion.div>
 
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Let's Build Your Digital Future Together
+            Ready to build something that lasts?
           </h2>
-          
+
           <p className="text-xl text-white/90 mb-10 leading-relaxed">
-            Join hundreds of businesses that have transformed their operations with our 
-            cutting-edge solutions. Book a discovery call today.
+            Talk to our team about your project. We'll help you define scope, timeline, and the right engagement model—before any commitment.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -46,46 +45,20 @@ export function CTASection() {
                 whileTap={{ scale: 0.95 }}
                 className="group px-8 py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all flex items-center justify-center space-x-2 font-semibold"
               >
-                <span>Schedule a Consultation</span>
+                <span>Start a Conversation</span>
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
               </motion.button>
             </Link>
-            <Link to="/services">
+            <Link to="/process">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-transparent text-white rounded-full border-2 border-white hover:bg-white hover:text-[#f1592a] transition-all font-semibold"
               >
-                View All Services
+                View Our Process
               </motion.button>
             </Link>
           </div>
-
-          {/* Trust indicators */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="mt-16 flex flex-wrap justify-center gap-8 text-white/80"
-          >
-            <div className="flex items-center space-x-2">
-              
-              
-            </div>
-            <div className="flex items-center space-x-2">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              <span className="text-sm">Free Initial Consultation</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              <span className="text-sm">24/7 Support Available</span>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

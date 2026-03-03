@@ -6,47 +6,47 @@ import { useState } from "react";
 const mobileServices = [
   {
     icon: Bot,
-    title: "Android Application",
-    description: "Native Android apps built with Kotlin and Jetpack Compose for optimal performance",
+    title: "What We Build",
+    description: "Enterprise mobile applications for field operations, distributed teams, and internal workflows",
     features: [
-      "Material Design 3",
-      "Kotlin Coroutines",
-      "Room Database",
-      "Firebase Integration"
+      "Field operations and data collection apps",
+      "Workflow and approval apps for distributed teams",
+      "Inspection, audit, and compliance tracking apps",
+      "Internal enterprise tools for operations teams"
     ],
     color: "from-[#f1592a] to-[#ff7a45]"
   },
   {
     icon: Apple,
-    title: "iOS Application",
-    description: "Swift-powered iOS apps with SwiftUI for seamless Apple ecosystem integration",
+    title: "ERP & System Integration",
+    description: "Apps integrated with ERP, CRM, and backend systems for seamless data flow",
     features: [
-      "SwiftUI Framework",
-      "Core Data",
-      "Push Notifications",
-      "iCloud Sync"
+      "Apps integrated with ERP, CRM, and backend systems",
+      "Integration with REST APIs, Odoo, and custom backends",
+      "Real-time data sync",
+      "Multi-system connectivity"
     ],
     color: "from-gray-700 to-gray-900"
   },
   {
     icon: Globe,
-    title: "Seamless API Integration",
-    description: "Connect your mobile apps to powerful backend services and third-party APIs",
+    title: "Technical Capabilities",
+    description: "Cross-platform and native mobile development with enterprise-grade architecture",
     features: [
-      "RESTful APIs",
-      "GraphQL",
-      "WebSocket",
-      "OAuth 2.0"
+      "Cross-platform (React Native) and native mobile",
+      "Offline-first architecture with sync mechanisms",
+      "RBAC and user role management",
+      "Push notifications and real-time updates"
     ],
     color: "from-gray-600 to-gray-800"
   },
   {
     icon: Fingerprint,
-    title: "Biometric Security",
-    description: "Advanced authentication with Face ID, Touch ID, and fingerprint recognition",
+    title: "Security & Access",
+    description: "Role-based controls and enterprise-grade security for your mobile workforce",
     features: [
-      "Face Recognition",
-      "Fingerprint Auth",
+      "RBAC and user role management",
+      "Offline-first architecture with sync mechanisms",
       "Secure Enclave",
       "End-to-end Encryption"
     ],
@@ -147,16 +147,14 @@ export function MobileDevelopmentPage() {
                 </motion.div>
 
                 <h1 className="text-6xl lg:text-7xl font-bold mb-8 tracking-tight">
-                  Mobile
+                  Mobile apps built for
                   <span className="block mt-2 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                    Applications
+                    field reality.
                   </span>
                 </h1>
 
                 <p className="text-xl text-gray-600 mb-8 leading-relaxed font-light">
-                  Build stunning native iOS and Android applications with cutting-edge 
-                  technology. From concept to App Store launch, we deliver exceptional 
-                  mobile experiences.
+                  Enterprise mobile for distributed teams, field operations, and internal workflows. We build for how your people actually work—with offline capability, role-based controls, and full integration with your core systems.
                 </p>
 
                 <div className="flex flex-wrap gap-4 mb-8">
@@ -711,10 +709,10 @@ export function MobileDevelopmentPage() {
               </motion.div>
 
               <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
-                Ready to Launch Your Mobile App?
+                Tell us about your mobile requirements
               </h2>
               <p className="text-xl text-white/90 mb-8 font-light">
-                Transform your idea into a powerful mobile application. Get started with a 
+                Transform your idea into a powerful mobile application. Get started with a
                 free consultation and bring your vision to life.
               </p>
 
@@ -725,7 +723,7 @@ export function MobileDevelopmentPage() {
                     whileTap={{ scale: 0.95 }}
                     className="px-8 py-4 bg-white text-[#f1592a] rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all"
                   >
-                    Start Your Project
+                    Start a Conversation
                   </motion.button>
                 </Link>
                 <motion.button

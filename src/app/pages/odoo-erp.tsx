@@ -22,14 +22,15 @@ import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 const services = [
   {
     icon: Settings,
-    title: "Odoo Implementation",
-    description: "Complete end-to-end Odoo ERP implementation tailored to your business needs, ensuring seamless integration with existing workflows.",
+    title: "Odoo Implementation & Configuration",
+    description: "Odoo implementation and configuration across modules—tailored to your business needs and ensuring seamless integration with existing workflows.",
     features: [
-      "Business process analysis & mapping",
-      "System configuration & setup",
-      "Data migration & validation",
-      "User training & documentation",
-      "Go-live support & monitoring"
+      "Odoo implementation and configuration across modules",
+      "Custom module development for industry-specific workflows",
+      "Integration with finance systems, reporting tools, and internal platforms",
+      "Data migration from legacy ERP or Excel-based operations",
+      "User training, documentation, and go-live support",
+      "Ongoing upgrades, version migrations, and long-term support"
     ],
     image: "https://images.unsplash.com/photo-1621036579842-9080c7119f67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbnRlcnByaXNlJTIwc29mdHdhcmUlMjBpbXBsZW1lbnRhdGlvbiUyMGJ1c2luZXNzfGVufDF8fHx8MTc3MTg0Njg1Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     imagePosition: "left"
@@ -37,7 +38,7 @@ const services = [
   {
     icon: Puzzle,
     title: "Custom Modules",
-    description: "Develop bespoke Odoo modules and apps to extend functionality and meet your unique business requirements.",
+    description: "Custom module development for industry-specific workflows—extending Odoo's functionality to meet your unique business requirements.",
     features: [
       "Custom module development",
       "Workflow automation design",
@@ -51,7 +52,7 @@ const services = [
   {
     icon: Link2,
     title: "Integrations",
-    description: "Connect Odoo seamlessly with your existing business tools, platforms, and third-party applications.",
+    description: "Integration with finance systems, reporting tools, and internal platforms—connecting Odoo seamlessly with your entire business stack.",
     features: [
       "API development & integration",
       "Payment gateway integration",
@@ -64,8 +65,8 @@ const services = [
   },
   {
     icon: RefreshCw,
-    title: "Migration Services",
-    description: "Smooth and secure migration from legacy systems or older Odoo versions to the latest platform.",
+    title: "Data Migration",
+    description: "Data migration from legacy ERP or Excel-based operations—smooth and secure, with full validation before go-live.",
     features: [
       "Legacy system data extraction",
       "Version upgrade migration",
@@ -78,10 +79,10 @@ const services = [
   },
   {
     icon: Headphones,
-    title: "AMC & Support",
-    description: "Comprehensive annual maintenance contracts and ongoing support to keep your Odoo system running smoothly.",
+    title: "Long-Term Support & Upgrades",
+    description: "Ongoing upgrades, version migrations, and long-term support to keep your Odoo system running at its best.",
     features: [
-      "24/7 technical support",
+      "Ongoing upgrades and version migrations",
       "Bug fixes & troubleshooting",
       "Regular system updates",
       "Performance monitoring",
@@ -96,43 +97,43 @@ const services = [
 const industries = [
   {
     icon: Factory,
-    name: "Manufacturing",
-    description: "Production planning, inventory management, and quality control"
+    name: "Pharma & Chemicals",
+    description: "Anupam Rasayan—regulated manufacturing workflows and compliance tracking"
   },
   {
     icon: ShoppingCart,
-    name: "Retail & E-commerce",
-    description: "Point of sale, inventory, and omnichannel sales management"
+    name: "Solar & Manufacturing",
+    description: "Goldi Solar—production planning, inventory management, and quality control"
   },
   {
     icon: Building2,
-    name: "Real Estate",
-    description: "Property management, CRM, and sales pipeline tracking"
+    name: "Insurance Operations",
+    description: "Puri Crawford—policy management, claims processing, and operational reporting"
   },
   {
     icon: Hospital,
-    name: "Healthcare",
-    description: "Patient management, billing, and appointment scheduling"
-  },
-  {
-    icon: GraduationCap,
-    name: "Education",
-    description: "Student management, admissions, and fee collection"
+    name: "Accounting & Finance",
+    description: "Full module implementation: Accounting, Invoicing, and financial reporting"
   },
   {
     icon: Package,
-    name: "Distribution",
-    description: "Warehouse management, logistics, and order fulfillment"
+    name: "Inventory & Warehouse",
+    description: "Inventory, Purchase, and Manufacturing module deployments"
   },
   {
     icon: Truck,
-    name: "Logistics & Transport",
-    description: "Fleet management, route optimization, and shipment tracking"
+    name: "Sales & CRM",
+    description: "Sales, CRM, and eCommerce implementations for customer-facing operations"
+  },
+  {
+    icon: GraduationCap,
+    name: "HR & Payroll",
+    description: "HR, Payroll, and Project module configurations for people operations"
   },
   {
     icon: Building2,
-    name: "Professional Services",
-    description: "Project management, time tracking, and invoicing"
+    name: "Field Service",
+    description: "Field Service module deployments for distributed operations teams"
   }
 ];
 
@@ -173,9 +174,9 @@ export function OdooERPPage() {
               transition={{ delay: 0.3 }}
               className="text-4xl md:text-6xl font-bold mb-6"
             >
-              Odoo ERP Solutions for{" "}
+              Odoo ERP,{" "}
               <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                Modern Businesses
+                done properly.
               </span>
             </motion.h1>
 
@@ -186,8 +187,7 @@ export function OdooERPPage() {
               transition={{ delay: 0.4 }}
               className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed"
             >
-              Transform your business operations with intelligent, integrated Odoo ERP solutions. 
-              From implementation to customization, we deliver excellence at every step.
+              From initial implementation to custom workflows, third-party integrations, and ongoing maintenance—we deliver Odoo as a long-term operational system, not a one-time install.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -203,7 +203,7 @@ export function OdooERPPage() {
                 whileTap={{ scale: 0.95 }}
                 className="group px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
               >
-                <span className="font-semibold">Request Odoo Consultation</span>
+                <span className="font-semibold">Start a Conversation</span>
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
               </motion.a>
 
@@ -239,7 +239,7 @@ export function OdooERPPage() {
               Our Odoo Services
             </motion.span>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Comprehensive Odoo Development Services
+              What We Deliver
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               End-to-end Odoo solutions designed to streamline operations, boost productivity, and drive business growth
@@ -342,10 +342,10 @@ export function OdooERPPage() {
               Industry Expertise
             </motion.span>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Industries We Serve
+              Clients & Industries
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Proven Odoo ERP implementations across diverse industries, delivering tailored solutions for unique business challenges
+              Proven Odoo ERP implementations across diverse industries, delivering tailored solutions for unique business challenges. Modules: Accounting · Inventory · Manufacturing · Purchase · Sales · HR &amp; Payroll · Project · Field Service · CRM · Website &amp; eCommerce
             </p>
           </motion.div>
 
@@ -398,8 +398,7 @@ export function OdooERPPage() {
               </span>
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
-              As an official Odoo partner with 16+ years of experience, we bring deep expertise, 
-              proven methodologies, and a commitment to your success.
+              Odoo implementations fail most often at the configuration and adoption stage—not at installation. We invest heavily in requirement clarity, change management, and post-go-live stabilization to make sure the system actually gets used.
             </p>
           </motion.div>
 
@@ -476,10 +475,10 @@ export function OdooERPPage() {
             </motion.span>
 
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Transform Your Business with Odoo ERP
+              Discuss your Odoo requirements
             </h2>
             <p className="text-xl text-white/90 mb-10 leading-relaxed">
-              Schedule a free consultation with our Odoo experts and discover how we can 
+              Schedule a free consultation with our Odoo experts and discover how we can
               streamline your operations and accelerate growth.
             </p>
 
@@ -490,7 +489,7 @@ export function OdooERPPage() {
                 whileTap={{ scale: 0.95 }}
                 className="group px-8 py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all flex items-center justify-center space-x-2 font-semibold"
               >
-                <span>Request Odoo Consultation</span>
+                <span>Start a Conversation</span>
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
               </motion.a>
 

@@ -91,10 +91,10 @@ export function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                   transition={{ delay: 0.2 }}
                 >
                   <h2 className="text-xl md:text-2xl font-bold text-white mb-1.5">
-                    Let's Get Started
+                    Start a Conversation
                   </h2>
                   <p className="text-white/90 text-xs md:text-sm">
-                    Fill out the form below and our team will get back to you within 24 hours
+                    Briefly describe your project or challenge. We'll respond within 1 business day.
                   </p>
                 </motion.div>
               </div>
@@ -126,7 +126,7 @@ export function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                       Thank You!
                     </h3>
                     <p className="text-gray-600 text-sm">
-                      We've received your enquiry and will be in touch soon.
+                      We've received your enquiry and will be in touch within 1 business day.
                     </p>
                   </motion.div>
                 ) : (
@@ -214,7 +214,7 @@ export function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                         htmlFor="company"
                         className="block text-xs font-semibold text-gray-700 mb-1.5"
                       >
-                        Company Name
+                        Company / Organisation *
                       </label>
                       <div className="relative">
                         <Building
@@ -239,7 +239,7 @@ export function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                         htmlFor="message"
                         className="block text-xs font-semibold text-gray-700 mb-1.5"
                       >
-                        Message *
+                        Project Description *
                       </label>
                       <div className="relative">
                         <MessageSquare
@@ -254,7 +254,7 @@ export function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                           onChange={handleChange}
                           rows={3}
                           className="w-full pl-10 pr-3 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-transparent transition-all resize-none"
-                          placeholder="Tell us about your project..."
+                          placeholder="Briefly describe your project or challenge..."
                         />
                       </div>
                     </div>

@@ -29,56 +29,58 @@ const buildCategories = [
   {
     id: "web",
     icon: Code,
-    title: "Web Applications",
-    description: "Modern, scalable web apps built with cutting-edge frameworks",
-    longDescription: "We craft responsive, high-performance web applications using the latest technologies. From progressive web apps to complex enterprise platforms, our solutions are built to scale with your business needs.",
+    title: "Web Platforms & Enterprise Portals",
+    description: "Web platforms and enterprise portals built for scale and governance",
+    longDescription: "We build web platforms and enterprise portals designed for real operational load. From internal portals to customer-facing platforms, every solution is built with the right architecture from day one.",
     features: [
-      "Progressive Web Apps (PWA)",
-      "SaaS platforms & dashboards",
-      "Enterprise portals",
-      "E-commerce solutions"
+      "Web platforms and enterprise portals",
+      "Internal workflow and approval systems",
+      "Operational dashboards and reporting interfaces",
+      "Role-based access systems with audit trails"
     ],
     image: "https://images.unsplash.com/photo-1760548425425-e42e77fa38f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBhcHBsaWNhdGlvbiUyMGRldmVsb3BtZW50JTIwbW9kZXJufGVufDF8fHx8MTc3MTg0NzI0M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
   },
   {
-    id: "mobile",
-    icon: Smartphone,
-    title: "Mobile Apps",
-    description: "Native & cross-platform mobile experiences",
-    longDescription: "Build stunning mobile applications that users love. Whether you need native iOS/Android apps or cross-platform solutions, we deliver performant, user-friendly mobile experiences.",
-    features: [
-      "iOS & Android native apps",
-      "React Native & Flutter",
-      "Hybrid mobile solutions",
-      "Mobile-first design"
-    ],
-    image: "https://images.unsplash.com/photo-1605108222700-0d605d9ebafe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXZlbG9wbWVudCUyMGludGVyZmFjZXxlbnwxfHx8fDE3NzE4NDg3MzZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-  },
-  {
-    id: "backend",
+    id: "integrations",
     icon: Server,
-    title: "Backend Systems",
-    description: "Robust, secure, and scalable backend infrastructure",
-    longDescription: "Power your applications with enterprise-grade backend systems. We design and build secure, scalable APIs and microservices that handle millions of requests while maintaining peak performance.",
+    title: "Multi-Tool Integrations & Automation",
+    description: "Connecting systems and automating data flows across your stack",
+    longDescription: "We design and build the integrations and automation layers that tie your tools together. From ERP connectors to data pipelines, we eliminate manual hand-offs and keep your operations running smoothly.",
     features: [
+      "Multi-tool integrations and data automation",
+      "Legacy system modernization",
       "RESTful & GraphQL APIs",
-      "Microservices architecture",
-      "Cloud-native applications",
       "Database design & optimization"
     ],
     image: "https://images.unsplash.com/photo-1758905024964-4b4818821a04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYWNrZW5kJTIwc2VydmVyJTIwaW5mcmFzdHJ1Y3R1cmUlMjBjbG91ZHxlbnwxfHx8fDE3NzE4NDg3Mzd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
   },
   {
-    id: "ai",
-    icon: Brain,
-    title: "AI Integrations",
-    description: "Intelligent features powered by modern AI/ML",
-    longDescription: "Integrate cutting-edge AI capabilities into your products. From ChatGPT integrations to custom machine learning models, we help you leverage AI to create smarter, more powerful applications.",
+    id: "mobile",
+    icon: Smartphone,
+    title: "Mobile Applications",
+    description: "Enterprise mobile for field operations and distributed teams",
+    longDescription: "We build mobile applications for the realities of enterprise and field operations. Offline capability, role-based controls, and full integration with your core systems.",
     features: [
-      "OpenAI & LLM integrations",
-      "Natural language processing",
-      "Predictive analytics",
-      "Automation & chatbots"
+      "iOS & Android native apps",
+      "React Native cross-platform",
+      "Offline-first architecture",
+      "Integration with ERP and backend systems"
+    ],
+    image: "https://images.unsplash.com/photo-1605108222700-0d605d9ebafe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXZlbG9wbWVudCUyMGludGVyZmFjZXxlbnwxfHx8fDE3NzE4NDg3MzZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+  },
+  {
+    id: "engineering",
+    icon: Brain,
+    title: "Engineering Practices",
+    description: "The practices that make our software trustworthy and maintainable",
+    longDescription: "Good software is built on disciplined engineering practices. We apply these consistently across every engagement so your system is secure, auditable, and straightforward to operate and evolve.",
+    features: [
+      "RBAC and least-privilege access patterns",
+      "Maker-checker approval flows",
+      "Immutable audit log implementation",
+      "Environment separation (dev/staging/production)",
+      "Version control and release traceability",
+      "Structured QA and regression cycles"
     ],
     image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlJTIwbWFjaGluZSUyMGxlYXJuaW5nfGVufDF8fHx8MTc3MTczMTAyN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
   }
@@ -208,9 +210,9 @@ export function ProductDevelopmentPage() {
               transition={{ delay: 0.3 }}
               className="text-4xl md:text-6xl font-bold mb-6"
             >
-              Build Products That{" "}
+              Product engineering that ships—
               <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                Users Love
+                and stays.
               </span>
             </motion.h1>
 
@@ -221,8 +223,7 @@ export function ProductDevelopmentPage() {
               transition={{ delay: 0.4 }}
               className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed"
             >
-              From concept to launch, we craft scalable web & mobile applications with modern tech stacks, 
-              agile methodology, and a relentless focus on user experience.
+              We design, build, and evolve business-critical software—web platforms, internal enterprise systems, workflow automation, and operational dashboards. Built for real load. Maintained for the long run.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -238,7 +239,7 @@ export function ProductDevelopmentPage() {
                 whileTap={{ scale: 0.95 }}
                 className="group px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
               >
-                <span className="font-semibold">Talk to Product Team</span>
+                <span className="font-semibold">Start a Conversation</span>
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
               </motion.a>
 
@@ -779,10 +780,10 @@ export function ProductDevelopmentPage() {
             </motion.span>
 
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Let's Turn Your Idea into Reality
+              Ready to build something that lasts?
             </h2>
             <p className="text-xl text-white/90 mb-10 leading-relaxed">
-              Schedule a free consultation with our product team. We'll discuss your vision, 
+              Schedule a free consultation with our product team. We'll discuss your vision,
               tech requirements, timeline, and provide a custom proposal.
             </p>
 
@@ -793,7 +794,7 @@ export function ProductDevelopmentPage() {
                 whileTap={{ scale: 0.95 }}
                 className="group px-8 py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all flex items-center justify-center space-x-2 font-semibold"
               >
-                <span>Talk to Product Team</span>
+                <span>Start a Conversation</span>
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
               </motion.a>
 

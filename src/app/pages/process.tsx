@@ -26,48 +26,48 @@ import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 const processSteps = [
   {
     number: "01",
-    title: "Discovery & Planning",
-    description: "We start by understanding your business goals, target audience, and project requirements through detailed workshops and documentation.",
+    title: "Discover",
+    description: "We run structured stakeholder workshops to map goals, scope boundaries, dependencies, and success metrics. Risk is identified early—not discovered mid-build.",
     icon: Target,
     image: "https://images.unsplash.com/photo-1728917330520-9456e3f49529?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9qZWN0JTIwcGxhbm5pbmclMjBkYXNoYm9hcmQlMjB3aXJlZnJhbWV8ZW58MXx8fHwxNzcxOTI5Mzg1fDA&ixlib=rb-4.1.0&q=80&w=1080",
     deliverables: ["Project roadmap", "Technical specifications", "Timeline & milestones"]
   },
   {
     number: "02",
-    title: "Design & Prototyping",
-    description: "Our design team creates intuitive wireframes and interactive prototypes, ensuring user experience is at the forefront.",
+    title: "Define",
+    description: "Module breakdown, milestone planning, architecture outline, effort estimates, and a change control mechanism. You know exactly what's being built and when.",
     icon: FileText,
     image: "https://images.unsplash.com/photo-1748801583975-720cb5e4985e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXNpZ24lMjBwcm90b3R5cGUlMjBtb2NrdXAlMjBzY3JlZW58ZW58MXx8fHwxNzcxOTI5Mzg2fDA&ixlib=rb-4.1.0&q=80&w=1080",
     deliverables: ["Wireframes", "UI/UX designs", "Interactive prototypes"]
   },
   {
     number: "03",
-    title: "Development Sprint",
-    description: "Agile development with 2-week sprints, continuous integration, and regular code reviews to maintain quality standards.",
+    title: "Design",
+    description: "User flows, wireframes, and prototypes focused on operational adoption. We design for the person using the system every day, not just for the demo.",
     icon: Code,
     image: "https://images.unsplash.com/photo-1753998943413-8cba1b923c0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RlJTIwZGV2ZWxvcG1lbnQlMjBwcm9ncmFtbWluZyUyMHNjcmVlbnxlbnwxfHx8fDE3NzE5MjkzODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
     deliverables: ["Working features", "Code documentation", "Sprint demos"]
   },
   {
     number: "04",
-    title: "Quality Assurance",
-    description: "Rigorous testing including functional, performance, security, and user acceptance testing before any release.",
+    title: "Develop",
+    description: "Sprint-based development with code review discipline, structured QA cycles, defect triage, and staging environments. Progress is visible; surprises are minimised.",
     icon: TestTube,
     image: "https://images.unsplash.com/photo-1621361753831-e972c09ceec9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2Z0d2FyZSUyMHRlc3RpbmclMjBxdWFsaXR5JTIwYXNzdXJhbmNlfGVufDF8fHx8MTc3MTkyOTM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
     deliverables: ["Test reports", "Bug fixes", "Performance metrics"]
   },
   {
     number: "05",
-    title: "Deployment & Launch",
-    description: "Smooth deployment with zero-downtime releases, comprehensive monitoring, and immediate post-launch support.",
+    title: "Deploy",
+    description: "UAT support, sign-off readiness, training documentation, and go-live planning. We don't hand over and disappear—we stabilise before we step back.",
     icon: Rocket,
     image: "https://images.unsplash.com/photo-1762135245629-1e79d4cc30b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyb2NrZXQlMjBsYXVuY2glMjBkZXBsb3ltZW50fGVufDF8fHx8MTc3MTkyOTM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
     deliverables: ["Production release", "Deployment docs", "Monitoring setup"]
   },
   {
     number: "06",
-    title: "Support & Optimization",
-    description: "Ongoing maintenance, performance optimization, feature enhancements, and 24/7 technical support.",
+    title: "Operate & Improve",
+    description: "SLA-based support, continuous improvement cycles, roadmap execution, and monitoring. We treat your product as an evolving system, not a closed project.",
     icon: RefreshCw,
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbmFseXRpY3MlMjBkYXNoYm9hcmQlMjBwZXJmb3JtYW5jZSUyMG1ldHJpY3N8ZW58MXx8fHwxNzcxOTI5Mzg3fDA&ixlib=rb-4.1.0&q=80&w=1080",
     deliverables: ["Monthly reports", "Updates & patches", "Performance analytics"]
@@ -229,16 +229,15 @@ export function ProcessPage() {
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-                Building Trust Through
+                A process built for
                 <br />
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Transparency & Excellence
+                  predictable delivery.
                 </span>
               </h1>
-              
+
               <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                Our structured, transparent development process ensures you're always in control. 
-                From discovery to deployment and beyond, we deliver quality with complete visibility.
+                Every engagement at KCIPL follows a structured six-step delivery system. It's designed to eliminate ambiguity, surface risks early, and keep you aligned throughout—not just at milestones.
               </p>
             </motion.div>
           </div>
@@ -265,10 +264,10 @@ export function ProcessPage() {
               <span className="text-[#f1592a] font-semibold text-sm">HOW WE WORK</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Get Started in <span className="text-[#f1592a]">Six Simple Steps</span>
+              Our <span className="text-[#f1592a]">Six-Step Delivery System</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              No setup headaches. Our process makes it easy to launch, manage and grow your business.
+              Every step is designed to surface risk early, keep you aligned, and deliver on what was agreed.
             </p>
           </motion.div>
 
@@ -385,13 +384,12 @@ export function ProcessPage() {
               <span className="text-[#f1592a] font-semibold text-sm">COMMUNICATION & DELIVERY</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Your Trusted Partner In
+              Delivery transparency
               <br />
-              <span className="text-[#f1592a]">Digital Transformation</span>
+              <span className="text-[#f1592a]">isn't optional.</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Discover the insights you need to make confident decisions. From setup to support, 
-              we've simplified the answers for you.
+              Every engagement includes weekly structured updates, milestone tracking, documented decisions, change request governance, risk and dependency tracking, and a single point of accountability.
             </p>
           </motion.div>
 
@@ -413,9 +411,9 @@ export function ProcessPage() {
                   <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#f1592a] rounded-full border-2 border-white" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Innovative Approach</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Weekly structured updates</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Cutting-edge solutions using the latest technologies and methodologies to deliver exceptional results.
+                    Consistent, scheduled updates so you always know what's been done and what's coming next.
                   </p>
                 </div>
               </motion.div>
@@ -434,9 +432,9 @@ export function ProcessPage() {
                   <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#f1592a] rounded-full border-2 border-white" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Client-Centered Focus</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Milestone tracking & documented decisions</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Your success is our priority. We maintain transparent communication throughout every project phase.
+                    Every key decision is documented. Milestones are tracked and signed off—no ambiguity, no guesswork.
                   </p>
                 </div>
               </motion.div>
@@ -455,9 +453,9 @@ export function ProcessPage() {
                   <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#f1592a] rounded-full border-2 border-white" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Experienced Team</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Single point of accountability</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Industry veterans with proven track records in delivering complex enterprise solutions.
+                    One engagement lead owns delivery end-to-end. You always know who to call and who is responsible.
                   </p>
                 </div>
               </motion.div>

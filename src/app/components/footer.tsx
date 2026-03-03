@@ -19,7 +19,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Key Concepts Innovations Pvt. Ltd. is a global technology partner focused on product-grade software engineering. We build systems that run day-to-day operations—where uptime, clarity, and accountability matter.
+              Product engineering that ships—and stays. Key Concepts Innovations Pvt. Ltd. (KCIPL) builds and modernizes business-critical software for enterprises across India, USA, and MENA.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-[#f1592a] transition-colors">
@@ -37,38 +37,28 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Company */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/" className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm">
-                 Products
+                <Link to="/about" className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm">
+                  About
                 </Link>
               </li>
               <li>
                 <Link to="/our-story" className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm">
-                  About Us
+                  Our Story
                 </Link>
               </li>
               <li>
-                <Link to="/insights/trends" className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm">
-                  Industry Trends
+                <Link to="/process" className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm">
+                  Process
                 </Link>
               </li>
               <li>
                 <Link to="/careers" className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm">
                   Careers
-                </Link>
-              </li>
-              <li>
-                <Link to="/insights/case-studies" className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm">
-                 Case Studies
                 </Link>
               </li>
               <li>
@@ -81,41 +71,36 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Services & Products</h3>
+            <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/visitor-management" className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm">
-                  Visitor Management System
-                </Link>
-              </li>
-              <li>
-                <Link to="/younited-communities" className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm">
-                  Younited Communities
-                </Link>
-              </li>
-              <li>
-                <Link to="/election-mobilization" className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm">
-                  Election Mobilization
-                </Link>
-              </li>
-              <li>
                 <Link to="/product-development" className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm">
-                  Product Development
+                  Product Engineering
                 </Link>
               </li>
               <li>
                 <Link to="/mvp-studio" className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm">
-                  MVP Development
+                  MVP Studio
                 </Link>
               </li>
               <li>
                 <Link to="/odoo-erp" className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm">
-                  Odoo Development
+                  Odoo ERP
+                </Link>
+              </li>
+              <li>
+                <Link to="/mobile-development" className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm">
+                  Mobile Development
                 </Link>
               </li>
               <li>
                 <Link to="/support-maintenance" className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm">
                   Support & Maintenance
+                </Link>
+              </li>
+              <li>
+                <Link to="/web-solutions" className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm">
+                  Web Solutions
                 </Link>
               </li>
             </ul>
@@ -147,10 +132,10 @@ export function Footer() {
               </li>
             </ul>
             
-            {/* Our Branches */}
+            {/* Regions */}
             <div className="mt-6 pt-6 border-t border-gray-700">
-              <h4 className="text-sm font-semibold mb-2 text-gray-300">Our Branches</h4>
-              <p className="text-gray-400 text-sm">London | New York</p>
+              <h4 className="text-sm font-semibold mb-2 text-gray-300">Regions Served</h4>
+              <p className="text-gray-400 text-sm">India · USA · MENA</p>
             </div>
           </div>
         </div>
@@ -158,7 +143,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-gray-400 text-sm">
-            © {currentYear} Key Concepts. All rights reserved.
+            © {currentYear} Key Concepts Innovations Pvt. Ltd. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm">
             <a href="#" className="text-gray-400 hover:text-[#f1592a] transition-colors">
