@@ -296,9 +296,9 @@ export function SupportMaintenancePage() {
               transition={{ delay: 0.3 }}
               className="text-4xl md:text-6xl font-bold mb-6"
             >
-              Keep Your Application{" "}
+              We stay accountable{" "}
               <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                Secure, Fast, & Always Online
+                after go-live.
               </span>
             </motion.h1>
 
@@ -309,8 +309,7 @@ export function SupportMaintenancePage() {
               transition={{ delay: 0.4 }}
               className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed"
             >
-              From 24/7 monitoring to bug fixes, security updates, and feature enhancements — we ensure your 
-              product runs smoothly while you focus on growing your business.
+              Production support isn't an afterthought for us—it's a structured engagement model. SLA-defined response times, continuous improvement cycles, and roadmap execution so your system keeps pace with your business.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -326,7 +325,7 @@ export function SupportMaintenancePage() {
                 whileTap={{ scale: 0.95 }}
                 className="group px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
               >
-                <span className="font-semibold">Get Maintenance Quote</span>
+                <span className="font-semibold">Let's discuss a support arrangement</span>
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
               </motion.a>
 

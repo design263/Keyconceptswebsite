@@ -14,7 +14,7 @@ interface Particle {
 
 export function HeroSection() {
   const [displayedText, setDisplayedText] = useState("");
-  const fullText = "Transform Your Business with Next-Gen Technology";
+  const fullText = "New-generation execution. Proven delivery legacy.";
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
@@ -195,7 +195,7 @@ export function HeroSection() {
             >
               <Sparkles className="text-[#f1592a]" size={18} />
               <span className="text-sm font-medium text-gray-700">
-                End-to-end Product Development Company
+                Product Engineering & Digital Transformation
               </span>
             </motion.div>
 
@@ -206,9 +206,9 @@ export function HeroSection() {
                 transition={{ delay: 0.3 }}
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
               >
-               Product Engineering & Digital {" "}
+               New-generation execution.{" "}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Transformation Partner
+                  Proven delivery legacy.
                 </span>
               </motion.h1>
 
@@ -230,7 +230,7 @@ export function HeroSection() {
                 transition={{ delay: 0.7 }}
                 className="text-lg text-gray-600 leading-relaxed"
               >
-                From MVP to enterprise-grade systems — we ship fast, keep quality high, and stay with you for long-term support.
+                We build and modernize business-critical software for enterprises and growth-stage organizations—with 16 years of delivery discipline, clear communication, and long-term ownership.
               </motion.p>
             </div>
 
@@ -246,7 +246,7 @@ export function HeroSection() {
                   whileTap={{ scale: 0.95 }}
                   className="group px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                 >
-                  <span className="font-semibold">Book a Discovery Call</span>
+                  <span className="font-semibold">Start Your Project</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                 </motion.button>
               </Link>
@@ -256,13 +256,22 @@ export function HeroSection() {
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg"
                 >
-                  <span className="font-semibold">Explore Our Products</span>
+                  <span className="font-semibold">Explore Our Services</span>
                 </motion.button>
               </Link>
             </motion.div>
 
-            {/* Stats */}
-            
+            {/* Trust Bar */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.1 }}
+              className="flex flex-wrap gap-6 text-sm text-gray-600"
+            >
+              <span className="flex items-center gap-1.5"><span className="text-[#f1592a] font-bold">✓</span> 16 Years of Delivery</span>
+              <span className="flex items-center gap-1.5"><span className="text-[#f1592a] font-bold">✓</span> 400+ Clients Worldwide</span>
+              <span className="flex items-center gap-1.5"><span className="text-[#f1592a] font-bold">✓</span> India · USA · MENA</span>
+            </motion.div>
           </motion.div>
 
           {/* Right Side - Particle Animation */}

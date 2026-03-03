@@ -67,53 +67,65 @@ const products = [
 
 const services = [
   {
-    name: "Product Development",
-    description: "Crafting Scalable Product Experiences",
+    name: "Product Engineering",
+    description: "End-to-end web, mobile & enterprise systems",
     icon: Layers,
     link: "/product-development",
   },
   {
-    name: "MVP Development",
-    description: "Build, Test, Launch, Scale.",
+    name: "MVP Studio",
+    description: "Rapid MVP builds with production-grade foundations",
     icon: Rocket,
     link: "/mvp-studio",
   },
   {
-    name: "Odoo Development",
-    description: "Implement, customize, integrate, support",
+    name: "Odoo ERP",
+    description: "Implementation, customisation & long-term support",
     icon: Settings,
     link: "/odoo-erp",
   },
   {
-    name: "Support Maintenance",
-    description: "Performance Optimized, Always Secure",
+    name: "Mobile Development",
+    description: "Field and enterprise mobile apps",
+    icon: Smartphone,
+    link: "/mobile-development",
+  },
+  {
+    name: "Support & Maintenance",
+    description: "SLA-based production support and continuous improvement",
     icon: Shield,
     link: "/support-maintenance",
+  },
+  {
+    name: "Web Solutions",
+    description: "Portals, platforms, dashboards and integrations",
+    icon: Globe,
+    link: "/web-solutions",
   },
 ];
 
 const company = [
   {
+    name: "About KCIPL",
+    description: "Who we are and who we partner with",
+    icon: Building2,
+    link: "/about",
+  },
+  {
     name: "Our Story",
-    description: "Learn about our journey",
+    description: "16 years of delivery discipline",
     icon: Heart,
     link: "/our-story",
   },
   {
-    name: "Process",
-    description: "How we deliver exceptional results",
+    name: "Our Process",
+    description: "How we deliver predictable results",
     icon: Target,
     link: "/process",
   },
   {
-    name: "Team",
-    description: "Meet the people behind us",
-    icon: Users,
-    link: "/about#team",
-  },
-  {
     name: "Careers",
-    description: "Join our growing team",
+    description: "Join our growing engineering team",
     icon: Briefcase,
     link: "/careers",
   },
@@ -121,16 +133,22 @@ const company = [
 
 const insights = [
   {
+    name: "Case Studies",
+    description: "Real delivery outcomes for enterprise clients",
+    icon: FolderOpen,
+    link: "/insights/case-studies",
+  },
+  {
     name: "Industry Trends",
-    description: "Stay ahead with the latest industry insights",
+    description: "Practical insights from 16 years of delivery",
     icon: Lightbulb,
     link: "/insights/trends",
   },
   {
-    name: "Case Studies",
-    description: "Explore our success stories",
-    icon: FolderOpen,
-    link: "/insights/case-studies",
+    name: "Blog",
+    description: "Thinking on product engineering and delivery",
+    icon: BookOpen,
+    link: "/blog",
   },
 ];
 
@@ -250,7 +268,7 @@ export function MegaMenuHeader() {
                   >
                     <div className="p-8">
                       {/* Services Grid */}
-                      <div className="grid grid-cols-4 gap-6">
+                      <div className="grid grid-cols-3 gap-6">
                         {services.map((service, index) => (
                           <motion.div
                             key={service.name}
@@ -550,11 +568,11 @@ export function MegaMenuHeader() {
                       duration: 0.3,
                       ease: "easeOut",
                     }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[500px] bg-white backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-100 overflow-hidden"
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[700px] bg-white backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-100 overflow-hidden"
                   >
                     <div className="p-8">
                       {/* Insights Grid */}
-                      <div className="grid grid-cols-2 gap-6">
+                      <div className="grid grid-cols-3 gap-6">
                         {insights.map((item, index) => (
                           <motion.div
                             key={item.name}
@@ -602,7 +620,7 @@ export function MegaMenuHeader() {
                 whileTap={{ scale: 0.95 }}
                 className="px-7 py-3 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg hover:shadow-2xl hover:shadow-[#f1592a]/30 transition-all font-semibold"
               >
-                Contact Us
+                Start a Conversation
               </motion.button>
             </Link>
           </div>
@@ -648,13 +666,6 @@ export function MegaMenuHeader() {
                 Services
               </Link>
               <Link
-                to="/services"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="px-4 py-3 rounded-xl text-gray-700 hover:bg-gradient-to-r hover:from-[#f1592a]/5 hover:to-[#ff7a45]/5 hover:text-[#f1592a] transition-all font-medium"
-              >
-                Our Platforms
-              </Link>
-              <Link
                 to="/about"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="px-4 py-3 rounded-xl text-gray-700 hover:bg-gradient-to-r hover:from-[#f1592a]/5 hover:to-[#ff7a45]/5 hover:text-[#f1592a] transition-all font-medium"
@@ -662,7 +673,14 @@ export function MegaMenuHeader() {
                 Company
               </Link>
               <Link
-                to="/insights/trends"
+                to="/work"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="px-4 py-3 rounded-xl text-gray-700 hover:bg-gradient-to-r hover:from-[#f1592a]/5 hover:to-[#ff7a45]/5 hover:text-[#f1592a] transition-all font-medium"
+              >
+                Work
+              </Link>
+              <Link
+                to="/insights/case-studies"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="px-4 py-3 rounded-xl text-gray-700 hover:bg-gradient-to-r hover:from-[#f1592a]/5 hover:to-[#ff7a45]/5 hover:text-[#f1592a] transition-all font-medium"
               >

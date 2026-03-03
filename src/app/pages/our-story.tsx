@@ -49,27 +49,27 @@ const coreValues = [
 const whatWeCombine = [
   {
     icon: CheckCircle,
-    title: "Structured Execution",
-    description: "Process + Planning",
-    details: "Agile sprints, detailed roadmaps, and milestone-based delivery ensure predictability."
+    title: "Then — 2009 to ~2015 (Feature Delivery Era)",
+    description: "Project-based delivery",
+    details: "We delivered projects. Clients came with requirements. We built, handed over, and moved on. Quality was measured by 'does it work at launch.'"
   },
   {
-    icon: Users,
-    title: "Senior Oversight",
-    description: "Architecture + Risk Control",
-    details: "Experienced architects review every decision to ensure scalability and maintainability."
+    icon: TrendingUp,
+    title: "Evolving — ~2015 to 2020 (Systems Thinking)",
+    description: "From handovers to partnerships",
+    details: "Clients started staying. They didn't want handovers—they wanted partners. We shifted from feature delivery to product thinking. Maintenance retainers replaced project close-outs. Roadmaps replaced single requirements documents."
   },
   {
-    icon: FileCheck,
-    title: "Strong QA Discipline",
-    description: "Quality First",
-    details: "Comprehensive testing protocols, automated QA, and manual verification before every release."
+    icon: Rocket,
+    title: "Now — 2020 Onwards (Product Engineering)",
+    description: "Enterprise-grade, three continents",
+    details: "Today, KCIPL operates as a modern product engineering organization. We build systems designed for scale, governance, audit readiness, and long-term evolution. The same delivery discipline that made us reliable in 2009 now powers enterprise-grade engagements across three continents."
   },
   {
     icon: Globe,
-    title: "Enterprise Communication",
-    description: "Documentation + Clarity",
-    details: "Clear documentation, stakeholder updates, and enterprise-friendly reporting at every stage."
+    title: "The Through-Line",
+    description: "Legacy discipline, modern execution",
+    details: "This evolution—modern execution rooted in legacy discipline—is why clients return to us, and why new clients trust us with their most critical systems."
   }
 ];
 
@@ -205,10 +205,10 @@ export function OurStoryPage() {
               className="text-4xl md:text-6xl font-bold mb-6"
             >
               <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                New Generation Company
+                16 years. One constant
               </span>
               <br />
-              with Legacy
+              — disciplined delivery.
             </motion.h1>
 
             {/* Subtitle */}
@@ -218,8 +218,7 @@ export function OurStoryPage() {
               transition={{ delay: 0.4 }}
               className="text-xl text-gray-600 mb-12 leading-relaxed max-w-4xl mx-auto"
             >
-              We bring the speed and agility of a modern engineering organization, with the reliability 
-              and discipline built over years of real-world delivery.
+              Key Concepts Innovations Pvt. Ltd. was founded in Surat, Gujarat, with one purpose: to deliver software that actually works. Not in demos. In production. Under real business pressure. Over 16 years, we've worked with 400+ clients across India, USA, and MENA—accumulating over 10 lakh development hours across industries that don't tolerate failure: insurance, pharmaceuticals, manufacturing, and enterprise operations.
             </motion.p>
 
             {/* Hero Image */}
@@ -251,15 +250,14 @@ export function OurStoryPage() {
           >
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                About{" "}
+                How We{" "}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Key Concepts
+                  Evolved
                 </span>
               </h2>
               <p className="text-xl text-gray-600 leading-relaxed">
-                <strong>Key Concepts Innovations Pvt. Ltd.</strong> is a global technology partner focused on 
-                <span className="text-[#f1592a] font-semibold"> product-grade software engineering</span>. 
-                We build systems that run day-to-day operations—where uptime, clarity, and accountability matter.
+                <strong>Key Concepts Innovations Pvt. Ltd.</strong> didn't arrive at product engineering overnight.
+                <span className="text-[#f1592a] font-semibold"> Three distinct eras</span> shaped how we work today.
               </p>
             </div>
 
@@ -307,14 +305,13 @@ export function OurStoryPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              The{" "}
+              How We{" "}
               <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                Hybrid Approach
+                Work Today
               </span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Modern stack + strong engineering fundamentals. Rapid iterations without compromising stability. 
-              Clear stakeholder communication and predictable timelines.
+              Modern execution rooted in legacy discipline. The same rigor that made us reliable from day one now powers enterprise-grade engagements across three continents.
             </p>
           </motion.div>
 

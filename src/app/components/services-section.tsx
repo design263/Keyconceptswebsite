@@ -18,65 +18,71 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 const services = [
   {
     icon: Layers,
-    title: "Product Development",
-    description: "End-to-end product development from ideation to launch, building scalable and innovative solutions.",
+    title: "Product Engineering",
+    description: "We design, build, and evolve enterprise-grade web platforms, internal systems, and workflow automation—engineered for real operational load, not just demonstrations.",
     image: "https://images.unsplash.com/photo-1765445666407-c8535808a4a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9kdWN0JTIwZGV2ZWxvcG1lbnQlMjBzb2Z0d2FyZXxlbnwxfHx8fDE3NzE4MzUxMDB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     color: "from-gray-600 to-gray-800",
-    span: "row-span-2"
+    span: "row-span-2",
+    link: "/product-development"
   },
   {
     icon: Rocket,
-    title: "Specialized Platforms",
-    description: "Custom-built platforms including Visitorz, Younited Communities, and Election Mobilization solutions.",
+    title: "MVP Studio",
+    description: "Launch your product fast—without sacrificing architecture. We build MVPs with strong foundations so you can iterate to v1 and beyond without rebuilding from scratch.",
     image: "https://images.unsplash.com/photo-1769541607705-3b3c5095679b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGVjaWFsaXplZCUyMHBsYXRmb3JtJTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NzE4MzUxMDF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     color: "from-[#f1592a] to-[#ff7a45]",
-    span: "col-span-2"
+    span: "col-span-2",
+    link: "/mvp-studio"
   },
   {
     icon: Database,
-    title: "Odoo Development",
-    description: "Expert Odoo ERP implementation, customization, and integration tailored to your business needs.",
+    title: "Odoo ERP",
+    description: "Full-cycle Odoo delivery—from implementation and custom module development to integrations, upgrades, and long-term maintenance across finance, operations, and HR.",
     image: "https://images.unsplash.com/photo-1587822766378-e47b139c56ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbnRlcnByaXNlJTIwcmVzb3VyY2UlMjBwbGFubmluZyUyMHNvZnR3YXJlfGVufDF8fHx8MTc3MTgzNTEwNHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     color: "from-gray-700 to-gray-900",
-    span: "col-span-2"
+    span: "col-span-2",
+    link: "/odoo-erp"
   },
   {
-    icon: Settings,
-    title: "MVP Development",
-    description: "Rapidly build and validate your minimum viable product with our agile development approach.",
+    icon: Smartphone,
+    title: "Mobile Development",
+    description: "Field apps, enterprise mobility, and distributed team tools. We build for real-world usage conditions—offline-first capability, role control, and integration with core systems.",
     image: "https://images.unsplash.com/photo-1592660681825-70364e4dd0b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtdnAlMjBtaW5pbXVtJTIwdmlhYmxlJTIwcHJvZHVjdHxlbnwxfHx8fDE3NzE4MzUxMDB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     color: "from-gray-600 to-gray-800",
-    span: "col-span-2"
+    span: "col-span-2",
+    link: "/mobile-development"
   },
   {
     icon: Wrench,
     title: "Support & Maintenance",
-    description: "24/7 technical support and ongoing maintenance to keep your systems running smoothly.",
+    description: "SLA-based production support, incident handling, continuous enhancement, and roadmap execution. We stay accountable after go-live, not just until it.",
     image: "https://images.unsplash.com/photo-1768633647910-7e6fb53e5b0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNobmljYWwlMjBzdXBwb3J0JTIwbWFpbnRlbmFuY2V8ZW58MXx8fHwxNzcxODM1MTAwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     color: "from-[#f1592a] to-[#ff7a45]",
-    
+    link: "/support-maintenance"
   },
-  
 ];
 
 const trendingServices = [
   {
     icon: Layers,
-    title: "Product Development",
-    description: "Transform your ideas into scalable, market-ready products with our end-to-end development expertise.",
-    gradient: "from-[#f1592a] to-[#d94d24]"
+    title: "Product Engineering",
+    description: "We design, build, and evolve enterprise-grade web platforms and internal systems engineered for real operational load.",
+    gradient: "from-[#f1592a] to-[#d94d24]",
+    link: "/product-development"
   },
   {
     icon: Rocket,
     title: "MVP Studio",
-    description: "Rapidly build, test, and launch your minimum viable product to validate your business concept.",
-    gradient: "from-[#f1592a] to-[#d94d24]"
+    description: "Launch fast without sacrificing architecture. We build MVPs with production-grade foundations so you can scale without rebuilding.",
+    gradient: "from-[#f1592a] to-[#d94d24]",
+    link: "/mvp-studio"
   },
   {
     icon: Database,
-    title: "Odoo Development",
-    description: "Streamline your business operations with our expert Odoo development and customization services.",
-    gradient: "from-[#f1592a] to-[#d94d24]"
+    title: "Odoo ERP",
+    description: "Full-cycle Odoo delivery—from implementation and custom modules to integrations, upgrades, and long-term support.",
+    gradient: "from-[#f1592a] to-[#d94d24]",
+    link: "/odoo-erp"
   },
 ];
 
@@ -98,13 +104,13 @@ export function ServicesSection() {
               viewport={{ once: true }}
               className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
             >
-              What we do
+              What We Do
             </motion.span>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Core Capabilities
+              What We Do
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Empowering businesses with innovative solutions across product development, rapid MVP creation, and enterprise ERP systems
+              End-to-end product engineering across platforms, industries, and scale stages.
             </p>
           </div>
 
@@ -161,10 +167,10 @@ export function ServicesSection() {
               Our Services
             </motion.span>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Comprehensive IT Solutions
+              Services designed for operational reality
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              From strategy to execution, we deliver excellence in every aspect of digital transformation
+              We don't build software for demos. We engineer systems for the way your business actually runs—under load, under audits, and over time.
             </p>
           </div>
 

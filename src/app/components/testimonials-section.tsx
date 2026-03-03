@@ -3,32 +3,28 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    role: "CEO, TechVentures Inc.",
-    content: "Key Concepts transformed our entire business operations with their Odoo ERP solution. The AI-powered automation has saved us countless hours and significantly improved our efficiency.",
+    name: "[Client Name]",
+    role: "[Designation], Puri Crawford",
+    content: "[Insert real client quote here — focus on delivery discipline, communication, or long-term support.]",
     rating: 5,
-    company: "TechVentures"
+    company: "Puri Crawford",
+    industry: "Insurance"
   },
   {
-    name: "Michael Chen",
-    role: "CTO, InnovateSoft",
-    content: "Their cloud-native app development expertise is unmatched. We launched our product 3 months ahead of schedule with their dedicated team. Absolutely phenomenal work!",
+    name: "[Client Name]",
+    role: "[Designation], Anupam Rasayan",
+    content: "[Insert real client quote here.]",
     rating: 5,
-    company: "InnovateSoft"
+    company: "Anupam Rasayan",
+    industry: "Pharma / Chemicals"
   },
   {
-    name: "Emily Rodriguez",
-    role: "Marketing Director, GrowthLab",
-    content: "The digital marketing and SEO services have tripled our online visibility. Their data-driven approach and transparent reporting make them stand out from the competition.",
+    name: "[Client Name]",
+    role: "[Designation], Goldi Solar",
+    content: "[Insert real client quote here.]",
     rating: 5,
-    company: "GrowthLab"
-  },
-  {
-    name: "David Thompson",
-    role: "Founder, StartupHub",
-    content: "From API integration to mobile app development, Key Concepts handled everything seamlessly. Their technical expertise and customer service are second to none.",
-    rating: 5,
-    company: "StartupHub"
+    company: "Goldi Solar",
+    industry: "Solar / Manufacturing"
   },
 ];
 
@@ -51,10 +47,10 @@ export function TestimonialsSection() {
             Client Success Stories
           </motion.span>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Trusted by Industry Leaders
+            What Clients Say
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            See what our clients say about their transformation journey with us
+            We earn trust through delivery—not promises.
           </p>
         </motion.div>
 
@@ -95,6 +91,7 @@ export function TestimonialsSection() {
                   <div>
                     <div className="font-semibold text-gray-900">{testimonial.name}</div>
                     <div className="text-sm text-gray-600">{testimonial.role}</div>
+                    <div className="text-xs text-[#f1592a] font-medium mt-0.5">{testimonial.industry}</div>
                   </div>
                 </div>
 
@@ -113,10 +110,10 @@ export function TestimonialsSection() {
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"
         >
           {[
-            { value: "500+", label: "Projects Completed" },
-            { value: "98%", label: "Client Satisfaction" },
-            { value: "150+", label: "Enterprise Clients" },
-            { value: "24/7", label: "Support Available" },
+            { value: "16+", label: "Years of Delivery" },
+            { value: "400+", label: "Clients Worldwide" },
+            { value: "10L+", label: "Development Hours" },
+            { value: "3", label: "Regions — India, USA, MENA" },
           ].map((stat, index) => (
             <motion.div
               key={index}

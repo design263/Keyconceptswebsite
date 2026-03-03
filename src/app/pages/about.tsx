@@ -5,48 +5,27 @@ import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 const values = [
   {
     icon: Lightbulb,
-    title: "Innovation First",
-    description: "We stay ahead of technology trends to deliver cutting-edge solutions."
+    title: "16 Years",
+    description: "Years of delivery legacy"
   },
   {
     icon: Heart,
-    title: "Client-Centric",
-    description: "Your success is our success. We build lasting partnerships."
+    title: "400+",
+    description: "Clients worldwide"
   },
   {
     icon: Award,
-    title: "Excellence",
-    description: "We maintain the highest standards in every project we undertake."
+    title: "10L+",
+    description: "Development hours"
   },
   {
     icon: Zap,
-    title: "Agility",
-    description: "We adapt quickly to changes and deliver solutions efficiently."
+    title: "3 Regions",
+    description: "India, USA, and MENA"
   },
 ];
 
-const team = [
-  {
-    name: "John Anderson",
-    role: "Chief Executive Officer",
-    initial: "JA"
-  },
-  {
-    name: "Sarah Mitchell",
-    role: "Chief Technology Officer",
-    initial: "SM"
-  },
-  {
-    name: "Michael Brown",
-    role: "Head of Development",
-    initial: "MB"
-  },
-  {
-    name: "Emily Davis",
-    role: "Head of Marketing",
-    initial: "ED"
-  },
-];
+const team: { name: string; role: string; initial: string }[] = [];
 
 export function AboutPage() {
   return (
@@ -70,14 +49,13 @@ export function AboutPage() {
               transition={{ delay: 0.2 }}
               className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-semibold mb-6"
             >
-              About Us
+              About KCIPL
             </motion.span>
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Transforming Businesses Since 2009
+              Built for organizations where reliability matters.
             </h1>
             <p className="text-xl text-gray-300 leading-relaxed">
-              We're a team of passionate technologists dedicated to helping businesses 
-              thrive in the digital age through innovative IT solutions.
+              KCIPL is a product engineering company that builds and modernizes business-critical software systems. We partner with enterprises and growth-stage organizations that need systems to work under real operational load—with governance, auditability, and long-term support built in.
             </p>
           </motion.div>
         </div>
@@ -93,23 +71,11 @@ export function AboutPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Our Story
+                Who We Partner With
               </h2>
               <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
                 <p>
-                  Founded in 2009, Key Concepts emerged from a simple vision: to bridge the 
-                  gap between businesses and technology. What started as a small team of 
-                  developers has grown into a full-service IT solutions provider.
-                </p>
-                <p>
-                  Over 15 years, we've helped over 500 businesses transform their operations 
-                  through intelligent ERP solutions, cutting-edge web and mobile applications, 
-                  and comprehensive digital marketing strategies.
-                </p>
-                <p>
-                  As an official Odoo partner, we specialize in delivering tailored ERP 
-                  solutions that drive efficiency and growth. Our commitment to innovation 
-                  and excellence has made us a trusted partner for enterprises and startups alike.
+                  We partner with enterprises modernizing workflows and systems—replacing legacy processes with governed, scalable platforms. Growing businesses moving off Excel who need real systems before they outgrow manual operations. Teams requiring audit readiness where role-based access, approval trails, and traceability are not optional. Clients who need long-term ownership—not just a project handover, but continuous improvement and maintenance.
                 </p>
               </div>
             </motion.div>
@@ -150,10 +116,9 @@ export function AboutPage() {
                   </div>
                   <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-white rounded-full border-2 border-[#f1592a]" />
                 </div>
-                <h3 className="text-3xl font-bold mb-4">Our Mission</h3>
+                <h3 className="text-3xl font-bold mb-4">What makes us different is how we run delivery.</h3>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  To empower businesses with innovative technology solutions that drive 
-                  growth, efficiency, and competitive advantage in an ever-evolving digital landscape.
+                  Most software partners focus on features. We focus on how systems actually operate—under load, under audits, under organizational change. Clean communication, governance-aware engineering, long-term ownership, and disciplined execution from day one.
                 </p>
               </div>
             </motion.div>
@@ -172,10 +137,9 @@ export function AboutPage() {
                   </div>
                   <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-white rounded-full border-2 border-gray-700" />
                 </div>
-                <h3 className="text-3xl font-bold mb-4">Our Vision</h3>
+                <h3 className="text-3xl font-bold mb-4">Our Differentiators</h3>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  To be the leading IT solutions provider recognized for excellence, 
-                  innovation, and transformative impact on businesses worldwide.
+                  RBAC, audit trails, maker-checker, and compliance-ready patterns built in by default. Sprint discipline, QA cycles, change control, and risk tracking. Structured weekly updates, milestone visibility, and documented decisions. SLA-based support and roadmap execution, not post-launch silence.
                 </p>
               </div>
             </motion.div>
@@ -193,10 +157,10 @@ export function AboutPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Our Core Values
+              Proof Points
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              The principles that guide everything we do
+              The numbers behind our delivery legacy
             </p>
           </motion.div>
 
@@ -234,37 +198,23 @@ export function AboutPage() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Meet Our Leadership
+              Work With Us
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Experienced professionals dedicated to your success
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+              Ready to build systems that work under real operational pressure? Let's talk.
             </p>
+            <motion.a
+              href="/contact"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg hover:shadow-xl transition-all font-semibold"
+            >
+              Get In Touch
+            </motion.a>
           </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="group text-center"
-              >
-                <div className="bg-white/60 backdrop-blur-lg rounded-3xl p-8 shadow-lg border border-white/60 hover:shadow-2xl transition-all">
-                  <div className="w-24 h-24 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    {member.initial}
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                  <p className="text-gray-600 text-sm">{member.role}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -273,10 +223,10 @@ export function AboutPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { value: "15+", label: "Years Experience" },
-              { value: "500+", label: "Projects Delivered" },
-              { value: "150+", label: "Enterprise Clients" },
-              { value: "98%", label: "Client Satisfaction" },
+              { value: "16+", label: "Years of Delivery" },
+              { value: "400+", label: "Clients Worldwide" },
+              { value: "10L+", label: "Dev Hours" },
+              { value: "25+", label: "Team Members" },
             ].map((stat, index) => (
               <motion.div
                 key={index}
