@@ -1,0 +1,121 @@
+import { jsx, jsxs } from "react/jsx-runtime";
+import { motion } from "motion/react";
+import { Star, Quote } from "lucide-react";
+const testimonials = [
+  {
+    name: "Sarah Johnson",
+    role: "CEO, TechVentures Inc.",
+    content: "Key Concepts transformed our entire business operations with their Odoo ERP solution. The AI-powered automation has saved us countless hours and significantly improved our efficiency.",
+    rating: 5,
+    company: "TechVentures"
+  },
+  {
+    name: "Michael Chen",
+    role: "CTO, InnovateSoft",
+    content: "Their cloud-native app development expertise is unmatched. We launched our product 3 months ahead of schedule with their dedicated team. Absolutely phenomenal work!",
+    rating: 5,
+    company: "InnovateSoft"
+  },
+  {
+    name: "Emily Rodriguez",
+    role: "Marketing Director, GrowthLab",
+    content: "The digital marketing and SEO services have tripled our online visibility. Their data-driven approach and transparent reporting make them stand out from the competition.",
+    rating: 5,
+    company: "GrowthLab"
+  },
+  {
+    name: "David Thompson",
+    role: "Founder, StartupHub",
+    content: "From API integration to mobile app development, Key Concepts handled everything seamlessly. Their technical expertise and customer service are second to none.",
+    rating: 5,
+    company: "StartupHub"
+  }
+];
+function TestimonialsSection() {
+  return /* @__PURE__ */ jsx("section", { className: "py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden", children: /* @__PURE__ */ jsxs("div", { className: "container mx-auto px-4 sm:px-6 lg:px-8", children: [
+    /* @__PURE__ */ jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 50 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true },
+        className: "text-center mb-16",
+        children: [
+          /* @__PURE__ */ jsx(
+            motion.span,
+            {
+              initial: { opacity: 0, y: 20 },
+              whileInView: { opacity: 1, y: 0 },
+              viewport: { once: true },
+              className: "inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-cyan-500/10 rounded-full text-sm font-semibold text-[#f1592a] mb-4",
+              children: "Client Success Stories"
+            }
+          ),
+          /* @__PURE__ */ jsx("h2", { className: "text-4xl md:text-5xl font-bold mb-4", children: "Trusted by Industry Leaders" }),
+          /* @__PURE__ */ jsx("p", { className: "text-lg text-gray-600 max-w-2xl mx-auto", children: "See what our clients say about their transformation journey with us" })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-8", children: testimonials.map((testimonial, index) => /* @__PURE__ */ jsx(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 50 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true },
+        transition: { delay: index * 0.1 },
+        whileHover: { y: -10 },
+        className: "group relative",
+        children: /* @__PURE__ */ jsxs("div", { className: "relative bg-white/60 backdrop-blur-lg rounded-3xl p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300", children: [
+          /* @__PURE__ */ jsx("div", { className: "absolute top-8 right-8 text-[#f1592a]/10 group-hover:text-[#f1592a]/20 transition-colors", children: /* @__PURE__ */ jsx(Quote, { size: 48 }) }),
+          /* @__PURE__ */ jsx("div", { className: "flex items-center space-x-1 mb-4", children: [...Array(testimonial.rating)].map((_, i) => /* @__PURE__ */ jsx(Star, { size: 18, className: "fill-[#f1592a] text-[#f1592a]" }, i)) }),
+          /* @__PURE__ */ jsxs("p", { className: "text-gray-700 leading-relaxed mb-6 relative z-10", children: [
+            '"',
+            testimonial.content,
+            '"'
+          ] }),
+          /* @__PURE__ */ jsxs("div", { className: "flex items-center space-x-4", children: [
+            /* @__PURE__ */ jsx("div", { className: "w-12 h-12 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-full flex items-center justify-center text-white font-bold", children: testimonial.name.charAt(0) }),
+            /* @__PURE__ */ jsxs("div", { children: [
+              /* @__PURE__ */ jsx("div", { className: "font-semibold text-gray-900", children: testimonial.name }),
+              /* @__PURE__ */ jsx("div", { className: "text-sm text-gray-600", children: testimonial.role })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsx("div", { className: "absolute inset-0 bg-gradient-to-br from-[#f1592a]/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl" })
+        ] })
+      },
+      index
+    )) }),
+    /* @__PURE__ */ jsx(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 50 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true },
+        className: "mt-16 grid grid-cols-2 md:grid-cols-4 gap-8",
+        children: [
+          { value: "500+", label: "Projects Completed" },
+          { value: "98%", label: "Client Satisfaction" },
+          { value: "150+", label: "Enterprise Clients" },
+          { value: "24/7", label: "Support Available" }
+        ].map((stat, index) => /* @__PURE__ */ jsxs(
+          motion.div,
+          {
+            initial: { opacity: 0, scale: 0.8 },
+            whileInView: { opacity: 1, scale: 1 },
+            viewport: { once: true },
+            transition: { delay: index * 0.1 },
+            className: "text-center",
+            children: [
+              /* @__PURE__ */ jsx("div", { className: "text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent mb-2", children: stat.value }),
+              /* @__PURE__ */ jsx("div", { className: "text-sm text-gray-600", children: stat.label })
+            ]
+          },
+          index
+        ))
+      }
+    )
+  ] }) });
+}
+export {
+  TestimonialsSection
+};
