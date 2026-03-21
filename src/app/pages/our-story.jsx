@@ -622,20 +622,28 @@ function OurStoryPage() {
                 whileInView: { opacity: 1, y: 0 },
                 viewport: { once: true },
                 className: "mt-16 max-w-5xl mx-auto",
-                children: /* @__PURE__ */ jsxs("div", {
-                  className:
-                    "relative rounded-3xl overflow-hidden shadow-2xl border border-white/10",
-                  children: [
-                    /* @__PURE__ */ jsx(ImageWithFallback, {
-                      src: team,
-                      alt: "Key Concepts Team",
-                      className: "w-full h-auto",
-                    }),
-                    /* @__PURE__ */ jsx("div", {
-                      className:
-                        "absolute inset-0 bg-gradient-to-t from-black/40 to-transparent",
-                    }),
-                  ],
+                children: /* @__PURE__ */ jsx("div", {
+                  className: "flex items-center justify-center",
+                  children: /* @__PURE__ */ jsxs("div", {
+                    className:
+                      "relative overflow-hidden shadow-2xl border border-white/10",
+                    style: {
+                      width: "60%",
+                      margin: "0 auto",
+                      borderRadius: "20px",
+                    },
+                    children: [
+                      /* @__PURE__ */ jsx(ImageWithFallback, {
+                        src: team,
+                        alt: "Key Concepts Team",
+                        className: "block h-auto w-full",
+                      }),
+                      /* @__PURE__ */ jsx("div", {
+                        className:
+                          "pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 to-transparent",
+                      }),
+                    ],
+                  }),
                 }),
               }),
             ],
