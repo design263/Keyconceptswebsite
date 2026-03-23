@@ -1,37 +1,38 @@
-import { useEffect, useMemo, useState } from "react";
-import { motion } from "motion/react";
+import { useEffect, useMemo, useState } from 'react'
+import { motion } from 'motion/react'
 
-const LOGOS_PER_PAGE = 8;
+const LOGOS_PER_PAGE = 8
 
 /** Each row always has `size` logos; indices wrap with modulo so the last row is never short. */
 function wrapPages(list, size) {
-  if (!list.length) return [[]];
-  const n = list.length;
-  const pageCount = Math.ceil(n / size);
-  const pages = [];
+  if (!list.length) return [[]]
+  const n = list.length
+  const pageCount = Math.ceil(n / size)
+  const pages = []
   for (let p = 0; p < pageCount; p++) {
-    const row = [];
+    const row = []
     for (let i = 0; i < size; i++) {
-      row.push(list[(p * size + i) % n]);
+      row.push(list[(p * size + i) % n])
     }
-    pages.push(row);
+    pages.push(row)
   }
-  return pages;
+  return pages
 }
 
-const logoModules = import.meta.glob("../../assets/clientLogo/*.{png,jpg,jpeg}", {
+const logoModules = import.meta.glob('../../assets/clientLogo/*.{png,jpg,jpeg}', {
   eager: true,
-});
+})
 
 function pathToDisplayName(filePath) {
-  const base = filePath.split(/[/\\]/).pop().replace(/\.[^.]+$/, "");
-  return base
-    .replace(/[-_]+/g, " ")
-    .replace(/\b\w/g, (c) => c.toUpperCase());
+  const base = filePath
+    .split(/[/\\]/)
+    .pop()
+    .replace(/\.[^.]+$/, '')
+  return base.replace(/[-_]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
 }
 
 function normalizeClientKey(name) {
-  return name.toLowerCase().replace(/[-_\s]+/g, "");
+  return name.toLowerCase().replace(/[-_\s]+/g, '')
 }
 
 const clients = Object.entries(logoModules)
@@ -42,22 +43,22 @@ const clients = Object.entries(logoModules)
   }))
   .sort((a, b) => a.name.localeCompare(b.name))
   .filter((client, index, arr) => {
-    const key = normalizeClientKey(client.name);
-    return arr.findIndex((c) => normalizeClientKey(c.name) === key) === index;
-  });
+    const key = normalizeClientKey(client.name)
+    return arr.findIndex((c) => normalizeClientKey(c.name) === key) === index
+  })
 
 function ClientLogos() {
-  const pages = useMemo(() => wrapPages(clients, LOGOS_PER_PAGE), []);
-  const pageCount = pages.length;
-  const [page, setPage] = useState(0);
+  const pages = useMemo(() => wrapPages(clients, LOGOS_PER_PAGE), [])
+  const pageCount = pages.length
+  const [page, setPage] = useState(0)
 
   useEffect(() => {
-    if (pageCount <= 1) return undefined;
+    if (pageCount <= 1) return undefined
     const id = window.setInterval(() => {
-      setPage((p) => (p + 1) % pageCount);
-    }, 5000);
-    return () => clearInterval(id);
-  }, [pageCount]);
+      setPage((p) => (p + 1) % pageCount)
+    }, 5000)
+    return () => clearInterval(id)
+  }, [pageCount])
 
   return (
     <section className="py-16 bg-white border-t border-gray-100">
@@ -111,7 +112,7 @@ function ClientLogos() {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-export { ClientLogos };
+export { ClientLogos }

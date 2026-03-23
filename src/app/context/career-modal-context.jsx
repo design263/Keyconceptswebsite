@@ -1,22 +1,26 @@
-import { jsx } from "react/jsx-runtime";
-import { createContext, useContext, useState } from "react";
-const CareerModalContext = createContext(
-  void 0
-);
+import { createContext, useContext, useState } from 'react'
+const CareerModalContext = createContext(void 0)
 function CareerModalProvider({ children }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
-  return /* @__PURE__ */ jsx(CareerModalContext.Provider, { value: { isOpen, openModal, closeModal }, children });
+  const [isOpen, setIsOpen] = useState(false)
+  const openModal = () => setIsOpen(true)
+  const closeModal = () => setIsOpen(false)
+  return (
+    <CareerModalContext.Provider
+      value={{
+        isOpen,
+        openModal,
+        closeModal,
+      }}
+    >
+      {children}
+    </CareerModalContext.Provider>
+  )
 }
 function useCareerModal() {
-  const context = useContext(CareerModalContext);
+  const context = useContext(CareerModalContext)
   if (context === void 0) {
-    throw new Error("useCareerModal must be used within a CareerModalProvider");
+    throw new Error('useCareerModal must be used within a CareerModalProvider')
   }
-  return context;
+  return context
 }
-export {
-  CareerModalProvider,
-  useCareerModal
-};
+export { CareerModalProvider, useCareerModal }

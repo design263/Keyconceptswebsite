@@ -1,9 +1,6 @@
-import { jsx } from "react/jsx-runtime";
-import { RouterProvider } from "react-router";
-import { router } from "./routes";
+import { RouterProvider } from 'react-router'
+import { router } from './routes'
 function App() {
-  return /* @__PURE__ */ jsx(RouterProvider, { router });
+  return <RouterProvider router={router} />
 }
-export {
-  App as default
-};
+export { App as default }
