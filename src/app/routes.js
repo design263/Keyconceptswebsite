@@ -24,6 +24,12 @@ import { IndustryTrendsPage } from './pages/industry-trends'
 import { CaseStudiesPage } from './pages/case-studies'
 import { CaseStudyDetailPage } from './pages/case-study-detail'
 import { NotFoundPage } from './pages/not-found'
+import { AdminLoginPage } from './pages/admin/login'
+import { AdminRegisterPage } from './pages/admin/register'
+import { AdminDashboardPage } from './pages/admin/dashboard'
+import { AdminJobsPage } from './pages/admin/jobs'
+import { AdminApplicationsPage } from './pages/admin/applications'
+import { AdminLeadsPage } from './pages/admin/leads'
 
 export const router = createBrowserRouter([
   {
@@ -56,4 +62,10 @@ export const router = createBrowserRouter([
       { path: '*', Component: NotFoundPage },
     ],
   },
+  { path: "/admin/login", Component: AdminLoginPage },
+  { path: "/admin/register", Component: AdminRegisterPage },
+  { path: "/admin/dashboard", Component: AdminDashboardPage },
+  { path: "/admin/jobs", Component: AdminJobsPage },
+  { path: "/admin/applications", Component: AdminApplicationsPage },
+  { path: "/admin/leads", Component: AdminLeadsPage },
 ])
