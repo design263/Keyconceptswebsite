@@ -12,8 +12,10 @@ import {
   Bookmark,
 } from 'lucide-react'
 import { Link, useParams } from 'react-router'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Code, Palette, Database, Smartphone, Settings, Target } from 'lucide-react'
+import { api } from '../lib/api'
+
 const jobData = [
   {
     id: '1',
@@ -322,10 +324,53 @@ const jobData = [
     ],
   },
 ]
+
 function JobDetailPage() {
   const { id } = useParams()
-  const job = jobData.find((j) => j.id === id)
+
+  const [dynamicJob, setDynamicJob] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const getDynamicJobDetails = async (id) => {
+    if (!id) return;
+    api
+      .get(`/jobs/${id}`)
+      .then((data) => {
+        setDynamicJob({
+          id: data._id,
+          title: data.title,
+          department: data.department,
+          location: data.location,
+          type: data.employmentType,
+          salary: data.salary || "Competitive",
+          experience: data.experience,
+          skills: (data.requirements || []).slice(0, 6),
+          description: data.description,
+          responsibilities: data.responsibilities?.length ? data.responsibilities : data.description.split(".").map((item) => item.trim()).filter(Boolean),
+          requirements: data.requirements?.length ? data.requirements : [],
+          niceToHave: data.niceToHave?.length ? data.niceToHave : [],
+          benefits: data.benefits?.length ? data.benefits : ["Competitive benefits package"],
+        });
+      })
+      .catch(() => setDynamicJob(null));
+  }
+
+  useEffect(() => {
+    if (!id) return;
+    getDynamicJobDetails(id);
+  }, [id]);
+
+  const job = dynamicJob?.id === id ? dynamicJob : null;
+
+  const submitApplication = async (e) => {
+    e.preventDefault();
+    const target = e.currentTarget;
+    const formData = new FormData(target);
+    formData.append("jobId", String(job.id));
+    await api.post("/applications", formData);
+    setIsModalOpen(false);
+  }
+
   if (!job) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -340,6 +385,7 @@ function JobDetailPage() {
       </div>
     )
   }
+
   return (
     <div className="min-h-screen bg-white">
       {' '}
@@ -605,7 +651,7 @@ function JobDetailPage() {
             </div>{' '}
             <div className="p-6 md:p-8">
               {' '}
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={submitApplication}>
                 {' '}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {' '}
@@ -616,6 +662,7 @@ function JobDetailPage() {
                     </label>{' '}
                     <input
                       type="text"
+                      name="fullName"
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-transparent transition-all"
                       placeholder="John Doe"
@@ -628,6 +675,7 @@ function JobDetailPage() {
                     </label>{' '}
                     <input
                       type="email"
+                      name="email"
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-transparent transition-all"
                       placeholder="john@example.com"
@@ -640,6 +688,7 @@ function JobDetailPage() {
                     </label>{' '}
                     <input
                       type="tel"
+                      name="phone"
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-transparent transition-all"
                       placeholder="+91 1234567890"
@@ -652,6 +701,7 @@ function JobDetailPage() {
                     </label>{' '}
                     <input
                       type="url"
+                      name="linkedin"
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-transparent transition-all"
                       placeholder="linkedin.com/in/johndoe"
                     />
@@ -664,6 +714,7 @@ function JobDetailPage() {
                   </label>{' '}
                   <textarea
                     required
+                    name="coverLetter"
                     rows={6}
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-transparent transition-all resize-none"
                     placeholder="Tell us why you're excited about this role and what makes you a great fit..."
@@ -681,6 +732,7 @@ function JobDetailPage() {
                       required
                       className="hidden"
                       id="resume-upload"
+                      name="resume"
                       accept=".pdf,.doc,.docx"
                     />{' '}
                     <label

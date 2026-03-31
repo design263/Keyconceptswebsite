@@ -1,6 +1,8 @@
 import { motion } from 'motion/react'
 import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react'
 import { useState } from 'react'
+import { api } from '../lib/api'
+
 function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
@@ -10,15 +12,21 @@ function ContactPage() {
     service: '',
     message: '',
   })
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('Form submitted:', formData)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await api.post("/contact-leads", {
+      name: formData.name,
+      email: formData.email,
+      subject: formData.service || "General Inquiry",
+      message: `${formData.message}${formData.company ? `\nCompany: ${formData.company}` : ""}${formData.phone ? `\nPhone: ${formData.phone}` : ""}`,
+    });
+    setFormData({ name: "", email: "", company: "", phone: "", service: "", message: "" });
   }
   const handleChange = (e) => {
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
-      [e.target.name]: e.target.value,
-    }))
+      [e.target.name]: e.target.value
+    }));
   }
   return (
     <div className="min-h-screen bg-white">

@@ -28,10 +28,12 @@ import {
 } from 'lucide-react'
 import { ImageWithFallback } from '../components/figma/ImageWithFallback'
 import { Link } from 'react-router'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import { api } from '../lib/api'
+
 const whyWorkHere = [
   {
     icon: Rocket,
@@ -71,7 +73,7 @@ const whyWorkHere = [
   },
 ]
 const cultureValues = []
-const openRoles = [
+const openRolesStatic = [
   {
     id: 1,
     title: 'Full Stack Developer',
@@ -205,6 +207,7 @@ const cultureImages = [
     alt: 'Coding Together',
   },
 ]
+
 function NextArrow(props) {
   const { onClick } = props
   return (
@@ -353,15 +356,46 @@ function CultureImageSlider() {
 }
 function CareersPage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedRole, setSelectedRole] = useState(null)
+  const [selectedRole, setSelectedRole] = useState(null);
+  const [openRoles, setOpenRoles] = useState([]);
+  const [applicationForm, setApplicationForm] = useState({ fullName: "", email: "", phone: "", coverLetter: "" });
+  const [resumeFile, setResumeFile] = useState(null);
+
+  useEffect(() => {
+    api.get("/jobs?status=active&limit=50").then((res) => setOpenRoles(res.data)).catch(() => setOpenRoles([]));
+  }, []);
+
   const openModal = (role) => {
-    setSelectedRole(role)
-    setIsModalOpen(true)
-  }
+    setSelectedRole(role);
+    setIsModalOpen(true);
+  };
+
   const closeModal = () => {
-    setSelectedRole(null)
-    setIsModalOpen(false)
-  }
+    setSelectedRole(null);
+    setIsModalOpen(false);
+    setApplicationForm({ fullName: "", email: "", phone: "", coverLetter: "" });
+    setResumeFile(null);
+  };
+
+  const getRequirementTags = (requirements) =>
+    Array.isArray(requirements) ? requirements : requirements?.split(",").map((item) => item.trim()).filter(Boolean);
+
+  const submitApplication = async (e) => {
+    e.preventDefault();
+    if (!selectedRole || !resumeFile) return;
+
+    const formData = new FormData();
+    formData.append("jobId", selectedRole._id);
+    formData.append("fullName", applicationForm.fullName);
+    formData.append("email", applicationForm.email);
+    formData.append("phone", applicationForm.phone);
+    formData.append("coverLetter", applicationForm.coverLetter);
+    formData.append("resume", resumeFile);
+
+    await api.post("/applications", formData);
+    closeModal();
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {' '}
@@ -837,7 +871,7 @@ function CareersPage() {
                   delay: index * 0.05,
                 }}
                 className="group bg-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all overflow-hidden"
-                key={role.id}
+                key={role._id}
               >
                 {' '}
                 <div className="p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
@@ -868,7 +902,7 @@ function CareersPage() {
                       </div>{' '}
                       <p className="text-gray-600 leading-relaxed mb-4">{role.description}</p>{' '}
                       <div className="flex flex-wrap gap-2">
-                        {role.skills.slice(0, 4).map((skill) => (
+                        {getRequirementTags(role?.requirements)?.slice(0, 4).map((skill) => (
                           <span
                             className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium border border-gray-200"
                             key={skill}
@@ -876,9 +910,9 @@ function CareersPage() {
                             {skill}
                           </span>
                         ))}
-                        {role.skills.length > 4 && (
+                        {getRequirementTags(role?.requirements)?.length > 4 && (
                           <span className="px-3 py-1 text-gray-500 text-xs font-medium">
-                            +{role.skills.length - 4} more
+                            +{getRequirementTags(role?.requirements)?.length - 4} more
                           </span>
                         )}
                       </div>
@@ -886,7 +920,7 @@ function CareersPage() {
                   </div>{' '}
                   <div className="flex flex-col sm:flex-row md:flex-col gap-3 md:min-w-[140px]">
                     {' '}
-                    <Link to={`/careers/${role.id}`}>
+                    <Link to={`/careers/${role._id}`}>
                       {' '}
                       <motion.button
                         whileHover={{
@@ -1049,7 +1083,7 @@ function CareersPage() {
                 <X size={24} />
               </button>
             </div>{' '}
-            <form>
+            <form onSubmit={submitApplication}>
               {' '}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {' '}
@@ -1058,6 +1092,9 @@ function CareersPage() {
                   <label className="block text-sm font-medium text-gray-700">Full Name</label>{' '}
                   <input
                     type="text"
+                    value={applicationForm.fullName}
+                    onChange={(e) => setApplicationForm((prev) => ({ ...prev, fullName: e.target.value }))}
+                    required
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#f1592a] focus:border-[#f1592a] sm:text-sm"
                   />
                 </div>{' '}
@@ -1068,6 +1105,9 @@ function CareersPage() {
                   </label>{' '}
                   <input
                     type="email"
+                    value={applicationForm.email}
+                    onChange={(e) => setApplicationForm((prev) => ({ ...prev, email: e.target.value }))}
+                    required
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#f1592a] focus:border-[#f1592a] sm:text-sm"
                   />
                 </div>{' '}
@@ -1078,6 +1118,9 @@ function CareersPage() {
                   </label>{' '}
                   <input
                     type="tel"
+                    value={applicationForm.phone}
+                    onChange={(e) => setApplicationForm((prev) => ({ ...prev, phone: e.target.value }))}
+                    required
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#f1592a] focus:border-[#f1592a] sm:text-sm"
                   />
                 </div>{' '}
@@ -1098,6 +1141,9 @@ function CareersPage() {
                   </label>{' '}
                   <textarea
                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#f1592a] focus:border-[#f1592a] sm:text-sm"
+                    value={applicationForm.coverLetter}
+                    onChange={(e) => setApplicationForm((prev) => ({ ...prev, coverLetter: e.target.value }))}
+                    required
                     rows={4}
                   />
                 </div>{' '}
@@ -1106,7 +1152,13 @@ function CareersPage() {
                   <label className="block text-sm font-medium text-gray-700">Resume</label>{' '}
                   <div className="mt-1 flex items-center">
                     {' '}
-                    <input type="file" className="sr-only" id="resume" />{' '}
+                    <input
+                      type="file"
+                      className="sr-only"
+                      accept=".pdf,.doc,.docx"
+                      onChange={(e) => setResumeFile(e.target.files?.[0] || null)}
+                      id="resume"
+                    />{' '}
                     <label
                       htmlFor="resume"
                       className="inline-flex items-center px-4 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f1592a]"
