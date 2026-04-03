@@ -166,24 +166,24 @@
     "@babel/helper-validator-identifier" "^7.28.5"
 
 "@emnapi/core@^1.4.3", "@emnapi/core@^1.4.5":
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/@emnapi/core/-/core-1.9.1.tgz#2143069c744ca2442074f8078462e51edd63c7bd"
-  integrity sha512-mukuNALVsoix/w1BJwFzwXBN/dHeejQtuVzcDsfOEsdpCumXb/E9j8w11h5S54tT1xhifGfbbSm/ICrObRb3KA==
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/@emnapi/core/-/core-1.9.2.tgz#3870265ecffc7352d01ead62d8d83d8358a2d034"
+  integrity sha512-UC+ZhH3XtczQYfOlu3lNEkdW/p4dsJ1r/bP7H8+rhao3TTTMO1ATq/4DdIi23XuGoFY+Cz0JmCbdVl0hz9jZcA==
   dependencies:
-    "@emnapi/wasi-threads" "1.2.0"
+    "@emnapi/wasi-threads" "1.2.1"
     tslib "^2.4.0"
 
 "@emnapi/runtime@^1.4.3", "@emnapi/runtime@^1.4.5":
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/@emnapi/runtime/-/runtime-1.9.1.tgz#115ff2a0d589865be6bd8e9d701e499c473f2a8d"
-  integrity sha512-VYi5+ZVLhpgK4hQ0TAjiQiZ6ol0oe4mBx7mVv7IflsiEp0OWoVsp/+f9Vc1hOhE0TtkORVrI1GvzyreqpgWtkA==
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/@emnapi/runtime/-/runtime-1.9.2.tgz#8b469a3db160817cadb1de9050211a9d1ea84fa2"
+  integrity sha512-3U4+MIWHImeyu1wnmVygh5WlgfYDtyf0k8AbLhMFxOipihf6nrWC4syIm/SwEeec0mNSafiiNnMJwbza/Is6Lw==
   dependencies:
     tslib "^2.4.0"
 
-"@emnapi/wasi-threads@1.2.0", "@emnapi/wasi-threads@^1.0.4":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@emnapi/wasi-threads/-/wasi-threads-1.2.0.tgz#a19d9772cc3d195370bf6e2a805eec40aa75e18e"
-  integrity sha512-N10dEJNSsUx41Z6pZsXU8FjPjpBEplgH24sfkmITrBED1/U2Esum9F3lfLrMjKHHjmi557zQn7kR9R+XWXu5Rg==
+"@emnapi/wasi-threads@1.2.1", "@emnapi/wasi-threads@^1.0.4":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@emnapi/wasi-threads/-/wasi-threads-1.2.1.tgz#28fed21a1ba1ce797c44a070abc94d42f3ae8548"
+  integrity sha512-uTII7OYF+/Mes/MrcIOYp5yOtSMLBWSIoLPpcgwipoiKbli6k322tcoFsxoIIxPDqW01SQGAgko4EzZi2BNv2w==
   dependencies:
     tslib "^2.4.0"
 
@@ -2305,6 +2305,11 @@ node-releases@^2.0.27:
   resolved "https://registry.npmjs.org/node-releases/-/node-releases-2.0.36.tgz"
   integrity sha512-TdC8FSgHz8Mwtw9g5L4gR/Sh9XhSP/0DEkQxfEFXOpiul5IiHgHan2VhYYb6agDSfp4KuvltmGApc8HMgUrIkA==
 
+nodemailer@^8.0.4:
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-8.0.4.tgz#b63626585693f37a390ddaecde273da991c76010"
+  integrity sha512-k+jf6N8PfQJ0Fe8ZhJlgqU5qJU44Lpvp2yvidH3vp1lPnVQMgi4yEEMPXg5eJS1gFIJTVq1NHBk7Ia9ARdSBdQ==
+
 object-assign@^4.1.1:
   version "4.1.1"
   resolved "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz"
@@ -2484,16 +2489,16 @@ react-responsive-masonry@2.7.1:
   integrity sha512-Q+u+nOH87PzjqGFd2PgTcmLpHPZnCmUPREHYoNBc8dwJv6fi51p9U6hqwG8g/T8MN86HrFjrU+uQU6yvETU7cA==
 
 react-router-dom@^7.13.2:
-  version "7.13.2"
-  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-7.13.2.tgz#6582ab2e2f096d19486e854898b719b4efc52524"
-  integrity sha512-aR7SUORwTqAW0JDeiWF07e9SBE9qGpByR9I8kJT5h/FrBKxPMS6TiC7rmVO+gC0q52Bx7JnjWe8Z1sR9faN4YA==
+  version "7.14.0"
+  resolved "https://registry.npmjs.org/react-router-dom/-/react-router-dom-7.14.0.tgz"
+  integrity sha512-2G3ajSVSZMEtmTjIklRWlNvo8wICEpLihfD/0YMDxbWK2UyP5EGfnoIn9AIQGnF3G/FX0MRbHXdFcD+rL1ZreQ==
   dependencies:
-    react-router "7.13.2"
+    react-router "7.14.0"
 
-react-router@7.13.2, react-router@^7.13.2:
-  version "7.13.2"
-  resolved "https://registry.yarnpkg.com/react-router/-/react-router-7.13.2.tgz#bab22c9f96f81759e060a34c04e7527e5f6dbbe1"
-  integrity sha512-tX1Aee+ArlKQP+NIUd7SE6Li+CiGKwQtbS+FfRxPX6Pe4vHOo6nr9d++u5cwg+Z8K/x8tP+7qLmujDtfrAoUJA==
+react-router@7.14.0, react-router@^7.13.2:
+  version "7.14.0"
+  resolved "https://registry.npmjs.org/react-router/-/react-router-7.14.0.tgz"
+  integrity sha512-m/xR9N4LQLmAS0ZhkY2nkPA1N7gQ5TUVa5n8TgANuDTARbn1gt+zLPXEm7W0XDTbrQ2AJSJKhoa6yx1D8BcpxQ==
   dependencies:
     cookie "^1.0.1"
     set-cookie-parser "^2.6.0"
