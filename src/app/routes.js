@@ -1,5 +1,7 @@
 import { createBrowserRouter } from 'react-router'
 import { RootLayout } from './layouts/root-layout'
+import { AdminProtectedLayout } from './layouts/ProtectedLayout'
+import { AppLayout } from './layouts/AppLayout'
 import { HomePage } from './pages/home'
 import { ServicesPage } from './pages/services'
 import { AboutPage } from './pages/about'
@@ -32,6 +34,7 @@ import { AdminApplicationsPage } from './pages/admin/applications'
 import { AdminLeadsPage } from './pages/admin/leads'
 
 export const router = createBrowserRouter([
+  // ── Public routes
   {
     path: '/',
     Component: RootLayout,
@@ -62,10 +65,26 @@ export const router = createBrowserRouter([
       { path: '*', Component: NotFoundPage },
     ],
   },
-  { path: "/admin/login", Component: AdminLoginPage },
-  { path: "/admin/register", Component: AdminRegisterPage },
-  { path: "/admin/dashboard", Component: AdminDashboardPage },
-  { path: "/admin/jobs", Component: AdminJobsPage },
-  { path: "/admin/applications", Component: AdminApplicationsPage },
-  { path: "/admin/leads", Component: AdminLeadsPage },
+
+  // ── Admin public routes (no auth needed) 
+  { path: '/admin/login', Component: AdminLoginPage },
+  { path: '/admin/register', Component: AdminRegisterPage },
+
+  {
+    path: '/admin',
+    Component: AdminProtectedLayout,
+    children: [
+      {
+        Component: AppLayout,
+        children: [
+          { index: true, Component: AdminDashboardPage },
+          { path: 'dashboard', Component: AdminDashboardPage },
+          { path: 'jobs', Component: AdminJobsPage },
+          { path: 'applications', Component: AdminApplicationsPage },
+          { path: 'leads', Component: AdminLeadsPage },
+        ],
+      },
+    ],
+  },
 ])
+
