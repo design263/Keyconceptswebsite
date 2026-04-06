@@ -12,8 +12,14 @@ import applicationRoutes from "./routes/applicationRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
 import { connectDB } from "./config/db.js";
 import { errorHandler, notFound } from "./middlewares/errorHandler.js";
+import path from "path";
 
 const app = express();
+
+// Serve company mail PDFs statically so they can be linked in emails (too large for SMTP attachments)
+app.use("/public/pdfs", express.static(path.resolve("backend/src/companyMailPdf")));
+app.use("/public/pdfs", express.static(path.resolve("src/companyMailPdf"))); // Provide fallback for cwd differences
+
 
 app.use(helmet());
 app.use(cors({

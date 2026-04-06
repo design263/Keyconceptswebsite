@@ -90,7 +90,7 @@ export default async function sendEmail({ to, subject, html, attachments = [] })
     return info;
 
   } catch (error) {
-    console.error("❌ EMAIL ERROR FULL:");
+    console.error(" EMAIL ERROR FULL:");
     console.error(error);
     throw error;
   }

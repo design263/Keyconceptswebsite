@@ -55,7 +55,7 @@ export function Sidebar({ isCollapsed, onToggle }) {
 
                 {/* Navigation */}
                 <nav className="flex flex-col justify-between h-[calc(100vh-70px)]">
-                    <div className="space-y-1 px-3 pt-6 flex-1">
+                    <div className="space-y-1 px-3 pt-3 flex-1">
                         {NavItems.map((item) => (
                             <NavLink
                                 key={item.to}

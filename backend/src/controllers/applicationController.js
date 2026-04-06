@@ -108,7 +108,7 @@ export const createApplication = async (req, res) => {
               
               <div style="margin-bottom: 25px;">
                 <h3 style="color: #1f2937; border-bottom: 2px solid #f1592a; padding-bottom: 8px; display: inline-block;">Cover Letter</h3>
-                <div style="background-color: #f9fafb; padding: 20px; border-radius: 8px; border: 1px solid #f3f4f6; color: #4b5563; margin-top: 15px; white-space: pre-wrap;">
+                <div style="background-color: #f8fafc; padding: 15px; border-radius: 12px; margin: 30px 0; border: 1px solid #e2e8f0;">
                   ${application.coverLetter || 'No cover letter provided.'}
                 </div>
               </div>
@@ -127,7 +127,7 @@ export const createApplication = async (req, res) => {
             </div>
           </div>
       `,
-      attachments: mailAttachments
+      // attachments: mailAttachments
     });
 
     console.log("Company notification email sent successfully to:", companyEmail, {
@@ -190,7 +190,7 @@ export const createApplication = async (req, res) => {
       message: "Application submitted successfully",
       application: {
         ...application.toObject(),
-        resumeUrl: buildResumeUrl(req, application.resumeFilePath),
+        // resumeUrl: buildResumeUrl(req, application.resumeFilePath),
       }
     });
 

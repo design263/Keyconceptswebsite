@@ -556,24 +556,23 @@ export function AdminJobsPage() {
                             }
                           }}
                           className={`
-    relative inline-flex items-center w-7 h-4.5 rounded-full 
-    transition-all duration-300 ease-in-out
-    ${job.status === "active"
-                              ? "bg-orange-500"
-                              : "bg-gray-300"}
-  `}
+                            relative inline-flex items-center w-7 h-4.5 rounded-full 
+                              transition-all duration-300 ease-in-out
+                              ${job.status === "active" ? "bg-orange-500" : "bg-gray-300"}.
+                            `}
                         >
                           <span
                             className={`
-      absolute top-[2px] left-[2px] w-3 h-3 bg-white rounded-full 
-      shadow-md transform transition-all duration-300
-      ${job.status === "active" ? "translate-x-3" : "translate-x-0"}
-    `}
+                            absolute top-[2px] left-[2px] w-3 h-3 bg-white rounded-full 
+                            shadow-md transform transition-all duration-300
+                            ${job.status === "active" ? "translate-x-3" : "translate-x-0"}
+                          `}
                           />
                         </button>
 
                       </div>
                     </td>
+
                   </tr>
                 ))
               )}
