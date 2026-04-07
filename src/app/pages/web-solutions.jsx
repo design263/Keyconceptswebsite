@@ -208,10 +208,17 @@ Response: 200 OK (12ms)`,
     line: 3,
   },
 ]
+import { SEO } from '../components/ui/seo'
+
 function WebSolutionsPage() {
   const [hoveredMetric, setHoveredMetric] = useState(null)
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SEO
+        title="Custom Web Solutions | High-Performance Web Development"
+        description="Build lightning-fast, secure, and scalable web applications. We specialize in Next.js, Headless CMS, and cloud-native hosting to deliver 100/100 performance scores."
+      />
+      <div className="min-h-screen bg-white">
       {' '}
       <div
         className="fixed inset-0 pointer-events-none opacity-[0.015]"
@@ -1055,7 +1062,8 @@ function WebSolutionsPage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }
 export { WebSolutionsPage }

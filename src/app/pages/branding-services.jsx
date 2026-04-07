@@ -12,6 +12,7 @@ import {
   Zap,
 } from 'lucide-react'
 import { Link } from 'react-router'
+import { SEO } from '../components/ui/seo'
 const brandEvolutionStages = [
   {
     stage: '01',
@@ -103,7 +104,12 @@ const brandGuidelinePages = [
 ]
 function BrandingServicesPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SEO
+        title="Premium Branding Services"
+        description="We craft unforgettable brand identities that resonate with your audience and stand the test of time. 360° branding from strategy to visual identity."
+      />
+      <div className="min-h-screen bg-white">
       {' '}
       <div
         className="fixed inset-0 pointer-events-none opacity-[0.015]"
@@ -841,7 +847,8 @@ function BrandingServicesPage() {
           </motion.div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }
 export { BrandingServicesPage }

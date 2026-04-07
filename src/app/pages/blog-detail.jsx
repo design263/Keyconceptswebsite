@@ -2,6 +2,8 @@ import { motion } from 'motion/react'
 import { Link, useParams } from 'react-router'
 import { Calendar, Clock, User, ArrowLeft, Share2, Bookmark } from 'lucide-react'
 import { ImageWithFallback } from '../components/figma/ImageWithFallback'
+import { SEO } from '../components/ui/seo'
+
 const blogPosts = [
   {
     id: '1',
@@ -181,166 +183,141 @@ function BlogDetailPage() {
     .filter((p) => p.id !== id && p.category === post.category)
     .slice(0, 3)
   return (
-    <div className="min-h-screen bg-white">
-      {' '}
-      <section className="relative pt-32 pb-12 overflow-hidden bg-gradient-to-br from-gray-50 to-white">
+    <>
+      <SEO
+        title={post.title}
+        description={post.excerpt}
+      />
+      <div className="min-h-screen bg-white">
         {' '}
-        <div className="absolute inset-0 opacity-40">
+        <section className="relative pt-32 pb-12 overflow-hidden bg-gradient-to-br from-gray-50 to-white">
           {' '}
-          <div className="absolute top-20 right-20 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />{' '}
-          <div className="absolute bottom-20 left-20 w-96 h-96 bg-gray-300/30 rounded-full blur-3xl" />
-        </div>{' '}
-        <div className="relative w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
-          {' '}
-          <motion.div
-            initial={{
-              opacity: 0,
-              x: -20,
-            }}
-            animate={{
-              opacity: 1,
-              x: 0,
-            }}
-            transition={{
-              duration: 0.6,
-            }}
-            className="mb-8"
-          >
+          <div className="absolute inset-0 opacity-40">
             {' '}
-            <Link
-              to="/insights/trends"
-              className="inline-flex items-center space-x-2 text-gray-600 hover:text-[#f1592a] transition-colors"
+            <div className="absolute top-20 right-20 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />{' '}
+            <div className="absolute bottom-20 left-20 w-96 h-96 bg-gray-300/30 rounded-full blur-3xl" />
+          </div>{' '}
+          <div className="relative w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
+            {' '}
+            <motion.div
+              initial={{
+                opacity: 0,
+                x: -20,
+              }}
+              animate={{
+                opacity: 1,
+                x: 0,
+              }}
+              transition={{
+                duration: 0.6,
+              }}
+              className="mb-8"
             >
               {' '}
-              <ArrowLeft size={20} /> <span>Back to Industry Trends</span>
-            </Link>
-          </motion.div>{' '}
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.6,
-              delay: 0.1,
-            }}
-            className="mb-6"
-          >
-            {' '}
-            <span className="inline-block px-4 py-2 bg-[#f1592a]/10 text-[#f1592a] text-sm font-semibold rounded-full">
-              {post.category}
-            </span>
-          </motion.div>{' '}
-          <motion.h1
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.6,
-              delay: 0.2,
-            }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 max-w-4xl"
-          >
-            {post.title}
-          </motion.h1>{' '}
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.6,
-              delay: 0.3,
-            }}
-            className="flex flex-wrap items-center gap-6 text-gray-600 mb-8"
-          >
-            {' '}
-            <div className="flex items-center space-x-2">
+              <Link
+                to="/insights/trends"
+                className="inline-flex items-center space-x-2 text-gray-600 hover:text-[#f1592a] transition-colors"
+              >
+                {' '}
+                <ArrowLeft size={20} /> <span>Back to Industry Trends</span>
+              </Link>
+            </motion.div>{' '}
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.6,
+                delay: 0.1,
+              }}
+              className="mb-6"
+            >
               {' '}
-              <User size={20} /> <span className="font-semibold">{post.author}</span>
-            </div>{' '}
-            <div className="flex items-center space-x-2">
+              <span className="inline-block px-4 py-2 bg-[#f1592a]/10 text-[#f1592a] text-sm font-semibold rounded-full">
+                {post.category}
+              </span>
+            </motion.div>{' '}
+            <motion.h1
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.6,
+                delay: 0.2,
+              }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 max-w-4xl"
+            >
+              {post.title}
+            </motion.h1>{' '}
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.6,
+                delay: 0.3,
+              }}
+              className="flex flex-wrap items-center gap-6 text-gray-600 mb-8"
+            >
               {' '}
-              <Calendar size={20} /> <span>{post.date}</span>
-            </div>{' '}
-            <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2">
+                {' '}
+                <User size={20} /> <span className="font-semibold">{post.author}</span>
+              </div>{' '}
+              <div className="flex items-center space-x-2">
+                {' '}
+                <Calendar size={20} /> <span>{post.date}</span>
+              </div>{' '}
+              <div className="flex items-center space-x-2">
+                {' '}
+                <Clock size={20} /> <span>{post.readTime}</span>
+              </div>
+            </motion.div>{' '}
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.6,
+                delay: 0.4,
+              }}
+              className="flex items-center gap-4"
+            >
               {' '}
-              <Clock size={20} /> <span>{post.readTime}</span>
-            </div>
-          </motion.div>{' '}
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.6,
-              delay: 0.4,
-            }}
-            className="flex items-center gap-4"
-          >
-            {' '}
-            <button className="flex items-center space-x-2 px-6 py-3 bg-white border-2 border-gray-200 rounded-full hover:border-[#f1592a] hover:text-[#f1592a] transition-colors">
-              {' '}
-              <Share2 size={18} /> <span>Share</span>
-            </button>{' '}
-            <button className="flex items-center space-x-2 px-6 py-3 bg-white border-2 border-gray-200 rounded-full hover:border-[#f1592a] hover:text-[#f1592a] transition-colors">
-              {' '}
-              <Bookmark size={18} /> <span>Save</span>
-            </button>
-          </motion.div>
-        </div>
-      </section>{' '}
-      <section className="py-8">
-        {' '}
-        <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
+              <button className="flex items-center space-x-2 px-6 py-3 bg-white border-2 border-gray-200 rounded-full hover:border-[#f1592a] hover:text-[#f1592a] transition-colors">
+                {' '}
+                <Share2 size={18} /> <span>Share</span>
+              </button>{' '}
+              <button className="flex items-center space-x-2 px-6 py-3 bg-white border-2 border-gray-200 rounded-full hover:border-[#f1592a] hover:text-[#f1592a] transition-colors">
+                {' '}
+                <Bookmark size={18} /> <span>Save</span>
+              </button>
+            </motion.div>
+          </div>
+        </section>{' '}
+        <section className="py-8">
           {' '}
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.6,
-              delay: 0.5,
-            }}
-            className="relative rounded-3xl overflow-hidden shadow-2xl"
-          >
-            {' '}
-            <ImageWithFallback
-              src={post.image}
-              alt={post.title}
-              className="w-full h-[400px] md:h-[600px] object-cover"
-            />
-          </motion.div>
-        </div>
-      </section>{' '}
-      <section className="py-12">
-        {' '}
-        <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
-          {' '}
-          <div className="max-w-4xl mx-auto">
+          <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
             {' '}
             <motion.div
               initial={{
@@ -353,22 +330,133 @@ function BlogDetailPage() {
               }}
               transition={{
                 duration: 0.6,
-                delay: 0.6,
+                delay: 0.5,
               }}
-              className="prose prose-lg max-w-none"
-              dangerouslySetInnerHTML={{
-                __html: post.content,
-              }}
-              style={{
-                color: '#374151',
-                lineHeight: '1.8',
-              }}
-            />
+              className="relative rounded-3xl overflow-hidden shadow-2xl"
+            >
+              {' '}
+              <ImageWithFallback
+                src={post.image}
+                alt={post.title}
+                className="w-full h-[400px] md:h-[600px] object-cover"
+              />
+            </motion.div>
           </div>
-        </div>
-      </section>
-      {relatedPosts.length > 0 && (
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        </section>{' '}
+        <section className="py-12">
+          {' '}
+          <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
+            {' '}
+            <div className="max-w-4xl mx-auto">
+              {' '}
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.6,
+                }}
+                className="prose prose-lg max-w-none"
+                dangerouslySetInnerHTML={{
+                  __html: post.content,
+                }}
+                style={{
+                  color: '#374151',
+                  lineHeight: '1.8',
+                }}
+              />
+            </div>
+          </div>
+        </section>
+        {relatedPosts.length > 0 && (
+          <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+            {' '}
+            <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
+              {' '}
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  duration: 0.6,
+                }}
+                className="text-center mb-12"
+              >
+                {' '}
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                  Related Articles
+                </h2>{' '}
+                <p className="text-lg text-gray-600">
+                  Continue exploring insights in {post.category}
+                </p>
+              </motion.div>{' '}
+              <div className="grid md:grid-cols-3 gap-8">
+                {relatedPosts.map((relatedPost, index) => (
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      y: 30,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    viewport={{
+                      once: true,
+                    }}
+                    transition={{
+                      duration: 0.6,
+                      delay: index * 0.1,
+                    }}
+                    className="group"
+                    key={relatedPost.id}
+                  >
+                    {' '}
+                    <Link to={`/blog/${relatedPost.id}`} className="block h-full">
+                      {' '}
+                      <div className="h-full bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100">
+                        {' '}
+                        <div className="relative h-48 overflow-hidden">
+                          {' '}
+                          <ImageWithFallback
+                            src={relatedPost.image}
+                            alt={relatedPost.title}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          />
+                        </div>{' '}
+                        <div className="p-6">
+                          {' '}
+                          <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full mb-3">
+                            {relatedPost.category}
+                          </span>{' '}
+                          <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#f1592a] transition-colors line-clamp-2">
+                            {relatedPost.title}
+                          </h3>{' '}
+                          <p className="text-gray-600 text-sm line-clamp-3">{relatedPost.excerpt}</p>
+                        </div>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}{' '}
+        <section className="py-20 bg-white">
           {' '}
           <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
             {' '}
@@ -387,115 +475,35 @@ function BlogDetailPage() {
               transition={{
                 duration: 0.6,
               }}
-              className="text-center mb-12"
+              className="relative bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-3xl overflow-hidden p-12 md:p-16"
             >
               {' '}
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Related Articles
-              </h2>{' '}
-              <p className="text-lg text-gray-600">
-                Continue exploring insights in {post.category}
-              </p>
-            </motion.div>{' '}
-            <div className="grid md:grid-cols-3 gap-8">
-              {relatedPosts.map((relatedPost, index) => (
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    y: 30,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                  }}
-                  transition={{
-                    duration: 0.6,
-                    delay: index * 0.1,
-                  }}
-                  className="group"
-                  key={relatedPost.id}
-                >
+              <div className="absolute inset-0 opacity-10">
+                {' '}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl" />{' '}
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl" />
+              </div>{' '}
+              <div className="relative text-center max-w-3xl mx-auto">
+                {' '}
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                  Ready to Transform Your Business?
+                </h2>{' '}
+                <p className="text-white/90 text-lg mb-8">
+                  Let's discuss how our solutions can help you achieve your digital transformation
+                  goals.
+                </p>{' '}
+                <Link to="/contact">
                   {' '}
-                  <Link to={`/blog/${relatedPost.id}`} className="block h-full">
-                    {' '}
-                    <div className="h-full bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100">
-                      {' '}
-                      <div className="relative h-48 overflow-hidden">
-                        {' '}
-                        <ImageWithFallback
-                          src={relatedPost.image}
-                          alt={relatedPost.title}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
-                      </div>{' '}
-                      <div className="p-6">
-                        {' '}
-                        <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full mb-3">
-                          {relatedPost.category}
-                        </span>{' '}
-                        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#f1592a] transition-colors line-clamp-2">
-                          {relatedPost.title}
-                        </h3>{' '}
-                        <p className="text-gray-600 text-sm line-clamp-3">{relatedPost.excerpt}</p>
-                      </div>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
+                  <button className="px-8 py-4 bg-white text-[#f1592a] rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-xl">
+                    Get Started Today
+                  </button>
+                </Link>
+              </div>
+            </motion.div>
           </div>
         </section>
-      )}{' '}
-      <section className="py-20 bg-white">
-        {' '}
-        <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
-          {' '}
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: 0.6,
-            }}
-            className="relative bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-3xl overflow-hidden p-12 md:p-16"
-          >
-            {' '}
-            <div className="absolute inset-0 opacity-10">
-              {' '}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl" />{' '}
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl" />
-            </div>{' '}
-            <div className="relative text-center max-w-3xl mx-auto">
-              {' '}
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Ready to Transform Your Business?
-              </h2>{' '}
-              <p className="text-white/90 text-lg mb-8">
-                Let's discuss how our solutions can help you achieve your digital transformation
-                goals.
-              </p>{' '}
-              <Link to="/contact">
-                {' '}
-                <button className="px-8 py-4 bg-white text-[#f1592a] rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-xl">
-                  Get Started Today
-                </button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    </div>
+      </div>
+    </>
   )
 }
 export { BlogDetailPage }

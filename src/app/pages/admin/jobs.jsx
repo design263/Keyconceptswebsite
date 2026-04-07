@@ -556,9 +556,9 @@ export function AdminJobsPage() {
                             }
                           }}
                           className={`
-                            relative inline-flex items-center w-7 h-4.5 rounded-full 
+                            relative inline-flex items-center w-7 h-4 rounded-full 
                               transition-all duration-300 ease-in-out
-                              ${job.status === "active" ? "bg-orange-500" : "bg-gray-300"}.
+                              ${job.status === "active" ? "bg-orange-500" : "bg-gray-300"}
                             `}
                         >
                           <span

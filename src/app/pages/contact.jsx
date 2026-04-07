@@ -1,6 +1,7 @@
 import { motion } from 'motion/react'
 import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react'
 import { useState } from 'react'
+import { SEO } from '../components/ui/seo'
 import { api } from '../lib/api'
 
 function ContactPage() {
@@ -29,7 +30,12 @@ function ContactPage() {
     }));
   }
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SEO 
+        title="Contact Us"
+        description="Get in touch with Key Concepts for your next IT project. We offer Odoo ERP, web and mobile development, and digital marketing services."
+      />
+      <div className="min-h-screen bg-white">
       {' '}
       <section className="relative pt-32 pb-20 bg-gradient-to-b from-gray-50 to-[#f7f7f7] overflow-hidden">
         {' '}
@@ -441,6 +447,7 @@ function ContactPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }
 export { ContactPage }

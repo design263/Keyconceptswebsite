@@ -77,11 +77,18 @@ const blogPosts = [
     readTime: '6 min read',
   },
 ]
+import { SEO } from '../components/ui/seo'
+
 function IndustryTrendsPage() {
   const featuredPost = blogPosts.find((post) => post.featured)
   const regularPosts = blogPosts.filter((post) => !post.featured)
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SEO 
+        title="Industry Trends & Insights"
+        description="Stay ahead with the latest technology trends, insights, and best practices in enterprise IT and digital transformation."
+      />
+      <div className="min-h-screen bg-white">
       {' '}
       <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-gray-50 to-white">
         {' '}
@@ -400,6 +407,7 @@ function IndustryTrendsPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }
 export { IndustryTrendsPage }

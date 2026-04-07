@@ -281,11 +281,18 @@ const campaignTypes = [
     contentAlign: 'left',
   },
 ]
+import { SEO } from '../components/ui/seo'
+
 function ElectionMobilizationPage() {
   const [activeTab, setActiveTab] = useState(coreFeatures[0].id)
   const activeFeature = coreFeatures.find((f) => f.id === activeTab) || coreFeatures[0]
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SEO 
+        title="Election Campaign Management Platform"
+        description="Power your digital campaign with our centralized platform for voter outreach, digital campaigning, and real-time performance tracking."
+      />
+      <div className="min-h-screen bg-white">
       {' '}
       <section className="relative pt-32 pb-20 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
         {' '}
@@ -1074,6 +1081,7 @@ function ElectionMobilizationPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }
 export { ElectionMobilizationPage }

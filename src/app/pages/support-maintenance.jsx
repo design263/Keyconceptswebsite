@@ -271,10 +271,17 @@ const uptimeApproach = [
       'We implement load balancing, redundant servers, and automatic failover to ensure continuous availability.',
   },
 ]
+import { SEO } from '../components/ui/seo'
+
 function SupportMaintenancePage() {
   const [selectedService, setSelectedService] = useState('monitoring')
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SEO
+        title="Support & Maintenance | 24/7 Monitoring & Optimization"
+        description="Ensure your application remains secure, fast, and always online with our comprehensive support and maintenance services. We offer 24/7 monitoring, bug fixes, and performance updates."
+      />
+      <div className="min-h-screen bg-white">
       {' '}
       <section className="relative py-20 md:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
         {' '}
@@ -1025,7 +1032,8 @@ function SupportMaintenancePage() {
           </motion.div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }
 export { SupportMaintenancePage }

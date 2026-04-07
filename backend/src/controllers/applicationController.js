@@ -78,12 +78,12 @@ export const createApplication = async (req, res) => {
       subject: `[New Application] ${job.title} - ${application.fullName}`,
       html: `
           <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
-            <div style="background: linear-gradient(135deg, #f1592a 0%, #ff7a45 100%); padding: 30px; text-align: center;">
+            <div style="background: linear-gradient(135deg, #f1592a 0%, #ff7a45 100%); padding: 20px; text-align: center;">
               <h1 style="color: white; margin: 0; font-size: 24px;">New Job Application</h1>
               <p style="color: rgba(255,255,255,0.9); margin-top: 10px;">Position: ${job.title}</p>
             </div>
             
-            <div style="padding: 30px; background-color: #ffffff;">
+            <div style="padding: 20px; background-color: #ffffff;">
               <div style="margin-bottom: 25px;">
                 <h3 style="color: #1f2937; border-bottom: 2px solid #f1592a; padding-bottom: 8px; display: inline-block;">Candidate Information</h3>
                 <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
@@ -106,9 +106,9 @@ export const createApplication = async (req, res) => {
                 </table>
               </div>
               
-              <div style="margin-bottom: 25px;">
+              <div style="margin-bottom: 15px;">
                 <h3 style="color: #1f2937; border-bottom: 2px solid #f1592a; padding-bottom: 8px; display: inline-block;">Cover Letter</h3>
-                <div style="background-color: #f8fafc; padding: 15px; border-radius: 12px; margin: 30px 0; border: 1px solid #e2e8f0;">
+                <div style="background-color: #f9fafb; padding: 10px; border-radius: 8px; border: 1px solid #f3f4f6; color: #4b5563; margin-top: 15px; white-space: pre-wrap;">
                   ${application.coverLetter || 'No cover letter provided.'}
                 </div>
               </div>
@@ -127,7 +127,7 @@ export const createApplication = async (req, res) => {
             </div>
           </div>
       `,
-      // attachments: mailAttachments
+      attachments: mailAttachments
     });
 
     console.log("Company notification email sent successfully to:", companyEmail, {

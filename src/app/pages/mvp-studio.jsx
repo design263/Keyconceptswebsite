@@ -201,10 +201,17 @@ const successMetrics = [
     icon: Shield,
   },
 ]
+import { SEO } from '../components/ui/seo'
+
 function MVPStudioPage() {
   const [selectedService, setSelectedService] = useState('discovery')
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SEO
+        title="MVP Studio | Launch Fast & Scalable"
+        description="Launch your MVP in 6-10 weeks with Key Concepts. We provide end-to-end MVP development services, including strategy, UI/UX design, development, and launch support."
+      />
+      <div className="min-h-screen bg-white">
       {' '}
       <section className="relative py-20 md:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
         {' '}
@@ -1022,7 +1029,8 @@ function MVPStudioPage() {
           </motion.div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }
 export { MVPStudioPage }

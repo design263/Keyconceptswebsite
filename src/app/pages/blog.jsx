@@ -1,6 +1,8 @@
 import { motion } from 'motion/react'
 import { Calendar, User, ArrowRight, TrendingUp } from 'lucide-react'
+import { SEO } from '../components/ui/seo'
 import { ImageWithFallback } from '../components/figma/ImageWithFallback'
+
 const blogPosts = [
   {
     title: 'The Future of AI-Powered ERP Systems in 2026',
@@ -82,7 +84,12 @@ function BlogPage() {
   const featuredPost = blogPosts.find((post) => post.featured)
   const regularPosts = blogPosts.filter((post) => !post.featured)
   return (
-    <div className="pt-20">
+    <>
+      <SEO 
+        title="Insights & Articles"
+        description="Stay updated with the latest trends, insights, and best practices in technology, Odoo ERP, and digital transformation."
+      />
+      <div className="pt-20">
       {' '}
       <section className="relative py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
         {' '}
@@ -392,6 +399,7 @@ function BlogPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }
 export { BlogPage }

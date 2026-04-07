@@ -163,10 +163,17 @@ const techStack = {
   cloud: ['AWS', 'Azure', 'Vercel', 'Docker'],
   ai: ['OpenAI', 'LangChain', 'TensorFlow', 'Hugging Face'],
 }
+import { SEO } from '../components/ui/seo'
+
 function ProductDevelopmentPage() {
   const [selectedCategory, setSelectedCategory] = useState('web')
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SEO
+        title="Custom Product Development | Build Scalable Apps"
+        description="End-to-end custom product development services. We build scalable web and mobile applications using modern technology stacks and agile methodology."
+      />
+      <div className="min-h-screen bg-white">
       {' '}
       <section className="relative py-20 md:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
         {' '}
@@ -1048,7 +1055,8 @@ function ProductDevelopmentPage() {
           </motion.div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }
 export { ProductDevelopmentPage }

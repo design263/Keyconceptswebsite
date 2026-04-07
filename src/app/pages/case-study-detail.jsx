@@ -2,6 +2,8 @@ import { motion } from 'motion/react'
 import { Link, useParams } from 'react-router'
 import { ArrowLeft, TrendingUp, Users, Target, CheckCircle } from 'lucide-react'
 import { ImageWithFallback } from '../components/figma/ImageWithFallback'
+import { SEO } from '../components/ui/seo'
+
 const caseStudies = [
   {
     id: '1',
@@ -207,7 +209,13 @@ function CaseStudyDetailPage() {
   }
   const relatedCases = caseStudies.filter((cs) => cs.id !== id).slice(0, 3)
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <SEO 
+        title={caseStudy.title}
+        description={caseStudy.challenge.substring(0, 155) + "..."}
+      />
+      <div className="min-h-screen bg-white">
+
       {' '}
       <section className="relative pt-32 pb-12 overflow-hidden bg-gradient-to-br from-gray-50 to-white">
         {' '}
@@ -614,6 +622,8 @@ function CaseStudyDetailPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }
+
 export { CaseStudyDetailPage }
