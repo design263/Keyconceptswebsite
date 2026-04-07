@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { Helmet } from 'react-helmet-async'
+import { SEO } from '../components/ui/seo'
 import {
   TrendingUp,
   Database,
@@ -122,17 +122,10 @@ const detailedServices = [
 function ServicesPage() {
   return (
     <>
-      <Helmet>
-        <title>Key Concepts | Our IT Services & Solutions</title>
-        <meta name="description" content="Explore our expert IT services: Odoo ERP, Web & Mobile Development, Digital Marketing, AI Solutions, and more. Transform your business today." />
-        <meta property="og:title" content="Key Concepts | Our IT Services & Solutions" />
-        <meta property="og:description" content="Explore our expert IT services: Odoo ERP, Web & Mobile Development, Digital Marketing, AI Solutions, and more. Transform your business today." />
-        <meta property="og:url" content="https://www.keyconcepts.co.in/services" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Key Concepts | Our IT Services & Solutions" />
-        <meta name="twitter:description" content="Explore our expert IT services: Odoo ERP, Web & Mobile Development, Digital Marketing, AI Solutions, and more. Transform your business today." />
-      </Helmet>
+      <SEO
+        title="Our IT Services & Solutions"
+        description="Explore our expert IT services: Odoo ERP, Web & Mobile Development, Digital Marketing, AI Solutions, and more. Transform your business today."
+      />
       <div className="pt-20">
         {' '}
         <section className="relative py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">

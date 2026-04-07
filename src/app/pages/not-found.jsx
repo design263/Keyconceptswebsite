@@ -1,7 +1,11 @@
 import { Link } from 'react-router'
+import { SEO } from '../components/ui/seo'
+
 function NotFoundPage() {
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center">
+    <>
+      <SEO title="Page Not Found" description="The page you are looking for does not exist." />
+      <div className="min-h-screen bg-white flex items-center justify-center">
       {' '}
       <div className="text-center">
         {' '}
@@ -11,6 +15,7 @@ function NotFoundPage() {
         </Link>
       </div>
     </div>
+    </>
   )
 }
 export { NotFoundPage }

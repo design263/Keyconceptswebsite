@@ -1,18 +1,22 @@
 import { Helmet } from 'react-helmet-async'
+import { useLocation } from 'react-router'
 
 const SEO = ({
   title,
   description,
   keywords,
   ogImage = 'https://www.keyconcepts.co.in/Areas/Client/asset/images/logo.png',
-  ogUrl = 'https://v2.keyconcepts.co.in/',
+  ogUrl,
   twitterHandle = '@KCITSindia',
   twitterUrl = 'https://twitter.com/KCITSindia',
   robots = 'index, follow',
   canonical,
 }) => {
+  const location = useLocation()
   const siteTitle = 'Key Concepts'
+  const baseUrl = 'https://v2.keyconcepts.co.in'
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle
+  const currentFullUrl = ogUrl || `${baseUrl}${location.pathname}`
 
   return (
     <Helmet>
@@ -25,7 +29,7 @@ const SEO = ({
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
-      <meta property="og:url" content={ogUrl} />
+      <meta property="og:url" content={currentFullUrl} />
       <meta property="og:title" content={fullTitle} />
       {description && <meta property="og:description" content={description} />}
       <meta property="og:image" content={ogImage} />
@@ -47,7 +51,7 @@ const SEO = ({
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "Key Concepts",
-          url: "https://www.keyconcepts.co.in",
+          url: "https://v2.keyconcepts.co.in/",
           logo: ogImage,
           sameAs: [
             "https://www.facebook.com/KeyConceptsIT/",
