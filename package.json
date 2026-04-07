@@ -4,9 +4,44 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "build": "node ./node_modules/vite/bin/vite.js build",
-    "dev": "node ./node_modules/vite/bin/vite.js",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "postbuild": "react-snap",
     "format": "prettier --write \"src/**/*.{js,jsx,css}\" \"index.html\" \"vite.config.js\" \"scripts/*.mjs\""
+  },
+  "reactSnap": {
+    "source": "dist",
+    "inlineCss": true,
+    "minifyHtml": {
+      "collapseWhitespace": true,
+      "removeComments": true
+    },
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ],
+    "skipThirdPartyRequests": true,
+    "routes": [
+      "/",
+      "/services",
+      "/about",
+      "/contact",
+      "/careers",
+      "/our-story",
+      "/process",
+      "/blog",
+      "/visitor-management",
+      "/branding-services",
+      "/web-solutions",
+      "/mobile-development",
+      "/odoo-erp",
+      "/product-development",
+      "/mvp-studio",
+      "/support-maintenance",
+      "/younited-communities",
+      "/election-mobilization"
+    ]
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
@@ -82,8 +117,10 @@
     "@tailwindcss/vite": "4.1.12",
     "@vitejs/plugin-react": "4.7.0",
     "prettier": "^3.8.1",
+    "react-snap": "^1.23.0",
     "tailwindcss": "4.1.12",
-    "vite": "6.3.5"
+    "vite": "6.3.5",
+    "vite-plugin-prerender": "^1.0.8"
   },
   "packageManager": "yarn@1.22.22"
 }
