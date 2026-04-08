@@ -6,42 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "postbuild": "react-snap",
+    "preview": "node server/index.mjs",
+    "start": "node server/index.mjs",
     "format": "prettier --write \"src/**/*.{js,jsx,css}\" \"index.html\" \"vite.config.js\" \"scripts/*.mjs\""
-  },
-  "reactSnap": {
-    "source": "dist",
-    "inlineCss": true,
-    "minifyHtml": {
-      "collapseWhitespace": true,
-      "removeComments": true
-    },
-    "puppeteerArgs": [
-      "--no-sandbox",
-      "--disable-setuid-sandbox"
-    ],
-    "skipThirdPartyRequests": true,
-    "routes": [
-      "/",
-      "/services",
-      "/about",
-      "/contact",
-      "/careers",
-      "/our-story",
-      "/process",
-      "/blog",
-      "/visitor-management",
-      "/branding-services",
-      "/web-solutions",
-      "/mobile-development",
-      "/odoo-erp",
-      "/product-development",
-      "/mvp-studio",
-      "/support-maintenance",
-      "/younited-communities",
-      "/election-mobilization"
-    ]
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
@@ -80,6 +47,7 @@
     "cmdk": "1.1.1",
     "date-fns": "3.6.0",
     "embla-carousel-react": "8.6.0",
+    "express": "^5.2.1",
     "formik": "^2.4.9",
     "input-otp": "1.4.2",
     "lucide-react": "0.487.0",
