@@ -1,4 +1,4 @@
-// import "dotenv/config";
+  // import "dotenv/config";
 // import "express-async-errors";
 // import express from "express";
 // import helmet from "helmet";
@@ -82,7 +82,7 @@ import { connectDB } from "./config/db.js";
 import { errorHandler, notFound } from "./middlewares/errorHandler.js";
 
 //  SEO meta function import
-import { resolveRouteMeta, DEFAULT_OG_IMAGE } from "../../src/app/seo/route-meta.js";
+import { resolveRouteMeta, DEFAULT_OG_IMAGE } from "./app/seo/route-meta.js";
 
 const app = express();
 
@@ -184,13 +184,20 @@ const injectMeta = (template, pathname) => {
 /* FRONTEND SERVE  */
 app.use(express.static(DIST_DIR, { index: false }));
 
-app.get("/{*any}", async (req, res) => {
+// SPA fallback (Express 4)
+app.get("*", async (req, res) => {
   try {
     const rawHtml = await fs.readFile(INDEX_FILE, "utf8");
     const html = injectMeta(rawHtml, req.path || "/");
 
     res.status(200).set("Content-Type", "text/html").send(html);
   } catch (err) {
+    if (err && (err.code === "ENOENT" || err.code === "ENOTDIR")) {
+      return res.status(503).json({
+        message: "Frontend build not found. Run `yarn build` in project root to generate `dist/`.",
+      });
+    }
+
     res.status(500).send("Error loading page");
   }
 });
@@ -199,7 +206,7 @@ app.use(notFound);
 app.use(errorHandler);
 
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 6000;
 
 connectDB()
   .then(() => {

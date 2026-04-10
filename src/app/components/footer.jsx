@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram } from 'luc
 import logo from '../../assets/0de5f27413ecaab432b5807952fee0d690b04505.png'
 function Footer() {
   const currentYear = new Date().getFullYear()
+  const logoSrc = typeof logo === 'string' ? logo : logo?.src
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
       {' '}
@@ -15,7 +16,7 @@ function Footer() {
             <Link to="/" className="flex items-center space-x-2 group">
               {' '}
               <img
-                src={logo}
+                src={logoSrc}
                 alt="Key Concepts"
                 className="h-10 w-auto transition-transform group-hover:scale-105"
               />

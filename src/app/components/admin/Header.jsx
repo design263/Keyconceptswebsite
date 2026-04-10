@@ -13,14 +13,14 @@ export const Header = memo(({ onToggle, isCollapsed }) => {
     const dropdownRef = useRef(null);
     const navigate = useNavigate();
 
-    // Safely parse user from localStorage
-    const userDetails = (() => {
+    const [userDetails, setUserDetails] = useState({});
+    useEffect(() => {
         try {
-            return JSON.parse(localStorage.getItem("admin_user") || "{}");
+            setUserDetails(JSON.parse(localStorage.getItem("admin_user") || "{}"));
         } catch {
-            return {};
+            setUserDetails({});
         }
-    })();
+    }, []);
 
     const displayName =
         [userDetails?.salutation, userDetails?.firstName, userDetails?.lastName]

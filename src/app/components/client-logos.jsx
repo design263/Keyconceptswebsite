@@ -19,9 +19,27 @@ function wrapPages(list, size) {
   return pages
 }
 
-const logoModules = import.meta.glob('../../assets/clientLogo/*.{png,jpg,jpeg}', {
-  eager: true,
-})
+const logoFileNames = [
+  'solex.png',
+  'amardeep.png',
+  'dolphy-logo.png',
+  'north-gate.jpg',
+  'infinity-logo.png',
+  'PPSU.png',
+  'acutaas.png',
+  'saas-bhoomi.png',
+  'Sorus-Logo-Picsart-BackgroundRemover.png',
+  'Nobletex.jpg',
+  'instu-aspirations.jpg',
+  'Ted-x_logo.png',
+  'soilsens.png',
+  'Jivraj.jpg',
+  'easysell_logo.png',
+  'ICRISET.png',
+  'Otlo-Ventures.jpg',
+  'north gate.jpg',
+  'heartfulness.png',
+]
 
 function pathToDisplayName(filePath) {
   const base = filePath
@@ -35,11 +53,11 @@ function normalizeClientKey(name) {
   return name.toLowerCase().replace(/[-_\s]+/g, '')
 }
 
-const clients = Object.entries(logoModules)
-  .map(([path, mod]) => ({
-    name: pathToDisplayName(path),
-    logo: mod.default,
-    path,
+const clients = logoFileNames
+  .map((fileName) => ({
+    name: pathToDisplayName(fileName),
+    logo: `/assets/clientLogo/${encodeURIComponent(fileName)}`,
+    path: fileName,
   }))
   .sort((a, b) => a.name.localeCompare(b.name))
   .filter((client, index, arr) => {

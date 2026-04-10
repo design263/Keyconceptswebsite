@@ -1,14 +1,8 @@
-import { useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import logo from "../../../assets/86d73f4575e82c2f8cca971638d48b77628092fb.png";
+"use client";
 
-import {
-    LayoutGrid, ListTodo, Mail,
-    Settings, ShieldCheck, FileSpreadsheet,
-    BriefcaseBusiness, ChevronDown,
-    Users, Building2, Award, LogOut,
-    ChevronLeft, ChevronRight
-} from "lucide-react";
+import { NavLink } from "react-router-dom";
+import { Mail, FileSpreadsheet, BriefcaseBusiness, LogOut } from "lucide-react";
+const ADMIN_LOGO_SRC = "/assets/logo.png";
 
 const NavItems = [
     { to: "/admin/jobs", label: "Job Openings", icon: BriefcaseBusiness },
@@ -37,24 +31,31 @@ export function Sidebar({ isCollapsed, onToggle }) {
                     fixed md:relative z-50 h-screen 
                     transition-all duration-300 ease-in-out
                     border-r border-gray-200 bg-white
-                    flex flex-col
+                    flex flex-col shrink-0
                     ${isCollapsed ? 'w-[70px]' : 'w-[260px]'}
                 `}
             >
-                {/* Logo Section */}
-                <div className="relative flex items-center justify-between px-4 h-[70px] border-b border-gray-200">
-                    <div className={`flex items-center ${isCollapsed ? 'justify-center w-full' : ''}`}>
+                {/* Logo Section — shrink-0 + explicit size so flex never collapses the image */}
+                <div className="relative flex h-[70px] min-h-[70px] w-full items-center justify-center border-b border-gray-200 px-3 shrink-0">
+                    <div
+                        className={`relative flex shrink-0 items-center justify-center overflow-hidden ${
+                            isCollapsed ? "h-12 w-12" : "h-14 w-[140px]"
+                        }`}
+                    >
                         <img
-                            src={logo}
-                            alt="logo"
-                            className={`object-contain transition-all duration-300 ${isCollapsed ? 'h-12 w-12' : 'h-16 w-20'
-                                }`}
+                            src={ADMIN_LOGO_SRC}
+                            alt="Key Concepts"
+                            width={160}
+                            height={56}
+                            className="h-full w-full object-contain object-center"
+                            decoding="async"
+                            fetchPriority="high"
                         />
                     </div>
                 </div>
 
                 {/* Navigation */}
-                <nav className="flex flex-col justify-between h-[calc(100vh-70px)]">
+                <nav className="flex flex-col justify-between h-[calc(100vh-70px)] min-h-0">
                     <div className="space-y-1 px-3 pt-3 flex-1">
                         {NavItems.map((item) => (
                             <NavLink
@@ -75,7 +76,6 @@ export function Sidebar({ isCollapsed, onToggle }) {
                                 <item.icon size={20} strokeWidth={1.5} />
                                 {!isCollapsed && <span>{item.label}</span>}
 
-                                {/* Tooltip for collapsed mode */}
                                 {isCollapsed && (
                                     <span className="absolute left-full ml-2 px-2 py-1 bg-gray-900 text-white text-xs rounded 
                                                      opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity 
@@ -87,9 +87,9 @@ export function Sidebar({ isCollapsed, onToggle }) {
                         ))}
                     </div>
 
-                    {/* Logout Section */}
                     <div className="border-t border-gray-200 mt-4">
                         <button
+                            type="button"
                             onClick={logout}
                             className={`
                                 w-full flex items-center gap-3 px-3 py-3 text-sm font-medium

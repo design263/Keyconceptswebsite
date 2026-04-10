@@ -1,3 +1,5 @@
+"use client";
+
 import { motion, useInView, useMotionValue, useSpring } from 'motion/react'
 import {
   Shield,

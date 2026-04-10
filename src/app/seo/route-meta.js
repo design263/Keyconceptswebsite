@@ -61,6 +61,30 @@ export const ROUTE_META = {
     keywords: 'blog, insights, articles, technology trends, digital transformation, odoo updates',
     ogImage: DEFAULT_OG_IMAGE,
   },
+  '/insights/trends': {
+    title: 'Industry Trends & Insights | Key Concepts',
+    description:
+      'Stay ahead with the latest technology trends, insights, and best practices in enterprise IT and digital transformation.',
+    keywords:
+      'industry trends, technology insights, enterprise IT, digital transformation, innovation',
+    ogImage: DEFAULT_OG_IMAGE,
+  },
+  '/insights/case-studies': {
+    title: 'Case Studies | Key Concepts',
+    description:
+      "Explore our success stories and discover how we've helped businesses transform operations with custom software and ERP solutions.",
+    keywords:
+      'case studies, success stories, digital transformation, custom software, ERP implementation',
+    ogImage: DEFAULT_OG_IMAGE,
+  },
+  '/case-study': {
+    title: 'Case Study Details | Key Concepts',
+    description:
+      'Read in-depth case studies showcasing measurable outcomes, technical solutions, and business impact delivered by Key Concepts.',
+    keywords:
+      'case study details, software case study, ERP case study, business outcomes, implementation story',
+    ogImage: DEFAULT_OG_IMAGE,
+  },
   '/visitor-management': {
     title: 'Visitor Management System | Secure & Smart Facility Access',
     description:
@@ -143,6 +167,7 @@ export const resolveRouteMeta = (pathname) => {
   if (ROUTE_META[pathname]) return ROUTE_META[pathname]
   if (pathname.startsWith('/blog/')) return ROUTE_META['/blog']
   if (pathname.startsWith('/careers/')) return ROUTE_META['/careers']
+  if (pathname.startsWith('/case-study/')) return ROUTE_META['/case-study']
   return ROUTE_META['/']
 }
 

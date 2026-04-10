@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router'
+import { Link } from 'react-router'
 import { motion, AnimatePresence } from 'motion/react'
 import {
   Menu,
@@ -20,9 +20,9 @@ import {
   FolderOpen,
 } from 'lucide-react'
 import { useState, useEffect, useRef } from 'react'
-import logo from '../../assets/86d73f4575e82c2f8cca971638d48b77628092fb.png'
 import { useEnquiryModal } from '../context/enquiry-modal-context'
 import { useCareerModal } from '../context/career-modal-context'
+const logo = '/assets/logo.png'
 const products = [
   {
     name: 'Visitorz Management System',
@@ -114,7 +114,6 @@ function MegaMenuHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeMegaMenu, setActiveMegaMenu] = useState(null)
   const [activeDropdown, setActiveDropdown] = useState(null)
-  const location = useLocation()
   const menuTimeoutRef = useRef(null)
   const { openModal } = useEnquiryModal()
   const { openModal: openCareerModal } = useCareerModal()

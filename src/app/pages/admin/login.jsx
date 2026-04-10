@@ -1,3 +1,5 @@
+"use client";
+
 // import { useState } from "react";
 // import { Link, useNavigate } from "react-router";
 // import { api } from "../../lib/api";
@@ -48,6 +50,7 @@ import { HiOutlineEyeOff } from "react-icons/hi";
 export function AdminLoginPage() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const logoSrc = typeof logo === "string" ? logo : logo?.src;
 
   const formik = useFormik({
     initialValues: {
@@ -119,7 +122,7 @@ export function AdminLoginPage() {
           {/* Logo and Brand Section */}
           <div className="text-center space-y-2">
             <div className="flex justify-center relative">
-              <img src={logo} alt="logo" height={150} width={150} />
+              <img src={logoSrc} alt="logo" height={150} width={150} />
             </div>
             <p className="text-muted-foreground text-sm">
               Sign in to manage your dashboard

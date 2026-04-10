@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from 'motion/react'
 import {
   Rocket,
@@ -24,8 +26,9 @@ import {
 import { ImageWithFallback } from '../components/figma/ImageWithFallback'
 import { useState } from 'react'
 import discoveryAndPlanning from '../../assets/mvp/creativity-brainstorm-ideas-concept-with-business-partnet-meeting-workshop_9693-2199.jpg'
-import qaTesting from '../../assets/mvp/QA.avif'
 import deploymentAndLaunch from '../../assets/mvp/Deployment-Launch.jpg'
+
+const qaTesting = '/assets/mvp/QA.avif'
 const includedServices = [
   {
     id: 'discovery',

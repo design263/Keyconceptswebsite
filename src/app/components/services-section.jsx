@@ -1,11 +1,11 @@
 import { motion } from 'motion/react'
 import { Database, Layers, Rocket, Settings, Wrench } from 'lucide-react'
 import { ImageWithFallback } from './figma/ImageWithFallback'
-import productDevelopmentImage from '../../assets/support/product_development.jpg'
-import specializedPlatformsImage from '../../assets/support/specialized_developmeny.jpg'
-import odooDevelopmentImage from '../../assets/support/odoo_development.jpg'
-import supportMaintenanceImage from '../../assets/support/support.jpg'
-import mvpDevelopmentImage from '../../assets/support/MVP.png'
+const productDevelopmentImage = '/assets/support/product_development.jpg'
+const specializedPlatformsImage = '/assets/support/specialized_developmeny.jpg'
+const odooDevelopmentImage = '/assets/support/odoo_development.jpg'
+const supportMaintenanceImage = '/assets/support/support.jpg'
+const mvpDevelopmentImage = '/assets/support/MVP.png'
 const services = [
   {
     icon: Layers,
