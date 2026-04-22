@@ -48,6 +48,8 @@ const clients = Object.entries(logoModules)
   })
 
 function ClientLogos() {
+
+  const [logos, setLogos] = useState([])
   const pages = useMemo(() => wrapPages(clients, LOGOS_PER_PAGE), [])
   const pageCount = pages.length
   const [page, setPage] = useState(0)
@@ -59,6 +61,12 @@ function ClientLogos() {
     }, 5000)
     return () => clearInterval(id)
   }, [pageCount])
+
+  useEffect(() => {
+    fetch('/api/logos')
+      .then(res => res.json())
+      .then(setLogos)
+  }, [])
 
   return (
     <section className="py-16 bg-white border-t border-gray-100">
