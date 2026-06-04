@@ -12,6 +12,9 @@ pnpm-lock.yaml
 
 # production
 /build
+nextjs-keyconcepts/.next
+nextjs-keyconcepts/dist
+nextjs-keyconcepts/out
 
 # misc
 .DS_Store

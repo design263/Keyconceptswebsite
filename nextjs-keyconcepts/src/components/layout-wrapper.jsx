@@ -6,11 +6,13 @@ import { EnquiryModalProvider, useEnquiryModal } from '../context/enquiry-modal-
 import { EnquiryModal } from './enquiry-modal'
 import { CareerModalProvider, useCareerModal } from '../context/career-modal-context'
 import { CareerModal } from './career-modal'
+import { ScrollToTop } from './scroll-to-top'
 
 function LayoutWrapper({ children }) {
   return (
     <EnquiryModalProvider>
       <CareerModalProvider>
+        <ScrollToTop />
         <div className="min-h-screen flex flex-col">
           <MegaMenuHeader />
           <main className="flex-1">

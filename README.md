@@ -1,11 +1,33 @@
+# Key Concepts Website
 
-  # Keyconcepts Website
+The frontend lives in **`nextjs-keyconcepts`** (Next.js App Router with SEO metadata per route).
 
-  This is a code bundle for Keyconcepts Website. The original project is available at https://www.figma.com/design/3deZRdpRxKJl9bWjqcuh0C/Keyconcepts-Website.
+The API lives in **`backend`**.
 
-  ## Running the code
+## Run locally
 
-  Run `yarn install` to install the dependencies.
+From the repo root:
 
-  Run `yarn dev` to start the development server.
-  
+```bash
+yarn install:web
+yarn dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+Or run directly inside the Next app:
+
+```bash
+cd nextjs-keyconcepts
+yarn install
+yarn dev
+```
+
+## API
+
+```bash
+yarn install:api
+yarn dev:api
+```
+
+Set `NEXT_PUBLIC_API_BASE_URL` in `nextjs-keyconcepts/.env.local` (see `.env.example` at repo root).
