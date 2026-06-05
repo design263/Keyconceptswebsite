@@ -1,15 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
   allowedDevOrigins: [
-    "https://enlargeable-kaycee-creamlaid.ngrok-free.dev",
+    'https://enlargeable-kaycee-creamlaid.ngrok-free.dev',
   ],
   output: 'standalone',
-  distDir: 'dist',
-  // Prevent dist folder from being treated as a dependency
-  experimental: {
-    outputFileTracingIncludes: ['dist/**/*']
-  }
-};
+  turbopack: {
+    root: import.meta.dirname,
+  },
+}
 
-export default nextConfig;
+export default nextConfig
