@@ -26,6 +26,7 @@ import {
   Home,
   Eye,
   X,
+  FileText,
 } from 'lucide-react'
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
 import Link from 'next/link'
@@ -372,7 +373,7 @@ function CareersPage() {
     phone: "", 
     coverLetter: "" 
   })
-  const [resumeFile, setResumeFile] = useState<File | null>(null)
+  const [resumeFile, setResumeFile] = useState(null)
 
   const openModal = (role) => {
     setSelectedRole(role)
@@ -805,6 +806,7 @@ function CareersPage() {
             <div className="space-y-4 max-w-6xl mx-auto">
               {openRoles?.length > 0 ? openRoles.map((role, index) => (
                 <motion.div
+                key={role._id || role.id || index}
                   initial={{
                     opacity: 0,
                     x: -30,
@@ -820,7 +822,7 @@ function CareersPage() {
                     delay: index * 0.05,
                   }}
                   className="group bg-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all overflow-hidden"
-                  key={role.id}
+                 
                 >
                   <div className="p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                     <div className="flex items-start space-x-4 flex-1">

@@ -258,7 +258,7 @@ function OurStoryPage() {
                 className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200"
               >
                 <ImageWithFallback
-                  src="/images/our-story.jpg"
+                  src="/assets/ourStory/Our-Story.jpg"
                   alt="Key Concepts Office"
                   className="w-full h-auto"
                 />
@@ -553,7 +553,7 @@ function OurStoryPage() {
                   }}
                 >
                   <ImageWithFallback
-                    src="/images/team.jpg"
+                    src="/assets/ourStory/team.jpg"
                     alt="Key Concepts Team"
                     className="block h-auto w-full"
                   />

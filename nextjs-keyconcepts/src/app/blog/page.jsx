@@ -1,30 +1,8 @@
 import LayoutWrapper from '@/components/layout-wrapper'
 import Link from 'next/link'
 import { Calendar, Clock, User, ArrowRight } from 'lucide-react'
-
-// Sample blog posts data
-const blogPosts = [
-  {
-    id: '1',
-    title: 'The Future of AI in Enterprise Solutions: Transforming Business Operations',
-    excerpt: 'Explore how artificial intelligence is revolutionizing enterprise software, from predictive analytics to automated decision-making.',
-    author: 'AI Research Team',
-    publishDate: '2024-01-15',
-    readTime: '8 min read',
-    category: 'Artificial Intelligence',
-    image: '/images/blog/ai-enterprise-solutions.jpg',
-  },
-  {
-    id: '2',
-    title: 'Building Scalable Web Applications: Best Practices for Modern Development',
-    excerpt: 'Learn the essential strategies and technologies for creating web applications that can handle growth and maintain performance.',
-    author: 'Engineering Team',
-    publishDate: '2024-01-10',
-    readTime: '6 min read',
-    category: 'Web Development',
-    image: '/images/blog/scalable-web-apps.jpg',
-  },
-]
+import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
+import { blogPosts } from '@/data/blog-posts'
 
 export const metadata = {
   title: 'Blog - Key Concepts | Insights and Articles',
@@ -49,16 +27,24 @@ export default function BlogPage() {
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Our Blog</h1>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              Insights, tutorials, and best practices on web development, technology trends, 
+              Insights, tutorials, and best practices on web development, technology trends,
               and digital transformation from our expert team.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => (
-              <article key={post.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div className="aspect-w-16 aspect-h-9 bg-gray-200 rounded-t-xl">
-                  <div className="w-full h-48 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-t-xl"></div>
+              <article
+                key={post.id}
+                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <ImageWithFallback
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover"
+                    fallback="/images/blog/placeholder.jpg"
+                  />
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-3">
@@ -73,9 +59,7 @@ export default function BlogPage() {
                   <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
                     {post.title}
                   </h2>
-                  <p className="text-gray-700 mb-4 line-clamp-3">
-                    {post.excerpt}
-                  </p>
+                  <p className="text-gray-700 mb-4 line-clamp-3">{post.excerpt}</p>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center text-gray-500 text-sm">
                       <User className="w-4 h-4 mr-1" />
@@ -83,7 +67,7 @@ export default function BlogPage() {
                     </div>
                     <div className="flex items-center text-gray-500 text-sm">
                       <Calendar className="w-4 h-4 mr-1" />
-                      {new Date(post.publishDate).toLocaleDateString()}
+                      {post.date}
                     </div>
                   </div>
                   <Link

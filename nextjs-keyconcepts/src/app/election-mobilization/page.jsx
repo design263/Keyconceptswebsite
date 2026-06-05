@@ -115,7 +115,7 @@ const coreFeatures = [
       'Automated workflow & task assignment',
       'Campaign performance dashboards',
     ],
-    image: '/images/campaign-management.jpg',
+    image: '/assets/productElection/Digital-Campaign-Management.jpg',
   },
   {
     id: 'outreach',
@@ -132,7 +132,7 @@ const coreFeatures = [
       'Phone banking with call scripts',
       'Engagement tracking & follow-ups',
     ],
-    image: '/images/voter-outreach.jpg',
+    image: '/assets/productElection/SMS-&-WhatsApp-campaigns.jpg',
   },
   {
     id: 'analytics',
@@ -149,7 +149,7 @@ const coreFeatures = [
       'ROI & cost-per-engagement analysis',
       'Predictive modeling & forecasting',
     ],
-    image: '/images/real-time-analytics.jpg',
+    image: '/assets/productElection/Real-Time-Analytics.jpg',
   },
 ]
 

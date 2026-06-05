@@ -111,7 +111,7 @@ const supportServices = [
       'Uptime monitoring & reporting',
       'Custom dashboard & analytics',
     ],
-    image: '/images/monitoring-alerts.jpg',
+    image: '/assets/supportMaintenance/monitoring-alerts.jpg',
   },
   {
     id: 'bugfixes',
@@ -128,7 +128,7 @@ const supportServices = [
       'Regression testing & quality checks',
       'Post-fix monitoring & validation',
     ],
-    image: '/images/bug-fixes.jpg',
+    image: '/assets/supportMaintenance/Bug-Fixes.jpg',
   },
   {
     id: 'enhancements',
@@ -145,7 +145,7 @@ const supportServices = [
       'User feedback implementation',
       'A/B testing & analytics',
     ],
-    image: '/images/ui.png',
+    image: '/assets/supportMaintenance/UI.png',
   },
   {
     id: 'roadmap',
@@ -180,7 +180,7 @@ const supportServices = [
       'Penetration testing',
       'GDPR/HIPAA compliance support',
     ],
-    image: '/images/security-compliance.jpg',
+    image: '/assets/supportMaintenance/Security-Compliance.jpg',
   },
   {
     id: 'backups',
@@ -197,7 +197,7 @@ const supportServices = [
       'Regular backup testing',
       'Data retention policies',
     ],
-    image: '/images/backups-disaster-recovery.jpg',
+    image: '/assets/supportMaintenance/Backups-Disaster-Recovery.jpg',
   },
 ]
 

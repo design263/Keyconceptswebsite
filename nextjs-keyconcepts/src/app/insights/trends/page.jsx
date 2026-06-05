@@ -5,86 +5,11 @@ import { motion } from 'motion/react'
 import { Calendar, Clock, ArrowRight, User, TrendingUp } from 'lucide-react'
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
 import Link from 'next/link'
-
-const blogPosts = [
-  {
-    id: '1',
-    title: 'The Future of AI in Enterprise Solutions: Transforming Business Operations',
-    excerpt:
-      'Explore how artificial intelligence is revolutionizing enterprise software, from predictive analytics to automated decision-making. Learn about the latest AI trends shaping the future of business operations and how companies can leverage these technologies for competitive advantage.',
-    image:
-      'https://images.unsplash.com/photo-1697577418970-95d99b5a55cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlJTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NzIzNTkyMzV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    category: 'Artificial Intelligence',
-    author: 'Sarah Johnson',
-    date: 'February 28, 2026',
-    readTime: '8 min read',
-    featured: true,
-  },
-  {
-    id: '2',
-    title: 'Cloud Computing Best Practices for Modern Businesses',
-    excerpt:
-      'Discover essential strategies for implementing cloud infrastructure that scales with your business needs while maintaining security and cost-efficiency.',
-    image:
-      'https://images.unsplash.com/photo-1506399558188-acca6f8cbf41?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMGNvbXB1dGluZyUyMHNlcnZlcnN8ZW58MXx8fHwxNzcyMzU0MDYxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    category: 'Cloud Computing',
-    author: 'Michael Chen',
-    date: 'February 25, 2026',
-    readTime: '6 min read',
-  },
-  {
-    id: '3',
-    title: 'Digital Transformation: A Complete Guide for Enterprises',
-    excerpt:
-      'Learn how to successfully navigate digital transformation initiatives and modernize your business processes for the digital age.',
-    image:
-      'https://images.unsplash.com/photo-1726607424598-139ff3391ce8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwdHJhbnNmb3JtYXRpb24lMjBidXNpbmVzc3xlbnwxfHx8fDE3NzIzOTE4MTN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    category: 'Digital Transformation',
-    author: 'Emily Rodriguez',
-    date: 'February 22, 2026',
-    readTime: '10 min read',
-  },
-  {
-    id: '4',
-    title: 'Cybersecurity Trends Every Business Should Know in 2026',
-    excerpt:
-      'Stay ahead of cyber threats with these essential security practices and emerging technologies protecting modern enterprises.',
-    image:
-      'https://images.unsplash.com/photo-1691435828932-911a7801adfb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjeWJlcnNlY3VyaXR5JTIwbmV0d29ya3xlbnwxfHx8fDE3NzIzMjgzNzN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    category: 'Cybersecurity',
-    author: 'David Park',
-    date: 'February 20, 2026',
-    readTime: '7 min read',
-  },
-  {
-    id: '5',
-    title: 'Data Analytics: Turning Information into Actionable Insights',
-    excerpt:
-      'Master the art of data-driven decision making with advanced analytics tools and methodologies that drive business growth.',
-    image:
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXRhJTIwYW5hbHl0aWNzJTIwZGFzaGJvYXJkfGVufDF8fHx8MTc3MjM1MTYzMXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    category: 'Data Analytics',
-    author: 'Lisa Thompson',
-    date: 'February 18, 2026',
-    readTime: '9 min read',
-  },
-  {
-    id: '6',
-    title: 'Automation Technologies Reshaping the Workplace',
-    excerpt:
-      'Explore how automation is streamlining operations, reducing costs, and enabling teams to focus on strategic initiatives.',
-    image:
-      'https://images.unsplash.com/photo-1761195696590-3490ea770aa1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhdXRvbWF0aW9uJTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NzIzODMzODV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    category: 'Automation',
-    author: 'James Wilson',
-    date: 'February 15, 2026',
-    readTime: '6 min read',
-  },
-]
+import { getFeaturedBlogPost, getRegularBlogPosts } from '@/data/blog-posts'
 
 function IndustryTrendsPage() {
-  const featuredPost = blogPosts.find((post) => post.featured)
-  const regularPosts = blogPosts.filter((post) => !post.featured)
+  const featuredPost = getFeaturedBlogPost()
+  const regularPosts = getRegularBlogPosts()
 
   return (
     <LayoutWrapper>
@@ -269,7 +194,7 @@ function IndustryTrendsPage() {
                           <div className="flex items-center space-x-1">
                             <Calendar size={14} /> <span>{post.date}</span>
                           </div>
-                          <span>â¢</span>
+                          <span>•</span>
                           <div className="flex items-center space-x-1">
                             <Clock size={14} /> <span>{post.readTime}</span>
                           </div>

@@ -50,7 +50,7 @@ const services = [
       'UI/UX customization',
       'Performance optimization',
     ],
-    image: '/images/odoo-custom-modules.png',
+    image: '/assets/odoo/odoo-custom-modules.png',
     imagePosition: 'right',
   },
   {
@@ -65,7 +65,7 @@ const services = [
       'CRM & marketing tool sync',
       'Accounting software integration',
     ],
-    image: '/images/odoo-api.png',
+    image: '/assets/odoo/Odoo_api.png',
     imagePosition: 'left',
   },
   {
@@ -96,7 +96,7 @@ const services = [
       'Performance monitoring',
       'Security patches & compliance',
     ],
-    image: '/images/amc-support.jpg',
+    image: '/assets/odoo/AMC_Support.jpg',
     imagePosition: 'left',
   },
 ]

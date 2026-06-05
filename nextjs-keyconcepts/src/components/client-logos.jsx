@@ -23,14 +23,24 @@ function wrapPages(list, size) {
 
 // Static logo imports for Next.js compatibility
 const logoModules = {
-  '../../assets/clientLogo/client1.png': { default: '/images/clients/client1.png' },
-  '../../assets/clientLogo/client2.png': { default: '/images/clients/client2.png' },
-  '../../assets/clientLogo/client3.png': { default: '/images/clients/client3.png' },
-  '../../assets/clientLogo/client4.png': { default: '/images/clients/client4.png' },
-  '../../assets/clientLogo/client5.png': { default: '/images/clients/client5.png' },
-  '../../assets/clientLogo/client6.png': { default: '/images/clients/client6.png' },
-  '../../assets/clientLogo/client7.png': { default: '/images/clients/client7.png' },
-  '../../assets/clientLogo/client8.png': { default: '/images/clients/client8.png' },
+  '../../assets/clientLogo/ICRISET.png': { default: '/assets/clientLogo/ICRISET.png' },
+  '../../assets/clientLogo/Jivraj.jpg': { default: '/assets/clientLogo/Jivraj.jpg' },
+  '../../assets/clientLogo/Nobletex.jpg': { default: '/assets/clientLogo/Nobletex.jpg' },
+  '../../assets/clientLogo/Otlo-Ventures.jpg': { default: '/assets/clientLogo/Otlo-Ventures.jpg' },
+  '../../assets/clientLogo/PPSU.png': { default: '/assets/clientLogo/PPSU.png' },
+  '../../assets/clientLogo/Sorus-Logo-Picsart-BackgroundRemover.png': { default: '/assets/clientLogo/Sorus-Logo-Picsart-BackgroundRemover.png' },
+  '../../assets/clientLogo/Ted-x_logo.png': { default: '/assets/clientLogo/Ted-x_logo.png' },
+  '../../assets/clientLogo/acutaas.png': { default: '/assets/clientLogo/acutaas.png' },
+  '../../assets/clientLogo/amardeep.png': { default: '/assets/clientLogo/amardeep.png' },
+  '../../assets/clientLogo/dolphy-logo.png': { default: '/assets/clientLogo/dolphy-logo.png' },
+  '../../assets/clientLogo/easysell_logo.png': { default: '/assets/clientLogo/easysell_logo.png' },
+  '../../assets/clientLogo/heartfulness.png': { default: '/assets/clientLogo/heartfulness.png' },
+  '../../assets/clientLogo/infinity-logo.png': { default: '/assets/clientLogo/infinity-logo.png' },
+  '../../assets/clientLogo/instu-aspirations.jpg': { default: '/assets/clientLogo/instu-aspirations.jpg' },
+  '../../assets/clientLogo/north-gate.jpg': { default: '/assets/clientLogo/north-gate.jpg' },
+  '../../assets/clientLogo/saas-bhoomi.png': { default: '/assets/clientLogo/saas-bhoomi.png' },
+  '../../assets/clientLogo/soilsens.png': { default: '/assets/clientLogo/soilsens.png' },
+  '../../assets/clientLogo/solex.png': { default: '/assets/clientLogo/solex.png' },
 }
 
 function pathToDisplayName(filePath) {
@@ -119,6 +129,22 @@ function ClientLogos() {
               </div>
             ))}
           </motion.div>
+          {pageCount > 1 && (
+            <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-2">
+              {Array.from({ length: pageCount }, (_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  aria-label={`Show client logos page ${index + 1}`}
+                  aria-current={page === index ? 'true' : undefined}
+                  onClick={() => setPage(index)}
+                  className={`h-2.5 w-2.5 rounded-full transition-colors ${
+                    page === index ? 'bg-[#f1592a]' : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

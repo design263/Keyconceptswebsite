@@ -115,7 +115,7 @@ const coreFeatures = [
       'Advanced search and filtering',
       'Member activity tracking & analytics',
     ],
-    image: '/images/member-management.jpg',
+    image: '/assets/productCommunity/Younited-Communities.jpg',
   },
   {
     id: 'events',
@@ -132,7 +132,7 @@ const coreFeatures = [
       'Recurring event scheduling',
       'Post-event surveys & feedback',
     ],
-    image: '/images/event-management.jpg',
+    image: '/assets/productCommunity/Event-Management.jpg',
   },
   {
     id: 'approvals',
@@ -149,7 +149,7 @@ const coreFeatures = [
       'Conditional approval rules',
       'Mobile approval capabilities',
     ],
-    image: '/images/approval-workflows.jpg',
+    image: '/assets/productCommunity/Approval-Workflows.jpg',
   },
 ]
 

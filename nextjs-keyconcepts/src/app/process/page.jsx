@@ -121,25 +121,25 @@ const tools = [
     name: 'Jira',
     category: 'Project Management',
     description: 'Agile project tracking and sprint planning',
-    icon: '/images/jira.png',
+    icon: '/assets/techLogo/Jira.png',
   },
   {
     name: 'ClickUp',
     category: 'Task Management',
     description: 'Daily task tracking and team collaboration',
-    icon: '/images/clickup.png',
+    icon: '/assets/techLogo/clickup.png',
   },
   {
     name: 'Git / GitHub',
     category: 'Version Control',
     description: 'Code repository and version management',
-    icon: '/images/github.png',
+    icon: '/assets/techLogo/GitHub.png',
   },
   {
     name: 'Slack',
     category: 'Communication',
     description: 'Real-time team communication',
-    icon: '/images/slack.png',
+    icon: '/assets/techLogo/Slack.png',
   },
   {
     name: 'Figma',
@@ -151,7 +151,7 @@ const tools = [
     name: 'Jenkins / CI/CD',
     category: 'Automation',
     description: 'Automated testing and deployment',
-    icon: '/images/jenkins.png',
+    icon: '/assets/techLogo/Jenkins.png',
   },
 ]
 

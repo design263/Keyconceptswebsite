@@ -43,7 +43,7 @@ const includedServices = [
       'Technical feasibility assessment',
       'Project timeline & milestones',
     ],
-    image: '/images/discovery-planning.jpg',
+    image: '/assets/mvp/discovery-planning.jpg',
   },
   {
     id: 'uiux',
