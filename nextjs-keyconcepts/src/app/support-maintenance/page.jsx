@@ -287,7 +287,7 @@ function SupportMaintenancePage() {
   return (
     <LayoutWrapper>
       <div className="min-h-screen bg-white">
-        <section className="relative py-20 md:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
+        <section className="relative mt-5 py-20 md:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
           <div className="absolute inset-0 opacity-30">
             <div className="absolute top-20 left-10 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
             <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-gray-300/20 rounded-full blur-3xl" />

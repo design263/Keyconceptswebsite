@@ -1,6 +1,8 @@
 import { Link } from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
+import { motion } from 'motion/react'
+import { Menu, X } from 'lucide-react'
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -87,7 +89,7 @@ function Header() {
                 whileTap={{
                   scale: 0.95,
                 }}
-                className="px-6 py-3 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg hover:shadow-xl transition-shadow"
+                className="px-6 py-3 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
               >
                 Get Started
               </motion.button>
@@ -129,9 +131,9 @@ function Header() {
                 {item.name}
               </Link>
             ))}{' '}
-            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
               {' '}
-              <button className="w-full px-6 py-3 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg">
+              <button className="w-full px-6 py-3 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg cursor-pointer">
                 Get Started
               </button>
             </Link>

@@ -274,7 +274,7 @@ function MegaMenuHeader() {
                         </div>
                         <button
                           onClick={openModal}
-                          className="px-6 py-2 bg-[#f1592a] text-white rounded-full font-semibold hover:bg-[#d94d24] transition-colors"
+                          className="px-6 py-2 bg-[#f1592a] text-white rounded-full font-semibold hover:bg-[#d94d24] transition-colors cursor-pointer"
                         >
                           Get Started
                         </button>
@@ -448,7 +448,7 @@ function MegaMenuHeader() {
                         </div>
                         <button
                           onClick={openModal}
-                          className="px-6 py-2 bg-[#f1592a] text-white rounded-full font-semibold hover:bg-[#d94d24] transition-colors"
+                          className="px-6 py-2 bg-[#f1592a] text-white rounded-full font-semibold hover:bg-[#d94d24] transition-colors cursor-pointer"
                         >
                           Get Started
                         </button>
@@ -648,7 +648,7 @@ function MegaMenuHeader() {
                         </div>
                         <button
                           onClick={openCareerModal}
-                          className="px-6 py-2 bg-[#f1592a] text-white rounded-full font-semibold hover:bg-[#d94d24] transition-colors"
+                          className="px-6 py-2 bg-[#f1592a] text-white rounded-full font-semibold hover:bg-[#d94d24] transition-colors cursor-pointerx"
                         >
                           Join Our Team
                         </button>

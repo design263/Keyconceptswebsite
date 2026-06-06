@@ -88,7 +88,7 @@ function Header() {
                 whileTap={{
                   scale: 0.95,
                 }}
-                className="px-6 py-3 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg hover:shadow-xl transition-shadow"
+                className="px-6 py-3 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
               >
                 Get Started
               </motion.button>
@@ -130,7 +130,7 @@ function Header() {
               </Link>
             ))}
             <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-              <button className="w-full px-6 py-3 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg">
+              <button className="w-full px-6 py-3 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg cursor-pointer">
                 Get Started
               </button>
             </Link>

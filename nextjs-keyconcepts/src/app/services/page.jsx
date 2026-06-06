@@ -18,7 +18,7 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <LayoutWrapper>
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white mt-15">
         <div className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-8">Our Services</h1>
           <div className="prose prose-lg max-w-none">

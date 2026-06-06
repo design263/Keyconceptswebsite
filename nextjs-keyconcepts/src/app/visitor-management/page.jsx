@@ -377,7 +377,7 @@ function VisitorManagementPage() {
                               length: 64,
                             }).map((_, i) => (
                               <div
-                                className={`w-full aspect-square rounded-sm ${Math.random() > 0.5 ? 'bg-gray-900' : 'bg-white'}`}
+                                className={`w-full aspect-square rounded-sm ${i % 2 === 0 ? 'bg-white' : 'bg-gray-900'}`}
                                 key={i}
                               />
                             ))}
@@ -641,7 +641,7 @@ function VisitorManagementPage() {
                   </button>
                 </div>
                 <div className={index % 2 === 0 ? 'order-1 lg:order-2' : 'order-2 lg:order-1'}>
-                  <div className="relative bg-gradient-to-br from-gray-100 to-gray-50 rounded-3xl p-8 border border-gray-200">
+                  <div className="relative bg-gradient-to-br from-gray-100 to-gray-50 rounded-3xl lg:p-8 p-4 border border-gray-200">
                     <div className="bg-white rounded-2xl shadow-2xl p-8">
                       <div className="flex items-center space-x-3 mb-6">
                         <div className="w-12 h-12 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-xl flex items-center justify-center">
@@ -685,36 +685,29 @@ function VisitorManagementPage() {
                             },
                           ].map((room, i) => (
                             <motion.div
-                              key={i}
-                              initial={{
-                                opacity: 0,
-                                x: -20,
-                              }}
-                              whileInView={{
-                                opacity: 1,
-                                x: 0,
-                              }}
-                              viewport={{
-                                once: true,
-                              }}
-                              transition={{
-                                delay: i * 0.1,
-                              }}
-                              className="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl border border-gray-100"
-                            >
-                              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center border border-gray-200">
-                                <DoorOpen className="text-gray-700" size={24} strokeWidth={1.5} />
-                              </div>
-                              <div className="flex-1">
-                                <h5 className="font-semibold text-gray-900">{room.name}</h5>
+                            key={i}
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 }}
+                            className="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl border border-gray-100"
+                          >
+                            <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center border border-gray-200 flex-shrink-0">
+                              <DoorOpen className="text-gray-700" size={24} strokeWidth={1.5} />
+                            </div>
+                            {/* name + time stack on mobile, badge moves below */}
+                            <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
+                              <div className="min-w-0">
+                                <h5 className="font-semibold text-gray-900 truncate">{room.name}</h5>
                                 <p className="text-xs text-gray-500">{room.time}</p>
                               </div>
-                              <div
-                                className={`px-3 py-1 rounded-full text-xs font-semibold ${room.status === 'Available' ? 'bg-[#f1592a]/10 text-[#f1592a]' : 'bg-gray-200 text-gray-700'}`}
-                              >
+                              <div className={`self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${
+                                room.status === 'Available' ? 'bg-[#f1592a]/10 text-[#f1592a]' : 'bg-gray-200 text-gray-700'
+                              }`}>
                                 {room.status}
                               </div>
-                            </motion.div>
+                            </div>
+                          </motion.div>
                           ))}
                         </div>
                       )}
@@ -780,38 +773,30 @@ function VisitorManagementPage() {
                             },
                           ].map((parcel, i) => (
                             <motion.div
-                              key={i}
-                              initial={{
-                                opacity: 0,
-                                x: -20,
-                              }}
-                              whileInView={{
-                                opacity: 1,
-                                x: 0,
-                              }}
-                              viewport={{
-                                once: true,
-                              }}
-                              transition={{
-                                delay: i * 0.1,
-                              }}
-                              className="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl border border-gray-100"
-                            >
-                              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center border border-gray-200">
-                                <Package className="text-gray-700" size={24} strokeWidth={1.5} />
+                            key={i}
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 }}
+                            className="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl border border-gray-100"
+                          >
+                            <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center border border-gray-200 flex-shrink-0">
+                              <Package className="text-gray-700" size={24} strokeWidth={1.5} />
+                            </div>
+                            <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
+                              <div className="min-w-0">
+                                <h5 className="font-semibold text-gray-900 truncate">{parcel.id}</h5>
+                                <p className="text-xs text-gray-500">{parcel.recipient} • {parcel.time}</p>
                               </div>
-                              <div className="flex-1">
-                                <h5 className="font-semibold text-gray-900">{parcel.id}</h5>
-                                <p className="text-xs text-gray-500">
-                                  {parcel.recipient} \u2022 {parcel.time}
-                                </p>
-                              </div>
-                              <div
-                                className={`px-3 py-1 rounded-full text-xs font-semibold ${parcel.status === 'Delivered' ? 'bg-[#f1592a]/10 text-[#f1592a]' : parcel.status === 'In Transit' ? 'bg-gray-300 text-gray-700' : 'bg-gray-200 text-gray-600'}`}
-                              >
+                              <div className={`self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${
+                                parcel.status === 'Delivered' ? 'bg-[#f1592a]/10 text-[#f1592a]'
+                                : parcel.status === 'In Transit' ? 'bg-gray-300 text-gray-700'
+                                : 'bg-gray-200 text-gray-600'
+                              }`}>
                                 {parcel.status}
                               </div>
-                            </motion.div>
+                            </div>
+                          </motion.div>
                           ))}
                         </div>
                       )}
@@ -892,17 +877,19 @@ function VisitorManagementPage() {
                               }}
                               className="p-4 bg-gray-50 rounded-xl border border-gray-100"
                             >
-                              <div className="flex items-start justify-between mb-2">
-                                <div>
-                                  <h5 className="font-semibold text-gray-900">{pass.id}</h5>
-                                  <p className="text-sm text-gray-600">{pass.material}</p>
-                                </div>
-                                <div
-                                  className={`px-3 py-1 rounded-full text-xs font-semibold ${pass.status === 'Approved' ? 'bg-[#f1592a]/10 text-[#f1592a]' : pass.status === 'Pending' ? 'bg-gray-300 text-gray-700' : 'bg-gray-200 text-gray-600'}`}
-                                >
-                                  {pass.status}
-                                </div>
-                              </div>
+                             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
+  <div>
+    <h5 className="font-semibold text-gray-900">{pass.id}</h5>
+    <p className="text-sm text-gray-600">{pass.material}</p>
+  </div>
+  <div className={`self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${
+    pass.status === 'Approved' ? 'bg-[#f1592a]/10 text-[#f1592a]'
+    : pass.status === 'Pending' ? 'bg-gray-300 text-gray-700'
+    : 'bg-gray-200 text-gray-600'
+  }`}>
+    {pass.status}
+  </div>
+</div>
                               <div className="flex items-center space-x-2">
                                 <div className="w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center border border-gray-200">
                                   <UserCog className="text-gray-600" size={12} />

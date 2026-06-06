@@ -16,7 +16,7 @@ const services = [
       'End-to-end product development from ideation to launch, building scalable and innovative solutions.',
     image: '/images/support/product_development.jpg',
     color: 'from-gray-600 to-gray-800',
-    span: 'row-span-2',
+    span: 'lg:row-span-2',
   },
   {
     icon: Rocket,
@@ -25,7 +25,7 @@ const services = [
       'Custom-built platforms including Visitorz, Younited Communities, and Election Mobilization solutions.',
     image: '/images/support/specialized_developmeny.jpg',
     color: 'from-[#f1592a] to-[#ff7a45]',
-    span: 'col-span-2',
+    span: 'lg:col-span-2',
   },
   {
     icon: Database,
@@ -34,7 +34,7 @@ const services = [
       'Expert Odoo ERP implementation, customization, and integration tailored to your business needs.',
     image: '/images/support/odoo_development.jpg',
     color: 'from-gray-700 to-gray-900',
-    span: 'col-span-2',
+    span: 'lg:col-span-2',
   },
   {
     icon: Settings,
@@ -43,7 +43,7 @@ const services = [
       'Rapidly build and validate your minimum viable product with our agile development approach.',
     image: '/images/support/MVP.png',
     color: 'from-gray-600 to-gray-800',
-    span: 'col-span-2',
+    span: 'lg:col-span-2',
   },
   {
     icon: Wrench,
@@ -79,7 +79,7 @@ const trendingServices = [
 ]
 function ServicesSection() {
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-gray-50">
+    <section className="lg:py-24 py-16 bg-gradient-to-b from-white to-gray-50">
       {' '}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {' '}

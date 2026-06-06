@@ -3,9 +3,35 @@
 import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'motion/react'
 
-const LOGOS_PER_PAGE = 8
+// ─── responsive config ───────────────────────────────────────────────────────
+// logos per page changes by breakpoint; we detect via a hook
+function useLogosPerPage() {
+  const [perPage, setPerPage] = useState(8)
 
-/** Each row always has `size` logos; indices wrap with modulo so the last row is never short. */
+  useEffect(() => {
+    function update() {
+      const w = window.innerWidth
+
+      if (w < 640) {
+        setPerPage(2) // mobile
+      } else if (w < 768) {
+        setPerPage(4) // tablet
+      } else if (w < 1280) {
+        setPerPage(6) // laptop
+      } else {
+        setPerPage(8) // desktop
+      }
+    }
+
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [])
+
+  return perPage
+}
+
+/** Each row always has `size` logos; indices wrap so the last row is never short. */
 function wrapPages(list, size) {
   if (!list.length) return [[]]
   const n = list.length
@@ -44,10 +70,7 @@ const logoModules = {
 }
 
 function pathToDisplayName(filePath) {
-  const base = filePath
-    .split(/[/\\]/)
-    .pop()
-    .replace(/\.[^.]+$/, '')
+  const base = filePath.split(/[/\\]/).pop().replace(/\.[^.]+$/, '')
   return base.replace(/[-_]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
 }
 
@@ -67,10 +90,30 @@ const clients = Object.entries(logoModules)
     return arr.findIndex((c) => normalizeClientKey(c.name) === key) === index
   })
 
+// ─── grid cols class per breakpoint ─────────────────────────────────────────
+function gridColsClass(perPage) {
+  switch (perPage) {
+    case 2:
+      return 'grid-cols-2'
+    case 4:
+      return 'grid-cols-4'
+    case 6:
+      return 'grid-cols-6'
+    case 8:
+      return 'grid-cols-8'
+    default:
+      return 'grid-cols-8'
+  }
+}
+
 function ClientLogos() {
-  const pages = useMemo(() => wrapPages(clients, LOGOS_PER_PAGE), [])
+  const logosPerPage = useLogosPerPage()
+  const pages = useMemo(() => wrapPages(clients, logosPerPage), [logosPerPage])
   const pageCount = pages.length
   const [page, setPage] = useState(0)
+
+  // reset to first page whenever logosPerPage changes (breakpoint crossed)
+  useEffect(() => { setPage(0) }, [logosPerPage])
 
   useEffect(() => {
     if (pageCount <= 1) return undefined
@@ -79,6 +122,8 @@ function ClientLogos() {
     }, 5000)
     return () => clearInterval(id)
   }, [pageCount])
+
+  const colsClass = gridColsClass(logosPerPage)
 
   return (
     <section className="py-16 bg-white border-t border-gray-100">
@@ -93,6 +138,7 @@ function ClientLogos() {
             Trusted By Industry Leaders
           </p>
         </motion.div>
+
         <div className="relative w-full overflow-hidden pb-12">
           <motion.div
             className="flex"
@@ -103,7 +149,7 @@ function ClientLogos() {
             {pages.map((group, pageIndex) => (
               <div
                 key={pageIndex}
-                className="grid grid-cols-8 gap-3 sm:gap-4 lg:gap-6 items-center"
+                className={`grid ${colsClass} gap-3 sm:gap-4 lg:gap-6 items-center`}
                 style={{ width: `${100 / pageCount}%` }}
               >
                 {group.map((client, slotIndex) => (
@@ -129,6 +175,7 @@ function ClientLogos() {
               </div>
             ))}
           </motion.div>
+
           {pageCount > 1 && (
             <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-2">
               {Array.from({ length: pageCount }, (_, index) => (

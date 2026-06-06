@@ -147,7 +147,7 @@ function HeroSection() {
           y,
           opacity,
         }}
-        className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 relative z-10"
+        className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10 relative z-10"
       >
         {' '}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 py-10 items-center">
@@ -164,8 +164,7 @@ function HeroSection() {
             transition={{
               duration: 0.8,
             }}
-            className="space-y-8"
-          >
+            className="space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start"          >
             {' '}
             <motion.div
               initial={{

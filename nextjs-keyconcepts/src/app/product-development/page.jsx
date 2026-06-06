@@ -175,7 +175,7 @@ function ProductDevelopmentPage() {
   return (
     <LayoutWrapper>
       <div className="min-h-screen bg-white">
-        <section className="relative py-20 md:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
+        <section className="relative mt-5 py-20 md:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
           <div className="absolute inset-0 opacity-30">
             <div className="absolute top-20 left-10 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
             <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-gray-300/20 rounded-full blur-3xl" />
@@ -364,7 +364,7 @@ function ProductDevelopmentPage() {
             </div>
           </div>
         </section>
-        <section className="py-24 bg-gradient-to-b from-white to-gray-50">
+        <section className="lg:py-24 py-16 bg-gradient-to-b from-white to-gray-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -530,7 +530,7 @@ function ProductDevelopmentPage() {
             )}
           </div>
         </section>
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section className="lg:py-24 py-16 bg-white relative overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <div className="absolute top-10 right-10 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
             <div className="absolute bottom-10 left-10 w-96 h-96 bg-gray-300/20 rounded-full blur-3xl" />
@@ -631,7 +631,7 @@ function ProductDevelopmentPage() {
             </motion.div>
           </div>
         </section>
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section className="lg:py-24 py-16 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -723,7 +723,7 @@ function ProductDevelopmentPage() {
             </div>
           </div>
         </section>
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section className="lg:py-24 py-16 bg-white relative overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <div className="absolute top-10 left-10 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
           </div>

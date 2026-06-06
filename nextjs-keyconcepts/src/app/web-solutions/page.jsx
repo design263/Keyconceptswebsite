@@ -473,8 +473,8 @@ function WebSolutionsPage() {
             className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-[#f1592a]/5 to-[#ff7a45]/5 rounded-full blur-3xl"
           />
         </section>
-        <section className="py-24 bg-white relative overflow-hidden">
-          <div
+        <section className="lg:py-24 py-16 bg-white relative overflow-hidden">
+          <div  
             className="absolute inset-0 opacity-[0.015]"
             style={{
               backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)',
