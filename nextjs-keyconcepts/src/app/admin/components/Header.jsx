@@ -11,7 +11,7 @@ export const Header = memo(({ onToggle, isCollapsed }) => {
   const [isFullScreen, setIsFullScreen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState(false)
   const [searchFocused, setSearchFocused] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
+  const dropdownRef = useRef(null)
   const router = useRouter()
 
   // Safely parse user from localStorage

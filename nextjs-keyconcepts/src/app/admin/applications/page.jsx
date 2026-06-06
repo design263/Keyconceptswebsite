@@ -16,7 +16,7 @@ const inputCls =
 
 const CustomSelect = ({ value, onChange, options, className = '' }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const selectRef = useRef<HTMLDivElement>(null)
+  const selectRef = useRef(null)
 
   useEffect(() => {
     const handleClickOutside = (event) => {

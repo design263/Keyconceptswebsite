@@ -54,7 +54,7 @@ const buildCategories = [
       'Hybrid mobile solutions',
       'Mobile-first design',
     ],
-    image: '/images/app-development.png',
+    image: '/assets/productDev/App_Development.png',
   },
   {
     id: 'backend',
@@ -69,7 +69,7 @@ const buildCategories = [
       'Cloud-native applications',
       'Database design & optimization',
     ],
-    image: '/images/backend-system.jpg',
+    image: '/assets/productDev/BAckent_system.jpg',
   },
   {
     id: 'ai',
@@ -84,7 +84,7 @@ const buildCategories = [
       'Predictive analytics',
       'Automation & chatbots',
     ],
-    image: '/images/ai-integration.jpg',
+    image: '/assets/productDev/AIIntrigation.jpg',
   },
 ]
 
