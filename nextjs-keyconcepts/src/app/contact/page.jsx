@@ -2,7 +2,7 @@
 
 import LayoutWrapper from '@/components/layout-wrapper'
 import { motion } from 'motion/react'
-import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, MessageSquare, Navigation } from 'lucide-react'
 import { useState } from 'react'
 import { api, endpoints } from '@/lib/api'
 
@@ -20,7 +20,7 @@ function ContactPage() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (isSubmitting) return // Prevent multiple submissions
-    
+
     console.log('Form submission started...') // Debug log
     setIsSubmitting(true)
     try {
@@ -28,29 +28,29 @@ function ContactPage() {
       console.log('Sending data:', {
         name: formData.name,
         email: formData.email,
-        subject: formData.service || "General Inquiry",
-        message: `${formData.message}${formData.company ? `\nCompany: ${formData.company}` : ""}${formData.phone ? `\nPhone: ${formData.phone}` : ""}`,
+        subject: formData.service || 'General Inquiry',
+        message: `${formData.message}${formData.company ? `\nCompany: ${formData.company}` : ''}${formData.phone ? `\nPhone: ${formData.phone}` : ''}`,
       })
-      
+
       const res = await api.post('/contact-leads', {
         name: formData.name,
         email: formData.email,
-        subject: formData.service || "General Inquiry",
-        message: `${formData.message}${formData.company ? `\nCompany: ${formData.company}` : ""}${formData.phone ? `\nPhone: ${formData.phone}` : ""}`,
-      });
-      
-      console.log('API response:', res) // Debug log
-      
-      // Reset form
-      setFormData({ 
-        name: '', 
-        email: '', 
-        company: '', 
-        phone: '', 
-        service: '', 
-        message: '' 
+        subject: formData.service || 'General Inquiry',
+        message: `${formData.message}${formData.company ? `\nCompany: ${formData.company}` : ''}${formData.phone ? `\nPhone: ${formData.phone}` : ''}`,
       })
-      
+
+      console.log('API response:', res) // Debug log
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        service: '',
+        message: '',
+      })
+
       // Show success message
       alert('Message sent successfully!')
     } catch (error) {
@@ -62,9 +62,9 @@ function ContactPage() {
   }
 
   const handleChange = (e) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }))
   }
 
@@ -141,7 +141,7 @@ function ContactPage() {
             </div>
           </div>
         </section>
-        
+
         <section className="py-24 bg-white">
           <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -296,31 +296,42 @@ function ContactPage() {
                     >
                       {isSubmitting ? (
                         <>
-                          <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          <svg
+                            className="animate-spin h-5 w-5 text-white"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                            ></circle>
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            ></path>
                           </svg>
                           <span>Sending...</span>
                         </>
                       ) : (
                         <>
                           <span>Book a Discovery Call</span>
-                          <Send className="group-hover:translate-x-1 transition-transform" size={20} />
+                          <Send
+                            className="group-hover:translate-x-1 transition-transform"
+                            size={20}
+                          />
                         </>
                       )}
                     </motion.button>
-                    {/* Debug button to test loading state */}
-                    <button
-                      type="button"
-                      onClick={testLoading}
-                      className="w-full mt-2 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all"
-                    >
-                      Test Loading State (Debug)
-                    </button>
                   </form>
                 </div>
               </motion.div>
-              
+
               <motion.div
                 initial={{
                   opacity: 0,
@@ -338,7 +349,8 @@ function ContactPage() {
                 <div>
                   <h2 className="text-3xl font-bold mb-4">Contact Information</h2>
                   <p className="text-lg text-gray-600 leading-relaxed">
-                    Have questions? We're here to help. Reach out to us through any of these channels.
+                    Have questions? We're here to help. Reach out to us through any of these
+                    channels.
                   </p>
                 </div>
                 <div className="space-y-6">
@@ -356,13 +368,29 @@ function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-2">Head Office</h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        301, Highfield Ascot, Opp. Palm Avenue, VIP Road, <br />
-                        Vesu, Surat - 395007. Gujarat, India
-                      </p>
+
+                      <div className="flex items-start justify-between gap-3">
+                        <p className="text-gray-600 leading-relaxed">
+                          301, Highfield Ascot, Opp. Palm Avenue, VIP Road, <br />
+                          Vesu, Surat - 395007. Gujarat, India
+                          <button
+                          onClick={() =>
+                            document
+                              .getElementById('office-map')
+                              ?.scrollIntoView({ behavior: 'smooth' })
+                          }
+                          className=" ml-1 rounded-lg text-[#f1592a]  hover:scale-110 transition-all"
+                          title="View on Map"
+                        >
+                          <Navigation size={17} className="text-[#f1592a] " />
+                        </button>
+                        </p>
+
+                       
+                      </div>
                     </div>
                   </motion.div>
-                  
+
                   <motion.div
                     whileHover={{
                       x: 10,
@@ -397,7 +425,7 @@ function ContactPage() {
                       </div>
                     </div>
                   </motion.div>
-                  
+
                   <motion.div
                     whileHover={{
                       x: 10,
@@ -437,8 +465,8 @@ function ContactPage() {
             </div>
           </div>
         </section>
-        
-        <section className="pt-12 bg-white">
+
+        <section id="office-map" className="pt-12 bg-white">
           <div className="max-w-full">
             <motion.div
               initial={{

@@ -1,51 +1,7 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'motion/react'
-
-// ─── responsive config ───────────────────────────────────────────────────────
-// logos per page changes by breakpoint; we detect via a hook
-function useLogosPerPage() {
-  const [perPage, setPerPage] = useState(8)
-
-  useEffect(() => {
-    function update() {
-      const w = window.innerWidth
-
-      if (w < 640) {
-        setPerPage(2) // mobile
-      } else if (w < 768) {
-        setPerPage(4) // tablet
-      } else if (w < 1280) {
-        setPerPage(6) // laptop
-      } else {
-        setPerPage(8) // desktop
-      }
-    }
-
-    update()
-    window.addEventListener('resize', update)
-    return () => window.removeEventListener('resize', update)
-  }, [])
-
-  return perPage
-}
-
-/** Each row always has `size` logos; indices wrap so the last row is never short. */
-function wrapPages(list, size) {
-  if (!list.length) return [[]]
-  const n = list.length
-  const pageCount = Math.ceil(n / size)
-  const pages = []
-  for (let p = 0; p < pageCount; p++) {
-    const row = []
-    for (let i = 0; i < size; i++) {
-      row.push(list[(p * size + i) % n])
-    }
-    pages.push(row)
-  }
-  return pages
-}
 
 // Static logo imports for Next.js compatibility
 const logoModules = {
@@ -90,40 +46,23 @@ const clients = Object.entries(logoModules)
     return arr.findIndex((c) => normalizeClientKey(c.name) === key) === index
   })
 
-// ─── grid cols class per breakpoint ─────────────────────────────────────────
-function gridColsClass(perPage) {
-  switch (perPage) {
-    case 2:
-      return 'grid-cols-2'
-    case 4:
-      return 'grid-cols-4'
-    case 6:
-      return 'grid-cols-6'
-    case 8:
-      return 'grid-cols-8'
-    default:
-      return 'grid-cols-8'
-  }
-}
+// Each logo card width in px (including gap)
+const ITEM_WIDTH = 160  // logo card width
+const GAP = 24          // gap between cards
+const ITEM_FULL = ITEM_WIDTH + GAP
+// Speed: px per second — adjust to taste
+const SPEED = 40
 
 function ClientLogos() {
-  const logosPerPage = useLogosPerPage()
-  const pages = useMemo(() => wrapPages(clients, logosPerPage), [logosPerPage])
-  const pageCount = pages.length
-  const [page, setPage] = useState(0)
+  const trackRef = useRef(null)
+  const [isPaused, setIsPaused] = useState(false)
 
-  // reset to first page whenever logosPerPage changes (breakpoint crossed)
-  useEffect(() => { setPage(0) }, [logosPerPage])
-
-  useEffect(() => {
-    if (pageCount <= 1) return undefined
-    const id = window.setInterval(() => {
-      setPage((p) => (p + 1) % pageCount)
-    }, 5000)
-    return () => clearInterval(id)
-  }, [pageCount])
-
-  const colsClass = gridColsClass(logosPerPage)
+  // Duplicate logos so the loop is seamless:
+  // We render [original + duplicate] — the CSS animation scrolls
+  // exactly one full "original" width, then resets invisibly.
+  const doubled = [...clients, ...clients]
+  const totalWidth = clients.length * ITEM_FULL
+  const duration = totalWidth / SPEED // seconds for one full cycle
 
   return (
     <section className="py-16 bg-white border-t border-gray-100">
@@ -139,59 +78,53 @@ function ClientLogos() {
           </p>
         </motion.div>
 
-        <div className="relative w-full overflow-hidden pb-12">
-          <motion.div
-            className="flex"
-            style={{ width: `${pageCount * 100}%` }}
-            animate={{ x: `-${(page / pageCount) * 100}%` }}
-            transition={{ duration: 0.55, ease: [0.32, 0.72, 0, 1] }}
+        {/* Outer mask — hides the overflow and fades edges */}
+        <div
+          className="relative w-full overflow-hidden"
+          style={{
+            maskImage:
+              'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+            WebkitMaskImage:
+              'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+          }}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Inject the keyframe animation via a style tag */}
+          <style>{`
+            @keyframes marquee {
+              0%   { transform: translateX(0); }
+              100% { transform: translateX(-${totalWidth}px); }
+            }
+          `}</style>
+
+          {/* Scrolling track */}
+          <div
+            ref={trackRef}
+            style={{
+              display: 'flex',
+              gap: `${GAP}px`,
+              width: 'max-content',
+              animation: `marquee ${duration}s linear infinite`,
+              animationPlayState: isPaused ? 'paused' : 'running',
+            }}
           >
-            {pages.map((group, pageIndex) => (
+            {doubled.map((client, i) => (
               <div
-                key={pageIndex}
-                className={`grid ${colsClass} gap-3 sm:gap-4 lg:gap-6 items-center`}
-                style={{ width: `${100 / pageCount}%` }}
+                key={`${client.path}-${i}`}
+                title={client.name}
+                style={{ width: `${ITEM_WIDTH}px`, flexShrink: 0 }}
+                className="group flex items-center justify-center h-20 px-3 bg-gray-50 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-white hover:shadow-lg transition-all cursor-default"
               >
-                {group.map((client, slotIndex) => (
-                  <motion.div
-                    key={`${pageIndex}-${slotIndex}-${client.path}`}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.05 }}
-                    className="group relative min-w-0"
-                    title={client.name}
-                  >
-                    <div className="flex items-center justify-center h-16 sm:h-20 px-2 sm:px-3 bg-gray-50 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-white hover:shadow-lg transition-all">
-                      <img
-                        src={client.logo}
-                        alt={client.name}
-                        className="max-h-8 sm:max-h-10 max-w-full w-auto object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all"
-                        loading="lazy"
-                      />
-                    </div>
-                  </motion.div>
-                ))}
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="max-h-10 max-w-full w-auto object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all"
+                  loading="lazy"
+                />
               </div>
             ))}
-          </motion.div>
-
-          {pageCount > 1 && (
-            <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-2">
-              {Array.from({ length: pageCount }, (_, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  aria-label={`Show client logos page ${index + 1}`}
-                  aria-current={page === index ? 'true' : undefined}
-                  onClick={() => setPage(index)}
-                  className={`h-2.5 w-2.5 rounded-full transition-colors ${
-                    page === index ? 'bg-[#f1592a]' : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                />
-              ))}
-            </div>
-          )}
+          </div>
         </div>
       </div>
     </section>

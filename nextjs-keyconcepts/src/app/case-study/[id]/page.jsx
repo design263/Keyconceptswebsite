@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import { CaseStudyDetail } from '@/components/case-study-detail'
 import { getCaseStudyById } from '@/data/case-studies'
+import { createPageMetadata } from '@/lib/seo'
 
 export async function generateMetadata({ params }) {
   const { id } = await params
@@ -20,31 +21,14 @@ export async function generateMetadata({ params }) {
     'success story',
   ].join(', ')
 
-  return {
-    title: `${caseStudy.title} | Case Study | Key Concepts`,
+  return createPageMetadata('insights-case-studies', {
+    title: `${caseStudy.title} Case Study`,
     description: caseStudy.challenge,
+    path: `/case-study/${id}`,
+    type: 'article',
+    image: caseStudy.image,
     keywords,
-    openGraph: {
-      title: `${caseStudy.title} | Case Study | Key Concepts`,
-      description: caseStudy.challenge,
-      type: 'article',
-      authors: [caseStudy.client],
-      images: [
-        {
-          url: caseStudy.image,
-          width: 1200,
-          height: 630,
-          alt: caseStudy.title,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${caseStudy.title} | Case Study | Key Concepts`,
-      description: caseStudy.challenge,
-      images: [caseStudy.image],
-    },
-  }
+  })
 }
 
 export default async function CaseStudyDetailPage({ params }) {

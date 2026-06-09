@@ -164,7 +164,8 @@ function HeroSection() {
             transition={{
               duration: 0.8,
             }}
-            className="space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start"          >
+            className="space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start"
+          >
             {' '}
             <motion.div
               initial={{
@@ -188,25 +189,27 @@ function HeroSection() {
             </motion.div>{' '}
             <div className="space-y-4">
               {' '}
-              <motion.h1
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{
-                  delay: 0.3,
-                }}
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
-              >
-                Product Engineering & Digital{' '}
-                <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Transformation Partner
-                </span>
-              </motion.h1>{' '}
+             
+                <motion.h1
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    delay: 0.3,
+                  }}
+                  className="text-4xl sm:text-5xl lg:text-5xl font-bold leading-tight"
+                >
+                  Product Engineering & Digital{' '}
+                  <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
+                    Transformation Partner
+                  </span>
+                </motion.h1>{' '}
+              
               <motion.div
                 initial={{
                   opacity: 0,
@@ -217,10 +220,10 @@ function HeroSection() {
                 transition={{
                   delay: 0.5,
                 }}
-                className="h-16 flex items-center"
+                className="h-16 flex items-center justify-center lg:justify-start"
               >
                 {' '}
-                <p className="text-xl sm:text-2xl text-gray-600">
+                <p className=" text-lg lg:text-xl sm:text-2xl text-gray-600 font-bold">
                   {displayedText} <span className="animate-pulse">|</span>
                 </p>
               </motion.div>{' '}
@@ -236,7 +239,7 @@ function HeroSection() {
                 transition={{
                   delay: 0.7,
                 }}
-                className="text-lg text-gray-600 leading-relaxed"
+                className="text-md lg:text-lg text-gray-600 leading-relaxed"
               >
                 From MVP to enterprise-grade systems — we ship fast, keep quality high, and stay
                 with you for long-term support.

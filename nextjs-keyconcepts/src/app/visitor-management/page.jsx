@@ -238,11 +238,11 @@ function VisitorManagementPage() {
                   transition={{
                     delay: 0.3,
                   }}
-                  className="text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+                  className="text-4xl lg:text-5xl font-bold mb-6 leading-tight"
                 >
-                  Visitor Management{' '}
+                  Visitor <br /> Management <br /> {' '}
                   <span className="block bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                    Built for Safety & Speed
+                    Built for Safety & <br /> Speed
                   </span>
                 </motion.h1>
                 <motion.p

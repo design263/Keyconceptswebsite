@@ -10,7 +10,7 @@ export function useAdminAuth() {
     if (typeof window !== 'undefined') {
       const token = localStorage.getItem('admin_token')
       if (!token) {
-        router.push('/admin/login')
+        router.push('/admin-login')
         return
       }
     }

@@ -30,24 +30,24 @@ const values = [
 
 const team = [
   {
-    name: 'John Anderson',
-    role: 'Chief Executive Officer',
-    initial: 'JA',
+    name: 'Punit Gajera',
+    role: 'Founder & CEO',
+    initial: 'PG',
   },
   {
-    name: 'Sarah Mitchell',
-    role: 'Chief Technology Officer',
-    initial: 'SM',
-  },
-  {
-    name: 'Michael Brown',
+    name: 'Prince Prajapati',
     role: 'Head of Development',
-    initial: 'MB',
+    initial: 'PP',
   },
   {
-    name: 'Emily Davis',
-    role: 'Head of Marketing',
-    initial: 'ED',
+    name: 'Ayushi Mehta',
+    role: 'Team Leader',
+    initial: 'AM',
+  },
+  {
+    name: 'Jay Dhimmar',
+    role: 'Product Manager',
+    initial: 'JD',
   },
 ]
 
@@ -89,7 +89,7 @@ export default function AboutPage() {
               >
                 About Us
               </motion.span>
-              <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 Transforming Businesses Since 2009
               </h1>
               <p className="text-xl text-gray-300 leading-relaxed">
@@ -351,8 +351,8 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
                 {
-                  value: '15+',
-                  label: 'Years Experience',
+                  value: '16+',
+                  label: 'Years of Excellence',
                 },
                 {
                   value: '500+',

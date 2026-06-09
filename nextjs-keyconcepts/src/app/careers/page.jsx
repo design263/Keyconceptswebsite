@@ -27,6 +27,7 @@ import {
   Eye,
   X,
   FileText,
+  Upload,
 } from 'lucide-react'
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
 import Link from 'next/link'
@@ -466,7 +467,7 @@ function CareersPage() {
                   transition={{
                     delay: 0.3,
                   }}
-                  className="text-4xl md:text-6xl font-bold mb-6"
+                  className="text-4xl md:text-5xl font-bold mb-6"
                 >
                   Build Your Career with{' '}
                   <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
@@ -1002,119 +1003,137 @@ function CareersPage() {
         </section>
 
         {isModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-            <div className="bg-white rounded-2xl shadow-2xl w-11/12 max-w-4xl p-8 max-h-[90vh] overflow-y-auto">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">
-                  Apply for {selectedRole?.title}
-                </h2>
-                <button className="text-gray-500 hover:text-gray-700" onClick={closeModal}>
-                  <X size={24} />
-                </button>
+  <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50">
+    <div className="bg-white w-full sm:w-11/12 sm:max-w-4xl sm:rounded-2xl rounded-t-2xl shadow-2xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto">
+      
+      {/* Header */}
+      <div className="sticky top-0 bg-white border-b border-gray-100 rounded-t-2xl px-5 sm:px-8 py-4 sm:py-5 z-10">
+        <div className="flex items-center justify-between gap-3">
+          <h2 className="text-lg sm:text-2xl font-bold text-gray-900 leading-tight">
+            Apply for{' '}
+            <span className="text-[#f1592a]">{selectedRole?.title}</span>
+          </h2>
+          <button
+            className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors flex-shrink-0"
+            onClick={closeModal}
+            aria-label="Close"
+          >
+            <X size={20} className="text-gray-500" />
+          </button>
+        </div>
+      </div>
+
+      {/* Form */}
+      <div className="px-5 sm:px-8 py-5 sm:py-6">
+        <form onSubmit={submitApplication}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Full Name <span className="text-red-500">*</span></label>
+              <input
+                type="text"
+                placeholder="Enter your full name"
+                value={applicationForm.fullName}
+                onChange={(e) => setApplicationForm((prev) => ({ ...prev, fullName: e.target.value }))}
+                required
+                className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Email Address <span className="text-red-500">*</span></label>
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                value={applicationForm.email}
+                onChange={(e) => setApplicationForm((prev) => ({ ...prev, email: e.target.value }))}
+                required
+                className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number <span className="text-red-500">*</span>  </label>
+              <input
+                type="tel"
+                placeholder="Enter your phone number"
+                value={applicationForm.phone}
+                onChange={(e) => setApplicationForm((prev) => ({ ...prev, phone: e.target.value }))}
+                required
+                className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">LinkedIn Profile</label>
+              <input
+                type="url"
+                placeholder="Enter your LinkedIn profile"
+                className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
+              />
+            </div>
+
+            {/* Cover Letter — full width on both mobile and desktop */}
+            <div className="col-span-1 sm:col-span-2">
+              <label className="block text-sm font-medium text-gray-700 mb-1">Cover Letter <span className="text-red-500">*</span></label>
+              <textarea
+                className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm resize-none"
+                placeholder="Enter your cover letter"
+                value={applicationForm.coverLetter}
+                onChange={(e) => setApplicationForm((prev) => ({ ...prev, coverLetter: e.target.value }))}
+                required
+                rows={4}
+              />
+            </div>
+
+            {/* Resume upload — full width */}
+            <div className="col-span-1 sm:col-span-2">
+              <label className="block text-sm font-medium text-gray-700 mb-1">Resume/CV <span className="text-red-500">*</span></label>
+              <div className="mt-1 flex justify-center px-4 sm:px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-[#f1592a] transition-colors">
+                <div className="space-y-2 text-center">
+                  <Upload className="mx-auto h-10 w-10 text-gray-400" />
+                  <div className="flex flex-wrap justify-center items-center gap-1 text-sm text-gray-600">
+                    <label className="relative cursor-pointer rounded-md font-medium text-[#f1592a] hover:text-[#ff7a45]">
+                      <span>Upload a file</span>
+                      <input
+                        type="file"
+                        className="sr-only"
+                        accept=".pdf,.doc,.docx"
+                        onChange={(e) => setResumeFile(e.target.files?.[0] || null)}
+                      />
+                    </label>
+                    <p>or drag and drop</p>
+                  </div>
+                  <p className="text-xs text-gray-500">PDF, DOC, DOCX up to 10MB</p>
+                </div>
               </div>
-              <form onSubmit={submitApplication}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">Full Name</label>
-                    <input
-                      type="text"
-                      value={applicationForm.fullName}
-                      onChange={(e) => setApplicationForm((prev) => ({ ...prev, fullName: e.target.value }))}
-                      required
-                      className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#f1592a] focus:border-[#f1592a] sm:text-sm"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      value={applicationForm.email}
-                      onChange={(e) => setApplicationForm((prev) => ({ ...prev, email: e.target.value }))}
-                      required
-                      className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#f1592a] focus:border-[#f1592a] sm:text-sm"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      value={applicationForm.phone}
-                      onChange={(e) => setApplicationForm((prev) => ({ ...prev, phone: e.target.value }))}
-                      required
-                      className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#f1592a] focus:border-[#f1592a] sm:text-sm"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                      LinkedIn Profile
-                    </label>
-                    <input
-                      type="url"
-                      className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#f1592a] focus:border-[#f1592a] sm:text-sm"
-                    />
-                  </div>
-                  <div className="col-span-2">
-                    <label className="block text-sm font-medium text-gray-700">
-                      Cover Letter
-                    </label>
-                    <textarea
-                      className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#f1592a] focus:border-[#f1592a] sm:text-sm"
-                      value={applicationForm.coverLetter}
-                      onChange={(e) => setApplicationForm((prev) => ({ ...prev, coverLetter: e.target.value }))}
-                      required
-                      rows={4}
-                    />
-                  </div>
-                  <div className="col-span-2">
-                    <label className="block text-sm font-medium text-gray-700">
-                      Resume/CV
-                    </label>
-                    <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md hover:border-[#f1592a] transition-colors">
-                      <div className="space-y-1 text-center">
-                        <Upload className="mx-auto h-12 w-12 text-gray-400" />
-                        <div className="flex text-sm text-gray-600">
-                          <label className="relative cursor-pointer rounded-md font-medium text-[#f1592a] hover:text-[#ff7a45]">
-                            <span>Upload a file</span>
-                            <input
-                              type="file"
-                              className="sr-only"
-                              accept=".pdf,.doc,.docx"
-                              onChange={(e) => setResumeFile(e.target.files?.[0] || null)}
-                            />
-                          </label>
-                          <p className="pl-1">or drag and drop</p>
-                        </div>
-                        <p className="text-xs text-gray-500">PDF, DOC, DOCX up to 10MB</p>
-                      </div>
-                    </div>
-                    {resumeFile && (
-                      <p className="mt-2 text-sm text-gray-600">Selected: {resumeFile.name}</p>
-                    )}
-                  </div>
-                </div>
-                <div className="mt-6 flex justify-end space-x-3">
-                  <button
-                    type="button"
-                    onClick={closeModal}
-                    className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f1592a]"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-[#f1592a] to-[#ff7a45] hover:from-[#ff7a45] hover:to-[#f1592a] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f1592a]"
-                  >
-                    Submit Application
-                  </button>
-                </div>
-              </form>
+              {resumeFile && (
+                <p className="mt-2 text-sm text-gray-600">Selected: {resumeFile.name}</p>
+              )}
             </div>
           </div>
-        )}
+
+          {/* Action buttons — stacked on mobile, side-by-side on sm+ */}
+          <div className="mt-6 flex flex-col-reverse sm:flex-row sm:justify-end gap-3">
+            <button
+              type="button"
+              onClick={closeModal}
+              className="w-full sm:w-auto px-6 py-3 border border-gray-300 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f1592a] transition-colors"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="w-full sm:w-auto px-6 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-[#f1592a] to-[#ff7a45] hover:from-[#ff7a45] hover:to-[#f1592a] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f1592a] transition-all shadow-lg"
+            >
+              Submit Application
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+)}
       </div>
     </LayoutWrapper>
   )

@@ -4,20 +4,9 @@ import { Calendar, Clock, User, ArrowRight } from 'lucide-react'
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
 import { blogPosts } from '@/data/blog-posts'
 
-export const metadata = {
-  title: 'Blog - Key Concepts | Insights and Articles',
-  description: 'Read our latest articles on web development, technology trends, and digital transformation insights.',
-  openGraph: {
-    title: 'Blog - Key Concepts | Insights and Articles',
-    description: 'Read our latest articles on web development, technology trends, and digital transformation insights.',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Blog - Key Concepts | Insights and Articles',
-    description: 'Read our latest articles on web development, technology trends, and digital transformation insights.',
-  },
-}
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata = createPageMetadata('blog')
 
 export default function BlogPage() {
   return (

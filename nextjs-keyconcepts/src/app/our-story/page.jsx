@@ -218,7 +218,7 @@ function OurStoryPage() {
                 transition={{
                   delay: 0.3,
                 }}
-                className="text-4xl md:text-6xl font-bold mb-6"
+                className="text-4xl md:text-5xl font-bold mb-6"
               >
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
                   New Generation Company

@@ -252,7 +252,7 @@ function ProcessPage() {
                   <Award className="text-[#f1592a]" size={20} />
                   <span className="text-[#f1592a] font-semibold">Our Proven Process</span>
                 </div>
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
                   Building Trust Through <br />
                   <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
                     Transparency & Excellence

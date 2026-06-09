@@ -3,14 +3,15 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useAdminAuth } from '../use-admin-auth'
 import {
-  BriefcaseBusiness, ChevronLeft, ChevronRight,
-  Pencil, Trash2, ToggleLeft, ToggleRight,
-  Plus, X, Search, ArrowUpDown, Loader2,
+  BriefcaseBusiness,
+  Pencil, Trash2,
+  Plus, X,
 } from 'lucide-react'
-import { ChevronDown } from 'lucide-react'
 import { toast } from 'sonner'
-
+import '@/styles/theme.css'
 import { api, endpoints } from '@/lib/api'
+import { AdminCustomSelect, inputCls } from '../components/AdminCustomSelect'
+import { AdminTable } from '../components/AdminTable'
 
 const toText = (items) => items.join('\n')
 const toList = (value) =>
@@ -31,59 +32,6 @@ const Field = ({ label, children }) => (
     {children}
   </div>
 )
-
-const inputCls =
-  'w-full px-4 py-1.5 text-sm rounded-sm border border-border bg-gray-100 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary/20 focus:border-primary transition-all duration-200'
-
-const CustomSelect = ({ value, onChange, options, className = '' }) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const selectRef = useRef(null)
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (selectRef.current && !selectRef.current.contains(event.target)) {
-        setIsOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
-
-  const selectedOption = options.find(opt => opt.value === value)
-
-  return (
-    <div ref={selectRef} className={`relative ${className}`}>
-      <div
-        onClick={() => setIsOpen(!isOpen)}
-        className={`${inputCls} cursor-pointer flex items-center justify-between pr-2 gap-2`}
-      >
-        <span>{selectedOption?.label || 'Select...'}</span>
-        <ChevronDown
-          size={14}
-          className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-        />
-      </div>
-
-      {isOpen && (
-        <ul className="absolute z-50 w-full mt-1 bg-white border border-border rounded-sm shadow-lg max-h-60 overflow-auto">
-          {options.map((option) => (
-            <li
-              key={option.value}
-              onClick={() => {
-                onChange(option.value)
-                setIsOpen(false)
-              }}
-              className={`px-4 py-2 text-sm cursor-pointer transition-colors hover:bg-primary/10 ${value === option.value ? 'bg-primary/5 text-primary font-medium' : 'text-foreground'
-                }`}
-            >
-              {option.label}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  )
-}
 
 const StatusBadge = ({ status }) =>
   status === 'active' ? (
@@ -174,17 +122,6 @@ export default function AdminJobsPage() {
     }
   }
 
-  const firstRecord = jobs.total === 0 ? 0 : (page - 1) * limit + 1
-  const lastRecord = Math.min(page * limit, jobs.total)
-
-  const getPageNumbers = () => {
-    const total = jobs.totalPages
-    if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1)
-    if (page <= 4) return [1, 2, 3, 4, 5, '...', total]
-    if (page >= total - 3) return [1, '...', total - 4, total - 3, total - 2, total - 1, total]
-    return [1, '...', page - 1, page, page + 1, '...', total]
-  }
-
   const sortOptions = [
     { value: '-createdAt', label: 'Newest First' },
     { value: 'createdAt', label: 'Oldest First' },
@@ -192,10 +129,13 @@ export default function AdminJobsPage() {
     { value: '-title', label: 'Title Z-A' },
   ]
 
-  const limitOptions = [
-    { value: '10', label: '10' },
-    { value: '25', label: '25' },
-    { value: '50', label: '50' },
+  const jobColumns = [
+    { key: 'title', label: 'Title' },
+    { key: 'department', label: 'Department' },
+    { key: 'type', label: 'Type' },
+    { key: 'experience', label: 'Experience' },
+    { key: 'status', label: 'Status' },
+    { key: 'actions', label: 'Actions' },
   ]
 
   return (
@@ -203,8 +143,8 @@ export default function AdminJobsPage() {
 
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center">
-            <BriefcaseBusiness size={18} className="text-primary" />
+          <div className="w-9 h-9 rounded-xl bg-[#f1592a]/10 flex items-center justify-center">
+            <BriefcaseBusiness size={18} className="text-[#f1592a]" />
           </div>
           <div>
             <h1 className="text-lg font-bold text-foreground leading-tight">Job Openings</h1>
@@ -222,7 +162,7 @@ export default function AdminJobsPage() {
               toggleForm()
             }
           }}
-          className={`flex items-center gap-2 px-4 py-2 rounded-sm text-sm font-semibold transition-all duration-200 bg-primary text-white hover:bg-primary/90 shadow-sm shadow-primary/20`}
+          className={`flex items-center gap-2 px-4 py-2 rounded-sm text-sm font-semibold transition-all duration-200 bg-[#f1592a] text-white hover:bg-[#f1592a]/90 shadow-sm shadow-[#f1592a]/20`}
         >
           <Plus size={15} /> Add Job Opening
         </button>
@@ -241,13 +181,13 @@ export default function AdminJobsPage() {
         >
           <form
             onSubmit={saveJob}
-            className="bg-white border border-border rounded-2xl overflow-hidden shadow-sm"
+            className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm"
           >
             {/* Form header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-border bg-gradient-to-r from-orange-50 to-white">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-orange-50 to-white">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-sm bg-primary/10 flex items-center justify-center">
-                  <BriefcaseBusiness size={16} className="text-primary" />
+                <div className="w-8 h-8 rounded-sm bg-[#f1592a]/10 flex items-center justify-center">
+                  <BriefcaseBusiness size={16} className="text-[#f1592a]" />
                 </div>
                 <div>
                   <h2 className="text-sm font-bold text-foreground">
@@ -388,7 +328,7 @@ export default function AdminJobsPage() {
                   />
                 </Field>
                 <Field label="Status">
-                  <CustomSelect
+                  <AdminCustomSelect
                     value={jobForm.status}
                     onChange={(value) => setJobForm((p) => ({ ...p, status: value }))}
                     options={[
@@ -401,17 +341,17 @@ export default function AdminJobsPage() {
             </div>
 
             {/* Form footer */}
-            <div className="px-6 py-4 border-t border-border flex items-center justify-end gap-3 bg-muted/30">
+            <div className="px-6 py-4 border-t border-gray-200 flex items-center justify-end gap-3 bg-muted/30">
               <button
                 type="button"
                 onClick={toggleForm}
-                className="px-4 py-2 rounded-sm text-sm font-medium text-foreground border border-border hover:bg-muted transition-colors"
+                className="px-4 py-2 rounded-sm text-sm font-medium text-foreground border border-gray-200 hover:bg-muted transition-colors"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="px-5 py-2 rounded-sm text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-colors shadow-sm shadow-primary/20"
+                className="px-5 py-2 rounded-sm text-sm font-semibold bg-[#f1592a] text-white hover:bg-[#f1592a]/90 transition-colors shadow-sm shadow-[#f1592a]/20"
               >
                 {editingId ? 'Update Job' : 'Create Job'}
               </button>
@@ -420,230 +360,134 @@ export default function AdminJobsPage() {
         </div>
       )}
 
-      <div className="bg-white border border-border rounded-lg shadow-sm">
-
-        {/* Table toolbar */}
-        <div className="flex flex-wrap items-center justify-between gap-3 px-5 py-3 border-b border-border">
-          <h2 className="text-sm font-bold text-foreground">All Job Openings
-            <span className="ml-2 px-2 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-semibold">
-              {jobs.total}
-            </span>
-          </h2>
-          <div className="flex items-center gap-2 flex-wrap">
-            {/* Search */}
-            <div className="relative">
-              <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-              <input
-                value={q}
-                onChange={(e) => { setQ(e.target.value); setPage(1) }}
-                placeholder="Search jobs..."
-                className="w-80 pl-8 pr-3 py-1.5 text-sm rounded-sm border border-border bg-gray-100 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary/20 focus:border-primary transition-all w-52"
-              />
-            </div>
-            {/* Custom Sort Select */}
-            <div className="relative">
-              <CustomSelect
-                value={sort}
-                onChange={(value) => { setSort(value); setPage(1) }}
-                options={sortOptions}
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm min-w-[760px]">
-            <thead>
-              <tr className="bg-muted/50 text-muted-foreground text-sm font-semibold border-b border-gray-200 uppercase tracking-wide">
-                <th className="text-left px-5 py-2.5 font-semibold">Title</th>
-                <th className="text-left px-5 py-2.5 font-semibold">Department</th>
-                <th className="text-left px-5 py-2.5 font-semibold">Type</th>
-                <th className="text-left px-5 py-2.5 font-semibold">Experience</th>
-                <th className="text-left px-5 py-2.5 font-semibold">Status</th>
-                <th className="text-left px-5 py-2.5 font-semibold">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border">
-              {loading ? (
-                <tr>
-                  <td colSpan={7} className="py-16 text-center">
-                    <div className="flex items-center justify-center gap-2 text-muted-foreground">
-                      <Loader2 size={18} className="animate-spin text-primary" />
-                      <span className="text-sm">Loading jobs...</span>
-                    </div>
-                  </td>
-                </tr>
-              ) : jobs.data.length === 0 ? (
-                <tr>
-                  <td colSpan={7} className="py-16 text-center">
-                    <div className="flex flex-col items-center gap-2 text-muted-foreground">
-                      <BriefcaseBusiness size={32} className="text-border" />
-                      <p className="text-sm">No job openings found.</p>
-                    </div>
-                  </td>
-                </tr>
-              ) : (
-                jobs.data.map((job, idx) => (
-                  <tr
-                    key={job._id}
-                    className="hover:bg-orange-50/40 transition-colors duration-150 group"
-                  >
-                    <td className="px-5 py-3 font-semibold text-foreground">{job.title}</td>
-                    <td className="px-5 py-3 text-muted-foreground">{job.department}</td>
-                    <td className="px-5 py-3 text-muted-foreground">{job.employmentType}</td>
-                    <td className="px-5 py-3 text-muted-foreground">{job.experience}</td>
-                    <td className="px-5 py-3">
-                      <StatusBadge status={job.status} />
-                    </td>
-                    <td className="px-5 py-2">
-                      <div className="flex items-center gap-3">
-                        {/* Edit */}
-                        <button
-                          title="Edit"
-                          onClick={() => {
-                            setEditingId(job._id)
-                            setJobForm({
-                              title: job.title,
-                              department: job.department,
-                              location: job.location,
-                              description: job.description,
-                              requirements: toText(job.requirements || []),
-                              responsibilities: toText(job.responsibilities || []),
-                              niceToHave: toText(job.niceToHave || []),
-                              benefits: toText(job.benefits || []),
-                              salary: job.salary || '',
-                              experience: job.experience,
-                              employmentType: job.employmentType,
-                              status: job.status,
-                            })
-                            if (!showForm) {
-                              setShowForm(true)
-                              requestAnimationFrame(() =>
-                                requestAnimationFrame(() => setFormVisible(true))
-                              )
-                            }
-                          }}
-                          className="p-1.5 rounded-sm text-muted-foreground text-blue-600 bg-blue-50 transition-all"
-                        >
-                          <Pencil className=" text-blue-600" size={15} />
-                        </button>
-
-                        {/* Delete */}
-                        <button
-                          title="Delete"
-                          onClick={async () => {
-                            try {
-                              const res = await api.delete(`${endpoints.JOBS}/${job._id}`, token)
-                              toast.success(res?.message || 'Job deleted successfully')
-                              loadJobs()
-                            } catch (err) {
-                              toast.error(err?.message || 'Failed to delete job')
-                            }
-                          }}
-                          className="p-1.5 rounded-sm text-muted-foreground text-destructive bg-destructive/10 transition-all"
-                        >
-                          <Trash2 className=" text-red-600" size={15} />
-                        </button>
-
-                        {/* Toggle status */}
-                        <button
-                          title="Toggle status"
-                          onClick={async () => {
-                            try {
-                              const res = await api.patch(
-                                `/jobs/${job._id}`,
-                                { status: job.status === 'active' ? 'inactive' : 'active' },
-                                token
-                              )
-                              toast.success(res?.message || 'Status updated successfully')
-                              loadJobs()
-                            } catch (err) {
-                              toast.error(err?.message || 'Failed to toggle status')
-                            }
-                          }}
-                          className={`
-                            relative inline-flex items-center w-7 h-4 rounded-full 
-                              transition-all duration-300 ease-in-out
-                              ${job.status === 'active' ? 'bg-orange-500' : 'bg-gray-300'}
-                            `}
-                        >
-                          <span
-                            className={`
-                            absolute top-[2px] left-[2px] w-3 h-3 bg-white rounded-full 
-                            shadow-md transform transition-all duration-300
-                            ${job.status === 'active' ? 'translate-x-3' : 'translate-x-0'}
-                          `}
-                          />
-                        </button>
-
-                      </div>
-                    </td>
-
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        </div>
-
-        <div className="flex flex-wrap items-center justify-between gap-4 px-5 py-3 border-t border-border bg-muted/20">
-
-          <p className="text-xs text-muted-foreground whitespace-nowrap">
-            {jobs.total === 0
-              ? 'No records'
-              : `Showing ${firstRecord} - ${lastRecord} of ${jobs.total} records`}
-          </p>
-
-          <div className="flex items-center gap-1">
-            {/* Prev */}
-            <button
-              disabled={page <= 1}
-              onClick={() => setPage((p) => Math.max(1, p - 1))}
-              className="flex items-center justify-center w-8 h-8 rounded-sm border border-border text-muted-foreground hover:border-primary hover:text-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-            >
-              <ChevronLeft size={15} />
-            </button>
-
-            {/* Page numbers */}
-            {getPageNumbers().map((p, i) =>
-              p === '...' ? (
-                <span key={`ellipsis-${i}`} className="px-1 text-muted-foreground text-sm select-none">...</span>
-              ) : (
+      <AdminTable
+        title="All Job Openings"
+        total={jobs.total}
+        columns={jobColumns}
+        data={jobs.data}
+        loading={loading}
+        loadingMessage="Loading jobs..."
+        emptyIcon={BriefcaseBusiness}
+        emptyMessage="No job openings found."
+        search={{
+          value: q,
+          onChange: (value) => {
+            setQ(value)
+            setPage(1)
+          },
+          placeholder: 'Search jobs...',
+        }}
+        sort={{
+          value: sort,
+          onChange: (value) => {
+            setSort(value)
+            setPage(1)
+          },
+          options: sortOptions,
+        }}
+        searchInputClassName="w-80 pl-8 pr-3 py-1.5 text-sm rounded-sm border border-gray-200 bg-gray-100 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-[#f1592a]/20 focus:border-[#f1592a] transition-all w-52"
+        page={page}
+        totalPages={jobs.totalPages}
+        limit={limit}
+        onPageChange={setPage}
+        onLimitChange={(value) => {
+          setLimit(value)
+          setPage(1)
+        }}
+        renderRow={(job) => (
+          <tr
+            key={job._id}
+            className="hover:bg-orange-50/40 transition-colors duration-150 group"
+          >
+            <td className="px-5 py-3 font-semibold text-foreground">{job.title}</td>
+            <td className="px-5 py-3 text-muted-foreground">{job.department}</td>
+            <td className="px-5 py-3 text-muted-foreground">{job.employmentType}</td>
+            <td className="px-5 py-3 text-muted-foreground">{job.experience}</td>
+            <td className="px-5 py-3">
+              <StatusBadge status={job.status} />
+            </td>
+            <td className="px-5 py-2">
+              <div className="flex items-center gap-3">
                 <button
-                  key={p}
-                  onClick={() => setPage(p)}
-                  className={`flex items-center justify-center w-8 h-8 rounded-sm text-xs font-semibold border transition-all
-                    ${page === p
-                      ? 'bg-primary text-white border-primary shadow-sm shadow-primary/20'
-                      : 'border-border text-foreground hover:border-primary hover:text-primary'
-                    }`}
+                  title="Edit"
+                  onClick={() => {
+                    setEditingId(job._id)
+                    setJobForm({
+                      title: job.title,
+                      department: job.department,
+                      location: job.location,
+                      description: job.description,
+                      requirements: toText(job.requirements || []),
+                      responsibilities: toText(job.responsibilities || []),
+                      niceToHave: toText(job.niceToHave || []),
+                      benefits: toText(job.benefits || []),
+                      salary: job.salary || '',
+                      experience: job.experience,
+                      employmentType: job.employmentType,
+                      status: job.status,
+                    })
+                    if (!showForm) {
+                      setShowForm(true)
+                      requestAnimationFrame(() =>
+                        requestAnimationFrame(() => setFormVisible(true))
+                      )
+                    }
+                  }}
+                  className="p-1.5 rounded-sm text-muted-foreground text-blue-600 bg-blue-50 transition-all"
                 >
-                  {p}
+                  <Pencil className=" text-blue-600" size={15} />
                 </button>
-              )
-            )}
 
-            {/* Next */}
-            <button
-              disabled={page >= jobs.totalPages}
-              onClick={() => setPage((p) => Math.min(jobs.totalPages, p + 1))}
-              className="flex items-center justify-center w-8 h-8 rounded-sm border border-border text-muted-foreground hover:border-primary hover:text-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-            >
-              <ChevronRight size={15} />
-            </button>
-          </div>
+                <button
+                  title="Delete"
+                  onClick={async () => {
+                    try {
+                      const res = await api.delete(`${endpoints.JOBS}/${job._id}`, token)
+                      toast.success(res?.message || 'Job deleted successfully')
+                      loadJobs()
+                    } catch (err) {
+                      toast.error(err?.message || 'Failed to delete job')
+                    }
+                  }}
+                  className="p-1.5 rounded-sm text-muted-foreground text-destructive bg-destructive/10 transition-all"
+                >
+                  <Trash2 className=" text-red-600" size={15} />
+                </button>
 
-          <div className="flex items-center gap-2">
-            <label className="text-xs font-medium text-muted-foreground whitespace-nowrap">Rows per page:</label>
-            <CustomSelect
-              value={limit.toString()}
-              onChange={(value) => { setLimit(Number(value)); setPage(1) }}
-              options={limitOptions}
-            />
-          </div>
-        </div>
-      </div>
+                <button
+                  title="Toggle status"
+                  onClick={async () => {
+                    try {
+                      const res = await api.patch(
+                        `/jobs/${job._id}`,
+                        { status: job.status === 'active' ? 'inactive' : 'active' },
+                        token
+                      )
+                      toast.success(res?.message || 'Status updated successfully')
+                      loadJobs()
+                    } catch (err) {
+                      toast.error(err?.message || 'Failed to toggle status')
+                    }
+                  }}
+                  className={`
+                    relative inline-flex items-center w-7 h-4 rounded-full 
+                      transition-all duration-300 ease-in-out
+                      ${job.status === 'active' ? 'bg-orange-500' : 'bg-gray-300'}
+                    `}
+                >
+                  <span
+                    className={`
+                    absolute top-[2px] left-[2px] w-3 h-3 bg-white rounded-full 
+                    shadow-md transform transition-all duration-300
+                    ${job.status === 'active' ? 'translate-x-3' : 'translate-x-0'}
+                  `}
+                  />
+                </button>
+              </div>
+            </td>
+          </tr>
+        )}
+      />
     </div>
   )
 }

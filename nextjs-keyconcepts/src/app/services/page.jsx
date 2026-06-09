@@ -1,19 +1,7 @@
 import LayoutWrapper from '@/components/layout-wrapper'
+import { createPageMetadata } from '@/lib/seo'
 
-export const metadata = {
-  title: 'Services - Key Concepts | Web Development & Digital Solutions',
-  description: 'Explore our comprehensive range of services including web development, mobile apps, ERP solutions, and digital transformation services.',
-  openGraph: {
-    title: 'Services - Key Concepts | Web Development & Digital Solutions',
-    description: 'Explore our comprehensive range of services including web development, mobile apps, ERP solutions, and digital transformation services.',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Services - Key Concepts | Web Development & Digital Solutions',
-    description: 'Explore our comprehensive range of services including web development, mobile apps, ERP solutions, and digital transformation services.',
-  },
-}
+export const metadata = createPageMetadata('services')
 
 export default function ServicesPage() {
   return (

@@ -23,7 +23,7 @@ export function Sidebar({ isCollapsed, onToggle }) {
   const logout = () => {
     if (typeof window !== 'undefined') {
       localStorage.removeItem("admin_token")
-      window.location.href = "/admin/login"
+        window.location.href = "/admin-login"
     }
   }
 
@@ -38,15 +38,18 @@ export function Sidebar({ isCollapsed, onToggle }) {
         />
       )}
 
-      <aside
-        className={`
-          fixed md:relative z-50 h-screen 
-          transition-all duration-300 ease-in-out
-          border-r border-gray-200 bg-white
-          flex flex-col
-          ${isCollapsed ? 'w-[70px]' : 'w-[260px]'}
-        `}
-      >
+<aside
+  className={`
+    fixed top-0 left-0 z-40
+    h-screen
+    overflow-y-auto
+      overflow-x-hidden
+    border-r border-gray-200 bg-white
+    flex flex-col 
+    transition-all duration-300 ease-in-out
+    ${isCollapsed ? 'w-[70px]' : 'w-[260px]'}
+  `}
+>
         {/* Logo Section */}
         <div className="relative flex items-center justify-between px-4 h-[70px] border-b border-gray-200">
           <div className={`flex items-center ${isCollapsed ? 'justify-center w-full' : ''}`}>
@@ -104,7 +107,7 @@ export function Sidebar({ isCollapsed, onToggle }) {
               className={`
                 w-full flex items-center gap-3 px-3 py-3 text-sm font-medium
                 transition-all duration-200
-                text-red-600 bg-orange-50
+                text-red-600 bg-orange-50 cursor-pointer
                 ${isCollapsed ? 'justify-center' : 'justify-start'}
               `}
               title={isCollapsed ? "Logout" : ""}

@@ -51,7 +51,7 @@ export function AdminLoginPage() {
   if (!mounted) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background px-4 relative overflow-hidden">
-        <div className="w-full max-w-md bg-card/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 p-8 space-y-6">
+        <div className="w-full max-w-md bg-card/80 backdrop-blur-sm rounded-2xl shadow-xl border border-border p-8 space-y-6">
           <div className="text-center space-y-2">
             <div className="flex justify-center relative">
               <div className="w-32 h-32 bg-gray-200 rounded-full animate-pulse"></div>
@@ -145,7 +145,7 @@ export function AdminLoginPage() {
                 <div className="relative group">
                   <input
                     id="password"
-                    className={`w-full rounded-lg px-4 py-2 bg-input-background/50 backdrop-blur-sm border border-gray-200 text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:ring-1 focus:ring-[#f1592a]/60 transition-all pr-11`}
+                    className={`w-full rounded-lg px-4 py-2 bg-input-background/50 backdrop-blur-sm border border-border text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:ring-1 focus:ring-[#f1592a]/60 transition-all pr-11`}
                     placeholder="Password"
                     type={showPassword ? 'text' : 'password'}
                     {...formik.getFieldProps('password')}

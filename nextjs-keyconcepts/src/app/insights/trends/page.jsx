@@ -50,7 +50,7 @@ function IndustryTrendsPage() {
               >
                 <TrendingUp size={16} /> <span>Industry Insights</span>
               </motion.span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold mb-6">
                 Industry Trends & Insights
               </h1>
               <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
@@ -278,7 +278,7 @@ function IndustryTrendsPage() {
                   <input
                     type="email"
                     placeholder="Enter your email address"
-                    className="flex-1 px-6 py-4 rounded-full text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
+                    className="flex-1 px-6 py-4 border border-white rounded-full text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white"
                   />
                   <button className="px-8 py-4 bg-white text-[#f1592a] rounded-full font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
                     Subscribe Now

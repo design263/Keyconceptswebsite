@@ -34,7 +34,7 @@ function CaseStudiesPage() {
               >
                 <Award size={16} /> <span>Success Stories</span>
               </motion.span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Case Studies</h1>
+              <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold mb-6">Case Studies</h1>
               <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Discover how we've helped businesses transform their operations and achieve remarkable
                 results with our innovative solutions.
