@@ -142,7 +142,7 @@ function ContactPage() {
           </div>
         </section>
 
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
               <motion.div
@@ -348,7 +348,7 @@ function ContactPage() {
               >
                 <div>
                   <h2 className="text-3xl font-bold mb-4">Contact Information</h2>
-                  <p className="text-lg text-gray-600 leading-relaxed">
+                  <p className="text-md md:text-lg text-gray-600 leading-relaxed">
                     Have questions? We're here to help. Reach out to us through any of these
                     channels.
                   </p>

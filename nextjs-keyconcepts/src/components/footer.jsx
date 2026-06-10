@@ -2,9 +2,20 @@
 
 import Link from 'next/link'
 import { Mail, Phone, MapPin, Link as LinkIcon, Share2, Globe, MessageSquare } from 'lucide-react'
-// import logo from '/images/logo.png'
+// import logo from '/images/logo.png'  
+import { FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 function Footer() {
   const currentYear = new Date().getFullYear()
+
+  const socialLinks = [
+    { href: "https://www.facebook.com/visitorz.io", icon: <FaFacebookF />, label: "Facebook" },
+    { href: "https://twitter.com/visitorz_io", icon: <FaXTwitter />, label: "Twitter" },
+    { href: "https://www.linkedin.com/company/visitorz-io", icon: <FaLinkedinIn />, label: "LinkedIn" },
+    { href: "https://www.instagram.com/visitorz.io/", icon: <FaInstagram />, label: "Instagram" },
+    { href: "https://www.youtube.com/channel/UCagjYMmwY2mMrEM-0dcoUaQ", icon: <FaYoutube />, label: "YouTube" },
+];
+
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
       {' '}
@@ -18,7 +29,7 @@ function Footer() {
                 <img
                   src="/images/logo.png"
                   alt="Key Concepts Logo"
-                  className="h-8 w-auto"
+                  className="h-10 w-auto"
                 />
               </div>
             </div>
@@ -28,26 +39,22 @@ function Footer() {
               operations—where uptime, clarity, and accountability matter.
             </p>{' '}
             <div className="flex space-x-4">
-              {' '}
+              {/* {' '}
               <Link href="/" className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm">
                 Home
-              </Link>
-              <a href="#" className="text-gray-400 hover:text-[#f1592a] transition-colors">
-                {' '}
-                <LinkIcon size={20} />
-              </a>{' '}
-              <a href="#" className="text-gray-400 hover:text-[#f1592a] transition-colors">
-                {' '}
-                <Globe size={20} />
-              </a>{' '}
-              <a href="#" className="text-gray-400 hover:text-[#f1592a] transition-colors">
-                {' '}
-                <Globe size={20} />
-              </a>{' '}
-              <a href="#" className="text-gray-400 hover:text-[#f1592a] transition-colors">
-                {' '}
-                <MessageSquare size={20} />
-              </a>
+              </Link> */}
+               {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="inline-flex items-center justify-center w-[35px] h-[35px] text-gray-400 border border-gray-600 rounded-md hover:text-[#f1592a] hover:border-[#f1592a] transition-all duration-300"
+                >
+                  {social.icon}
+                </a>
+              ))}
             </div>
           </div>{' '}
           <div>
@@ -64,7 +71,7 @@ function Footer() {
                   Home
                 </Link>
               </li>{' '}
-              <li>
+              {/* <li>
                 {' '}
                 <Link
                   href="/services"
@@ -72,7 +79,7 @@ function Footer() {
                 >
                   Products
                 </Link>
-              </li>{' '}
+              </li>{' '} */}
               <li>
                 {' '}
                 <Link

@@ -334,8 +334,8 @@ function YounitedCommunitiesPage() {
                 }}
                 className="inline-flex items-center space-x-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-[#f1592a]/20 shadow-lg mb-8"
               >
-                <Building2 className="text-[#f1592a]" size={18} />
-                <span className="text-sm font-medium text-gray-700">
+                <Building2 className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" />
+                <span className="text-xs md:text-sm font-medium text-gray-700">
                   Community Management Platform
                 </span>
               </motion.span>
@@ -351,7 +351,7 @@ function YounitedCommunitiesPage() {
                 transition={{
                   delay: 0.3,
                 }}
-                className="text-4xl md:text-5xl font-bold mb-6"
+                className="text-3xl md:text-5xl font-bold mb-6"
               >
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
                   Younited Communities
@@ -399,7 +399,7 @@ function YounitedCommunitiesPage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="group px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                  className="group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                 >
                   <span className="font-semibold">Request a Demo</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
@@ -471,7 +471,7 @@ function YounitedCommunitiesPage() {
             </motion.div>
           </div>
         </section>
-        <section id="features" className="py-24 bg-white">
+        <section id="features" className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -493,7 +493,7 @@ function YounitedCommunitiesPage() {
                   Features
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 Everything you need to manage your community efficiently, from member profiles to
                 event coordination and approval workflows.
               </p>
@@ -602,7 +602,7 @@ function YounitedCommunitiesPage() {
             </motion.div>
           </div>
         </section>
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -624,7 +624,7 @@ function YounitedCommunitiesPage() {
                   Every Community
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 Whether you're managing a Samaj, professional association, or non-profit
                 organization\u2014Younited Communities adapts to your unique needs.
               </p>
@@ -837,7 +837,7 @@ function YounitedCommunitiesPage() {
                   Younited Communities
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 Built for modern communities that demand efficiency, transparency, and scalability.
               </p>
             </motion.div>
@@ -861,7 +861,7 @@ function YounitedCommunitiesPage() {
                   className="group p-8 bg-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
                   key={benefit.title}
                 >
-                  <div className="relative w-14 h-14 mb-6">
+                  <div className="relative w-12 h-12 md:w-14 md:h-14 mb-6">
                     <div className="w-full h-full bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-[#f1592a]/10 transition-all">
                       <benefit.icon
                         className="text-gray-700 group-hover:text-[#f1592a] transition-colors"
@@ -878,7 +878,7 @@ function YounitedCommunitiesPage() {
             </div>
           </div>
         </section>
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -900,7 +900,7 @@ function YounitedCommunitiesPage() {
                   Capabilities
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 A comprehensive toolkit designed to address every aspect of community management.
               </p>
             </motion.div>
@@ -967,8 +967,8 @@ function YounitedCommunitiesPage() {
               className="text-center max-w-4xl mx-auto"
             >
               <div className="inline-flex items-center space-x-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-8">
-                <Sparkles className="text-[#f1592a]" size={18} />
-                <span className="text-sm font-medium text-white">
+                <Sparkles className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" />
+                <span className="text-xs md:text-sm font-medium text-white">
                   Ready to Transform Your Community?
                 </span>
               </div>
@@ -979,7 +979,7 @@ function YounitedCommunitiesPage() {
                 </span>{' '}
                 Today
               </h2>
-              <p className="text-lg text-gray-300 mb-10 leading-relaxed">
+              <p className="text-md md:text-lg text-gray-300 mb-10 leading-relaxed">
                 See how Younited Communities can streamline your operations, boost engagement, and
                 help your community thrive. Schedule a personalized demo with our team.
               </p>
@@ -992,9 +992,9 @@ function YounitedCommunitiesPage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="group px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                  className="group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                 >
-                  <span className="font-semibold">Schedule Demo</span>
+                  <span className="text-sm md:text-md font-semibold">Schedule Demo</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                 </motion.a>
                 <motion.a
@@ -1005,9 +1005,9 @@ function YounitedCommunitiesPage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border-2 border-white/30 hover:border-white/50 transition-all"
+                  className="px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border-2 border-white/30 hover:border-white/50 transition-all"
                 >
-                  <span className="font-semibold">Contact Sales</span>
+                  <span className="text-sm md:text-md font-semibold">Contact Sales</span>
                 </motion.a>
               </div>
             </motion.div>

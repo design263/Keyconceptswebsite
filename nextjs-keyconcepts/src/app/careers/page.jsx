@@ -509,7 +509,7 @@ function CareersPage() {
                   transition={{
                     delay: 0.3,
                   }}
-                  className="text-4xl md:text-5xl font-bold mb-6"
+                  className="text-3xl md:text-5xl font-bold mb-6"
                 >
                   Build Your Career with{' '}
                   <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
@@ -556,7 +556,7 @@ function CareersPage() {
                     whileTap={{
                       scale: 0.95,
                     }}
-                    className="group px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                    className="group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                   >
                     <span className="font-semibold">View Open Roles</span>
                     <ArrowRight
@@ -585,7 +585,7 @@ function CareersPage() {
           </div>
         </section>
 
-        <section id="why-work-here" className="py-24 bg-white">
+        <section id="why-work-here" className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -607,7 +607,7 @@ function CareersPage() {
                   Key Concepts
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 We're building more than products\u2014we're building careers, relationships, and a culture
                 that celebrates growth, innovation, and collaboration.
               </p>
@@ -632,7 +632,7 @@ function CareersPage() {
                   className="group p-8 bg-gradient-to-b from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
                   key={benefit.title}
                 >
-                  <div className="relative w-14 h-14 mb-6">
+                  <div className="relative w-12 h-12 md:w-14 md:h-14 mb-6">
                     <div className="w-full h-full bg-white rounded-xl flex items-center justify-center border border-gray-200 group-hover:border-[#f1592a]/30 transition-all shadow-sm">
                       <benefit.icon
                         className="text-gray-700 group-hover:text-[#f1592a] transition-colors"
@@ -650,7 +650,7 @@ function CareersPage() {
           </div>
         </section>
 
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -672,7 +672,7 @@ function CareersPage() {
                   Culture & Values
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 These aren't just words on a wall\u2014they're the principles that guide how we work,
                 collaborate, and deliver value every single day.
               </p>
@@ -764,7 +764,7 @@ function CareersPage() {
           </div>
         </section>
 
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -786,7 +786,7 @@ function CareersPage() {
                   Benefits
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 We take care of our team so they can focus on doing their best work.
               </p>
             </motion.div>
@@ -820,7 +820,7 @@ function CareersPage() {
           </div>
         </section>
 
-        <section id="open-roles" className="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section id="open-roles" className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -842,7 +842,7 @@ function CareersPage() {
                   Positions
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 Join our team and help us build the future of digital transformation.
               </p>
             </motion.div>
@@ -988,7 +988,7 @@ function CareersPage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="group px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                  className="group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                 >
                   <span className="font-semibold">Send Your Resume</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />

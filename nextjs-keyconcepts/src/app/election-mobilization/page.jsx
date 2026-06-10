@@ -350,7 +350,7 @@ function ElectionMobilizationPage() {
                 transition={{
                   delay: 0.3,
                 }}
-                className="text-4xl md:text-5xl font-bold mb-6"
+                className="text-3xl md:text-5xl font-bold mb-6"
               >
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
                   Power Your Digital Campaign
@@ -411,7 +411,7 @@ function ElectionMobilizationPage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="group px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                  className="group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                 >
                   <span className="font-semibold">Request a Demo</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
@@ -483,7 +483,7 @@ function ElectionMobilizationPage() {
             </motion.div>
           </div>
         </section>
-        <section id="features" className="py-24 bg-white">
+        <section id="features" className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -505,7 +505,7 @@ function ElectionMobilizationPage() {
                   Features
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 Everything you need to run a winning campaign\u2014from strategic planning to voter
                 engagement and real-time performance tracking.
               </p>
@@ -614,7 +614,7 @@ function ElectionMobilizationPage() {
             </motion.div>
           </div>
         </section>
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -636,7 +636,7 @@ function ElectionMobilizationPage() {
                   Matters
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 Win elections with organized campaigns, data-driven targeting, and scalable
                 technology.
               </p>
@@ -661,7 +661,7 @@ function ElectionMobilizationPage() {
                   className="group p-8 bg-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
                   key={item.title}
                 >
-                  <div className="relative w-14 h-14 mb-6">
+                  <div className="relative w-12 h-12 md:w-14 md:h-14 mb-6">
                     <div className="w-full h-full bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-[#f1592a]/10 transition-all">
                       <item.icon
                         className="text-gray-700 group-hover:text-[#f1592a] transition-colors"
@@ -678,7 +678,7 @@ function ElectionMobilizationPage() {
             </div>
           </div>
         </section>
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -700,7 +700,7 @@ function ElectionMobilizationPage() {
                   Every Campaign
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 From national elections to grassroots movements\u2014our platform scales to meet your
                 campaign needs.
               </p>
@@ -891,7 +891,7 @@ function ElectionMobilizationPage() {
             </div>
           </div>
         </section>
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -913,7 +913,7 @@ function ElectionMobilizationPage() {
                   Capabilities
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 A comprehensive toolkit designed to address every aspect of modern political
                 campaigning.
               </p>
@@ -1005,7 +1005,7 @@ function ElectionMobilizationPage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="group px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                  className="group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                 >
                   <span className="font-semibold">Book a Demo</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />

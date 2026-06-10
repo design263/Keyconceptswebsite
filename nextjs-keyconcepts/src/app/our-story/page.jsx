@@ -218,7 +218,7 @@ function OurStoryPage() {
                 transition={{
                   delay: 0.3,
                 }}
-                className="text-4xl md:text-5xl font-bold mb-6"
+                className="text-3xl md:text-5xl font-bold mb-6"
               >
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
                   New Generation Company
@@ -267,7 +267,7 @@ function OurStoryPage() {
             </div>
           </div>
         </section>
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -290,7 +290,7 @@ function OurStoryPage() {
                     Key Concepts
                   </span>
                 </h2>
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
                   <strong>Key Concepts Innovations Pvt. Ltd.</strong> is a global technology partner
                   focused on{' '}
                   <span className="text-[#f1592a] font-semibold">
@@ -338,7 +338,7 @@ function OurStoryPage() {
             </motion.div>
           </div>
         </section>
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
           <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -360,7 +360,7 @@ function OurStoryPage() {
                   Hybrid Approach
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Modern stack + strong engineering fundamentals. Rapid iterations without compromising
                 stability. Clear stakeholder communication and predictable timelines.
               </p>
@@ -406,7 +406,7 @@ function OurStoryPage() {
             </div>
           </div>
         </section>
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -428,7 +428,7 @@ function OurStoryPage() {
                   Core Values
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 The principles that guide every project, every decision, and every line of code we
                 write.
               </p>
@@ -563,7 +563,7 @@ function OurStoryPage() {
             </motion.div>
           </div>
         </section>
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -585,7 +585,7 @@ function OurStoryPage() {
                   Stay With Us
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 Our 98% client retention rate isn't accidental\u2014it's the result of consistent delivery,
                 transparent communication, and genuine partnership.
               </p>
@@ -627,7 +627,7 @@ function OurStoryPage() {
             </div>
           </div>
         </section>
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
           <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{

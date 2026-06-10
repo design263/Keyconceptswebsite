@@ -441,6 +441,7 @@ import { use } from 'react'
 import { useState, useEffect } from 'react'
 
 import { api, endpoints } from '@/lib/api'
+import { shareContent } from '@/lib/shareContent'
 
 function JobDetailPage({ params }) {
   const resolvedParams = use(params)
@@ -588,6 +589,7 @@ function JobDetailPage({ params }) {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => shareContent(job?.title, job?.description, window.location.href)}
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-white border-2 border-gray-200 rounded-xl hover:border-[#f1592a] transition-all text-sm font-semibold"
                   >
                     <Share2 size={16} strokeWidth={2} />

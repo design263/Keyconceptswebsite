@@ -112,12 +112,12 @@ function ServicesSection() {
               viewport={{
                 once: true,
               }}
-              className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
+              className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
             >
               What we do
             </motion.span>{' '}
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Core Capabilities</h2>{' '}
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">Core Capabilities</h2>{' '}
+            <p className="text-md lg:text-lg text-gray-600 max-w-2xl mx-auto">
               Empowering businesses with innovative solutions across product development, rapid MVP
               creation, and enterprise ERP systems
             </p>
@@ -146,15 +146,15 @@ function ServicesSection() {
                 key={service.title}
               >
                 {' '}
-                <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300">
+                <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-6 lg:p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300">
                   {' '}
                   <div className="flex items-start gap-6">
                     {' '}
-                    <div className="relative w-14 h-14 flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="relative w-12 h-12 lg:w-14 lg:h-14 flex-shrink-0 group-hover:scale-110 transition-transform">
                       {' '}
                       <div className="w-full h-full bg-gray-100 rounded-xl flex items-center justify-center">
                         {' '}
-                        <service.icon className="text-gray-700" size={28} strokeWidth={1.5} />
+                        <service.icon  className="text-gray-700 w-6 h-6 lg:w-7 lg:h-7"  strokeWidth={1.5} />
                       </div>{' '}
                       <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#f1592a] rounded-full border-2 border-white" />
                     </div>{' '}
@@ -201,12 +201,12 @@ function ServicesSection() {
               viewport={{
                 once: true,
               }}
-              className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-cyan-500/10 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
+              className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-cyan-500/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
             >
               Our Services
             </motion.span>{' '}
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Comprehensive IT Solutions</h2>{' '}
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">Comprehensive IT Solutions</h2>{' '}
+            <p className="text-md lg:text-lg text-gray-600 max-w-2xl mx-auto">
               From strategy to execution, we deliver excellence in every aspect of digital
               transformation
             </p>

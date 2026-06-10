@@ -258,7 +258,7 @@ function VisitorManagementPage() {
                   transition={{
                     delay: 0.4,
                   }}
-                  className="text-xl text-gray-600 leading-relaxed mb-8"
+                  className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8"
                 >
                   Transform your reception area with a modern, touchless visitor management system
                   that prioritizes security without compromising user experience.
@@ -307,7 +307,7 @@ function VisitorManagementPage() {
                       whileTap={{
                         scale: 0.95,
                       }}
-                      className="group px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                      className="group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                     >
                       <span className="font-semibold">Request Demo</span>
                       <Zap className="group-hover:scale-110 transition-transform" size={20} />
@@ -538,7 +538,7 @@ function VisitorManagementPage() {
                   key={feature.title}
                 >
                   <div className="h-full bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl hover:border-[#f1592a]/20 transition-all">
-                    <div className="relative w-14 h-14 mb-6">
+                    <div className="relative w-12 h-12 md:w-14 md:h-14 mb-6">
                       <div className="w-full h-full bg-gray-100 rounded-2xl flex items-center justify-center group-hover:bg-white transition-all">
                         <feature.icon className="text-gray-700" size={28} strokeWidth={1.5} />
                       </div>
@@ -622,7 +622,7 @@ function VisitorManagementPage() {
                         <div className="w-6 h-6 bg-[#f1592a]/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                           <CheckCircle className="text-[#f1592a]" size={14} strokeWidth={2.5} />
                         </div>
-                        <span className="text-gray-700">{feature}</span>
+                        <span className="text-gray-700 text-sm md:text-md">{feature}</span>
                       </li>
                     ))}
                   </ul>

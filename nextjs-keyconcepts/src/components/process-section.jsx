@@ -101,12 +101,12 @@ function ProcessSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
+            className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
           >
             Our Process
           </motion.span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">How We Work</h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-2">
+          <h2 className="text-3xl sm:text-3xl md:text-5xl font-bold mb-4">How We Work</h2>
+          <p className="text-base sm:text-md lg:text-lg text-gray-600 max-w-2xl mx-auto px-2">
             A proven methodology that transforms your vision into reality through six strategic phases
           </p>
         </motion.div>
@@ -179,7 +179,7 @@ function ProcessSection() {
 
                   {/* Mobile/Tablet vertical arrow (rendered outside the card box) */}
                   {index < processSteps.length - 1 && (
-                    <div className="lg:hidden flex justify-center my-4 sm:my-5">
+                    <div className="lg:hidden flex justify-center my-4 md:my-5">
                       <div className="relative flex flex-col items-center">
                         <div className="w-0.5 h-10 sm:h-14 bg-gradient-to-b from-[#f1592a] to-[#ff7a45]" />
                         {/* CSS triangle arrowhead pointing down */}

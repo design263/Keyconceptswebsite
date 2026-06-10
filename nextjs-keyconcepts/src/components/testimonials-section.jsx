@@ -38,7 +38,7 @@ const testimonials = [
 ]
 function TestimonialsSection() {
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+    <section className="py-16 md:py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       {' '}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {' '}
@@ -69,12 +69,12 @@ function TestimonialsSection() {
             viewport={{
               once: true,
             }}
-            className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-cyan-500/10 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
+            className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-cyan-500/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
           >
             Client Success Stories
           </motion.span>{' '}
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Trusted by Industry Leaders</h2>{' '}
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Trusted by Industry Leaders</h2>{' '}
+          <p className="text-md lg:text-lg text-gray-600 max-w-2xl mx-auto">
             See what our clients say about their transformation journey with us
           </p>
         </motion.div>{' '}
@@ -102,18 +102,18 @@ function TestimonialsSection() {
               key={index}
             >
               {' '}
-              <div className="relative bg-white/60 backdrop-blur-lg rounded-3xl p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300">
+              <div className="relative bg-white/60 backdrop-blur-lg rounded-3xl p-6  md:p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300">
                 {' '}
                 <div className="absolute top-8 right-8 text-[#f1592a]/10 group-hover:text-[#f1592a]/20 transition-colors">
                   {' '}
-                  <Quote size={48} />
+                  <Quote className="w-10 h-10 md:w-12 md:h-12" />
                 </div>{' '}
                 <div className="flex items-center space-x-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star size={18} className="fill-[#f1592a] text-[#f1592a]" key={i} />
                   ))}
                 </div>{' '}
-                <p className="text-gray-700 leading-relaxed mb-6 relative z-10">
+                <p className="text-sm md:text-mdtext-gray-700 leading-relaxed mb-6 relative z-10">
                   "{testimonial.content}"
                 </p>{' '}
                 <div className="flex items-center space-x-4">

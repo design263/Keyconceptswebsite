@@ -5,6 +5,7 @@ import { motion } from 'motion/react'
 import { Calendar, Clock, User, ArrowLeft, Share2, Bookmark } from 'lucide-react'
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
 import Link from 'next/link'
+import { shareContent } from '@/lib/shareContent';
 
 export function BlogPostDetail({ post }) {
   return (
@@ -33,8 +34,9 @@ export function BlogPostDetail({ post }) {
                 <span className="inline-block px-3 py-1 bg-[#f1592a]/10 text-[#f1592a] rounded-full text-sm font-medium mb-4">
                   {post.category}
                 </span>
-                <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">{post.title}</h1>
-                <div className="flex flex-wrap items-center gap-6 text-gray-600 mb-8">
+                <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">{post.title}</h1>
+                <div className="flex flex-wrap items-center justify-between gap-6 text-gray-600 mb-8">
+                  <div className="flex items-center space-x-2">
                   <div className="flex items-center space-x-2">
                     <User size={16} />
                     <span>{post.author}</span>
@@ -47,6 +49,18 @@ export function BlogPostDetail({ post }) {
                     <Clock size={16} />
                     <span>{post.readTime}</span>
                   </div>
+                  </div>
+                  <div className="flex space-x-3">
+                        <button
+                          type="button"
+                          className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-white border-2 border-gray-200 rounded-xl hover:border-[#f1592a]  transition-all text-sm font-semibold"
+                          onClick={() => shareContent(post.title, post.excerpt, window.location.href)}
+                          >
+                          <Share2 size={18} />
+                          <span>Share</span>
+                        </button>
+                       
+                      </div>
                 </div>
                 <div className="rounded-2xl overflow-hidden mb-10">
                   <ImageWithFallback
@@ -108,23 +122,7 @@ export function BlogPostDetail({ post }) {
                       </div>
                     )}
 
-                    <div className="bg-gray-50 rounded-xl p-6">
-                      <h3 className="font-semibold mb-4">Share Article</h3>
-                      <div className="flex space-x-3">
-                        <button
-                          type="button"
-                          className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-                        >
-                          <Share2 size={18} />
-                        </button>
-                        <button
-                          type="button"
-                          className="p-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
-                        >
-                          <Bookmark size={18} />
-                        </button>
-                      </div>
-                    </div>
+                    
                   </motion.div>
                 </div>
               </div>

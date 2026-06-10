@@ -183,33 +183,31 @@ function HeroSection() {
             >
               {' '}
               <Sparkles className="text-[#f1592a]" size={18} />{' '}
-              <span className="text-sm font-medium text-gray-700">
+              <span className="text-xs md:text-sm font-medium text-gray-700">
                 End-to-end Product Development Company
               </span>
             </motion.div>{' '}
             <div className="space-y-4">
               {' '}
-             
-                <motion.h1
-                  initial={{
-                    opacity: 0,
-                    y: 20,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    delay: 0.3,
-                  }}
-                  className="text-4xl sm:text-5xl lg:text-5xl font-bold leading-tight"
-                >
-                  Product Engineering & Digital{' '}
-                  <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                    Transformation Partner
-                  </span>
-                </motion.h1>{' '}
-              
+              <motion.h1
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 0.3,
+                }}
+                className="text-3xl sm:text-5xl lg:text-5xl font-bold leading-tight"
+              >
+                Product Engineering & Digital{' '}
+                <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
+                  Transformation Partner
+                </span>
+              </motion.h1>{' '}
               <motion.div
                 initial={{
                   opacity: 0,
@@ -246,52 +244,32 @@ function HeroSection() {
               </motion.p>
             </div>{' '}
             <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                delay: 0.9,
-              }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.9 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              {' '}
-              <Link href="/contact">
-                {' '}
+              <Link href="/contact" className="w-full sm:w-auto">
                 <motion.button
-                  whileHover={{
-                    scale: 1.05,
-                  }}
-                  whileTap={{
-                    scale: 0.95,
-                  }}
-                  className="group px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                 >
-                  {' '}
-                  <span className="font-semibold">Book a Discovery Call</span>{' '}
+                  <span className="text-sm md:text-base font-semibold">Book a Discovery Call</span>
                   <ArrowRight
                     className="group-hover:translate-x-1 transition-transform"
                     size={20}
                   />
                 </motion.button>
-              </Link>{' '}
-              <Link href="/services">
-                {' '}
+              </Link>
+
+              <Link href="/services" className="w-full sm:w-auto">
                 <motion.button
-                  whileHover={{
-                    scale: 1.05,
-                  }}
-                  whileTap={{
-                    scale: 0.95,
-                  }}
-                  className="px-8 py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center"
                 >
-                  {' '}
-                  <span className="font-semibold">Explore Our Products</span>
+                  <span className="text-sm md:text-base font-semibold">Explore Our Products</span>
                 </motion.button>
               </Link>
             </motion.div>

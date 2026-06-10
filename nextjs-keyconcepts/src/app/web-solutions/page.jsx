@@ -683,7 +683,7 @@ function WebSolutionsPage() {
                         <div className="w-6 h-6 bg-[#f1592a]/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                           <CheckCircle className="text-[#f1592a]" size={14} strokeWidth={2.5} />
                         </div>
-                        <span className="text-gray-700">{item}</span>
+                        <span className="text-gray-700 text-sm md:text-md">{item}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -706,7 +706,7 @@ function WebSolutionsPage() {
             </div>
           </div>
         </section>
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white relative">
           <div
             className="absolute inset-0 opacity-[0.02]"
             style={{
@@ -775,7 +775,7 @@ function WebSolutionsPage() {
             </div>
           </div>
         </section>
-        <section className="py-24 bg-white relative">
+        <section className="py-16 md:py-24 bg-white relative">
           <div
             className="absolute inset-0 opacity-[0.015]"
             style={{
@@ -858,7 +858,7 @@ function WebSolutionsPage() {
             </motion.div>
           </div>
         </section>
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white relative">
           <div
             className="absolute inset-0 opacity-[0.02]"
             style={{
@@ -972,7 +972,7 @@ function WebSolutionsPage() {
                               <div className="w-5 h-5 bg-[#f1592a]/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                                 <CheckCircle className="text-[#f1592a]" size={12} strokeWidth={2.5} />
                               </div>
-                              <span className="text-sm text-gray-700 font-medium">{feature}</span>
+                              <span className="text-gray-700 font-medium text-sm md:text-md">{feature}</span>
                             </motion.div>
                           ))}
                         </div>

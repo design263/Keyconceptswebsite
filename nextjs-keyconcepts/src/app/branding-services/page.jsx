@@ -283,7 +283,7 @@ function BrandingServicesPage() {
             className="absolute top-20 right-10 w-64 h-64 bg-gradient-to-br from-[#f1592a]/5 to-[#ff7a45]/5 rounded-full blur-3xl"
           />
         </section>
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white relative">
           <div
             className="absolute inset-0 opacity-[0.02]"
             style={{
@@ -459,7 +459,7 @@ function BrandingServicesPage() {
             </div>
           </div>
         </section>
-        <section className="py-24 bg-white relative">
+        <section className="py-16 md:py-24 bg-white relative">
           <div
             className="absolute inset-0 opacity-[0.015]"
             style={{
@@ -536,7 +536,7 @@ function BrandingServicesPage() {
             </div>
           </div>
         </section>
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+        <section className="py-16 lg:py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
           <div
             className="absolute inset-0 opacity-[0.02]"
             style={{
@@ -587,7 +587,7 @@ function BrandingServicesPage() {
                         <div className="w-6 h-6 bg-[#f1592a]/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                           <CheckCircle className="text-[#f1592a]" size={14} strokeWidth={2.5} />
                         </div>
-                        <span className="text-gray-700">{item}</span>
+                        <span className="text-gray-700 text-sm md:text-md">{item}</span>
                       </div>
                     ))}
                   </div>
@@ -709,7 +709,7 @@ function BrandingServicesPage() {
             </div>
           </div>
         </section>
-        <section className="py-24 bg-white relative">
+        <section className="py-16 md:py-24 bg-white relative">
           <div
             className="absolute inset-0 opacity-[0.015]"
             style={{

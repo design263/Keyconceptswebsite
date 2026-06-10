@@ -69,7 +69,7 @@ function AnimatedCounter({ value, suffix }) {
 }
 function StatsSection() {
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section className="py-16 lg:py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {' '}
       <div className="absolute inset-0 opacity-30">
         {' '}
@@ -105,12 +105,12 @@ function StatsSection() {
             viewport={{
               once: true,
             }}
-            className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
+            className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
           >
             Our Impact
           </motion.span>{' '}
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Delivering Excellence Globally</h2>{' '}
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Delivering Excellence Globally</h2>{' '}
+          <p className="text-md lg:text-lg text-gray-600 max-w-2xl mx-auto">
             Trusted by enterprises and startups worldwide for innovative software solutions
           </p>
         </motion.div>{' '}
@@ -138,15 +138,17 @@ function StatsSection() {
               key={stat.label}
             >
               {' '}
-              <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300">
+              <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-6 lg:p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300">
                 {' '}
                 <div className="flex items-start gap-6">
                   {' '}
-                  <div className="relative w-14 h-14 flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <div className="relative w-12 h-12 lg:w-14 lg:h-14 flex-shrink-0 group-hover:scale-110 transition-transform">
                     {' '}
-                    <div className="w-full h-full bg-gray-100 rounded-xl flex items-center justify-center group-hover:[#ffffff] transition-all">
-                      {' '}
-                      <stat.icon className="text-gray-700" size={28} strokeWidth={1.5} />
+                    <div className="w-full h-full bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-white transition-all">
+                      <stat.icon
+                        className="text-gray-700 w-6 h-6 lg:w-7 lg:h-7"
+                        strokeWidth={1.5}
+                      />
                     </div>{' '}
                     <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#f1592a] rounded-full border-2 border-white" />
                   </div>{' '}
@@ -154,7 +156,7 @@ function StatsSection() {
                     {' '}
                     <div className="mb-2">
                       {' '}
-                      <div className="text-4xl font-bold bg-gradient-to-br from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                      <div className="text-3xl md:text-4xl font-bold bg-gradient-to-br from-gray-900 to-gray-700 bg-clip-text text-transparent">
                         {' '}
                         <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                       </div>

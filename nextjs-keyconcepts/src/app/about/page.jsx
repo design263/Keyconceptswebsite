@@ -89,7 +89,7 @@ export default function AboutPage() {
               >
                 About Us
               </motion.span>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <h1 className="text-3xl md:text-5xl font-bold mb-6">
                 Transforming Businesses Since 2009
               </h1>
               <p className="text-xl text-gray-300 leading-relaxed">
@@ -100,7 +100,7 @@ export default function AboutPage() {
           </div>
         </section>
         
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <motion.div
@@ -116,7 +116,7 @@ export default function AboutPage() {
                   once: true,
                 }}
               >
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">Our Story</h2>
+                <h2 className="text-3xl md:text-5xl font-bold mb-6">Our Story</h2>
                 <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
                   <p>
                     Founded in 2009, Key Concepts emerged from a simple vision: to bridge the gap
@@ -187,7 +187,7 @@ export default function AboutPage() {
                     <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-white rounded-full border-2 border-[#f1592a]" />
                   </div>
                   <h3 className="text-3xl font-bold mb-4">Our Mission</h3>
-                  <p className="text-lg text-gray-600 leading-relaxed">
+                  <p className="text-md md:text-lg text-gray-600 leading-relaxed">
                     To empower businesses with innovative technology solutions that drive growth,
                     efficiency, and competitive advantage in an ever-evolving digital landscape.
                   </p>
@@ -219,7 +219,7 @@ export default function AboutPage() {
                     <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-white rounded-full border-2 border-gray-700" />
                   </div>
                   <h3 className="text-3xl font-bold mb-4">Our Vision</h3>
-                  <p className="text-lg text-gray-600 leading-relaxed">
+                  <p className="text-md md:text-lg text-gray-600 leading-relaxed">
                     To be the leading IT solutions provider recognized for excellence, innovation, and
                     transformative impact on businesses worldwide.
                   </p>
@@ -229,7 +229,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -245,8 +245,8 @@ export default function AboutPage() {
               }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Core Values</h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">Our Core Values</h2>
+              <p className="text-md lg:text-lg text-gray-600 max-w-2xl mx-auto">
                 The principles that guide everything we do
               </p>
             </motion.div>
@@ -305,8 +305,8 @@ export default function AboutPage() {
               }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Meet Our Leadership</h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">Meet Our Leadership</h2>
+              <p className="text-md lg:text-lg text-gray-600 max-w-2xl mx-auto">
                 Experienced professionals dedicated to your success
               </p>
             </motion.div>

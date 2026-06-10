@@ -206,8 +206,10 @@ function ProductDevelopmentPage() {
                 }}
                 className="inline-flex items-center space-x-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-[#f1592a]/20 shadow-lg mb-8"
               >
-                <Sparkles className="text-[#f1592a]" size={18} />
-                <span className="text-sm font-medium text-gray-700">Custom Product Development</span>
+                <Sparkles className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" />
+                <span className="text-xs md:text-sm font-medium text-gray-700">
+                  Custom Product Development
+                </span>
               </motion.span>
               <motion.h1
                 initial={{
@@ -221,7 +223,7 @@ function ProductDevelopmentPage() {
                 transition={{
                   delay: 0.3,
                 }}
-                className="text-4xl md:text-5xl font-bold mb-6"
+                className="text-3xl md:text-5xl font-bold mb-6"
               >
                 Build Products That{' '}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
@@ -246,49 +248,37 @@ function ProductDevelopmentPage() {
                 stacks, agile methodology, and a relentless focus on user experience.
               </motion.p>
               <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{
-                  delay: 0.5,
-                }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
                 className="flex flex-col sm:flex-row items-center justify-center gap-4"
               >
                 <motion.a
                   href="/contact"
-                  whileHover={{
-                    scale: 1.05,
-                  }}
-                  whileTap={{
-                    scale: 0.95,
-                  }}
-                  className="group px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                 >
-                  <span className="font-semibold">Talk to Product Team</span>
-                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
+                  <span className="text-sm md:text-base font-semibold">Talk to Product Team</span>
+                  <ArrowRight
+                    className="group-hover:translate-x-1 transition-transform"
+                    size={20}
+                  />
                 </motion.a>
+
                 <motion.a
                   href="#who-its-for"
-                  whileHover={{
-                    scale: 1.05,
-                  }}
-                  whileTap={{
-                    scale: 0.95,
-                  }}
-                  className="px-8 py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center"
                 >
-                  <span className="font-semibold">Learn More</span>
+                  <span className="text-sm md:text-base font-semibold">Learn More</span>
                 </motion.a>
               </motion.div>
             </motion.div>
           </div>
         </section>
-        <section id="who-its-for" className="py-24 bg-white">
+        <section id="who-its-for" className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -316,12 +306,12 @@ function ProductDevelopmentPage() {
                 viewport={{
                   once: true,
                 }}
-                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
               >
                 Who It's For
               </motion.span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Built for Ambitious Teams</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">Built for Ambitious Teams</h2>
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 Whether you're launching a startup or scaling an enterprise, we're your technical
                 partner
               </p>
@@ -392,13 +382,16 @@ function ProductDevelopmentPage() {
                 viewport={{
                   once: true,
                 }}
-                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
               >
                 What We Build
               </motion.span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Full-Stack Product Development</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
-                From frontend to backend, mobile to AI \u2014 we build complete, production-ready products
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">
+                Full-Stack Product Development
+              </h2>
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+                From frontend to backend, mobile to AI \u2014 we build complete, production-ready
+                products
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
                 {buildCategories.map((category, index) => (
@@ -446,19 +439,23 @@ function ProductDevelopmentPage() {
                   .filter((cat) => cat.id === selectedCategory)
                   .map((category) => (
                     <div
-                      className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-200"
+                      className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-6 md:p-8 md:p-12 shadow-2xl border border-gray-200"
                       key={category.id}
                     >
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
-                          <div className="relative w-14 h-14 mb-6">
+                          <div className="relative w-12 h-12 md:w-14 md:h-14 mb-6">
                             <div className="w-full h-full bg-white rounded-2xl flex items-center justify-center shadow-lg border border-gray-200">
-                              <category.icon className="text-gray-700" size={28} strokeWidth={1.5} />
+                              <category.icon
+                                className="text-gray-700"
+                                size={28}
+                                strokeWidth={1.5}
+                              />
                             </div>
                             <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#f1592a] rounded-full border-2 border-white" />
                           </div>
                           <h3 className="text-3xl md:text-4xl font-bold mb-4">{category.title}</h3>
-                          <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                          <p className="text-gray-600 text-md md:text-lg mb-8 leading-relaxed">
                             {category.longDescription}
                           </p>
                           <ul className="space-y-3 mb-8">
@@ -469,7 +466,7 @@ function ProductDevelopmentPage() {
                                   size={20}
                                   strokeWidth={2}
                                 />
-                                <span className="text-gray-700">{feature}</span>
+                                <span className="text-gray-700 text-sm md:text-md">{feature}</span>
                               </li>
                             ))}
                           </ul>
@@ -481,17 +478,17 @@ function ProductDevelopmentPage() {
                             whileTap={{
                               scale: 0.95,
                             }}
-                            className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-xl hover:shadow-[#f1592a]/50 transition-all font-semibold"
+                            className="inline-flex items-center space-x-2 px-6 md:px-8  py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-xl hover:shadow-[#f1592a]/50 transition-all font-semibold"
                           >
-                            <span>Start Building</span> <ArrowRight size={20} />
+                            <span className="text-sm md:text-md">Start Building</span> <ArrowRight size={20} />
                           </motion.a>
                         </div>
                         <div className="relative">
-                          <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
                             <ImageWithFallback
                               src={category.image}
                               alt={category.title}
-                              className="w-full h-[400px] md:h-[500px] object-cover"
+                              className="w-full h-[220px] sm:h-[320px] md:h-[400px] lg:h-[500px] object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                           </div>
@@ -522,9 +519,9 @@ function ProductDevelopmentPage() {
                     scale: 0.95,
                   }}
                   onClick={() => setSelectedCategory('web')}
-                  className="px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-xl hover:shadow-[#f1592a]/50 transition-all font-semibold"
+                  className="px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-xl hover:shadow-[#f1592a]/50 transition-all font-semibold"
                 >
-                  Explore Our Services
+                  <span className="text-sm md:text-md">Explore Our Services</span>
                 </motion.button>
               </motion.div>
             )}
@@ -562,12 +559,12 @@ function ProductDevelopmentPage() {
                 viewport={{
                   once: true,
                 }}
-                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
               >
                 Delivery Approach
               </motion.span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Agile, Transparent, Iterative</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">Agile, Transparent, Iterative</h2>
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 Our proven delivery methodology ensures quality, speed, and continuous feedback
               </p>
             </motion.div>
@@ -592,10 +589,8 @@ function ProductDevelopmentPage() {
                   key={step.number}
                 >
                   <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full">
-                    <div className="text-5xl font-bold text-[#f1592a]/20 mb-4">
-                      {step.number}
-                    </div>
-                    <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                    <div className="text-3xl md:text-5xl font-bold text-[#f1592a]/20 mb-4">{step.number}</div>
+                    <h3 className="text-lg md:text-xl font-bold mb-3">{step.title}</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
                   </div>
                   {index < deliverySteps.length - 1 && (
@@ -624,7 +619,7 @@ function ProductDevelopmentPage() {
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1640262014524-37583237e7e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZ2lsZSUyMHNwcmludCUyMHBsYW5uaW5nJTIwbWV0aG9kb2xvZ3l8ZW58MXx8fHwxNzcxODQ3MjQzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                   alt="Agile Development Process"
-                  className="w-full h-[400px] object-cover"
+                  className="w-full h-[220px] sm:h-[320px] md:h-[400px] lg:h-[500px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               </div>
@@ -659,12 +654,12 @@ function ProductDevelopmentPage() {
                 viewport={{
                   once: true,
                 }}
-                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
               >
                 Engagement Models
               </motion.span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Flexible Engagement Options</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">Flexible Engagement Options</h2>
+              <p className="text-md md:text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 Choose the model that fits your project stage, budget, and timeline
               </p>
             </motion.div>
@@ -691,19 +686,19 @@ function ProductDevelopmentPage() {
                   className="group"
                   key={model.title}
                 >
-                  <div className="relative bg-white/60 backdrop-blur-lg rounded-3xl p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full">
+                  <div className="relative bg-white/60 backdrop-blur-lg rounded-3xl p-6  md:p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full">
                     <div className="absolute top-6 right-6">
                       <span className="px-3 py-1 bg-[#f1592a]/10 text-[#f1592a] text-xs font-semibold rounded-full">
                         {model.highlight}
                       </span>
                     </div>
-                    <div className="relative w-16 h-16 mb-6 group-hover:scale-110 transition-transform">
+                    <div className="relative w-12 h-12 md:w-14 md:h-14 mb-6 group-hover:scale-110 transition-transform">
                       <div className="w-full h-full bg-gray-100 rounded-2xl flex items-center justify-center group-hover:bg-white transition-all">
                         <model.icon className="text-gray-700" size={32} strokeWidth={1.5} />
                       </div>
                       <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#f1592a] rounded-full border-2 border-white" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4">{model.title}</h3>
+                    <h3 className="text-xl md:text-2xl font-bold mb-4">{model.title}</h3>
                     <p className="text-gray-600 mb-6 leading-relaxed">{model.description}</p>
                     <ul className="space-y-3">
                       {model.features.map((feature, idx) => (
@@ -713,7 +708,7 @@ function ProductDevelopmentPage() {
                             size={18}
                             strokeWidth={2}
                           />
-                          <span className="text-gray-700 text-sm">{feature}</span>
+                          <span className="text-gray-700 text-sm md:text-md">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -754,14 +749,14 @@ function ProductDevelopmentPage() {
                 viewport={{
                   once: true,
                 }}
-                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
               >
                 Tech Stack
               </motion.span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 Modern, Battle-Tested Technologies
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-md md:text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 We use proven frameworks and tools that scale with your business
               </p>
             </motion.div>
@@ -825,7 +820,7 @@ function ProductDevelopmentPage() {
             </motion.div>
           </div>
         </section>
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -839,15 +834,15 @@ function ProductDevelopmentPage() {
               viewport={{
                 once: true,
               }}
-              className="max-w-4xl mx-auto text-center mb-16"
+              className="max-w-4xl mx-auto text-center mb-10 md:mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
                 Why Choose{' '}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
                   Key Concepts?
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-md md:text-lg text-gray-600 leading-relaxed">
                 16+ years of experience building products that scale, backed by a team that cares
               </p>
             </motion.div>
@@ -945,15 +940,15 @@ function ProductDevelopmentPage() {
                 viewport={{
                   once: true,
                 }}
-                className="inline-flex items-center space-x-2 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/40 mb-8"
+                className="inline-flex items-center space-x-2 px-4 md:px-6 py-2 md:py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/40 mb-8"
               >
-                <Sparkles className="text-white" size={20} />
-                <span className="text-white font-medium">Ready to Build?</span>
+                <Sparkles className="text-white w-4 h-4 md:w-5 md:h-5" />
+                <span className="text-sm md:text-md text-white font-medium">Ready to Build?</span>
               </motion.span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
                 Let's Turn Your Idea into Reality
               </h2>
-              <p className="text-xl text-white/90 mb-10 leading-relaxed">
+              <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed">
                 Schedule a free consultation with our product team. We'll discuss your vision, tech
                 requirements, timeline, and provide a custom proposal.
               </p>
@@ -966,10 +961,13 @@ function ProductDevelopmentPage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="group px-8 py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all flex items-center justify-center space-x-2 font-semibold"
+                  className="group px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all flex items-center justify-center space-x-2 font-semibold"
                 >
-                  <span>Talk to Product Team</span>
-                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
+                  <span className="text-sm md:text-md">Talk to Product Team</span>
+                  <ArrowRight
+                    className="group-hover:translate-x-1 transition-transform"
+                    size={20}
+                  />
                 </motion.a>
                 {/* <motion.a
                   href="tel:+1234567890"

@@ -333,7 +333,7 @@ function SupportMaintenancePage() {
                 transition={{
                   delay: 0.3,
                 }}
-                className="text-4xl md:text-5xl font-bold mb-6"
+                className="text-3xl md:text-5xl font-bold mb-6"
               >
                 Keep Your Application{' '}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
@@ -379,7 +379,7 @@ function SupportMaintenancePage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="group px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                  className="group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                 >
                   <span className="font-semibold">Get Maintenance Quote</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
@@ -469,12 +469,12 @@ function SupportMaintenancePage() {
                 viewport={{
                   once: true,
                 }}
-                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
               >
                 What's Included
               </motion.span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Comprehensive Support Services</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">Comprehensive Support Services</h2>
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto mb-12">
                 Everything you need to keep your application running at peak performance
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
@@ -523,19 +523,19 @@ function SupportMaintenancePage() {
                   .filter((service) => service.id === selectedService)
                   .map((service) => (
                     <div
-                      className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-200"
+                      className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-6 md:p-8 md:p-12 shadow-2xl border border-gray-200"
                       key={service.id}
                     >
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
-                          <div className="relative w-14 h-14 mb-6">
+                          <div className="relative w-12 h-12 md:w-14 md:h-14 mb-6">
                             <div className="w-full h-full bg-white rounded-2xl flex items-center justify-center shadow-lg border border-gray-200">
                               <service.icon className="text-gray-700" size={28} strokeWidth={1.5} />
                             </div>
                             <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#f1592a] rounded-full border-2 border-white" />
                           </div>
                           <h3 className="text-3xl md:text-4xl font-bold mb-4">{service.title}</h3>
-                          <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                          <p className="text-gray-600 text-md md:text-lg mb-8 leading-relaxed">
                             {service.longDescription}
                           </p>
                           <ul className="space-y-3 mb-8">
@@ -546,7 +546,7 @@ function SupportMaintenancePage() {
                                   size={20}
                                   strokeWidth={2}
                                 />
-                                <span className="text-gray-700">{feature}</span>
+                                <span className="text-sm md:text-md text-gray-700">{feature}</span>
                               </li>
                             ))}
                           </ul>
@@ -558,20 +558,20 @@ function SupportMaintenancePage() {
                             whileTap={{
                               scale: 0.95,
                             }}
-                            className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-xl hover:shadow-[#f1592a]/50 transition-all font-semibold"
+                            className="inline-flex items-center space-x-2 px-6 md:px-8  py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-xl hover:shadow-[#f1592a]/50 transition-all font-semibold"
                           >
-                            <span>Get Started</span> <ArrowRight size={20} />
+                            <span className="text-sm md:text-md">Get Started</span> <ArrowRight size={20} />
                           </motion.a>
                         </div>
                         <div className="relative">
-                          <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                            <ImageWithFallback
-                              src={service.image}
-                              alt={service.title}
-                              className="w-full h-[400px] md:h-[500px] object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                          </div>
+                          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+  <ImageWithFallback
+    src={service.image}
+    alt={service.title}
+    className="w-full h-[220px] sm:h-[320px] md:h-[400px] lg:h-[500px] object-cover"
+  />
+  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+</div>
                         </div>
                       </div>
                     </div>
@@ -580,7 +580,7 @@ function SupportMaintenancePage() {
             )}
           </div>
         </section>
-        <section id="sla" className="py-24 bg-white">
+        <section id="sla" className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -608,12 +608,12 @@ function SupportMaintenancePage() {
                 viewport={{
                   once: true,
                 }}
-                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
               >
                 SLA Options
               </motion.span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Choose Your Support Level</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">Choose Your Support Level</h2>
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 Flexible SLA tiers with guaranteed response times and uptime commitments
               </p>
             </motion.div>
@@ -677,7 +677,7 @@ function SupportMaintenancePage() {
                             size={18}
                             strokeWidth={2}
                           />
-                          <span className="text-gray-700 text-sm">{feature}</span>
+                          <span className="text-gray-700 text-sm md:text-md">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -699,7 +699,7 @@ function SupportMaintenancePage() {
             </div>
           </div>
         </section>
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -727,17 +727,17 @@ function SupportMaintenancePage() {
                 viewport={{
                   once: true,
                 }}
-                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
               >
                 Our Approach
               </motion.span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 How We Guarantee{' '}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
                   Maximum Uptime
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 A proactive, multi-layered approach to keep your application running 24/7
               </p>
             </motion.div>
@@ -775,7 +775,7 @@ function SupportMaintenancePage() {
             </div>
           </div>
         </section>
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -791,10 +791,10 @@ function SupportMaintenancePage() {
               }}
               className="max-w-4xl mx-auto text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
                 Built for Security & Reliability
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-md md:text-lg text-gray-600 leading-relaxed">
                 Your data is protected with enterprise-grade security, automated backups, and disaster
                 recovery plans.
               </p>
@@ -904,15 +904,15 @@ function SupportMaintenancePage() {
                 viewport={{
                   once: true,
                 }}
-                className="inline-flex items-center space-x-2 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/40 mb-8"
+                className="inline-flex items-center space-x-2 px-4 md:px-6 py-2 md:py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/40 mb-8"
               >
                 <Sparkles className="text-white" size={20} />
-                <span className="text-white font-medium">Ready to Get Started?</span>
+                <span className="text-white font-medium text-sm md:text-md">Ready to Get Started?</span>
               </motion.span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
                 Get Your Custom Maintenance Quote
               </h2>
-              <p className="text-xl text-white/90 mb-10 leading-relaxed">
+              <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed">
                 Tell us about your application and requirements. We'll create a tailored support plan
                 with SLA guarantees, transparent pricing, and a dedicated support team.
               </p>
@@ -925,12 +925,12 @@ function SupportMaintenancePage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="group px-8 py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all flex items-center justify-center space-x-2 font-semibold"
+                  className="group px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all flex items-center justify-center space-x-2 font-semibold"
                 >
-                  <span>Get Maintenance Quote</span>
+                  <span className="text-sm md:text-md">Get Maintenance Quote</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                 </motion.a>
-                <motion.a
+                {/* <motion.a
                   href="tel:+1234567890"
                   whileHover={{
                     scale: 1.05,
@@ -941,7 +941,7 @@ function SupportMaintenancePage() {
                   className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border-2 border-white/40 hover:bg-white/20 transition-all shadow-lg font-semibold"
                 >
                   Call: +123 456 7890
-                </motion.a>
+                </motion.a> */}
               </div>
               <motion.div
                 initial={{

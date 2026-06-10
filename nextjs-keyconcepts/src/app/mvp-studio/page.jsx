@@ -96,7 +96,7 @@ const includedServices = [
       'Security vulnerability scanning',
       'User acceptance testing (UAT)',
     ],
-    image: '/images/qa-testing.avif',
+    image: '/assets/mvp/QA.avif',
   },
   {
     id: 'deployment',
@@ -113,7 +113,7 @@ const includedServices = [
       'Analytics integration (GA4)',
       'Post-launch support (30 days)',
     ],
-    image: '/images/deployment-launch.jpg',
+    image: '/assets/mvp/Deployment-Launch.jpg',
   },
 ]
 
@@ -243,8 +243,8 @@ function MVPStudioPage() {
                 }}
                 className="inline-flex items-center space-x-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-[#f1592a]/20 shadow-lg mb-8"
               >
-                <Sparkles className="text-[#f1592a]" size={18} />
-                <span className="text-sm font-medium text-gray-700">MVP Studio</span>
+                <Sparkles className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" />
+                <span className="text-xs md:text-sm font-medium text-gray-700">MVP Studio</span>
               </motion.span>
               <motion.h1
                 initial={{
@@ -258,7 +258,7 @@ function MVPStudioPage() {
                 transition={{
                   delay: 0.3,
                 }}
-                className="text-4xl md:text-5xl font-bold mb-6"
+                className="text-3xl md:text-5xl font-bold mb-6"
               >
                 Launch Your MVP{' '}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
@@ -280,47 +280,35 @@ function MVPStudioPage() {
                 className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed"
               >
                 From idea to launch in 6-10 weeks. We validate your concept, design the experience,
-                build production-ready code, and deploy to real users \u2014 so you can focus on growing
-                your business.
+                build production-ready code, and deploy to real users \u2014 so you can focus on
+                growing your business.
               </motion.p>
               <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{
-                  delay: 0.5,
-                }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
                 className="flex flex-col sm:flex-row items-center justify-center gap-4"
               >
                 <motion.a
                   href="/contact"
-                  whileHover={{
-                    scale: 1.05,
-                  }}
-                  whileTap={{
-                    scale: 0.95,
-                  }}
-                  className="group px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                 >
-                  <span className="font-semibold">Get Your MVP Plan</span>
-                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
+                  <span className="text-sm md:text-md font-semibold">Get Your MVP Plan</span>
+                  <ArrowRight
+                    className="group-hover:translate-x-1 transition-transform"
+                    size={20}
+                  />
                 </motion.a>
+
                 <motion.a
                   href="#timeline"
-                  whileHover={{
-                    scale: 1.05,
-                  }}
-                  whileTap={{
-                    scale: 0.95,
-                  }}
-                  className="px-8 py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center"
                 >
-                  <span className="font-semibold">See Timeline</span>
+                  <span className="text-sm md:text-md font-semibold">See Timeline</span>
                 </motion.a>
               </motion.div>
             </motion.div>
@@ -378,11 +366,11 @@ function MVPStudioPage() {
               }}
               className="max-w-4xl mx-auto text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Our Promise to You</h2>
-              <p className="text-xl text-gray-600 leading-relaxed">
-                We don't just build features \u2014 we build products that users love and investors notice.
-                Your MVP will be production-ready, scalable, and designed to evolve as you learn from
-                real users.
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">Our Promise to You</h2>
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+                We don't just build features 2014 we build products that users love and investors
+                notice. Your MVP will be production-ready, scalable, and designed to evolve as you
+                learn from real users.
               </p>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -421,22 +409,22 @@ function MVPStudioPage() {
                   transition={{
                     delay: index * 0.1,
                   }}
-                  className="bg-white/60 backdrop-blur-lg rounded-2xl p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 text-center"
+                  className="bg-white/60 backdrop-blur-lg rounded-2xl p-6 md:p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 text-center"
                   key={item.title}
                 >
-                  <div className="relative w-14 h-14 mx-auto mb-6">
+                  <div className="relative w-12 h-12 md:w-14 md:h-14 mx-auto mb-6">
                     <div className="w-full h-full bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-xl flex items-center justify-center">
-                      <item.icon className="text-white" size={28} strokeWidth={2} />
+                      <item.icon className="text-white w-6 h-6 md:w-8 md:h-8" strokeWidth={2} />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                  <h3 className="text-lg md:text-xl font-bold mb-3">{item.title}</h3>
+                  <p className="text-gray-600 text-sm md:text-md leading-relaxed">{item.description}</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -464,12 +452,12 @@ function MVPStudioPage() {
                 viewport={{
                   once: true,
                 }}
-                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
               >
                 What's Included
               </motion.span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">End-to-End MVP Development</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">End-to-End MVP Development</h2>
+              <p className="text-md md:text-md md:text-lg text-gray-600 max-w-3xl mx-auto mb-12">
                 Everything you need to launch a successful MVP \u2014 from discovery to deployment
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
@@ -518,19 +506,19 @@ function MVPStudioPage() {
                   .filter((service) => service.id === selectedService)
                   .map((service) => (
                     <div
-                      className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-200"
+                      className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-6 md:p-8 md:p-12 shadow-2xl border border-gray-200"
                       key={service.id}
                     >
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
-                          <div className="relative w-20 h-20 mb-6">
+                          <div className="relative w-16 h-16 md:w-20 md:h-20 mb-6">
                             <div className="w-full h-full bg-white rounded-2xl flex items-center justify-center shadow-lg border border-gray-200">
-                              <service.icon className="text-gray-700" size={40} strokeWidth={1.5} />
+                              <service.icon className="text-gray-700 w-6 h-6 md:w-8 md:h-8" strokeWidth={1.5} />
                             </div>
                             <div className="absolute -bottom-2 -right-2 w-5 h-5 bg-[#f1592a] rounded-full border-2 border-white" />
                           </div>
                           <h3 className="text-3xl md:text-4xl font-bold mb-4">{service.title}</h3>
-                          <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                          <p className="text-gray-600 text-md md:text-lg mb-8 leading-relaxed">
                             {service.longDescription}
                           </p>
                           <ul className="space-y-3 mb-8">
@@ -541,7 +529,7 @@ function MVPStudioPage() {
                                   size={20}
                                   strokeWidth={2}
                                 />
-                                <span className="text-gray-700">{feature}</span>
+                                <span className="text-gray-700 text-md md:text-lg">{feature}</span>
                               </li>
                             ))}
                           </ul>
@@ -553,17 +541,17 @@ function MVPStudioPage() {
                             whileTap={{
                               scale: 0.95,
                             }}
-                            className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-xl hover:shadow-[#f1592a]/50 transition-all font-semibold"
+                            className="inline-flex items-center space-x-2 px-6 md:px-8  py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-xl hover:shadow-[#f1592a]/50 transition-all font-semibold"
                           >
-                            <span>Get Started</span> <ArrowRight size={20} />
+                            <span className="text-sm md:text-md">Get Started</span> <ArrowRight className="w-4 h-4 md:w-5 md:h-5" size={20} />
                           </motion.a>
                         </div>
                         <div className="relative">
-                          <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
                             <ImageWithFallback
                               src={service.image}
                               alt={service.title}
-                              className="w-full h-[400px] md:h-[500px] object-cover"
+                              className="w-full h-[220px] sm:h-[320px] md:h-[400px] lg:h-[500px] object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                           </div>
@@ -575,7 +563,7 @@ function MVPStudioPage() {
             )}
           </div>
         </section>
-        <section id="timeline" className="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section id="timeline" className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -603,12 +591,12 @@ function MVPStudioPage() {
                 viewport={{
                   once: true,
                 }}
-                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
               >
                 Timeline
               </motion.span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">6-10 Week Launch Plan</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">6-10 Week Launch Plan</h2>
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 A proven process that takes you from idea to launch in record time
               </p>
             </motion.div>
@@ -675,10 +663,10 @@ function MVPStudioPage() {
               <div className="bg-gradient-to-r from-[#f1592a]/5 via-gray-50 to-[#f1592a]/5 rounded-3xl p-8 border border-gray-200">
                 <div className="flex items-center justify-between flex-wrap gap-4">
                   <div className="flex items-center space-x-3">
-                    <Clock className="text-[#f1592a]" size={28} />
+                    <Clock className="text-[#f1592a] w-6 h-6 md:w-8 md:h-8" />
                     <div>
-                      <div className="font-bold text-xl">Total Timeline</div>
-                      <div className="text-gray-600">6-10 weeks from kickoff to launch</div>
+                      <div className="font-bold text-lg md:text-xl">Total Timeline</div>
+                      <div className="text-gray-600 text-sm md:text-md">6-10 weeks from kickoff to launch</div>
                     </div>
                   </div>
                   <motion.a
@@ -689,16 +677,16 @@ function MVPStudioPage() {
                     whileTap={{
                       scale: 0.95,
                     }}
-                    className="px-6 py-3 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg hover:shadow-[#f1592a]/50 transition-all font-semibold"
+                    className="px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg hover:shadow-[#f1592a]/50 transition-all font-semibold"
                   >
-                    Start Your MVP
+                    <span className="text-sm md:text-md">Start Your MVP</span>
                   </motion.a>
                 </div>
               </div>
             </motion.div>
           </div>
         </section>
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -726,13 +714,14 @@ function MVPStudioPage() {
                 viewport={{
                   once: true,
                 }}
-                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
               >
                 What We Need
               </motion.span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">How You Can Help Us Succeed</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Building a great MVP is a partnership. Here's what we need from you to make it happen.
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">How You Can Help Us Succeed</h2>
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
+                Building a great MVP is a partnership. Here's what we need from you to make it
+                happen.
               </p>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -763,14 +752,16 @@ function MVPStudioPage() {
                       <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#f1592a] rounded-full border-2 border-white" />
                     </div>
                     <h3 className="text-lg font-bold mb-2">{requirement.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{requirement.description}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {requirement.description}
+                    </p>
                   </div>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -786,15 +777,15 @@ function MVPStudioPage() {
               }}
               className="max-w-4xl mx-auto text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
                 Why Choose{' '}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
                   Our MVP Studio?
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                We've launched 50+ MVPs for startups, founders, and enterprises. Here's what makes us
-                different.
+              <p className="text-md md:text-lg text-gray-600 leading-relaxed">
+                We've launched 50+ MVPs for startups, founders, and enterprises. Here's what makes
+                us different.
               </p>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -820,7 +811,8 @@ function MVPStudioPage() {
                 {
                   icon: GitBranch,
                   title: 'Full Transparency',
-                  description: 'Weekly demos, daily standups, and real-time access to your codebase.',
+                  description:
+                    'Weekly demos, daily standups, and real-time access to your codebase.',
                 },
                 {
                   icon: Shield,
@@ -894,13 +886,15 @@ function MVPStudioPage() {
                 viewport={{
                   once: true,
                 }}
-                className="inline-flex items-center space-x-2 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/40 mb-8"
+                className="inline-flex items-center space-x-2 px-4 md:px-6 py-2 md:py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/40 mb-8"
               >
-                <Sparkles className="text-white" size={20} />
-                <span className="text-white font-medium">Ready to Launch?</span>
+                <Sparkles className="text-white w-4 h-4 md:w-5 md:h-5" />
+                <span className="text-sm md:text-md text-white font-medium">Ready to Launch?</span>
               </motion.span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Get Your Custom MVP Plan Today</h2>
-              <p className="text-xl text-white/90 mb-10 leading-relaxed">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                Get Your Custom MVP Plan Today
+              </h2>
+              <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed">
                 Book a free 30-minute consultation. We'll review your idea, discuss technical
                 requirements, and provide a detailed proposal with timeline and pricing.
               </p>
@@ -913,12 +907,15 @@ function MVPStudioPage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="group px-8 py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all flex items-center justify-center space-x-2 font-semibold"
+                  className="group px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all flex items-center justify-center space-x-2 font-semibold"
                 >
-                  <span>Get Your MVP Plan</span>
-                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
+                  <span className="text-sm md:text-md">Get Your MVP Plan</span>
+                  <ArrowRight
+                    className="group-hover:translate-x-1 transition-transform"
+                    size={20}
+                  />
                 </motion.a>
-                <motion.a
+                {/* <motion.a
                   href="tel:+1234567890"
                   whileHover={{
                     scale: 1.05,
@@ -929,7 +926,7 @@ function MVPStudioPage() {
                   className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border-2 border-white/40 hover:bg-white/20 transition-all shadow-lg font-semibold"
                 >
                   Call: +123 456 7890
-                </motion.a>
+                </motion.a> */}
               </div>
               <motion.div
                 initial={{
@@ -949,13 +946,16 @@ function MVPStudioPage() {
                 className="mt-12 flex flex-wrap items-center justify-center gap-8 text-white/80"
               >
                 <div className="flex items-center space-x-2">
-                  <CheckCircle size={20} /> <span>No long-term contracts</span>
+                  <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />{' '}
+                  <span className="text-sm md:text-md">No long-term contracts</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <CheckCircle size={20} /> <span>Full code ownership</span>
+                  <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />{' '}
+                  <span className="text-sm md:text-md">Full code ownership</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <CheckCircle size={20} /> <span>30-day post-launch support</span>
+                  <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />{' '}
+                  <span className="text-sm md:text-md">30-day post-launch support</span>
                 </div>
               </motion.div>
             </motion.div>

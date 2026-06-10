@@ -252,13 +252,13 @@ function ProcessPage() {
                   <Award className="text-[#f1592a]" size={20} />
                   <span className="text-[#f1592a] font-semibold">Our Proven Process</span>
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+                <h1 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
                   Building Trust Through <br />
                   <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
                     Transparency & Excellence
                   </span>
                 </h1>
-                <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
                   Our structured, transparent development process ensures you're always in control.
                   From discovery to deployment and beyond, we deliver quality with complete
                   visibility.
@@ -291,7 +291,7 @@ function ProcessPage() {
                 <Target className="text-[#f1592a]" size={18} />
                 <span className="text-[#f1592a] font-semibold text-sm">HOW WE WORK</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 Get Started in <span className="text-[#f1592a]">Six Simple Steps</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -357,7 +357,7 @@ function ProcessPage() {
                           <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                             {step.title}
                           </h3>
-                          <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                          <p className="text-md md:text-lg text-gray-600 leading-relaxed mb-6">
                             {step.description}
                           </p>
                           <div className="space-y-2">
@@ -457,7 +457,7 @@ function ProcessPage() {
                 <Zap className="text-[#f1592a]" size={18} />
                 <span className="text-[#f1592a] font-semibold text-sm">COMMUNICATION & DELIVERY</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 Your Trusted Partner In <br />
                 <span className="text-[#f1592a]">Digital Transformation</span>
               </h2>
@@ -859,7 +859,7 @@ function ProcessPage() {
               }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 <span className="text-[#f1592a]">Industry-Leading</span> Tools
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -950,7 +950,7 @@ function ProcessPage() {
               }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 <span className="text-[#f1592a]">Quality Assurance</span> & Release
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -1057,7 +1057,7 @@ function ProcessPage() {
               }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 <span className="text-[#f1592a]">Post-Launch</span> Support Model
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -1112,7 +1112,7 @@ function ProcessPage() {
                             }
                             size={18}
                           />
-                          <span className="text-gray-600">{feature}</span>
+                          <span className="text-gray-600 text-sm md:text-md">{feature}</span>
                         </li>
                       ))}
                     </ul>
