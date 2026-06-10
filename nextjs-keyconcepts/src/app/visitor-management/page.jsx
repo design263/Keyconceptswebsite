@@ -19,6 +19,7 @@ import {
   TrendingUp,
   Leaf,
   UserCog,
+  ArrowRight,
 } from 'lucide-react'
 import Link from 'next/link'
 
@@ -240,9 +241,9 @@ function VisitorManagementPage() {
                   }}
                   className="text-4xl lg:text-5xl font-bold mb-6 leading-tight"
                 >
-                  Visitor <br /> Management <br /> {' '}
+                  Visitor  Management  {' '}
                   <span className="block bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                    Built for Safety & <br /> Speed
+                    Built for Safety & Speed
                   </span>
                 </motion.h1>
                 <motion.p
@@ -636,8 +637,8 @@ function VisitorManagementPage() {
                         repeat: Infinity,
                       }}
                     >
-                      {'->'}
-                    </motion.span>
+                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
+                  </motion.span>
                   </button>
                 </div>
                 <div className={index % 2 === 0 ? 'order-1 lg:order-2' : 'order-2 lg:order-1'}>

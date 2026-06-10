@@ -2,7 +2,7 @@
 
 import LayoutWrapper from '@/components/layout-wrapper'
 import { motion } from 'motion/react'
-import { Mail, Phone, MapPin, Send, MessageSquare, Navigation } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, MessageSquare, Map } from 'lucide-react'
 import { useState } from 'react'
 import { api, endpoints } from '@/lib/api'
 
@@ -374,19 +374,17 @@ function ContactPage() {
                           301, Highfield Ascot, Opp. Palm Avenue, VIP Road, <br />
                           Vesu, Surat - 395007. Gujarat, India
                           <button
-                          onClick={() =>
-                            document
-                              .getElementById('office-map')
-                              ?.scrollIntoView({ behavior: 'smooth' })
-                          }
-                          className=" ml-1 rounded-lg text-[#f1592a]  hover:scale-110 transition-all"
-                          title="View on Map"
-                        >
-                          <Navigation size={17} className="text-[#f1592a] " />
-                        </button>
+                            onClick={() =>
+                              document
+                                .getElementById('office-map')
+                                ?.scrollIntoView({ behavior: 'smooth' })
+                            }
+                            className=" ml-1 rounded-lg text-[#f1592a]  hover:scale-110 transition-all"
+                            title="View on Map"
+                          >
+                            <Map size={17} className="text-[#f1592a] " />
+                          </button>
                         </p>
-
-                       
                       </div>
                     </div>
                   </motion.div>

@@ -971,7 +971,7 @@ function ProductDevelopmentPage() {
                   <span>Talk to Product Team</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                 </motion.a>
-                <motion.a
+                {/* <motion.a
                   href="tel:+1234567890"
                   whileHover={{
                     scale: 1.05,
@@ -982,7 +982,7 @@ function ProductDevelopmentPage() {
                   className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border-2 border-white/40 hover:bg-white/20 transition-all shadow-lg font-semibold"
                 >
                   Call: +123 456 7890
-                </motion.a>
+                </motion.a> */}
               </div>
             </motion.div>
           </div>
