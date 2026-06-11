@@ -903,14 +903,14 @@ function MobileDevelopmentPage() {
                   viewport={{
                     once: true,
                   }}
-                  className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl mb-6"
+                  className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-white/20 backdrop-blur-sm rounded-2xl mb-6"
                 >
-                  <Smartphone className="text-white" size={40} strokeWidth={1.5} />
+                  <Smartphone className="text-white w-8 h-8 md:w-10 md:h-10"  strokeWidth={1.5} />
                 </motion.div>
-                <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
+                <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
                   Ready to Launch Your Mobile App?
                 </h2>
-                <p className="text-xl text-white/90 mb-8 font-light">
+                <p className="text-lg md:text-xl text-white/90 mb-8 font-light">
                   Transform your idea into a powerful mobile application. Get started with a free
                   consultation and bring your vision to life.
                 </p>
@@ -923,9 +923,9 @@ function MobileDevelopmentPage() {
                       whileTap={{
                         scale: 0.95,
                       }}
-                      className="px-8 py-4 bg-white text-[#f1592a] rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all"
+                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all"
                     >
-                      Start Your Project
+                      <span className="text-sm md:text-md">Start Your Project</span>
                     </motion.button>
                   </Link>
                   <motion.button
@@ -935,9 +935,9 @@ function MobileDevelopmentPage() {
                     whileTap={{
                       scale: 0.95,
                     }}
-                    className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border-2 border-white/30 hover:border-white/50 transition-all font-semibold"
+                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border-2 border-white/30 hover:border-white/50 transition-all font-semibold"
                   >
-                    View Case Studies
+                    <span className="text-sm md:text-md">View Case Studies</span>
                   </motion.button>
                 </div>
               </div>

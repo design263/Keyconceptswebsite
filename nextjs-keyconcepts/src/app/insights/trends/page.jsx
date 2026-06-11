@@ -14,7 +14,7 @@ function IndustryTrendsPage() {
   return (
     <LayoutWrapper>
       <div className="min-h-screen bg-white">
-        <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-gray-50 to-white">
+        <section className="relative pt-32 md:pb-20 pb-16 overflow-hidden bg-gradient-to-br from-gray-50 to-white">
           <div className="absolute inset-0 opacity-40">
             <div className="absolute top-20 right-20 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
             <div className="absolute bottom-20 left-20 w-96 h-96 bg-gray-300/30 rounded-full blur-3xl" />
@@ -48,9 +48,10 @@ function IndustryTrendsPage() {
                 }}
                 className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/50 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
               >
-                <TrendingUp size={16} /> <span>Industry Insights</span>
+                <TrendingUp size={16} /> 
+                <span className="text-xs md:text-sm">Industry Insights</span>
               </motion.span>
-              <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold mb-6">
+              <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold mb-6">
                 Industry Trends & Insights
               </h1>
               <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
@@ -90,7 +91,7 @@ function IndustryTrendsPage() {
                           </span>
                         </div>
                       </div>
-                      <div className="p-8 md:p-12 flex flex-col justify-center">
+                      <div className="p-6 md:p-12 flex flex-col justify-center">
                         <div className="mb-4">
                           <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-sm font-semibold rounded-full">
                             {featuredPost.category}
@@ -112,7 +113,7 @@ function IndustryTrendsPage() {
                           </div>
                         </div>
                         <div className="flex items-center space-x-2 text-[#f1592a] font-semibold group-hover:space-x-3 transition-all">
-                          <span>Read Full Article</span>
+                          <span className="text-sm md:text-md">Read Full Article</span>
                           <ArrowRight
                             size={20}
                             className="group-hover:translate-x-1 transition-transform"
@@ -126,7 +127,7 @@ function IndustryTrendsPage() {
             )}
           </div>
         </section>
-        <section className="py-20 bg-white">
+        <section className="py-16 md:py-20 bg-white">
           <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -199,7 +200,7 @@ function IndustryTrendsPage() {
                             <Clock size={14} /> <span>{post.readTime}</span>
                           </div>
                         </div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#f1592a] transition-colors line-clamp-2">
+                        <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 group-hover:text-[#f1592a] transition-colors line-clamp-2">
                           {post.title}
                         </h3>
                         <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3 flex-1">
@@ -237,13 +238,13 @@ function IndustryTrendsPage() {
               }}
               className="text-center mt-16"
             >
-              <button className="px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full font-semibold shadow-lg hover:shadow-xl hover:shadow-[#f1592a]/30 transition-all hover:scale-105">
+              <button className="px-6 md:px-8 py-3 md:py-4 text-sm md:text-md bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full font-semibold shadow-lg hover:shadow-xl hover:shadow-[#f1592a]/30 transition-all hover:scale-105">
                 Load More Articles
               </button>
             </motion.div>
           </div>
         </section>
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <section className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white">
           <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -260,7 +261,7 @@ function IndustryTrendsPage() {
               transition={{
                 duration: 0.6,
               }}
-              className="relative bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-3xl overflow-hidden p-12 md:p-16"
+              className="relative bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-3xl overflow-hidden p-8 md:p-16"
             >
               <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl" />
@@ -270,7 +271,7 @@ function IndustryTrendsPage() {
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   Stay Updated with Our Newsletter
                 </h2>
-                <p className="text-white/90 text-lg mb-8">
+                <p className="text-white/90 md:text-lg text-md mb-8 ">
                   Get the latest industry trends, insights, and exclusive content delivered directly
                   to your inbox.
                 </p>
@@ -278,9 +279,9 @@ function IndustryTrendsPage() {
                   <input
                     type="email"
                     placeholder="Enter your email address"
-                    className="flex-1 px-6 py-4 border border-white rounded-full text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white"
+                    className="flex-1 md:px-6 md:py-4 px-4 py-3 text-sm md:text-md border border-white rounded-full text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white"
                   />
-                  <button className="px-8 py-4 bg-white text-[#f1592a] rounded-full font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
+                  <button className="px-6 md:px-8 py-3 md:py-4 text-sm md:text-md bg-white text-[#f1592a] rounded-full font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
                     Subscribe Now
                   </button>
                 </div>

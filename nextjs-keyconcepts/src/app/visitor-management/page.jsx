@@ -192,7 +192,7 @@ function VisitorManagementPage() {
               className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-[#f1592a]/10 to-gray-200/10 rounded-full blur-3xl"
             />
           </div>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="container text-center lg:text-left mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <motion.div
                 initial={{
@@ -222,8 +222,8 @@ function VisitorManagementPage() {
                   }}
                   className="inline-flex items-center space-x-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-[#f1592a]/20 shadow-lg mb-8"
                 >
-                  <Shield className="text-[#f1592a]" size={18} strokeWidth={1.5} />
-                  <span className="text-sm font-semibold text-gray-700">
+                  <Shield className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" strokeWidth={1.5} />
+                  <span className="text-xs md:text-sm font-semibold text-gray-700">
                     Enterprise-Grade Security
                   </span>
                 </motion.div>
@@ -241,7 +241,7 @@ function VisitorManagementPage() {
                   }}
                   className="text-4xl lg:text-5xl font-bold mb-6 leading-tight"
                 >
-                  Visitor  Management  {' '}
+                  Visitor Management{' '}
                   <span className="block bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
                     Built for Safety & Speed
                   </span>
@@ -275,7 +275,7 @@ function VisitorManagementPage() {
                   transition={{
                     delay: 0.5,
                   }}
-                  className="flex flex-wrap gap-6 mb-8"
+                  className="flex justify-center lg:justify-start flex-wrap gap-6 mb-8"
                 >
                   {benefits.map((benefit, index) => (
                     <div className="flex items-center space-x-2" key={index}>
@@ -307,10 +307,13 @@ function VisitorManagementPage() {
                       whileTap={{
                         scale: 0.95,
                       }}
-                      className="group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                      className="w-full sm:w-auto group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                     >
-                      <span className="font-semibold">Request Demo</span>
-                      <Zap className="group-hover:scale-110 transition-transform" size={20} />
+                      <span className="text-sm md:text-md font-semibold">Request Demo</span>
+                      <Zap
+                        className="group-hover:scale-110 transition-transform w-4 h-4 md:w-5 md:h-5"
+                        strokeWidth={1.5}
+                      />
                     </motion.button>
                   </Link>
                   <motion.button
@@ -320,9 +323,9 @@ function VisitorManagementPage() {
                     whileTap={{
                       scale: 0.95,
                     }}
-                    className="px-8 py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg"
+                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg"
                   >
-                    <span className="font-semibold">View Pricing</span>
+                    <span className="text-sm md:text-md font-semibold">View Pricing</span>
                   </motion.button>
                 </motion.div>
               </motion.div>
@@ -537,15 +540,19 @@ function VisitorManagementPage() {
                   className="group relative"
                   key={feature.title}
                 >
-                  <div className="h-full bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl hover:border-[#f1592a]/20 transition-all">
+                  <div className="h-full bg-gradient-to-br from-white to-gray-50 rounded-3xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-2xl hover:border-[#f1592a]/20 transition-all">
                     <div className="relative w-12 h-12 md:w-14 md:h-14 mb-6">
                       <div className="w-full h-full bg-gray-100 rounded-2xl flex items-center justify-center group-hover:bg-white transition-all">
                         <feature.icon className="text-gray-700" size={28} strokeWidth={1.5} />
                       </div>
                       <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#f1592a] rounded-full border-2 border-white" />
                     </div>
-                    <h3 className="text-xl font-bold mb-3 text-gray-900">{feature.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                    <h3 className="text-lg md:text-xl font-bold mb-3 text-gray-900">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600 text-md md:text-lg leading-relaxed">
+                      {feature.description}
+                    </p>
                     <div className="absolute inset-0 bg-gradient-to-br from-[#f1592a]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl" />
                   </div>
                 </motion.div>
@@ -597,12 +604,17 @@ function VisitorManagementPage() {
                 transition={{
                   delay: index * 0.1,
                 }}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-32 ${index % 2 === 0 ? '' : 'lg:grid-flow-dense'}`}
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-16 md:mb-32 ${index % 2 === 0 ? '' : 'lg:grid-flow-dense'}`}
               >
                 <div className={index % 2 === 0 ? 'order-2 lg:order-1' : 'order-1 lg:order-2'}>
-                  <div className={`inline-flex items-center space-x-2 px-4 py-2 bg-[#f1592a]/10 backdrop-blur-sm rounded-full border border-[#f1592a]/20 mb-6 ${index % 2 === 0 ? 'lg:flex-row-reverse lg:space-x-reverse' : ''}`}>
-                    <product.icon className="text-[#f1592a]" size={18} strokeWidth={1.5} />
-                    <span className="text-sm font-semibold text-[#f1592a]">
+                  <div
+                    className={`inline-flex items-center space-x-2 px-4 py-2 bg-[#f1592a]/10 backdrop-blur-sm rounded-full border border-[#f1592a]/20 mb-6 ${index % 2 === 0 ? 'lg:flex-row-reverse lg:space-x-reverse' : ''}`}
+                  >
+                    <product.icon
+                      className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5"
+                      strokeWidth={1.5}
+                    />
+                    <span className="text-xs md:text-sm font-semibold text-[#f1592a]">
                       {product.title === 'Meeting Room Management' && 'Smart Spaces'}
                       {product.title === 'Event Management' && 'Event Platform'}
                       {product.title === 'Parcel Management' && 'Delivery Tracking'}
@@ -620,14 +632,17 @@ function VisitorManagementPage() {
                     {product.features.map((feature, i) => (
                       <li className="flex items-start space-x-3" key={i}>
                         <div className="w-6 h-6 bg-[#f1592a]/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <CheckCircle className="text-[#f1592a]" size={14} strokeWidth={2.5} />
+                          <CheckCircle
+                            className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5"
+                            strokeWidth={2.5}
+                          />
                         </div>
                         <span className="text-gray-700 text-sm md:text-md">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <button className="group px-6 py-3 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full font-semibold hover:shadow-lg hover:shadow-[#f1592a]/30 transition-all flex items-center space-x-2">
-                    <span>Learn More</span>
+                    <span className="text-sm md:text-md">Learn More</span>
                     <motion.span
                       animate={{
                         x: [0, 5, 0],
@@ -637,13 +652,16 @@ function VisitorManagementPage() {
                         repeat: Infinity,
                       }}
                     >
-                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-                  </motion.span>
+                      <ArrowRight
+                        className="group-hover:translate-x-1 transition-transform"
+                        size={20}
+                      />
+                    </motion.span>
                   </button>
                 </div>
                 <div className={index % 2 === 0 ? 'order-1 lg:order-2' : 'order-2 lg:order-1'}>
                   <div className="relative bg-gradient-to-br from-gray-100 to-gray-50 rounded-3xl lg:p-8 p-4 border border-gray-200">
-                    <div className="bg-white rounded-2xl shadow-2xl p-8">
+                    <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8">
                       <div className="flex items-center space-x-3 mb-6">
                         <div className="w-12 h-12 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-xl flex items-center justify-center">
                           <product.icon className="text-white" size={24} strokeWidth={1.5} />
@@ -686,68 +704,71 @@ function VisitorManagementPage() {
                             },
                           ].map((room, i) => (
                             <motion.div
-                            key={i}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1 }}
-                            className="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl border border-gray-100"
-                          >
-                            <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center border border-gray-200 flex-shrink-0">
-                              <DoorOpen className="text-gray-700" size={24} strokeWidth={1.5} />
-                            </div>
-                            {/* name + time stack on mobile, badge moves below */}
-                            <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
-                              <div className="min-w-0">
-                                <h5 className="font-semibold text-gray-900 truncate">{room.name}</h5>
-                                <p className="text-xs text-gray-500">{room.time}</p>
+                              key={i}
+                              initial={{ opacity: 0, x: -20 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: i * 0.1 }}
+                              className="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl border border-gray-100"
+                            >
+                              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center border border-gray-200 flex-shrink-0">
+                                <DoorOpen className="text-gray-700" size={24} strokeWidth={1.5} />
                               </div>
-                              <div className={`self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${
-                                room.status === 'Available' ? 'bg-[#f1592a]/10 text-[#f1592a]' : 'bg-gray-200 text-gray-700'
-                              }`}>
-                                {room.status}
+                              {/* name + time stack on mobile, badge moves below */}
+                              <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
+                                <div className="min-w-0">
+                                  <h5 className="font-semibold text-gray-900 truncate">
+                                    {room.name}
+                                  </h5>
+                                  <p className="text-xs text-gray-500">{room.time}</p>
+                                </div>
+                                <div
+                                  className={`self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${
+                                    room.status === 'Available'
+                                      ? 'bg-[#f1592a]/10 text-[#f1592a]'
+                                      : 'bg-gray-200 text-gray-700'
+                                  }`}
+                                >
+                                  {room.status}
+                                </div>
                               </div>
-                            </div>
-                          </motion.div>
+                            </motion.div>
                           ))}
                         </div>
                       )}
                       {product.title === 'Event Management' && (
                         <div>
-                          <div className="grid grid-cols-3 gap-4 mb-6">
+                          <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-6">
                             {[
-                              {
-                                label: 'Registered',
-                                value: '487',
-                              },
-                              {
-                                label: 'Checked In',
-                                value: '312',
-                              },
-                              {
-                                label: 'Pending',
-                                value: '175',
-                              },
+                              { label: 'Registered', value: '487' },
+                              { label: 'Checked In', value: '312' },
+                              { label: 'Pending', value: '175' },
                             ].map((stat, i) => (
                               <div
-                                className="bg-gray-50 rounded-xl p-3 text-center border border-gray-100"
                                 key={i}
+                                className="bg-gray-50 rounded-xl p-2 sm:p-3 text-center border border-gray-100"
                               >
-                                <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
-                                <div className="text-xs text-gray-600">{stat.label}</div>
+                                <div className="text-lg sm:text-2xl font-bold text-gray-900 leading-tight">
+                                  {stat.value}
+                                </div>
+                                <div className="text-[10px] sm:text-xs text-gray-600 whitespace-nowrap mt-0.5">
+                                  {stat.label}
+                                </div>
                               </div>
                             ))}
                           </div>
                           <div className="space-y-2">
-                            {['VIP Lounge Access', 'Lunch Voucher', 'Workshop Pass'].map((item, i) => (
-                              <div
-                                className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-100"
-                                key={i}
-                              >
-                                <span className="text-sm text-gray-700">{item}</span>
-                                <div className="w-2 h-2 bg-[#f1592a] rounded-full" />
-                              </div>
-                            ))}
+                            {['VIP Lounge Access', 'Lunch Voucher', 'Workshop Pass'].map(
+                              (item, i) => (
+                                <div
+                                  className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-100"
+                                  key={i}
+                                >
+                                  <span className="text-sm text-gray-700">{item}</span>
+                                  <div className="w-2 h-2 bg-[#f1592a] rounded-full" />
+                                </div>
+                              )
+                            )}
                           </div>
                         </div>
                       )}
@@ -774,30 +795,38 @@ function VisitorManagementPage() {
                             },
                           ].map((parcel, i) => (
                             <motion.div
-                            key={i}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1 }}
-                            className="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl border border-gray-100"
-                          >
-                            <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center border border-gray-200 flex-shrink-0">
-                              <Package className="text-gray-700" size={24} strokeWidth={1.5} />
-                            </div>
-                            <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
-                              <div className="min-w-0">
-                                <h5 className="font-semibold text-gray-900 truncate">{parcel.id}</h5>
-                                <p className="text-xs text-gray-500">{parcel.recipient} • {parcel.time}</p>
+                              key={i}
+                              initial={{ opacity: 0, x: -20 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: i * 0.1 }}
+                              className="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl border border-gray-100"
+                            >
+                              <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center border border-gray-200 flex-shrink-0">
+                                <Package className="text-gray-700" size={24} strokeWidth={1.5} />
                               </div>
-                              <div className={`self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${
-                                parcel.status === 'Delivered' ? 'bg-[#f1592a]/10 text-[#f1592a]'
-                                : parcel.status === 'In Transit' ? 'bg-gray-300 text-gray-700'
-                                : 'bg-gray-200 text-gray-600'
-                              }`}>
-                                {parcel.status}
+                              <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
+                                <div className="min-w-0">
+                                  <h5 className="font-semibold text-gray-900 truncate">
+                                    {parcel.id}
+                                  </h5>
+                                  <p className="text-xs text-gray-500">
+                                    {parcel.recipient} • {parcel.time}
+                                  </p>
+                                </div>
+                                <div
+                                  className={`self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${
+                                    parcel.status === 'Delivered'
+                                      ? 'bg-[#f1592a]/10 text-[#f1592a]'
+                                      : parcel.status === 'In Transit'
+                                        ? 'bg-gray-300 text-gray-700'
+                                        : 'bg-gray-200 text-gray-600'
+                                  }`}
+                                >
+                                  {parcel.status}
+                                </div>
                               </div>
-                            </div>
-                          </motion.div>
+                            </motion.div>
                           ))}
                         </div>
                       )}
@@ -878,19 +907,23 @@ function VisitorManagementPage() {
                               }}
                               className="p-4 bg-gray-50 rounded-xl border border-gray-100"
                             >
-                             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
-  <div>
-    <h5 className="font-semibold text-gray-900">{pass.id}</h5>
-    <p className="text-sm text-gray-600">{pass.material}</p>
-  </div>
-  <div className={`self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${
-    pass.status === 'Approved' ? 'bg-[#f1592a]/10 text-[#f1592a]'
-    : pass.status === 'Pending' ? 'bg-gray-300 text-gray-700'
-    : 'bg-gray-200 text-gray-600'
-  }`}>
-    {pass.status}
-  </div>
-</div>
+                              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
+                                <div>
+                                  <h5 className="font-semibold text-gray-900">{pass.id}</h5>
+                                  <p className="text-sm text-gray-600">{pass.material}</p>
+                                </div>
+                                <div
+                                  className={`self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${
+                                    pass.status === 'Approved'
+                                      ? 'bg-[#f1592a]/10 text-[#f1592a]'
+                                      : pass.status === 'Pending'
+                                        ? 'bg-gray-300 text-gray-700'
+                                        : 'bg-gray-200 text-gray-600'
+                                  }`}
+                                >
+                                  {pass.status}
+                                </div>
+                              </div>
                               <div className="flex items-center space-x-2">
                                 <div className="w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center border border-gray-200">
                                   <UserCog className="text-gray-600" size={12} />
@@ -1004,7 +1037,7 @@ function VisitorManagementPage() {
             ))}
           </div>
         </section>
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <section className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -1040,14 +1073,14 @@ function VisitorManagementPage() {
                   viewport={{
                     once: true,
                   }}
-                  className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl mb-6"
+                  className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-white/20 backdrop-blur-sm rounded-2xl mb-6"
                 >
-                  <Shield className="text-white" size={40} strokeWidth={1.5} />
+                  <Shield className="text-white w-8 h-8 md:w-10 md:h-10"  strokeWidth={1.5} />
                 </motion.div>
-                <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+                <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
                   Ready to Modernize Your Reception?
                 </h2>
-                <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
                   Join hundreds of companies that trust our visitor management system for safety,
                   speed, and seamless operations.
                 </p>
@@ -1060,9 +1093,9 @@ function VisitorManagementPage() {
                       whileTap={{
                         scale: 0.95,
                       }}
-                      className="px-8 py-4 bg-white text-[#f1592a] rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all"
+                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all"
                     >
-                      Schedule a Demo
+                      <span className="text-sm md:text-md">Schedule a Demo</span>
                     </motion.button>
                   </Link>
                   <motion.button
@@ -1072,9 +1105,9 @@ function VisitorManagementPage() {
                     whileTap={{
                       scale: 0.95,
                     }}
-                    className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border-2 border-white/30 hover:border-white/50 transition-all font-semibold"
+                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border-2 border-white/30 hover:border-white/50 transition-all font-semibold"
                   >
-                    Download Brochure
+                    <span className="text-sm md:text-md">Download Brochure</span>
                   </motion.button>
                 </div>
               </div>

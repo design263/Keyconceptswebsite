@@ -552,8 +552,8 @@ function OdooERPPage() {
                       <CheckCircle className="text-white" size={24} strokeWidth={2} />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                  <h3 className="text-lg md:text-xl font-bold mb-3">{item.title}</h3>
+                  <p className="text-gray-600 text-md md:text-lgleading-relaxed">{item.description}</p>
                 </motion.div>
               ))}
             </div>

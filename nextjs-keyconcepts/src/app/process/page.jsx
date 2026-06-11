@@ -23,6 +23,7 @@ import {
   RefreshCw,
   Settings,
   Award,
+  ArrowRight,
 } from 'lucide-react'
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
 
@@ -228,7 +229,7 @@ function ProcessPage() {
   return (
     <LayoutWrapper>
       <div className="min-h-screen bg-white">
-        <section className="relative pt-32 pb-20 overflow-hidden">
+        <section className="relative pt-32 md:pb-20 pb-10 overflow-hidden">
           <div className="absolute inset-0 -z-10">
             <div className="absolute top-20 right-10 w-72 h-72 bg-[#f1592a]/5 rounded-full blur-3xl" />
             <div className="absolute bottom-20 left-10 w-96 h-96 bg-[#f1592a]/5 rounded-full blur-3xl" />
@@ -248,9 +249,9 @@ function ProcessPage() {
                   duration: 0.6,
                 }}
               >
-                <div className="inline-flex items-center space-x-2 px-4 py-2 bg-[#f1592a]/10 rounded-full mb-6">
-                  <Award className="text-[#f1592a]" size={20} />
-                  <span className="text-[#f1592a] font-semibold">Our Proven Process</span>
+                <div className="inline-flex items-center space-x-2   md:px-4 md:py-2 px-3 py-2 bg-[#f1592a]/10 rounded-full mb-6">
+                  <Award className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5"  strokeWidth={2} />
+                  <span className="text-[#f1592a] text-xs md:text-sm font-semibold">Our Proven Process</span>
                 </div>
                 <h1 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
                   Building Trust Through <br />
@@ -288,13 +289,13 @@ function ProcessPage() {
               className="text-center mb-20"
             >
               <div className="inline-flex items-center space-x-2 px-4 py-2 bg-[#f1592a]/10 rounded-full mb-4">
-                <Target className="text-[#f1592a]" size={18} />
-                <span className="text-[#f1592a] font-semibold text-sm">HOW WE WORK</span>
+                <Target className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5"  strokeWidth={2} />
+                <span className="text-[#f1592a] text-xs md:text-sm font-semibold">HOW WE WORK</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 Get Started in <span className="text-[#f1592a]">Six Simple Steps</span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
                 No setup headaches. Our process makes it easy to launch, manage and grow your
                 business.
               </p>
@@ -321,7 +322,7 @@ function ProcessPage() {
                       delay: index * 0.15,
                       duration: 0.6,
                     }}
-                    className="relative mb-20 lg:mb-32"
+                    className="relative mb-10 md:mb-20 lg:mb-32"
                     key={step.number}
                   >
                     <div
@@ -454,14 +455,14 @@ function ProcessPage() {
               className="text-center mb-16"
             >
               <div className="inline-flex items-center space-x-2 px-4 py-2 bg-[#f1592a]/10 rounded-full mb-4">
-                <Zap className="text-[#f1592a]" size={18} />
-                <span className="text-[#f1592a] font-semibold text-sm">COMMUNICATION & DELIVERY</span>
+                <Zap className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5"  strokeWidth={2} />
+                <span className="text-[#f1592a] text-xs md:text-sm font-semibold">COMMUNICATION & DELIVERY</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 Your Trusted Partner In <br />
                 <span className="text-[#f1592a]">Digital Transformation</span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
                 Discover the insights you need to make confident decisions. From setup to support,
                 we've simplified the answers for you.
               </p>
@@ -486,18 +487,18 @@ function ProcessPage() {
                   className="flex items-start space-x-4 group"
                 >
                   <div className="relative flex-shrink-0">
-                    <div className="w-14 h-14 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center group-hover:border-[#f1592a]/30 transition-all shadow-sm">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center group-hover:border-[#f1592a]/30 transition-all shadow-sm">
                       <Rocket
-                        className="text-gray-700 group-hover:text-[#f1592a] transition-colors"
-                        size={24}
+                        className="text-gray-700 group-hover:text-[#f1592a] transition-colors w-6 h-6 md:w-7 md:h-7"
+                      
                         strokeWidth={1.5}
                       />
                     </div>
                     <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#f1592a] rounded-full border-2 border-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Innovative Approach</h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <h3 className="md:text-xl text-lg font-bold text-gray-900 mb-2">Innovative Approach</h3>
+                    <p className="text-gray-600 text-md md:text-lg leading-relaxed">
                       Cutting-edge solutions using the latest technologies and methodologies to
                       deliver exceptional results.
                     </p>
@@ -521,20 +522,20 @@ function ProcessPage() {
                   className="flex items-start space-x-4 group"
                 >
                   <div className="relative flex-shrink-0">
-                    <div className="w-14 h-14 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center group-hover:border-[#f1592a]/30 transition-all shadow-sm">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center group-hover:border-[#f1592a]/30 transition-all shadow-sm">
                       <Users
-                        className="text-gray-700 group-hover:text-[#f1592a] transition-colors"
-                        size={24}
+                        className="text-gray-700 group-hover:text-[#f1592a] transition-colors w-6 h-6 md:w-7 md:h-7"
+
                         strokeWidth={1.5}
                       />
                     </div>
                     <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#f1592a] rounded-full border-2 border-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    <h3 className="md:text-xl text-lg font-bold text-gray-900 mb-2">
                       Client-Centered Focus
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-gray-600 text-md md:text-lg leading-relaxed">
                       Your success is our priority. We maintain transparent communication throughout
                       every project phase.
                     </p>
@@ -558,18 +559,18 @@ function ProcessPage() {
                   className="flex items-start space-x-4 group"
                 >
                   <div className="relative flex-shrink-0">
-                    <div className="w-14 h-14 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center group-hover:border-[#f1592a]/30 transition-all shadow-sm">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center group-hover:border-[#f1592a]/30 transition-all shadow-sm">
                       <Award
-                        className="text-gray-700 group-hover:text-[#f1592a] transition-colors"
-                        size={24}
+                        className="text-gray-700 group-hover:text-[#f1592a] transition-colors w-6 h-6 md:w-7 md:h-7"
+                        
                         strokeWidth={1.5}
                       />
                     </div>
                     <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#f1592a] rounded-full border-2 border-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Experienced Team</h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <h3 className="md:text-xl text-lg font-bold text-gray-900 mb-2">Experienced Team</h3>
+                    <p className="text-gray-600 text-md md:text-lg leading-relaxed">
                       Industry veterans with proven track records in delivering complex enterprise
                       solutions.
                     </p>
@@ -655,7 +656,7 @@ function ProcessPage() {
                       </div>
                       <TrendingUp className="text-[#f1592a]" size={20} />
                     </div>
-                    <span className="text-3xl font-bold text-[#f1592a]">66k+</span>
+                    <span className="text-2xl md:text-3xl font-bold text-[#f1592a]">66k+</span>
                   </div>
                   <p className="text-sm font-semibold text-gray-900">Happy Clients</p>
                   <p className="text-xs text-gray-500 mt-1">Across 40+ countries worldwide</p>
@@ -720,7 +721,7 @@ function ProcessPage() {
                 >
                   <div className="flex items-center justify-between mb-3">
                     <Zap className="text-white" size={24} />
-                    <span className="text-5xl font-bold">+75%</span>
+                    <span className="text-4xl md:text-5xl font-bold">+75%</span>
                   </div>
                   <p className="text-lg font-bold mb-1">Increase company efficiency</p>
                   <p className="text-sm text-white/80">Average improvement in first 6 months</p>
@@ -786,31 +787,31 @@ function ProcessPage() {
               </div>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-xl font-bold mb-4 flex items-center">
+                  <h4 className="md:text-xl text-lg font-bold mb-4 flex items-center">
                     <MessageSquare className="mr-2 text-[#f1592a]" size={24} />
                     Communication Touchpoints
                   </h4>
                   <div className="space-y-3">
                     <div className="flex items-center justify-between bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                      <span className="font-semibold">Daily</span>
-                      <span className="text-[#f1592a] text-sm">Slack updates</span>
+                      <span className="font-semibold text-sm md:text-md">Daily</span>
+                      <span className="text-[#f1592a] text-xs md:text-sm">Slack updates</span>
                     </div>
                     <div className="flex items-center justify-between bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                      <span className="font-semibold">Weekly</span>
-                      <span className="text-[#f1592a] text-sm">Stand-up calls</span>
+                      <span className="font-semibold text-sm md:text-md">Weekly</span>
+                      <span className="text-[#f1592a] text-xs md:text-sm">Stand-up calls</span>
                     </div>
                     <div className="flex items-center justify-between bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                      <span className="font-semibold">Bi-weekly</span>
-                      <span className="text-[#f1592a] text-sm">Sprint reports</span>
+                      <span className="font-semibold text-sm md:text-md">Bi-weekly</span>
+                      <span className="text-[#f1592a] text-xs md:text-sm">Sprint reports</span>
                     </div>
                     <div className="flex items-center justify-between bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                      <span className="font-semibold">Monthly</span>
-                      <span className="text-[#f1592a] text-sm">Executive summary</span>
+                      <span className="font-semibold text-sm md:text-md">Monthly</span>
+                      <span className="text-[#f1592a] text-xs md:text-sm">Executive summary</span>
                     </div>
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold mb-4 flex items-center">
+                  <h4 className="md:text-xl text-lg font-bold mb-4 flex items-center">
                     <GitBranch className="mr-2 text-[#f1592a]" size={24} />
                     Release Pipeline
                   </h4>
@@ -829,8 +830,8 @@ function ProcessPage() {
                         <div className="w-8 h-8 bg-[#f1592a] rounded-full flex items-center justify-center mr-3 text-sm font-bold flex-shrink-0">
                           {i + 1}
                         </div>
-                        <span className="font-semibold flex-1">{stage}</span>
-                        {i < 4 && <div className="text-gray-400">{'->'}</div>}
+                        <span className="font-semibold text-sm md:text-md flex-1">{stage}</span>
+                        {i < 4 && <div className="text-gray-400"><ArrowRight className="w-4 h-4 md:w-5 md:h-5"  strokeWidth={2} /></div>}
                       </div>
                     ))}
                   </div>
@@ -862,7 +863,7 @@ function ProcessPage() {
               <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 <span className="text-[#f1592a]">Industry-Leading</span> Tools
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
                 We use the best tools to ensure efficiency, collaboration, and quality
               </p>
             </motion.div>
@@ -886,9 +887,9 @@ function ProcessPage() {
                   className="group"
                   key={tool.name}
                 >
-                  <div className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#f1592a]/30 hover:shadow-lg transition-all duration-300 text-center h-full flex flex-col items-center justify-center">
+                  <div className="bg-white border border-gray-200 rounded-2xl p-4 md:p-6 hover:border-[#f1592a]/30 hover:shadow-lg transition-all duration-300 text-center h-full flex flex-col items-center justify-center">
                     <div className="relative mb-3">
-                      <div className="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-[#f1592a]/5 transition-all mx-auto">
+                      <div className="w-12 h-12 md:w-14 md:h-14 bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-[#f1592a]/5 transition-all mx-auto">
                         {typeof tool.icon === 'string' ? (
                           <img
                             src={tool.icon}
@@ -924,7 +925,7 @@ function ProcessPage() {
               }}
               className="mt-12 text-center"
             >
-              <div className="inline-block bg-white border border-gray-200 rounded-2xl p-6">
+              <div className="inline-block bg-white border border-gray-200 rounded-2xl p-4 md:p-6">
                 <p className="text-gray-600 mb-2">
                   <span className="font-semibold text-gray-900">Plus:</span> Tailored tool stack based
                   on your team's preferences
@@ -953,7 +954,7 @@ function ProcessPage() {
               <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 <span className="text-[#f1592a]">Quality Assurance</span> & Release
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
                 Multi-layered testing approach to ensure bug-free deployments
               </p>
             </motion.div>
@@ -978,7 +979,7 @@ function ProcessPage() {
                   key={qa.step}
                 >
                   <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 h-full hover:border-[#f1592a]/30 hover:bg-white hover:shadow-lg transition-all duration-300">
-                    <div className="relative w-14 h-14 mb-4">
+                    <div className="relative w-12 h-12 md:w-14 md:h-14 mb-4">
                       <div className="w-full h-full bg-white rounded-lg flex items-center justify-center group-hover:bg-[#f1592a]/5 transition-all border border-gray-200">
                         <qa.icon
                           className="text-gray-700 group-hover:text-[#f1592a] transition-colors"
@@ -988,7 +989,7 @@ function ProcessPage() {
                       </div>
                       <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#f1592a] rounded-full border-2 border-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{qa.step}</h3>
+                    <h3 className="md:text-xl text-lg font-bold text-gray-900 mb-2">{qa.step}</h3>
                     <p className="text-gray-600 mb-3 leading-relaxed text-sm">{qa.description}</p>
                     <div className="pt-3 border-t border-gray-200">
                       <span className="text-xs font-semibold text-[#f1592a]">{qa.coverage}</span>
@@ -1060,7 +1061,7 @@ function ProcessPage() {
               <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 <span className="text-[#f1592a]">Post-Launch</span> Support Model
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
                 We don't disappear after launch. We're here for the long haul.
               </p>
             </motion.div>
@@ -1085,7 +1086,7 @@ function ProcessPage() {
                   key={tier.title}
                 >
                   <div
-                    className={`relative bg-white border-2 rounded-3xl p-8 h-full ${index === 0 ? 'border-[#f1592a] shadow-xl shadow-[#f1592a]/10' : 'border-gray-200 hover:border-gray-300'} transition-all duration-300`}
+                    className={`relative bg-white border-2 rounded-3xl p-6 md:p-8 h-full ${index === 0 ? 'border-[#f1592a] shadow-xl shadow-[#f1592a]/10' : 'border-gray-200 hover:border-gray-300'} transition-all duration-300`}
                   >
                     {index === 0 && (
                       <div className="absolute -top-4 left-1/2 -translate-x-1/2">
@@ -1095,11 +1096,11 @@ function ProcessPage() {
                       </div>
                     )}
                     <div
-                      className={`w-16 h-16 bg-gradient-to-br ${tier.color} rounded-2xl flex items-center justify-center mb-6`}
+                      className={`w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br ${tier.color} rounded-2xl flex items-center justify-center mb-6`}
                     >
-                      <tier.icon className="text-white" size={32} strokeWidth={1.5} />
+                      <tier.icon className="text-white w-6 h-6 md:w-8 md:h-8" strokeWidth={1.5} />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1">{tier.title}</h3>
+                    <h3 className="md:text-2xl text-xl font-bold text-gray-900 mb-1">{tier.title}</h3>
                     <p className="text-[#f1592a] font-semibold mb-6">{tier.subtitle}</p>
                     <ul className="space-y-3">
                       {tier.features.map((feature, i) => (
@@ -1135,22 +1136,22 @@ function ProcessPage() {
               className="mt-16 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] rounded-3xl p-8 md:p-12 text-white text-center"
             >
               <Shield className="mx-auto mb-4" size={48} />
-              <h3 className="text-3xl font-bold mb-4">Our Support Guarantee</h3>
-              <p className="text-lg text-white/90 max-w-3xl mx-auto mb-6">
+              <h3 className="md:text-3xl text-2xl font-bold mb-4">Our Support Guarantee</h3>
+              <p className="md:text-lg text-md text-white/90 max-w-3xl mx-auto mb-6">
                 Every project includes a 30-day critical support period with unlimited bug fixes and
                 optimizations. We're committed to your success, not just your launch.
               </p>
               <div className="flex flex-wrap justify-center gap-8 text-center">
                 <div>
-                  <div className="text-4xl font-bold mb-1">{'<2hr'}</div>
+                  <div className="md:text-4xl text-3xl font-bold mb-1">{'<2hr'}</div>
                   <div className="text-white/80 text-sm">Critical issue response</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold mb-1">99.9%</div>
+                  <div className="md:text-4xl text-3xl font-bold mb-1">99.9%</div>
                   <div className="text-white/80 text-sm">Uptime guarantee</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold mb-1">24/7</div>
+                  <div className="md:text-4xl text-3xl font-bold mb-1">24/7</div>
                   <div className="text-white/80 text-sm">Monitoring & alerts</div>
                 </div>
               </div>
@@ -1171,17 +1172,17 @@ function ProcessPage() {
               viewport={{
                 once: true,
               }}
-              className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-12 md:p-16 text-center relative overflow-hidden"
+              className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-16 text-center relative overflow-hidden"
             >
               <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-10 right-10 w-64 h-64 bg-[#f1592a] rounded-full blur-3xl" />
                 <div className="absolute bottom-10 left-10 w-64 h-64 bg-[#ff7a45] rounded-full blur-3xl" />
               </div>
               <div className="relative z-10">
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
                   Ready to Experience <br /> <span className="text-[#f1592a]">Our Process?</span>
                 </h2>
-                <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
                   Let's discuss your project and show you exactly how we'll bring it to life
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -1193,9 +1194,9 @@ function ProcessPage() {
                       whileTap={{
                         scale: 0.95,
                       }}
-                      className="px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full font-semibold shadow-lg hover:shadow-2xl hover:shadow-[#f1592a]/30 transition-all"
+                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 text-sm md:text-md bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full font-semibold shadow-lg hover:shadow-2xl hover:shadow-[#f1592a]/30 transition-all"
                     >
-                      Start Your Project
+                      <span className="text-sm md:text-md">Start Your Project</span>
                     </motion.button>
                   </a>
                   <a href="/our-story">
@@ -1206,9 +1207,9 @@ function ProcessPage() {
                       whileTap={{
                         scale: 0.95,
                       }}
-                      className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full font-semibold border border-white/20 hover:bg-white/20 transition-all"
+                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 text-sm md:text-md bg-white/10 backdrop-blur-sm text-white rounded-full font-semibold border border-white/20 hover:bg-white/20 transition-all"
                     >
-                      Learn About Us
+                      <span className="text-sm md:text-md">Learn About Us</span>
                     </motion.button>
                   </a>
                 </div>

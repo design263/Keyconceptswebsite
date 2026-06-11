@@ -900,7 +900,7 @@ function MegaMenuHeader() {
                               </Link>
                             )
                           })}
-                          {menu.cta && (
+                          {/* {menu.cta && (
                             <Link
                               href={menu.cta.href}
                               onClick={closeMobileMenu}
@@ -908,7 +908,7 @@ function MegaMenuHeader() {
                             >
                               {menu.cta.label}
                             </Link>
-                          )}
+                          )} */}
                         </div>
                       </motion.div>
                     )}
@@ -917,7 +917,7 @@ function MegaMenuHeader() {
               ))}
 
               <Link href="/contact" onClick={closeMobileMenu}>
-                <button className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg font-semibold cursor-pointer">
+                <button className="w-full mt-4 md:px-6 px-4 py-3 text-sm md:text-md bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg font-semibold cursor-pointer">
                   Contact Us
                 </button>
               </Link>

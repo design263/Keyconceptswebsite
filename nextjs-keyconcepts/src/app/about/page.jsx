@@ -85,14 +85,14 @@ export default function AboutPage() {
                 transition={{
                   delay: 0.2,
                 }}
-                className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-semibold mb-6"
+                className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full md:text-sm text-xs font-semibold mb-6"
               >
                 About Us
               </motion.span>
               <h1 className="text-3xl md:text-5xl font-bold mb-6">
                 Transforming Businesses Since 2009
               </h1>
-              <p className="text-xl text-gray-300 leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
                 We're a team of passionate technologists dedicated to helping businesses thrive in the
                 digital age through innovative IT solutions.
               </p>
@@ -117,7 +117,7 @@ export default function AboutPage() {
                 }}
               >
                 <h2 className="text-3xl md:text-5xl font-bold mb-6">Our Story</h2>
-                <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
+                <div className="space-y-4 text-md md:text-lg text-gray-600 leading-relaxed">
                   <p>
                     Founded in 2009, Key Concepts emerged from a simple vision: to bridge the gap
                     between businesses and technology. What started as a small team of developers has
@@ -149,7 +149,7 @@ export default function AboutPage() {
                 }}
                 className="relative"
               >
-                <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+                <div className="relative h-[300px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
                   <ImageWithFallback
                     src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop"
                     alt="Team collaboration"
@@ -162,7 +162,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
+        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <motion.div
@@ -179,14 +179,14 @@ export default function AboutPage() {
                 }}
                 className="relative group"
               >
-                <div className="bg-white/60 backdrop-blur-lg rounded-3xl p-12 shadow-lg border border-white/60 hover:shadow-2xl transition-all">
-                  <div className="relative w-16 h-16 mb-6 group-hover:scale-110 transition-transform">
+                <div className="bg-white/60 backdrop-blur-lg rounded-3xl p-6 md:p-12 shadow-lg border border-white/60 hover:shadow-2xl transition-all">
+                  <div className="relative md:w-16 md:h-16 w-14 h-14 mb-6 group-hover:scale-110 transition-transform">
                     <div className="w-full h-full bg-[#f1592a] rounded-2xl flex items-center justify-center">
-                      <Target className="text-white" size={32} strokeWidth={1.5} />
+                      <Target className="text-white w-8 h-8 md:w-10 md:h-10" strokeWidth={1.5} />
                     </div>
                     <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-white rounded-full border-2 border-[#f1592a]" />
                   </div>
-                  <h3 className="text-3xl font-bold mb-4">Our Mission</h3>
+                  <h3 className="md:text-3xl text-2xl font-bold mb-4">Our Mission</h3>
                   <p className="text-md md:text-lg text-gray-600 leading-relaxed">
                     To empower businesses with innovative technology solutions that drive growth,
                     efficiency, and competitive advantage in an ever-evolving digital landscape.
@@ -211,14 +211,14 @@ export default function AboutPage() {
                 }}
                 className="relative group"
               >
-                <div className="bg-white/60 backdrop-blur-lg rounded-3xl p-12 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all">
-                  <div className="relative w-16 h-16 mb-6 group-hover:scale-110 transition-transform">
+                <div className="bg-white/60 backdrop-blur-lg rounded-3xl p-6 md:p-12 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all">
+                  <div className="relative md:w-16 md:h-16 w-14 h-14 mb-6 group-hover:scale-110 transition-transform">
                     <div className="w-full h-full bg-gray-700 rounded-2xl flex items-center justify-center">
-                      <Users className="text-white" size={32} strokeWidth={1.5} />
+                      <Users className="text-white w-8 h-8 md:w-10 md:h-10" strokeWidth={1.5} />
                     </div>
                     <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-white rounded-full border-2 border-gray-700" />
                   </div>
-                  <h3 className="text-3xl font-bold mb-4">Our Vision</h3>
+                  <h3 className="md:text-3xl text-2xl font-bold mb-4">Our Vision</h3>
                   <p className="text-md md:text-lg text-gray-600 leading-relaxed">
                     To be the leading IT solutions provider recognized for excellence, innovation, and
                     transformative impact on businesses worldwide.
@@ -273,15 +273,15 @@ export default function AboutPage() {
                   className="group text-center"
                   key={value.title}
                 >
-                  <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all">
-                    <div className="relative w-16 h-16 mx-auto mb-6 group-hover:scale-110 transition-transform">
+                  <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all">
+                    <div className="relative md:w-16 md:h-16 w-14 h-14 mx-auto mb-6 group-hover:scale-110 transition-transform">
                       <div className="w-full h-full bg-gray-100 rounded-xl flex items-center justify-center">
-                        <value.icon className="text-gray-700" size={28} strokeWidth={1.5} />
+                        <value.icon className="text-gray-700 w-8 h-8 md:w-10 md:h-10" strokeWidth={1.5} />
                       </div>
                       <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-[#f1592a] rounded-full border-2 border-white" />
                     </div>
-                    <h3 className="text-xl font-bold mb-3">{value.title}</h3>
-                    <p className="text-gray-600">{value.description}</p>
+                    <h3 className="md:text-xl text-lg font-bold mb-3">{value.title}</h3>
+                    <p className="text-gray-600 text-md md:text-lg">{value.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -333,11 +333,11 @@ export default function AboutPage() {
                   className="group text-center"
                   key={member.name}
                 >
-                  <div className="bg-white/60 backdrop-blur-lg rounded-3xl p-8 shadow-lg border border-white/60 hover:shadow-2xl transition-all">
-                    <div className="w-24 h-24 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <div className="bg-white/60 backdrop-blur-lg rounded-3xl p-6 md:p-8 shadow-lg border border-white/60 hover:shadow-2xl transition-all">
+                    <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-full flex items-center justify-center text-white text-xl md:text-2xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform">
                       {member.initial}
                     </div>
-                    <h3 className="text-xl font-bold mb-2">{member.name}</h3>
+                    <h3 className="md:text-xl text-lg font-bold mb-2">{member.name}</h3>
                     <p className="text-gray-600 text-sm">{member.role}</p>
                   </div>
                 </motion.div>
@@ -385,8 +385,8 @@ export default function AboutPage() {
                   className="text-center"
                   key={index}
                 >
-                  <div className="text-5xl md:text-6xl font-bold mb-2">{stat.value}</div>
-                  <div className="text-white/80">{stat.label}</div>
+                  <div className="text-3xl md:text-5xl font-bold mb-2">{stat.value}</div>
+                  <div className="text-white/80 text-md md:text-lg">{stat.label}</div>
                 </motion.div>
               ))}
             </div>

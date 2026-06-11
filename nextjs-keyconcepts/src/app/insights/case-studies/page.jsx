@@ -32,9 +32,10 @@ function CaseStudiesPage() {
                 transition={{ delay: 0.1 }}
                 className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/50 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
               >
-                <Award size={16} /> <span>Success Stories</span>
+                <Award size={16} /> 
+                <span className="text-xs md:text-sm">Success Stories</span>
               </motion.span>
-              <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold mb-6">Case Studies</h1>
+              <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold mb-6">Case Studies</h1>
               <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Discover how we've helped businesses transform their operations and achieve remarkable
                 results with our innovative solutions.
@@ -64,7 +65,7 @@ function CaseStudiesPage() {
                           </span>
                         </div>
                       </div>
-                      <div className="p-8 md:p-12 flex flex-col justify-center">
+                      <div className="p-6 md:p-12 flex flex-col justify-center">
                         <div className="flex flex-wrap gap-2 mb-4">
                           <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-sm font-semibold rounded-full">
                             {featuredCase.client}
@@ -85,7 +86,7 @@ function CaseStudiesPage() {
                         <div className="grid grid-cols-3 gap-4 mb-6">
                           {featuredCase.metrics.map((metric, idx) => (
                             <div className="text-center" key={idx}>
-                              <div className="text-2xl font-bold text-[#f1592a] mb-1">
+                              <div className="md:text-2xl text-xl font-bold text-[#f1592a] mb-1">
                                 {metric.value}
                               </div>
                               <div className="text-xs text-gray-600">{metric.label}</div>
@@ -93,7 +94,7 @@ function CaseStudiesPage() {
                           ))}
                         </div>
                         <div className="flex items-center space-x-2 text-[#f1592a] font-semibold group-hover:space-x-3 transition-all">
-                          <span>View Full Case Study</span>
+                          <span className="text-sm md:text-md">View Full Case Study</span>
                           <ArrowRight
                             size={20}
                             className="group-hover:translate-x-1 transition-transform"
@@ -154,7 +155,7 @@ function CaseStudiesPage() {
                         <div className="text-sm text-[#f1592a] font-semibold mb-2">
                           {caseStudy.client}
                         </div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#f1592a] transition-colors line-clamp-2">
+                        <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 group-hover:text-[#f1592a] transition-colors line-clamp-2">
                           {caseStudy.title}
                         </h3>
                         <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3 flex-1">
@@ -187,14 +188,14 @@ function CaseStudiesPage() {
             </div>
           </div>
         </section>
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <section className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white">
           <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-3xl overflow-hidden p-12 md:p-16"
+              className="relative bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-3xl overflow-hidden p-8 md:p-16"
             >
               <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl" />

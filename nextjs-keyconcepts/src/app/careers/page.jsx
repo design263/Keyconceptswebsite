@@ -236,7 +236,7 @@ function CultureImageSlider() {
       transition={{
         duration: 0.6,
       }}
-      className="relative px-8"
+      className="relative px-2 md:px-8"
     >
       <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
         <div className="relative h-96">
@@ -299,14 +299,14 @@ function CultureImageSlider() {
         transition={{
           delay: 0.3,
         }}
-        className="absolute -bottom-6 -left-2 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 p-6"
+        className="absolute -bottom-6 -left-2 md:p-6 p-4 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200"
       >
         <div className="flex items-center space-x-4">
-          <div className="w-12 h-12 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-xl flex items-center justify-center">
-            <Users className="text-white" size={24} />
+          <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-xl flex items-center justify-center">
+            <Users className="text-white w-6 h-6 md:w-8 md:h-8" strokeWidth={2} />
           </div>
           <div>
-            <div className="text-2xl font-bold text-gray-900">50+</div>
+            <div className="md:text-2xl text-xl font-bold text-gray-900">50+</div>
             <div className="text-sm text-gray-600">Team Members</div>
           </div>
         </div>
@@ -327,14 +327,14 @@ function CultureImageSlider() {
         transition={{
           delay: 0.4,
         }}
-        className="absolute -top-6 -right-2 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 p-6"
+        className="absolute -top-6 -right-2 md:p-6 p-4 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200"
       >
         <div className="flex items-center space-x-4">
-          <div className="w-12 h-12 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-xl flex items-center justify-center">
-            <Award className="text-white" size={24} />
+          <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-xl flex items-center justify-center">
+            <Award className="text-white w-6 h-6 md:w-8 md:h-8" strokeWidth={2} />
           </div>
           <div>
-            <div className="text-2xl font-bold text-gray-900">4.8/5</div>
+            <div className="md:text-2xl text-xl font-bold text-gray-900">4.8/5</div>
             <div className="text-sm text-gray-600">Employee Rating</div>
           </div>
         </div>
@@ -465,7 +465,7 @@ function CareersPage() {
             <div className="absolute top-20 -right-32 w-96 h-96 bg-[#f1592a]/5 rounded-full blur-3xl" />
             <div className="absolute bottom-0 -left-32 w-96 h-96 bg-[#f1592a]/5 rounded-full blur-3xl" />
           </div>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="container text-center md:text-left mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div
                 initial={{
@@ -494,8 +494,8 @@ function CareersPage() {
                   }}
                   className="inline-flex items-center space-x-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-[#f1592a]/20 shadow-lg mb-6"
                 >
-                  <Briefcase className="text-[#f1592a]" size={18} />
-                  <span className="text-sm font-medium text-gray-700">We're Hiring!</span>
+                  <Briefcase className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" strokeWidth={2} />
+                  <span className="text-xs md:text-sm font-medium text-gray-700">We're Hiring!</span>
                 </motion.span>
                 <motion.h1
                   initial={{
@@ -629,7 +629,7 @@ function CareersPage() {
                   transition={{
                     delay: index * 0.1,
                   }}
-                  className="group p-8 bg-gradient-to-b from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
+                  className="group p-6 md:p-8 bg-gradient-to-b from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
                   key={benefit.title}
                 >
                   <div className="relative w-12 h-12 md:w-14 md:h-14 mb-6">
@@ -642,8 +642,8 @@ function CareersPage() {
                     </div>
                     <div className="absolute -bottom-1.5 -right-1.5 w-4 h-4 bg-[#f1592a] rounded-full border-2 border-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
+                  <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
+                  <p className="text-gray-600 text-md md:text-lg leading-relaxed">{benefit.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -690,7 +690,7 @@ function CareersPage() {
               viewport={{
                 once: true,
               }}
-              className="bg-white rounded-3xl border border-gray-200 shadow-xl p-8 md:p-12"
+              className="bg-white rounded-3xl border border-gray-200 shadow-xl p-6 md:p-12"
             >
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
@@ -915,7 +915,8 @@ function CareersPage() {
                           }}
                           className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-white text-gray-700 border-2 border-gray-200 rounded-xl hover:border-[#f1592a] hover:text-[#f1592a] transition-all font-semibold shadow-sm hover:shadow-md"
                         >
-                          <Eye size={18} strokeWidth={2} /> <span>View</span>
+                          <Eye size={18} strokeWidth={2} /> 
+                          <span className="text-sm md:text-md">View</span>
                         </motion.button>
                       </Link>
                       <motion.button
@@ -928,7 +929,8 @@ function CareersPage() {
                         onClick={() => openModal(role)}
                         className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-xl shadow-lg hover:shadow-xl transition-all font-semibold"
                       >
-                        <FileText size={18} strokeWidth={2} /> <span>Apply</span>
+                        <FileText size={18} strokeWidth={2} /> 
+                        <span className="text-sm md:text-md">Apply</span>
                       </motion.button>
                     </div>
                   </div>

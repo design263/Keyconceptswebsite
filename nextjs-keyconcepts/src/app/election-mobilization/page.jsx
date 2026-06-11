@@ -335,8 +335,8 @@ function ElectionMobilizationPage() {
                 }}
                 className="inline-flex items-center space-x-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-[#f1592a]/20 shadow-lg mb-8"
               >
-                <Vote className="text-[#f1592a]" size={18} />
-                <span className="text-sm font-medium text-gray-700">Election Campaign Platform</span>
+                <Vote className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5"  strokeWidth={2} />
+                <span className="md:text-sm text-xs font-medium text-gray-700">Election Campaign Platform</span>
               </motion.span>
               <motion.h1
                 initial={{
@@ -411,9 +411,9 @@ function ElectionMobilizationPage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                  className="w-full sm:w-auto group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                 >
-                  <span className="font-semibold">Request a Demo</span>
+                  <span className="text-sm md:text-md font-semibold">Request a Demo</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                 </motion.a>
                 <motion.a
@@ -424,9 +424,9 @@ function ElectionMobilizationPage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="px-8 py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg"
+                  className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg"
                 >
-                  <span className="font-semibold">Explore Features</span>
+                  <span className="text-sm md:text-md font-semibold">Explore Features</span>
                 </motion.a>
               </motion.div>
               <motion.div
@@ -530,7 +530,7 @@ function ElectionMobilizationPage() {
               {coreFeatures.map((feature) => (
                 <button
                   onClick={() => setActiveTab(feature.id)}
-                  className={`group flex items-center space-x-3 px-6 py-4 rounded-2xl border-2 transition-all ${activeTab === feature.id ? 'bg-gradient-to-r from-[#f1592a] to-[#ff7a45] border-transparent text-white shadow-lg shadow-[#f1592a]/30' : 'bg-white border-gray-200 text-gray-700 hover:border-[#f1592a]/30 hover:bg-gray-50'}`}
+                  className={`group flex items-center space-x-3   md:px-6 md:py-4 px-3 py-2 rounded-2xl border-2 transition-all ${activeTab === feature.id ? 'bg-gradient-to-r from-[#f1592a] to-[#ff7a45] border-transparent text-white shadow-lg shadow-[#f1592a]/30' : 'bg-white border-gray-200 text-gray-700 hover:border-[#f1592a]/30 hover:bg-gray-50'}`}
                   key={feature.id}
                 >
                   <div
@@ -579,11 +579,11 @@ function ElectionMobilizationPage() {
                 </div>
               </div>
               <div className="order-1 md:order-2">
-                <div className="inline-flex items-center space-x-2 px-4 py-2 bg-[#f1592a]/10 rounded-full mb-6">
+                <div className="inline-flex items-center space-x-2   md:px-4 md:py-2 px-3 py-2 bg-[#f1592a]/10 rounded-full mb-6">
                   <activeFeature.icon className="text-[#f1592a]" size={18} />
                   <span className="text-sm font-semibold text-[#f1592a]">{activeFeature.title}</span>
                 </div>
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                <p className="text-md md:text-lg text-gray-600 mb-8 leading-relaxed">
                   {activeFeature.longDescription}
                 </p>
                 <div className="space-y-4">
@@ -606,7 +606,7 @@ function ElectionMobilizationPage() {
                       <div className="flex-shrink-0 w-6 h-6 bg-[#f1592a]/10 rounded-full flex items-center justify-center mt-0.5">
                         <CheckCircle className="text-[#f1592a]" size={14} strokeWidth={2.5} />
                       </div>
-                      <span className="text-gray-700 leading-relaxed">{feature}</span>
+                      <span className="text-gray-700 text-sm md:text-md leading-relaxed">{feature}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -658,7 +658,7 @@ function ElectionMobilizationPage() {
                   transition={{
                     delay: index * 0.1,
                   }}
-                  className="group p-8 bg-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
+                  className="group p-6 md:p-8 bg-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
                   key={item.title}
                 >
                   <div className="relative w-12 h-12 md:w-14 md:h-14 mb-6">
@@ -671,8 +671,8 @@ function ElectionMobilizationPage() {
                     </div>
                     <div className="absolute -bottom-1.5 -right-1.5 w-4 h-4 bg-[#f1592a] rounded-full border-2 border-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                  <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                  <p className="text-gray-600  text-md md:text-lg leading-relaxed">{item.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -743,10 +743,10 @@ function ElectionMobilizationPage() {
                       transition={{
                         delay: 0.2,
                       }}
-                      className="inline-flex items-center space-x-2 px-4 py-2 bg-[#f1592a]/10 rounded-full mb-6"
+                      className="inline-flex items-center space-x-2   md:px-4 md:py-2 px-3 py-2 bg-[#f1592a]/10 rounded-full mb-6"
                     >
-                      <campaign.icon className="text-[#f1592a]" size={16} />
-                      <span className="text-sm font-medium text-[#f1592a] uppercase tracking-wide">
+                      <campaign.icon className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5"  strokeWidth={2} />
+                      <span className="md:text-sm text-xs font-medium text-[#f1592a] uppercase tracking-wide">
                         {campaign.type}
                       </span>
                     </motion.div>
@@ -981,8 +981,8 @@ function ElectionMobilizationPage() {
               className="text-center max-w-4xl mx-auto"
             >
               <div className="inline-flex items-center space-x-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-8">
-                <Sparkles className="text-[#f1592a]" size={18} />
-                <span className="text-sm font-medium text-white">
+                <Sparkles className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5"  strokeWidth={2} />
+                <span className="text-xs md:text-sm font-medium text-white">
                   Ready to Win Your Next Election?
                 </span>
               </div>
@@ -992,7 +992,7 @@ function ElectionMobilizationPage() {
                   Win.
                 </span>
               </h2>
-              <p className="text-lg text-gray-300 mb-10 leading-relaxed">
+              <p className="text-md md:text-lg text-gray-300 mb-10 leading-relaxed">
                 Book a Demo Today and see how our platform can transform your campaign operations,
                 amplify your reach, and drive voter engagement like never before.
               </p>
@@ -1005,9 +1005,9 @@ function ElectionMobilizationPage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                  className="w-full sm:w-auto group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                 >
-                  <span className="font-semibold">Book a Demo</span>
+                  <span className="text-sm md:text-md font-semibold">Book a Demo</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                 </motion.a>
                 <motion.a
@@ -1018,9 +1018,9 @@ function ElectionMobilizationPage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border-2 border-white/30 hover:border-white/50 transition-all"
+                  className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border-2 border-white/30 hover:border-white/50 transition-all"
                 >
-                  <span className="font-semibold">Contact Sales</span>
+                  <span className="text-sm md:text-md font-semibold">Contact Sales</span>
                 </motion.a>
               </div>
             </motion.div>

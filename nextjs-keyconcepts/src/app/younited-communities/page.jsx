@@ -518,7 +518,7 @@ function YounitedCommunitiesPage() {
               {coreFeatures.map((feature) => (
                 <button
                   onClick={() => setActiveTab(feature.id)}
-                  className={`group flex items-center space-x-3 px-6 py-4 rounded-2xl border-2 transition-all ${activeTab === feature.id ? 'bg-gradient-to-r from-[#f1592a] to-[#ff7a45] border-transparent text-white shadow-lg shadow-[#f1592a]/30' : 'bg-white border-gray-200 text-gray-700 hover:border-[#f1592a]/30 hover:bg-gray-50'}`}
+                  className={`group flex items-center space-x-3   md:px-6 md:py-4 px-3 py-2 rounded-2xl border-2 transition-all ${activeTab === feature.id ? 'bg-gradient-to-r from-[#f1592a] to-[#ff7a45] border-transparent text-white shadow-lg shadow-[#f1592a]/30' : 'bg-white border-gray-200 text-gray-700 hover:border-[#f1592a]/30 hover:bg-gray-50'}`}
                   key={feature.id}
                 >
                   <div
@@ -567,11 +567,11 @@ function YounitedCommunitiesPage() {
                 </div>
               </div>
               <div className="order-1 md:order-2">
-                <div className="inline-flex items-center space-x-2 px-4 py-2 bg-[#f1592a]/10 rounded-full mb-6">
-                  <activeFeature.icon className="text-[#f1592a]" size={18} />
+                <div className="inline-flex items-center space-x-2   md:px-4 md:py-2 px-3 py-2 bg-[#f1592a]/10 rounded-full mb-6">
+                  <activeFeature.icon className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5"  strokeWidth={2} />
                   <span className="text-sm font-semibold text-[#f1592a]">{activeFeature.title}</span>
                 </div>
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                <p className="text-md md:text-lg text-gray-600 mb-8 leading-relaxed">
                   {activeFeature.longDescription}
                 </p>
                 <div className="space-y-4">
@@ -594,7 +594,7 @@ function YounitedCommunitiesPage() {
                       <div className="flex-shrink-0 w-6 h-6 bg-[#f1592a]/10 rounded-full flex items-center justify-center mt-0.5">
                         <CheckCircle className="text-[#f1592a]" size={14} strokeWidth={2.5} />
                       </div>
-                      <span className="text-gray-700 leading-relaxed">{feature}</span>
+                      <span className="text-gray-700 text-sm md:text-md leading-relaxed">{feature}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -667,10 +667,10 @@ function YounitedCommunitiesPage() {
                       transition={{
                         delay: 0.2,
                       }}
-                      className="inline-flex items-center space-x-2 px-4 py-2 bg-[#f1592a]/10 rounded-full mb-6"
+                      className="inline-flex items-center space-x-2   md:px-4 md:py-2 px-3 py-2 bg-[#f1592a]/10 rounded-full mb-6"
                     >
-                      <useCase.icon className="text-[#f1592a]" size={16} />
-                      <span className="text-sm font-medium text-[#f1592a] uppercase tracking-wide">
+                      <useCase.icon className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5"  strokeWidth={2} />
+                      <span className="md:text-sm text-xs font-medium text-[#f1592a] uppercase tracking-wide">
                         {useCase.type}
                       </span>
                     </motion.div>
@@ -858,7 +858,7 @@ function YounitedCommunitiesPage() {
                   transition={{
                     delay: index * 0.1,
                   }}
-                  className="group p-8 bg-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
+                  className="group p-6 md:p-8 bg-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
                   key={benefit.title}
                 >
                   <div className="relative w-12 h-12 md:w-14 md:h-14 mb-6">
@@ -871,8 +871,8 @@ function YounitedCommunitiesPage() {
                     </div>
                     <div className="absolute -bottom-1.5 -right-1.5 w-4 h-4 bg-[#f1592a] rounded-full border-2 border-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
+                  <h3 className="text-lg md:text-lg md:text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
+                  <p className="text-gray-600 text-sm md:text-md leading-relaxed">{benefit.description}</p>
                 </motion.div>
               ))}
             </div>

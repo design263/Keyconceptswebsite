@@ -160,8 +160,8 @@ function ServicesSection() {
                     </div>{' '}
                     <div className="flex-1 min-w-0">
                       {' '}
-                      <h3 className="text-xl font-bold mb-2">{service.title}</h3>{' '}
-                      <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                      <h3 className="md:text-xl text-lg font-bold mb-2">{service.title}</h3>{' '}
+                      <p className="text-gray-600 text-md md:text-lg leading-relaxed">{service.description}</p>
                     </div>
                   </div>{' '}
                   <div

@@ -182,7 +182,7 @@ function OurStoryPage() {
   return (
     <LayoutWrapper>
       <div className="min-h-screen bg-white">
-        <section className="relative pt-32 pb-20 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+        <section className="relative pt-20 md:pt-32 md:pb-20 pb-10 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-20 -right-32 w-96 h-96 bg-[#f1592a]/5 rounded-full blur-3xl" />
             <div className="absolute bottom-0 -left-32 w-96 h-96 bg-[#f1592a]/5 rounded-full blur-3xl" />
@@ -203,8 +203,8 @@ function OurStoryPage() {
                 }}
                 className="inline-flex items-center space-x-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-[#f1592a]/20 shadow-lg mb-6"
               >
-                <Building2 className="text-[#f1592a]" size={18} />
-                <span className="text-sm font-medium text-gray-700">Our Story</span>
+                <Building2 className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5"  strokeWidth={2} />
+                <span className="text-xs md:text-sm font-medium text-gray-700">Our Story</span>
               </motion.span>
               <motion.h1
                 initial={{
@@ -317,19 +317,19 @@ function OurStoryPage() {
                     transition={{
                       delay: index * 0.1,
                     }}
-                    className="group p-8 bg-gradient-to-b from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
+                    className="group p-6 md:p-8 bg-gradient-to-b from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
                     key={item.title}
                   >
                     <div className="flex items-start space-x-4">
-                      <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#f1592a]/10 to-[#ff7a45]/10 rounded-xl flex items-center justify-center border border-[#f1592a]/20">
-                        <item.icon className="text-[#f1592a]" size={24} strokeWidth={2} />
+                      <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#f1592a]/10 to-[#ff7a45]/10 rounded-xl flex items-center justify-center border border-[#f1592a]/20">
+                        <item.icon className="text-[#f1592a] w-6 h-6 md:w-7 md:h-7"  strokeWidth={2} />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+                        <h3 className="md:text-xl text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
                         <p className="text-sm text-[#f1592a] font-semibold mb-2">
                           {item.description}
                         </p>
-                        <p className="text-gray-600 leading-relaxed">{item.details}</p>
+                        <p className="text-gray-600 text-md md:text-lg leading-relaxed">{item.details}</p>
                       </div>
                     </div>
                   </motion.div>
@@ -454,14 +454,14 @@ function OurStoryPage() {
                   key={value.title}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-[#f1592a]/5 to-[#ff7a45]/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all" />
-                  <div className="relative p-8 bg-white rounded-3xl border border-gray-200 hover:border-[#f1592a]/30 shadow-lg hover:shadow-2xl transition-all h-full">
+                  <div className="relative p-6 md:p-8 bg-white rounded-3xl border border-gray-200 hover:border-[#f1592a]/30 shadow-lg hover:shadow-2xl transition-all h-full">
                     <div
-                      className={`w-16 h-16 bg-gradient-to-br ${value.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
+                      className={`w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br ${value.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
                     >
-                      <value.icon className="text-white" size={32} strokeWidth={2} />
+                      <value.icon className="text-white w-8 h-8 md:w-10 md:h-10"  strokeWidth={2} />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">{value.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                    <h3 className="md:text-2xl text-xl font-bold text-gray-900 mb-4">{value.title}</h3>
+                    <p className="text-gray-600 text-md md:text-lg leading-relaxed">{value.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -519,12 +519,12 @@ function OurStoryPage() {
                   className="relative group"
                   key={stat.label}
                 >
-                  <div className="p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#f1592a]/30 hover:bg-white/10 transition-all text-center">
-                    <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-xl mb-4 shadow-lg">
-                      <stat.icon className="text-white" size={28} strokeWidth={2} />
+                  <div className="p-6 md:p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#f1592a]/30 hover:bg-white/10 transition-all text-center">
+                    <div className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-xl mb-4 shadow-lg">
+                      <stat.icon className="text-white w-6 h-6 md:w-7 md:h-7"  strokeWidth={2} />
                     </div>
-                    <div className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.value}</div>
-                    <div className="text-gray-300 font-medium">{stat.label}</div>
+                    <div className="text-3xl md:text-5xl font-bold text-white mb-2">{stat.value}</div>
+                    <div className="text-gray-300 text-sm md:text-md font-medium">{stat.label}</div>
                   </div>
                 </motion.div>
               ))}
@@ -607,7 +607,7 @@ function OurStoryPage() {
                   transition={{
                     delay: index * 0.1,
                   }}
-                  className="group p-8 bg-gradient-to-b from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
+                  className="group p-6 md:p-8 bg-gradient-to-b from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
                   key={reason.title}
                 >
                   <div className="relative w-12 h-12 mb-6">
@@ -620,8 +620,8 @@ function OurStoryPage() {
                     </div>
                     <div className="absolute -bottom-1.5 -right-1.5 w-4 h-4 bg-[#f1592a] rounded-full border-2 border-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{reason.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{reason.description}</p>
+                  <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">{reason.title}</h3>
+                  <p className="text-gray-600 text-md md:text-lg leading-relaxed">{reason.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -641,7 +641,7 @@ function OurStoryPage() {
               viewport={{
                 once: true,
               }}
-              className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-3xl p-12 md:p-16 text-center relative overflow-hidden"
+              className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-3xl p-8 md:p-16 text-center relative overflow-hidden"
             >
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#f1592a]/10 rounded-full blur-3xl" />
@@ -658,7 +658,7 @@ function OurStoryPage() {
                     Next Project?
                   </span>
                 </h2>
-                <p className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+                <p className="text-md md:text-lg text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
                   Partner with a team that brings both modern agility and legacy reliability. Let's
                   build something that lasts.
                 </p>
@@ -671,9 +671,9 @@ function OurStoryPage() {
                     whileTap={{
                       scale: 0.95,
                     }}
-                    className="px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all font-semibold"
+                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all font-semibold"
                   >
-                    Get In Touch
+                    <span className="text-sm md:text-md">Get In Touch</span>
                   </motion.a>
                   <motion.a
                     href="/services"
@@ -683,9 +683,9 @@ function OurStoryPage() {
                     whileTap={{
                       scale: 0.95,
                     }}
-                    className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border-2 border-white/30 hover:border-white/50 transition-all font-semibold"
+                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border-2 border-white/30 hover:border-white/50 transition-all font-semibold"
                   >
-                    Explore Services
+                    <span className="text-sm md:text-md">Explore Services</span>
                   </motion.a>
                 </div>
               </div>

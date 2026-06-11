@@ -902,8 +902,8 @@ function ProductDevelopmentPage() {
                       <item.icon className="text-white" size={24} strokeWidth={2} />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                  <h3 className="md:text-xl text-lg font-bold mb-3">{item.title}</h3>
+                  <p className="text-gray-600 text-md md:text-lg leading-relaxed">{item.description}</p>
                 </motion.div>
               ))}
             </div>

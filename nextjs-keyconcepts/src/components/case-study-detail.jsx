@@ -35,14 +35,14 @@ export function CaseStudyDetail({ caseStudy }) {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="px-3 py-1 bg-[#f1592a]/10 text-[#f1592a] rounded-full text-sm font-medium">
+                  <span className="px-3 py-1 bg-[#f1592a]/10 text-[#f1592a] rounded-full text-xs md:text-sm font-medium">
                     {caseStudy.industry}
                   </span>
                   <span className="text-gray-500">|</span>
                   <span className="text-gray-600">{caseStudy.client}</span>
                 </div>
-                <h1 className="text-4xl font-bold text-gray-900 mb-4">{caseStudy.title}</h1>
-                <p className="text-lg text-gray-700 mb-6">{caseStudy.challenge}</p>
+                <h1 className="text-3xl font-bold text-gray-900 mb-4">{caseStudy.title}</h1>
+                <p className="text-md md:text-lg text-gray-700 mb-6">{caseStudy.challenge}</p>
               </div>
               <div className="rounded-2xl overflow-hidden">
                 <ImageWithFallback
@@ -85,7 +85,7 @@ export function CaseStudyDetail({ caseStudy }) {
                   {caseStudy.metrics.map((metric, index) => (
                     <div
                       key={index}
-                      className="bg-gray-50 rounded-xl p-6 text-center border border-gray-100"
+                      className="bg-gray-50 rounded-xl p-4 md:p-6 text-center border border-gray-100"
                     >
                       <div className="flex justify-center mb-3">
                         <TrendingUp className="w-5 h-5 text-[#f1592a]" />
@@ -143,7 +143,7 @@ export function CaseStudyDetail({ caseStudy }) {
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
                 <Link href="/contact">
-                  <button className="w-full bg-[#f1592a] text-white py-3 px-6 rounded-xl font-semibold hover:bg-[#e0481a] transition-colors flex items-center justify-center gap-2">
+                  <button className="w-full bg-[#f1592a] text-white py-3 md:px-6 px-4 text-sm md:text-md rounded-xl font-semibold hover:bg-[#e0481a] transition-colors flex items-center justify-center gap-2">
                     <ExternalLink className="w-4 h-4" />
                     Start Your Project
                   </button>

@@ -29,9 +29,9 @@ export function BlogPostDetail({ post }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="mb-8"
+                className="mb-8 "
               >
-                <span className="inline-block px-3 py-1 bg-[#f1592a]/10 text-[#f1592a] rounded-full text-sm font-medium mb-4">
+                <span className="inline-block px-3 py-1 bg-[#f1592a]/10 text-[#f1592a] rounded-full text-xs md:text-sm font-medium mb-4">
                   {post.category}
                 </span>
                 <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">{post.title}</h1>
