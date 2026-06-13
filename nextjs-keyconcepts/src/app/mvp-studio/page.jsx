@@ -104,7 +104,7 @@ const includedServices = [
     title: 'Deployment & Launch',
     description: 'Seamless go-live with zero downtime',
     longDescription:
-      'We handle the entire deployment process \u2014 from setting up production environments to configuring CI/CD pipelines. Your MVP goes live smoothly, with monitoring, analytics, and post-launch support to ensure success.',
+      'We handle the entire deployment process  -  from setting up production environments to configuring CI/CD pipelines. Your MVP goes live smoothly, with monitoring, analytics, and post-launch support to ensure success.',
     features: [
       'Production environment setup',
       'CI/CD pipeline configuration',
@@ -280,7 +280,7 @@ function MVPStudioPage() {
                 className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed"
               >
                 From idea to launch in 6-10 weeks. We validate your concept, design the experience,
-                build production-ready code, and deploy to real users \u2014 so you can focus on
+                build production-ready code, and deploy to real users  -  so you can focus on
                 growing your business.
               </motion.p>
               <motion.div
@@ -458,7 +458,7 @@ function MVPStudioPage() {
               </motion.span>
               <h2 className="text-3xl md:text-5xl font-bold mb-4">End-to-End MVP Development</h2>
               <p className="text-md md:text-md md:text-lg text-gray-600 max-w-3xl mx-auto mb-12">
-                Everything you need to launch a successful MVP \u2014 from discovery to deployment
+                Everything you need to launch a successful MVP  -  from discovery to deployment
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
                 {includedServices.map((service, index) => (
@@ -800,7 +800,7 @@ function MVPStudioPage() {
                   icon: BarChart3,
                   title: 'Product-First Thinking',
                   description:
-                    "We don't just code features \u2014 we help you validate and prioritize for ROI.",
+                    "We don't just code features  -  we help you validate and prioritize for ROI.",
                 },
                 {
                   icon: Layers,

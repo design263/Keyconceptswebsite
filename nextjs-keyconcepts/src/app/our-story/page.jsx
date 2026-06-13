@@ -34,14 +34,14 @@ const coreValues = [
     icon: Shield,
     title: 'Transparency',
     description:
-      'Clear communication at every stage. You know where your project stands\u2014risks, progress, and decisions are communicated openly.',
+      'Clear communication at every stage. You know where your project stands - risks, progress, and decisions are communicated openly.',
     color: 'from-[#f1592a] to-[#ff7a45]',
   },
   {
     icon: Heart,
     title: 'Long-Term Ownership',
     description:
-      'We build systems meant to last. Maintenance, improvements, and ongoing support\u2014we stay invested in your success beyond launch.',
+      'We build systems meant to last. Maintenance, improvements, and ongoing support - we stay invested in your success beyond launch.',
     color: 'from-[#f1592a] to-[#ff7a45]',
   },
 ]
@@ -144,7 +144,7 @@ const whyClientsStay = [
     icon: Target,
     title: 'Predictable Delivery',
     description:
-      'We commit to timelines and hit them. Clients know they can count on us for consistent, reliable delivery\u2014sprint after sprint.',
+      'We commit to timelines and hit them. Clients know they can count on us for consistent, reliable delivery - sprint after sprint.',
   },
   {
     icon: Shield,
@@ -156,7 +156,7 @@ const whyClientsStay = [
     icon: Users,
     title: 'True Partnership',
     description:
-      "We're not just vendors\u2014we're invested in your success. Long-term relationships built on trust, transparency, and shared goals.",
+      "We're not just vendors - we're invested in your success. Long-term relationships built on trust, transparency, and shared goals.",
   },
   {
     icon: Lightbulb,
@@ -174,7 +174,7 @@ const whyClientsStay = [
     icon: TrendingUp,
     title: 'Continuous Improvement',
     description:
-      "We don't just maintain\u2014we continuously optimize. Performance improvements, refactoring, and tech debt management included.",
+      "We don't just maintain - we continuously optimize. Performance improvements, refactoring, and tech debt management included.",
   },
 ]
 
@@ -296,7 +296,7 @@ function OurStoryPage() {
                   <span className="text-[#f1592a] font-semibold">
                     product-grade software engineering
                   </span>
-                  . We build systems that run day-to-day operations\u2014where uptime, clarity, and
+                  . We build systems that run day-to-day operations - where uptime, clarity, and
                   accountability matter.
                 </p>
               </div>
@@ -586,7 +586,7 @@ function OurStoryPage() {
                 </span>
               </h2>
               <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
-                Our 98% client retention rate isn't accidental\u2014it's the result of consistent delivery,
+                Our 98% client retention rate isn't accidental - it's the result of consistent delivery,
                 transparent communication, and genuine partnership.
               </p>
             </motion.div>

@@ -41,7 +41,7 @@ const whyWorkHere = [
     icon: Rocket,
     title: 'Impactful Work',
     description:
-      'Build products that transform businesses and communities. Your code, your designs, your ideas\u2014they all make a real difference.',
+      'Build products that transform businesses and communities. Your code, your designs, your ideas - they all make a real difference.',
   },
   {
     icon: TrendingUp,
@@ -565,7 +565,7 @@ function CareersPage() {
                 >
                   Join a team of passionate builders, designers, and problem-solvers who are
                   architecting the digital future. We're on a mission to transform businesses
-                  through innovative technology\u2014and we want you to be part of it.
+                  through innovative technology - and we want you to be part of it.
                 </motion.p>
                 <motion.div
                   initial={{
@@ -641,7 +641,7 @@ function CareersPage() {
                 </span>
               </h2>
               <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
-                We're building more than products\u2014we're building careers, relationships, and a
+                We're building more than products - we're building careers, relationships, and a
                 culture that celebrates growth, innovation, and collaboration.
               </p>
             </motion.div>
@@ -710,7 +710,7 @@ function CareersPage() {
                 </span>
               </h2>
               <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
-                These aren't just words on a wall\u2014they're the principles that guide how we
+                These aren't just words on a wall - they're the principles that guide how we
                 work, collaborate, and deliver value every single day.
               </p>
             </motion.div>

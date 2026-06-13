@@ -354,7 +354,7 @@ function SupportMaintenancePage() {
                 }}
                 className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed"
               >
-                From 24/7 monitoring to bug fixes, security updates, and feature enhancements \u2014 we
+                From 24/7 monitoring to bug fixes, security updates, and feature enhancements  -  we
                 ensure your product runs smoothly while you focus on growing your business.
               </motion.p>
               <motion.div

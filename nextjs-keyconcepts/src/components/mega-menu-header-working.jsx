@@ -559,7 +559,7 @@ function MegaMenuHeader() {
                             </p>
                           </Link>
                         </motion.div>
-                        <motion.div
+                        {/* <motion.div
                           initial={{
                             opacity: 0,
                             y: 20,
@@ -590,7 +590,7 @@ function MegaMenuHeader() {
                               Meet the people behind us
                             </p>
                           </Link>
-                        </motion.div>
+                        </motion.div> */}
                         <motion.div
                           initial={{
                             opacity: 0,

@@ -390,7 +390,7 @@ function ProductDevelopmentPage() {
                 Full-Stack Product Development
               </h2>
               <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto mb-12">
-                From frontend to backend, mobile to AI \u2014 we build complete, production-ready
+                From frontend to backend, mobile to AI  -  we build complete, production-ready
                 products
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
@@ -866,7 +866,7 @@ function ProductDevelopmentPage() {
                 {
                   icon: Target,
                   title: 'Product-First Mindset',
-                  description: 'We think beyond code \u2014 UX, scalability, and business goals',
+                  description: 'We think beyond code  -  UX, scalability, and business goals',
                 },
                 {
                   icon: GitBranch,

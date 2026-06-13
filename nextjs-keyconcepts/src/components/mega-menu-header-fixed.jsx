@@ -88,12 +88,12 @@ const company = [
     icon: 'Target',
     link: '/process',
   },
-  {
-    name: 'Team',
-    description: 'Meet the people behind us',
-    icon: 'Users',
-    link: '/about#team',
-  },
+  // {
+  //   name: 'Team',
+  //   description: 'Meet the people behind us',
+  //   icon: 'Users',
+  //   link: '/about#team',
+  // },
   {
     name: 'Careers',
     description: 'Join our growing team',

@@ -36,7 +36,7 @@ const mobileNavMenus = [
     items: [
       { href: '/our-story', label: 'Our Story', description: 'Learn about our journey', icon: Heart },
       { href: '/process', label: 'Process', description: 'How we deliver exceptional results', icon: Target },
-      { href: '/about#team', label: 'Team', description: 'Meet the people behind us', icon: Users },
+      // { href: '/about#team', label: 'Team', description: 'Meet the people behind us', icon: Users },
       { href: '/careers', label: 'Careers', description: 'Join our growing team', icon: Briefcase },
     ],
     cta: { href: '/contact', label: 'Join Our Team' },
@@ -538,7 +538,7 @@ function MegaMenuHeader() {
                     className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[800px] bg-white backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-100 overflow-hidden"
                   >
                     <div className="p-8">
-                      <div className="grid grid-cols-4 gap-6">
+                      <div className="grid grid-cols-3 gap-6">
                         <motion.div
                           initial={{
                             opacity: 0,
@@ -600,7 +600,7 @@ function MegaMenuHeader() {
                             </p>
                           </Link>
                         </motion.div>
-                        <motion.div
+                        {/* <motion.div
                           initial={{
                             opacity: 0,
                             y: 20,
@@ -631,7 +631,7 @@ function MegaMenuHeader() {
                               Meet the people behind us
                             </p>
                           </Link>
-                        </motion.div>
+                        </motion.div> */}
                         <motion.div
                           initial={{
                             opacity: 0,

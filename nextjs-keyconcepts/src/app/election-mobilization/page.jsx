@@ -123,7 +123,7 @@ const coreFeatures = [
     title: 'Voter Outreach Tools',
     description: 'Targeted messaging & volunteer coordination',
     longDescription:
-      'Engage voters effectively with precision-targeted messaging, volunteer management tools, and comprehensive tracking systems. Coordinate door-to-door campaigns, phone banking, and digital outreach\u2014all from one centralized platform.',
+      'Engage voters effectively with precision-targeted messaging, volunteer management tools, and comprehensive tracking systems. Coordinate door-to-door campaigns, phone banking, and digital outreach - all from one centralized platform.',
     features: [
       'Voter database with segmentation',
       'Targeted SMS & WhatsApp campaigns',
@@ -158,7 +158,7 @@ const whyItMatters = [
     icon: Target,
     title: 'Organized Campaign Execution',
     description:
-      'Streamline all campaign activities with centralized planning, scheduling, and task management\u2014ensuring nothing falls through the cracks.',
+      'Streamline all campaign activities with centralized planning, scheduling, and task management - ensuring nothing falls through the cracks.',
   },
   {
     icon: Users,
@@ -176,7 +176,7 @@ const whyItMatters = [
     icon: TrendingUp,
     title: 'Scalable for Large Constituencies',
     description:
-      'Built to scale seamlessly from local to national campaigns\u2014handling millions of voter records and thousands of volunteers.',
+      'Built to scale seamlessly from local to national campaigns - handling millions of voter records and thousands of volunteers.',
   },
 ]
 
@@ -506,7 +506,7 @@ function ElectionMobilizationPage() {
                 </span>
               </h2>
               <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
-                Everything you need to run a winning campaign\u2014from strategic planning to voter
+                Everything you need to run a winning campaign - from strategic planning to voter
                 engagement and real-time performance tracking.
               </p>
             </motion.div>
@@ -701,7 +701,7 @@ function ElectionMobilizationPage() {
                 </span>
               </h2>
               <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
-                From national elections to grassroots movements\u2014our platform scales to meet your
+                From national elections to grassroots movements - our platform scales to meet your
                 campaign needs.
               </p>
             </motion.div>

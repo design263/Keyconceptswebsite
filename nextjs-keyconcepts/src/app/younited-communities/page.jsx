@@ -106,7 +106,7 @@ const coreFeatures = [
     title: 'Member Management',
     description: 'Profiles, roles, and status tracking',
     longDescription:
-      'Streamline your community operations with comprehensive member management. Create detailed member profiles, assign roles and permissions, track membership status, and maintain organized records\u2014all in one centralized platform.',
+      'Streamline your community operations with comprehensive member management. Create detailed member profiles, assign roles and permissions, track membership status, and maintain organized records - all in one centralized platform.',
     features: [
       'Detailed member profiles with custom fields',
       'Role-based access control (Admin, Member, Guest)',
@@ -123,7 +123,7 @@ const coreFeatures = [
     title: 'Event Management',
     description: 'Create events, track RSVPs, monitor attendance',
     longDescription:
-      'Organize community events effortlessly. Create and publish events, manage RSVPs, send automated reminders, track attendance in real-time, and gather post-event feedback\u2014all within a unified event management system.',
+      'Organize community events effortlessly. Create and publish events, manage RSVPs, send automated reminders, track attendance in real-time, and gather post-event feedback - all within a unified event management system.',
     features: [
       'Event creation with rich details & media',
       'RSVP management with waitlists',
@@ -176,7 +176,7 @@ const keyBenefits = [
     icon: TrendingUp,
     title: 'Scalable for Growth',
     description:
-      'Built to scale seamlessly as your community grows\u2014from hundreds to thousands of members without performance loss.',
+      'Built to scale seamlessly as your community grows - from hundreds to thousands of members without performance loss.',
   },
 ]
 
@@ -272,7 +272,7 @@ const useCases = [
     icon: Heart,
     title: 'Amplify Your Impact',
     description:
-      'Empower your non-profit with tools designed to maximize volunteer engagement, track donations, manage programs, and organize fundraising events\u2014all while maintaining transparency.',
+      'Empower your non-profit with tools designed to maximize volunteer engagement, track donations, manage programs, and organize fundraising events - all while maintaining transparency.',
     highlightedFeature: {
       icon: Heart,
       title: 'Volunteer Coordination',
@@ -374,7 +374,7 @@ function YounitedCommunitiesPage() {
                 className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed"
               >
                 A complete community and association management platform designed to streamline member
-                management, event coordination, and approval workflows\u2014so you can focus on building
+                management, event coordination, and approval workflows - so you can focus on building
                 stronger, more engaged communities.
               </motion.p>
               <motion.div
@@ -626,7 +626,7 @@ function YounitedCommunitiesPage() {
               </h2>
               <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
                 Whether you're managing a Samaj, professional association, or non-profit
-                organization\u2014Younited Communities adapts to your unique needs.
+                organization - Younited Communities adapts to your unique needs.
               </p>
             </motion.div>
             <div className="space-y-32">
