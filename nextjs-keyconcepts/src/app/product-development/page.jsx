@@ -278,7 +278,7 @@ function ProductDevelopmentPage() {
             </motion.div>
           </div>
         </section>
-        <section id="who-its-for" className="py-16 md:py-24 bg-white">
+        <section id="who-its-for" className="py-12 md:py-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -354,7 +354,7 @@ function ProductDevelopmentPage() {
             </div>
           </div>
         </section>
-        <section className="lg:py-24 py-16 bg-gradient-to-b from-white to-gray-50">
+        <section className=" py-12 md:py-16 bg-gradient-to-b from-white to-gray-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -411,7 +411,7 @@ function ProductDevelopmentPage() {
                       delay: index * 0.1,
                     }}
                     onClick={() => setSelectedCategory(category.id)}
-                    className={`px-6 py-3 rounded-full border-2 transition-all duration-300 font-medium ${selectedCategory === category.id ? 'bg-white border-[#f1592a] text-[#f1592a] shadow-lg' : 'bg-white/60 border-gray-200 text-gray-700 hover:border-[#f1592a]/50 hover:bg-white'}`}
+                    className={`md:px-6 px-4 md:py-3 py-2 text-sm md:text-md rounded-full border-2 transition-all duration-300 font-medium ${selectedCategory === category.id ? 'bg-white border-[#f1592a] text-[#f1592a] shadow-lg' : 'bg-white/60 border-gray-200 text-gray-700 hover:border-[#f1592a]/50 hover:bg-white'}`}
                     key={category.id}
                   >
                     {category.title}
@@ -527,7 +527,7 @@ function ProductDevelopmentPage() {
             )}
           </div>
         </section>
-        <section className="lg:py-24 py-16 bg-white relative overflow-hidden">
+        <section className="py-12 md:py-16 bg-white relative overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <div className="absolute top-10 right-10 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
             <div className="absolute bottom-10 left-10 w-96 h-96 bg-gray-300/20 rounded-full blur-3xl" />
@@ -626,7 +626,7 @@ function ProductDevelopmentPage() {
             </motion.div>
           </div>
         </section>
-        <section className="lg:py-24 py-16 bg-gradient-to-b from-gray-50 to-white">
+        <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -718,7 +718,7 @@ function ProductDevelopmentPage() {
             </div>
           </div>
         </section>
-        <section className="lg:py-24 py-16 bg-white relative overflow-hidden">
+        <section className="py-12 md:py-16 bg-white relative overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <div className="absolute top-10 left-10 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
           </div>
@@ -820,7 +820,7 @@ function ProductDevelopmentPage() {
             </motion.div>
           </div>
         </section>
-        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -909,7 +909,7 @@ function ProductDevelopmentPage() {
             </div>
           </div>
         </section>
-        <section className="py-24 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] text-white relative overflow-hidden">
+        <section className="py-12 md:py-16 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] text-white relative overflow-hidden">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')]" />
           </div>

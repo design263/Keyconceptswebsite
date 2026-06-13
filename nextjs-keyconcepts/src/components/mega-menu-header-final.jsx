@@ -688,7 +688,7 @@ function MegaMenuHeader() {
                           </p>
                         </div>
                         <Link
-  href="/contact"
+  href="/careers"
                           className="px-6 py-2 bg-[#f1592a] text-white rounded-full font-semibold hover:bg-[#d94d24] transition-colors cursor-pointer"
                         >
                           Join Our Team{' '}

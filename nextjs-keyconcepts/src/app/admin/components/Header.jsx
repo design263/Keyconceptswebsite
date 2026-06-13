@@ -157,15 +157,15 @@ export const Header = memo(({ onToggle, isCollapsed }) => {
 
               {/* Menu Items */}
               <div className="py-2">
-                <button
+                {/* <button
                   onClick={() => { router.push("/admin/profile"); setOpenDropdown(false); }}
                   className="w-full flex items-center gap-3 px-4 py-2 text-sm text-foreground hover:bg-gray-100 hover:text-primary transition-colors duration-150"
                 >
                   <User size={15} />
                   My Profile
-                </button>
+                </button> */}
 
-                <div className="h-px bg-border my-2" />
+                {/* <div className="h-px bg-border my-2" /> */}
 
                 <button
                   onClick={handleLogout}

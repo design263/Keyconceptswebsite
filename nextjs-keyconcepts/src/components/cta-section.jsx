@@ -5,7 +5,7 @@ import { ArrowRight, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 function CTASection() {
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden">
+    <section className="relative py-12 md:py-16 overflow-hidden">
       {' '}
       <div className="absolute inset-0 bg-gradient-to-br from-[#f1592a] via-[#ff7a45] to-[#f1592a]">
         {' '}
@@ -44,13 +44,13 @@ function CTASection() {
             viewport={{
               once: true,
             }}
-            className="inline-flex items-center space-x-2 px-4 md:px-6 py-2 md:py-4 bg-white/20 backdrop-blur-sm rounded-full border border-white/40 mb-8"
+            className="inline-flex items-center space-x-2 px-4 md:px-6 py-2 md:py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/40 mb-8"
           >
             {' '}
             <Sparkles className="text-white w-4 h-4 md:w-5 md:h-5" />{' '}
             <span className="text-sm md:text-md text-white font-medium">Ready to Transform?</span>
           </motion.div>{' '}
-          <h2 className="text-3xl md:text-6xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Let's Build Your Digital Future Together
           </h2>{' '}
           <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed">
@@ -94,7 +94,7 @@ function CTASection() {
             transition={{
               delay: 0.3,
             }}
-            className="mt-10 md:mt-16 flex flex-wrap justify-center  gap-4 md:gap-8 text-white/80"
+            className="mt-6 md:mt-10 flex flex-wrap justify-center  gap-4 md:gap-8 text-white/80"
           >
             {' '}
             

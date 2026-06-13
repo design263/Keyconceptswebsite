@@ -83,7 +83,7 @@ function ProcessSection() {
   const COLS = 3 // desktop grid columns
 
   return (
-    <section className="lg:py-24 py-12 sm:py-16 bg-white relative overflow-hidden">
+    <section className=" py-12 md:py-16 bg-white relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 right-0 w-96 h-96 bg-[#f1592a]/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-0 w-96 h-96 bg-gray-200/50 rounded-full blur-3xl" />

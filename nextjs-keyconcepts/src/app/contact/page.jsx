@@ -142,7 +142,7 @@ function ContactPage() {
           </div>
         </section>
 
-        <section className="py-16 md:py-24 bg-white">
+        <section className="py-12 md:py-16 bg-white">
           <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
               <motion.div
@@ -170,7 +170,7 @@ function ContactPage() {
                           htmlFor="name"
                           className="block text-sm font-medium text-gray-700 mb-2"
                         >
-                          Full Name *
+                          Full Name <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="text"
@@ -188,7 +188,7 @@ function ContactPage() {
                           htmlFor="email"
                           className="block text-sm font-medium text-gray-700 mb-2"
                         >
-                          Email Address *
+                          Email Address <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="email"
@@ -243,7 +243,7 @@ function ContactPage() {
                         htmlFor="service"
                         className="block text-sm font-medium text-gray-700 mb-2"
                       >
-                        Service Interested In *
+                        Service Interested In <span className="text-red-500">*</span>
                       </label>
                       <select
                         id="service"
@@ -270,7 +270,7 @@ function ContactPage() {
                         htmlFor="message"
                         className="block text-sm font-medium text-gray-700 mb-2"
                       >
-                        Message *
+                        Message <span className="text-red-500">*</span> 
                       </label>
                       <textarea
                         id="message"
@@ -379,7 +379,7 @@ function ContactPage() {
                                 .getElementById('office-map')
                                 ?.scrollIntoView({ behavior: 'smooth' })
                             }
-                            className=" ml-1 rounded-lg text-[#f1592a]  hover:scale-110 transition-all"
+                            className="relative top-[3px] ml-1 rounded-lg text-[#f1592a]  hover:scale-110 transition-all"
                             title="View on Map"
                           >
                             <Map size={17} className="text-[#f1592a] " />

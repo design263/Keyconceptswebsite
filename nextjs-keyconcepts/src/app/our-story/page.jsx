@@ -267,7 +267,7 @@ function OurStoryPage() {
             </div>
           </div>
         </section>
-        <section className="py-16 md:py-24 bg-white">
+        <section className="py-12 md:py-16 bg-white">
           <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -338,7 +338,7 @@ function OurStoryPage() {
             </motion.div>
           </div>
         </section>
-        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white">
           <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -406,7 +406,7 @@ function OurStoryPage() {
             </div>
           </div>
         </section>
-        <section className="py-16 md:py-24 bg-white">
+        <section className="py-12 md:py-16 bg-white">
           <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -468,7 +468,7 @@ function OurStoryPage() {
             </div>
           </div>
         </section>
-        <section className="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+        <section className="py-12 md:py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-0 right-0 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
@@ -563,7 +563,7 @@ function OurStoryPage() {
             </motion.div>
           </div>
         </section>
-        <section className="py-16 md:py-24 bg-white">
+        <section className="py-12 md:py-16 bg-white">
           <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -627,7 +627,7 @@ function OurStoryPage() {
             </div>
           </div>
         </section>
-        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white">
           <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{

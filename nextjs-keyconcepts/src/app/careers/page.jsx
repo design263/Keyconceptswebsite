@@ -33,6 +33,7 @@ import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { api, endpoints } from '@/lib/api'
+import { submitJobApplication, validateResumeFile } from '@/lib/submitJobApplication'
 
 const whyWorkHere = [
   {
@@ -82,6 +83,7 @@ const openRolesStatic = [
     department: 'Engineering',
     location: 'Surat, India',
     type: 'Full-Time',
+    status: 'active',
     icon: Code,
     requirements: 'React, Node.js, TypeScript, PostgreSQL, AWS',
     description:
@@ -93,6 +95,7 @@ const openRolesStatic = [
     department: 'Design',
     location: 'Surat, India / Remote',
     type: 'Full-Time',
+    status: 'active',
     icon: Palette,
     requirements: 'Figma, Adobe XD, Prototyping, User Research, Design Systems',
     description:
@@ -104,6 +107,7 @@ const openRolesStatic = [
     department: 'Engineering',
     location: 'Remote',
     type: 'Full-Time',
+    status: 'active',
     icon: Database,
     requirements: 'Node.js, Python, MongoDB, Redis, Docker',
     description:
@@ -115,6 +119,7 @@ const openRolesStatic = [
     department: 'Engineering',
     location: 'Surat, India',
     type: 'Full-Time',
+    status: 'active',
     icon: Settings,
     requirements: 'AWS, Docker, Kubernetes, CI/CD, Terraform',
     description:
@@ -126,10 +131,10 @@ const openRolesStatic = [
     department: 'Management',
     location: 'Remote',
     type: 'Full-Time',
+    status: 'active',
     icon: Target,
     requirements: 'Product Strategy, Agile, Analytics, Leadership, Communication',
-    description:
-      'Lead product development from concept to launch and drive business growth.',
+    description: 'Lead product development from concept to launch and drive business growth.',
   },
   {
     id: 6,
@@ -137,6 +142,7 @@ const openRolesStatic = [
     department: 'Marketing',
     location: 'Surat, India',
     type: 'Full-Time',
+    status: 'active',
     icon: TrendingUp,
     requirements: 'Digital Marketing, SEO, Content Strategy, Analytics, Social Media',
     description:
@@ -244,34 +250,38 @@ function CultureImageSlider() {
             <motion.div
               key={index}
               initial={{ opacity: 0 }}
-              animate={{ 
+              animate={{
                 opacity: index === currentImage ? 1 : 0,
-                x: index === currentImage ? 0 : index < currentImage ? -100 : 100
+                x: index === currentImage ? 0 : index < currentImage ? -100 : 100,
               }}
               transition={{ duration: 0.5 }}
               className="absolute inset-0"
             >
-              <ImageWithFallback src={image.url} alt={image.alt} className="w-full h-full object-cover" />
+              <ImageWithFallback
+                src={image.url}
+                alt={image.alt}
+                className="w-full h-full object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </motion.div>
           ))}
         </div>
-        
+
         <button
           onClick={prevImage}
           className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/95 backdrop-blur-sm rounded-full shadow-xl border border-gray-200 flex items-center justify-center text-gray-700 hover:bg-[#f1592a] hover:text-white hover:border-[#f1592a] transition-all"
         >
           <ArrowRight size={24} strokeWidth={2} className="rotate-180" />
         </button>
-        
+
         <button
           onClick={nextImage}
           className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/95 backdrop-blur-sm rounded-full shadow-xl border border-gray-200 flex items-center justify-center text-gray-700 hover:bg-[#f1592a] hover:text-white hover:border-[#f1592a] transition-all"
         >
           <ArrowRight size={24} strokeWidth={2} />
         </button>
-        
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+
+        {/* <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
           {cultureImages.map((_, index) => (
             <button
               key={index}
@@ -281,9 +291,9 @@ function CultureImageSlider() {
               }`}
             />
           ))}
-        </div>
+        </div> */}
       </div>
-      
+
       <motion.div
         initial={{
           opacity: 0,
@@ -311,7 +321,7 @@ function CultureImageSlider() {
           </div>
         </div>
       </motion.div>
-      
+
       <motion.div
         initial={{
           opacity: 0,
@@ -344,7 +354,21 @@ function CultureImageSlider() {
 }
 
 const getRequirementTags = (requirements) =>
-  Array.isArray(requirements) ? requirements : requirements?.split(",").map((item) => item.trim()).filter(Boolean);
+  Array.isArray(requirements)
+    ? requirements
+    : requirements
+        ?.split(',')
+        .map((item) => item.trim())
+        .filter(Boolean)
+
+const normalizeRole = (job) => ({
+  ...job,
+  id: job._id || job.id,
+  type: job.employmentType || job.type,
+})
+
+const getActiveRoles = (jobs) =>
+  (Array.isArray(jobs) ? jobs : []).filter((job) => job.status === 'active').map(normalizeRole)
 
 function CareersPage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -353,15 +377,16 @@ function CareersPage() {
   const [loading, setLoading] = useState(true)
   const [resumeFile, setResumeFile] = useState(null)
   const [dragActive, setDragActive] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   useEffect(() => {
     const fetchRoles = async () => {
       try {
         const data = await api.get(endpoints.JOBS)
-        setOpenRoles(data?.data || data || [])
+        const jobsList = data?.data || data || []
+        setOpenRoles(getActiveRoles(jobsList))
       } catch (error) {
         console.error('Error fetching roles:', error)
-        // Fallback to static data if API fails
-        setOpenRoles(openRolesStatic)
+        setOpenRoles(getActiveRoles(openRolesStatic))
       } finally {
         setLoading(false)
       }
@@ -369,51 +394,41 @@ function CareersPage() {
 
     fetchRoles()
   }, [])
-  const [applicationForm, setApplicationForm] = useState({ 
-    fullName: "", 
-    email: "", 
-    phone: "", 
-    coverLetter: "" 
+  const [applicationForm, setApplicationForm] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    coverLetter: '',
   })
   const handleFile = (file) => {
     if (!file) return
-  
-    const allowedTypes = [
-      'application/pdf',
-      'application/msword',
-      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-    ]
-  
-    if (!allowedTypes.includes(file.type)) {
-      alert('Only PDF, DOC and DOCX files are allowed')
+
+    const error = validateResumeFile(file)
+    if (error) {
+      alert(error)
       return
     }
-  
-    if (file.size > 10 * 1024 * 1024) {
-      alert('File size must be less than 10MB')
-      return
-    }
-  
+
     setResumeFile(file)
   }
-  
+
   const handleDrag = (e) => {
     e.preventDefault()
     e.stopPropagation()
-  
+
     if (e.type === 'dragenter' || e.type === 'dragover') {
       setDragActive(true)
     } else if (e.type === 'dragleave') {
       setDragActive(false)
     }
   }
-  
+
   const handleDrop = (e) => {
     e.preventDefault()
     e.stopPropagation()
-  
+
     setDragActive(false)
-  
+
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       handleFile(e.dataTransfer.files[0])
     }
@@ -426,22 +441,40 @@ function CareersPage() {
   const closeModal = () => {
     setSelectedRole(null)
     setIsModalOpen(false)
-    setApplicationForm({ fullName: "", email: "", phone: "", coverLetter: "" })
+    setApplicationForm({ fullName: '', email: '', phone: '', coverLetter: '' })
     setResumeFile(null)
   }
 
   const submitApplication = async (e) => {
     e.preventDefault()
-    if (!selectedRole || !resumeFile) return
+    if (isSubmitting || !selectedRole) return
 
-    // In a real app, you would submit to an API
-    console.log('Application submitted:', {
-      role: selectedRole,
-      form: applicationForm,
-      resume: resumeFile
-    })
-    
-    closeModal()
+    const jobId = selectedRole._id || selectedRole.id
+    const resumeError = validateResumeFile(resumeFile)
+    if (resumeError) {
+      alert(resumeError)
+      return
+    }
+
+    setIsSubmitting(true)
+    try {
+      const response = await submitJobApplication({
+        jobId,
+        fullName: applicationForm.fullName,
+        email: applicationForm.email,
+        phone: applicationForm.phone,
+        coverLetter: applicationForm.coverLetter,
+        resumeFile,
+      })
+
+      alert(response?.message || 'Application submitted successfully!')
+      closeModal()
+    } catch (error) {
+      console.error('Error submitting application:', error)
+      alert(error?.message || 'Failed to submit application. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (loading) {
@@ -495,7 +528,9 @@ function CareersPage() {
                   className="inline-flex items-center space-x-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-[#f1592a]/20 shadow-lg mb-6"
                 >
                   <Briefcase className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" strokeWidth={2} />
-                  <span className="text-xs md:text-sm font-medium text-gray-700">We're Hiring!</span>
+                  <span className="text-xs md:text-sm font-medium text-gray-700">
+                    We're Hiring!
+                  </span>
                 </motion.span>
                 <motion.h1
                   initial={{
@@ -531,8 +566,8 @@ function CareersPage() {
                   className="text-lg text-gray-600 mb-8 leading-relaxed"
                 >
                   Join a team of passionate builders, designers, and problem-solvers who are
-                  architecting the digital future. We're on a mission to transform businesses through
-                  innovative technology\u2014and we want you to be part of it.
+                  architecting the digital future. We're on a mission to transform businesses
+                  through innovative technology\u2014and we want you to be part of it.
                 </motion.p>
                 <motion.div
                   initial={{
@@ -585,7 +620,7 @@ function CareersPage() {
           </div>
         </section>
 
-        <section id="why-work-here" className="py-16 md:py-24 bg-white">
+        <section id="why-work-here" className="py-12 md:py-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -608,8 +643,8 @@ function CareersPage() {
                 </span>
               </h2>
               <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
-                We're building more than products\u2014we're building careers, relationships, and a culture
-                that celebrates growth, innovation, and collaboration.
+                We're building more than products\u2014we're building careers, relationships, and a
+                culture that celebrates growth, innovation, and collaboration.
               </p>
             </motion.div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -642,15 +677,19 @@ function CareersPage() {
                     </div>
                     <div className="absolute -bottom-1.5 -right-1.5 w-4 h-4 bg-[#f1592a] rounded-full border-2 border-white" />
                   </div>
-                  <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
-                  <p className="text-gray-600 text-md md:text-lg leading-relaxed">{benefit.description}</p>
+                  <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-gray-600 text-md md:text-lg leading-relaxed">
+                    {benefit.description}
+                  </p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -673,11 +712,11 @@ function CareersPage() {
                 </span>
               </h2>
               <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
-                These aren't just words on a wall\u2014they're the principles that guide how we work,
-                collaborate, and deliver value every single day.
+                These aren't just words on a wall\u2014they're the principles that guide how we
+                work, collaborate, and deliver value every single day.
               </p>
             </motion.div>
-            
+
             <motion.div
               initial={{
                 opacity: 0,
@@ -731,7 +770,8 @@ function CareersPage() {
                       <div>
                         <h4 className="font-bold text-gray-900 mb-1">Design Thinking</h4>
                         <p className="text-gray-600">
-                          User-centered approach with prototyping, testing, and iterative refinement.
+                          User-centered approach with prototyping, testing, and iterative
+                          refinement.
                         </p>
                       </div>
                     </div>
@@ -764,7 +804,7 @@ function CareersPage() {
           </div>
         </section>
 
-        <section className="py-16 md:py-24 bg-white">
+        <section className="py-12 md:py-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -820,7 +860,7 @@ function CareersPage() {
           </div>
         </section>
 
-        <section id="open-roles" className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section id="open-roles" className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -847,65 +887,80 @@ function CareersPage() {
               </p>
             </motion.div>
             <div className="space-y-4 max-w-6xl mx-auto">
-              {openRoles?.length > 0 ? openRoles.map((role, index) => (
-                <motion.div
-                key={role._id || role.id || index}
-                  initial={{
-                    opacity: 0,
-                    x: -30,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    x: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                  }}
-                  transition={{
-                    delay: index * 0.05,
-                  }}
-                  className="group bg-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all overflow-hidden"
-                 
-                >
-                  <div className="p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                    <div className="flex items-start space-x-4 flex-1">
-                      <div className="flex-1">
-                        <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
-                          {role.title}
-                        </h3>
-                        <div className="flex flex-wrap gap-3 text-sm text-gray-600 mb-3">
-                          <span className="flex items-center space-x-1">
-                            <Briefcase size={14} strokeWidth={2} /> <span>{role.department}</span>
-                          </span>
-                          <span>•</span>
-                          <span className="flex items-center space-x-1">
-                            <MapPin size={14} strokeWidth={2} /> <span>{role.location}</span>
-                          </span>
-                          <span>•</span>
-                          <span className="flex items-center space-x-1">
-                            <Clock size={14} strokeWidth={2} /> <span>{role.type}</span>
-                          </span>
-                        </div>
-                        <p className="text-gray-600 leading-relaxed mb-4">{role.description}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {getRequirementTags(role?.requirements)?.slice(0, 4)?.map((skill) => (
-                            <span
-                              className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium border border-gray-200"
-                              key={skill}
-                            >
-                              {skill}
+              {openRoles?.length > 0 ? (
+                openRoles.map((role, index) => (
+                  <motion.div
+                    key={role._id || role.id || index}
+                    initial={{
+                      opacity: 0,
+                      x: -30,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      x: 0,
+                    }}
+                    viewport={{
+                      once: true,
+                    }}
+                    transition={{
+                      delay: index * 0.05,
+                    }}
+                    className="group bg-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all overflow-hidden"
+                  >
+                    <div className="p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                      <div className="flex items-start space-x-4 flex-1">
+                        <div className="flex-1">
+                          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+                            {role.title}
+                          </h3>
+                          <div className="flex flex-wrap gap-3 text-sm text-gray-600 mb-3">
+                            <span className="flex items-center space-x-1">
+                              <Briefcase size={14} strokeWidth={2} /> <span>{role.department}</span>
                             </span>
-                          ))}
-                          {getRequirementTags(role?.requirements)?.length > 4 && (
-                            <span className="px-3 py-1 text-gray-500 text-xs font-medium">
-                              +{getRequirementTags(role?.requirements)?.length - 4} more
+                            <span>•</span>
+                            <span className="flex items-center space-x-1">
+                              <MapPin size={14} strokeWidth={2} /> <span>{role.location}</span>
                             </span>
-                          )}
+                            <span>•</span>
+                            <span className="flex items-center space-x-1">
+                              <Clock size={14} strokeWidth={2} /> <span>{role.type}</span>
+                            </span>
+                          </div>
+                          <p className="text-gray-600 leading-relaxed mb-4">{role.description}</p>
+                          <div className="flex flex-wrap gap-2">
+                            {getRequirementTags(role?.requirements)
+                              ?.slice(0, 4)
+                              ?.map((skill) => (
+                                <span
+                                  className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium border border-gray-200"
+                                  key={skill}
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                            {getRequirementTags(role?.requirements)?.length > 4 && (
+                              <span className="px-3 py-1 text-gray-500 text-xs font-medium">
+                                +{getRequirementTags(role?.requirements)?.length - 4} more
+                              </span>
+                            )}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="flex flex-col sm:flex-row md:flex-col gap-3 md:min-w-[140px]">
-                      <Link href={`/careers/${role._id || role.id}`}>
+                      <div className="flex flex-col sm:flex-row md:flex-col gap-3 md:min-w-[140px]">
+                        <Link href={`/careers/${role._id || role.id}`}>
+                          <motion.button
+                            whileHover={{
+                              scale: 1.03,
+                            }}
+                            whileTap={{
+                              scale: 0.97,
+                            }}
+                            className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-white text-gray-700 border-2 border-gray-200 rounded-xl hover:border-[#f1592a] hover:text-[#f1592a] transition-all font-semibold shadow-sm hover:shadow-md"
+                          >
+                            <Eye size={18} strokeWidth={2} />
+                            <span className="text-sm md:text-md">View</span>
+                          </motion.button>
+                        </Link>
                         <motion.button
                           whileHover={{
                             scale: 1.03,
@@ -913,29 +968,17 @@ function CareersPage() {
                           whileTap={{
                             scale: 0.97,
                           }}
-                          className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-white text-gray-700 border-2 border-gray-200 rounded-xl hover:border-[#f1592a] hover:text-[#f1592a] transition-all font-semibold shadow-sm hover:shadow-md"
+                          onClick={() => openModal(role)}
+                          className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-xl shadow-lg hover:shadow-xl transition-all font-semibold"
                         >
-                          <Eye size={18} strokeWidth={2} /> 
-                          <span className="text-sm md:text-md">View</span>
+                          <FileText size={18} strokeWidth={2} />
+                          <span className="text-sm md:text-md">Apply</span>
                         </motion.button>
-                      </Link>
-                      <motion.button
-                        whileHover={{
-                          scale: 1.03,
-                        }}
-                        whileTap={{
-                          scale: 0.97,
-                        }}
-                        onClick={() => openModal(role)}
-                        className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-xl shadow-lg hover:shadow-xl transition-all font-semibold"
-                      >
-                        <FileText size={18} strokeWidth={2} /> 
-                        <span className="text-sm md:text-md">Apply</span>
-                      </motion.button>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              )) : (
+                  </motion.div>
+                ))
+              ) : (
                 <div className="text-center py-12">
                   <p className="text-gray-500">No job positions available at the moment.</p>
                 </div>
@@ -946,7 +989,7 @@ function CareersPage() {
 
         <section
           id="apply"
-          className="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden"
+          className="py-12 md:py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden"
         >
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-0 right-0 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
@@ -1047,91 +1090,101 @@ function CareersPage() {
         </section>
 
         {isModalOpen && (
-  <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50">
-    <div className="bg-white w-full sm:w-11/12 sm:max-w-4xl sm:rounded-2xl rounded-t-2xl shadow-2xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto">
-      
-      {/* Header */}
-      <div className="sticky top-0 bg-white border-b border-gray-100 rounded-t-2xl px-5 sm:px-8 py-4 sm:py-5 z-10">
-        <div className="flex items-center justify-between gap-3">
-          <h2 className="text-lg sm:text-2xl font-bold text-gray-900 leading-tight">
-            Apply for{' '}
-            <span className="text-[#f1592a]">{selectedRole?.title}</span>
-          </h2>
-          <button
-            className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors flex-shrink-0"
-            onClick={closeModal}
-            aria-label="Close"
-          >
-            <X size={20} className="text-gray-500" />
-          </button>
-        </div>
-      </div>
+          <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50">
+            <div className="bg-white w-full sm:w-11/12 sm:max-w-4xl sm:rounded-2xl rounded-t-2xl shadow-2xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto">
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-100 rounded-t-2xl px-5 sm:px-8 py-4 sm:py-5 z-10">
+                <div className="flex items-center justify-between gap-3">
+                  <h2 className="text-lg sm:text-2xl font-bold text-gray-900 leading-tight">
+                    Apply for <span className="text-[#f1592a]">{selectedRole?.title}</span>
+                  </h2>
+                  <button
+                    className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors flex-shrink-0"
+                    onClick={closeModal}
+                    aria-label="Close"
+                  >
+                    <X size={20} className="text-gray-500" />
+                  </button>
+                </div>
+              </div>
 
-      {/* Form */}
-      <div className="px-5 sm:px-8 py-5 sm:py-6">
-        <form onSubmit={submitApplication}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Form */}
+              <div className="px-5 sm:px-8 py-5 sm:py-6">
+                <form onSubmit={submitApplication}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Full Name <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Enter your full name"
+                        value={applicationForm.fullName}
+                        onChange={(e) =>
+                          setApplicationForm((prev) => ({ ...prev, fullName: e.target.value }))
+                        }
+                        required
+                        className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
+                      />
+                    </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Full Name <span className="text-red-500">*</span></label>
-              <input
-                type="text"
-                placeholder="Enter your full name"
-                value={applicationForm.fullName}
-                onChange={(e) => setApplicationForm((prev) => ({ ...prev, fullName: e.target.value }))}
-                required
-                className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
-              />
-            </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Email Address <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        placeholder="Enter your email address"
+                        value={applicationForm.email}
+                        onChange={(e) =>
+                          setApplicationForm((prev) => ({ ...prev, email: e.target.value }))
+                        }
+                        required
+                        className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
+                      />
+                    </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Email Address <span className="text-red-500">*</span></label>
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                value={applicationForm.email}
-                onChange={(e) => setApplicationForm((prev) => ({ ...prev, email: e.target.value }))}
-                required
-                className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
-              />
-            </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Phone Number <span className="text-red-500">*</span>{' '}
+                      </label>
+                      <input
+                        type="tel"
+                        placeholder="Enter your phone number"
+                        value={applicationForm.phone}
+                        onChange={(e) =>
+                          setApplicationForm((prev) => ({ ...prev, phone: e.target.value }))
+                        }
+                        required
+                        className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
+                      />
+                    </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number <span className="text-red-500">*</span>  </label>
-              <input
-                type="tel"
-                placeholder="Enter your phone number"
-                value={applicationForm.phone}
-                onChange={(e) => setApplicationForm((prev) => ({ ...prev, phone: e.target.value }))}
-                required
-                className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
-              />
-            </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        LinkedIn Profile
+                      </label>
+                      <input
+                        type="url"
+                        placeholder="Enter your LinkedIn profile"
+                        className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
+                      />
+                    </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">LinkedIn Profile</label>
-              <input
-                type="url"
-                placeholder="Enter your LinkedIn profile"
-                className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
-              />
-            </div>
+                    {/* Cover Letter — full width on both mobile and desktop */}
 
-            {/* Cover Letter — full width on both mobile and desktop */}
-            
+                    {/* Resume upload — full width */}
+                    <div className="col-span-1 sm:col-span-2">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Resume/CV <span className="text-red-500">*</span>
+                      </label>
 
-            {/* Resume upload — full width */}
-            <div className="col-span-1 sm:col-span-2">
-  <label className="block text-sm font-medium text-gray-700 mb-2">
-    Resume/CV <span className="text-red-500">*</span>
-  </label>
-
-  <div
-    onDragEnter={handleDrag}
-    onDragLeave={handleDrag}
-    onDragOver={handleDrag}
-    onDrop={handleDrop}
-    className={`
+                      <div
+                        onDragEnter={handleDrag}
+                        onDragLeave={handleDrag}
+                        onDragOver={handleDrag}
+                        onDrop={handleDrop}
+                        className={`
       relative flex flex-col items-center justify-center
       px-6 py-10 border-2 border-dashed rounded-xl
       transition-all duration-300 cursor-pointer
@@ -1141,90 +1194,87 @@ function CareersPage() {
           : 'border-gray-300 hover:border-[#f1592a] hover:bg-gray-50'
       }
     `}
-  >
-    <input
-      type="file"
-      accept=".pdf,.doc,.docx"
-      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-      onChange={(e) => handleFile(e.target.files?.[0])}
-    />
+                      >
+                        <input
+                          type="file"
+                          accept=".pdf,.doc,.docx"
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                          onChange={(e) => handleFile(e.target.files?.[0])}
+                        />
 
-    <Upload
-      className={`h-12 w-12 ${
-        dragActive ? 'text-[#f1592a]' : 'text-gray-400'
-      }`}
-    />
+                        <Upload
+                          className={`h-12 w-12 ${dragActive ? 'text-[#f1592a]' : 'text-gray-400'}`}
+                        />
 
-    <p className="mt-4 text-sm text-gray-700">
-      <span className="font-semibold text-[#f1592a]">
-        Click to upload
-      </span>{' '}
-      or drag and drop
-    </p>
+                        <p className="mt-4 text-sm text-gray-700">
+                          <span className="font-semibold text-[#f1592a]">Click to upload</span> or
+                          drag and drop
+                        </p>
 
-    <p className="mt-1 text-xs text-gray-500">
-      PDF, DOC, DOCX (Max 10MB)
-    </p>
-  </div>
+                        <p className="mt-1 text-xs text-gray-500">PDF, DOC, DOCX (Max 5MB)</p>
+                      </div>
 
-  {resumeFile && (
-    <div className="mt-3 flex items-center justify-between rounded-lg border border-green-200 bg-green-50 px-4 py-3">
-      <div className="flex items-center gap-2">
-        <FileText className="h-5 w-5 text-green-600" />
-        <div>
-          <p className="text-sm font-medium text-gray-800">
-            {resumeFile.name}
-          </p>
-          <p className="text-xs text-gray-500">
-            {(resumeFile.size / 1024 / 1024).toFixed(2)} MB
-          </p>
-        </div>
-      </div>
+                      {resumeFile && (
+                        <div className="mt-3 flex items-center justify-between rounded-lg border border-green-200 bg-green-50 px-4 py-3">
+                          <div className="flex items-center gap-2">
+                            <FileText className="h-5 w-5 text-green-600" />
+                            <div>
+                              <p className="text-sm font-medium text-gray-800">{resumeFile.name}</p>
+                              <p className="text-xs text-gray-500">
+                                {(resumeFile.size / 1024 / 1024).toFixed(2)} MB
+                              </p>
+                            </div>
+                          </div>
 
-      <button
-        type="button"
-        onClick={() => setResumeFile(null)}
-        className="text-red-500 hover:text-red-700"
-      >
-        <X size={18} />
-      </button>
-    </div>
-  )}
-</div>
-            <div className="col-span-1 sm:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-1">Cover Letter <span className="text-red-500">*</span></label>
-              <textarea
-                className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm resize-none"
-                placeholder="Enter your cover letter"
-                value={applicationForm.coverLetter}
-                onChange={(e) => setApplicationForm((prev) => ({ ...prev, coverLetter: e.target.value }))}
-                required
-                rows={4}
-              />
+                          <button
+                            type="button"
+                            onClick={() => setResumeFile(null)}
+                            className="text-red-500 hover:text-red-700"
+                          >
+                            <X size={18} />
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                    <div className="col-span-1 sm:col-span-2">
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Cover Letter <span className="text-red-500">*</span>
+                      </label>
+                      <textarea
+                        className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm resize-none"
+                        placeholder="Enter your cover letter"
+                        value={applicationForm.coverLetter}
+                        onChange={(e) =>
+                          setApplicationForm((prev) => ({ ...prev, coverLetter: e.target.value }))
+                        }
+                        required
+                        rows={4}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Action buttons — stacked on mobile, side-by-side on sm+ */}
+                  <div className="mt-6 flex flex-col-reverse sm:flex-row sm:justify-end gap-3">
+                    <button
+                      type="button"
+                      onClick={closeModal}
+                      className="w-full sm:w-auto px-6 py-3 border border-gray-300 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f1592a] transition-colors"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full sm:w-auto px-6 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-[#f1592a] to-[#ff7a45] hover:from-[#ff7a45] hover:to-[#f1592a] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f1592a] transition-all shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
-
-          {/* Action buttons — stacked on mobile, side-by-side on sm+ */}
-          <div className="mt-6 flex flex-col-reverse sm:flex-row sm:justify-end gap-3">
-            <button
-              type="button"
-              onClick={closeModal}
-              className="w-full sm:w-auto px-6 py-3 border border-gray-300 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f1592a] transition-colors"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              className="w-full sm:w-auto px-6 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-[#f1592a] to-[#ff7a45] hover:from-[#ff7a45] hover:to-[#f1592a] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f1592a] transition-all shadow-lg"
-            >
-              Submit Application
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-)}
+        )}
       </div>
     </LayoutWrapper>
   )

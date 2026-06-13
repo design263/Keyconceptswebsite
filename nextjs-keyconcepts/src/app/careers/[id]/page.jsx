@@ -442,6 +442,7 @@ import { useState, useEffect } from 'react'
 
 import { api, endpoints } from '@/lib/api'
 import { shareContent } from '@/lib/shareContent'
+import { submitJobApplication, validateResumeFile } from '@/lib/submitJobApplication'
 
 function JobDetailPage({ params }) {
   const resolvedParams = use(params)
@@ -449,6 +450,8 @@ function JobDetailPage({ params }) {
   const [loading, setLoading] = useState(true)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [dragActive, setDragActive] = useState(false)
+
   const [applicationForm, setApplicationForm] = useState({
     fullName: '',
     email: '',
@@ -457,11 +460,48 @@ function JobDetailPage({ params }) {
     coverLetter: '',
   })
   const [resumeFile, setResumeFile] = useState(null)
+  const handleFile = (file) => {
+    if (!file) return
 
+    const error = validateResumeFile(file)
+    if (error) {
+      alert(error)
+      return
+    }
+
+    setResumeFile(file)
+  }
+  const handleDrag = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+
+    if (e.type === 'dragenter' || e.type === 'dragover') {
+      setDragActive(true)
+    } else if (e.type === 'dragleave') {
+      setDragActive(false)
+    }
+  }
+
+  const handleDrop = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+
+    setDragActive(false)
+
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      handleFile(e.dataTransfer.files[0])
+    }
+  }
   useEffect(() => {
     const fetchJob = async () => {
       try {
         const data = await api.get(endpoints.JOB_BY_ID(resolvedParams.id))
+
+        if (data.status !== 'active') {
+          notFound()
+          return
+        }
+
         setJob({
           id: data._id || data.id,
           title: data.title,
@@ -489,23 +529,47 @@ function JobDetailPage({ params }) {
 
   const submitApplication = async (e) => {
     e.preventDefault()
-    if (isSubmitting) return
+    if (isSubmitting || !job?.id) return
+
+    const resumeError = validateResumeFile(resumeFile)
+    if (resumeError) {
+      alert(resumeError)
+      return
+    }
+
     setIsSubmitting(true)
     try {
-      const target = e.currentTarget
-      const formData = new FormData(target)
-      formData.append('jobId', String(job?.id))
-      await api.post(endpoints.APPLICATIONS, formData)
+      const response = await submitJobApplication({
+        jobId: job.id,
+        fullName: applicationForm.fullName,
+        email: applicationForm.email,
+        phone: applicationForm.phone,
+        coverLetter: applicationForm.coverLetter,
+        resumeFile,
+      })
+
       setIsModalOpen(false)
-      setApplicationForm({ fullName: '', email: '', phone: '', linkedin: '', coverLetter: '', resumeFile: null })
+      setApplicationForm({ fullName: '', email: '', phone: '', linkedin: '', coverLetter: '' })
       setResumeFile(null)
-      alert('Application submitted successfully!')
+      alert(response?.message || 'Application submitted successfully!')
     } catch (error) {
       console.error('Error submitting application:', error)
-      alert('Failed to submit application. Please try again.')
+      alert(error?.message || 'Failed to submit application. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
+  }
+
+  const handleResumeFile = (file) => {
+    if (!file) return
+
+    const error = validateResumeFile(file)
+    if (error) {
+      alert(error)
+      return
+    }
+
+    setResumeFile(file)
   }
 
   return (
@@ -513,7 +577,7 @@ function JobDetailPage({ params }) {
       <div className="min-h-screen bg-white">
 
         {/* ── Hero ── */}
-        <section className="pt-28 sm:pt-32 pb-12 sm:pb-20 bg-gradient-to-b from-gray-50 to-white">
+        <section className="pt-28 sm:pt-32 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
             {/* Back link */}
@@ -783,7 +847,72 @@ function JobDetailPage({ params }) {
             </div>
 
             {/* Cover Letter — full width on both mobile and desktop */}
+           
+
+            {/* Resume upload — full width */}
             <div className="col-span-1 sm:col-span-2">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Resume/CV <span className="text-red-500">*</span>
+                      </label>
+
+                      <div
+                        onDragEnter={handleDrag}
+                        onDragLeave={handleDrag}
+                        onDragOver={handleDrag}
+                        onDrop={handleDrop}
+                        className={`
+      relative flex flex-col items-center justify-center
+      px-6 py-10 border-2 border-dashed rounded-xl
+      transition-all duration-300 cursor-pointer
+      ${
+        dragActive
+          ? 'border-[#f1592a] bg-orange-50'
+          : 'border-gray-300 hover:border-[#f1592a] hover:bg-gray-50'
+      }
+    `}
+                      >
+                        <input
+                          type="file"
+                          accept=".pdf,.doc,.docx"
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                          onChange={(e) => handleFile(e.target.files?.[0])}
+                        />
+
+                        <Upload
+                          className={`h-12 w-12 ${dragActive ? 'text-[#f1592a]' : 'text-gray-400'}`}
+                        />
+
+                        <p className="mt-4 text-sm text-gray-700">
+                          <span className="font-semibold text-[#f1592a]">Click to upload</span> or
+                          drag and drop
+                        </p>
+
+                        <p className="mt-1 text-xs text-gray-500">PDF, DOC, DOCX (Max 5MB)</p>
+                      </div>
+
+                      {resumeFile && (
+                        <div className="mt-3 flex items-center justify-between rounded-lg border border-green-200 bg-green-50 px-4 py-3">
+                          <div className="flex items-center gap-2">
+                            <FileText className="h-5 w-5 text-green-600" />
+                            <div>
+                              <p className="text-sm font-medium text-gray-800">{resumeFile.name}</p>
+                              <p className="text-xs text-gray-500">
+                                {(resumeFile.size / 1024 / 1024).toFixed(2)} MB
+                              </p>
+                            </div>
+                          </div>
+
+                          <button
+                            type="button"
+                            onClick={() => setResumeFile(null)}
+                            className="text-red-500 hover:text-red-700"
+                          >
+                            <X size={18} />
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                    <div className="col-span-1 sm:col-span-2">
               <label className="block text-sm font-medium text-gray-700 mb-1">Cover Letter <span className="text-red-500">*</span></label>
               <textarea
                 className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm resize-none"
@@ -793,32 +922,6 @@ function JobDetailPage({ params }) {
                 required
                 rows={4}
               />
-            </div>
-
-            {/* Resume upload — full width */}
-            <div className="col-span-1 sm:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-1">Resume/CV <span className="text-red-500">*</span></label>
-              <div className="mt-1 flex justify-center px-4 sm:px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-[#f1592a] transition-colors">
-                <div className="space-y-2 text-center">
-                  <Upload className="mx-auto h-10 w-10 text-gray-400" />
-                  <div className="flex flex-wrap justify-center items-center gap-1 text-sm text-gray-600">
-                    <label className="relative cursor-pointer rounded-md font-medium text-[#f1592a] hover:text-[#ff7a45]">
-                      <span>Upload a file</span>
-                      <input
-                        type="file"
-                        className="sr-only"
-                        accept=".pdf,.doc,.docx"
-                        onChange={(e) => setResumeFile(e.target.files?.[0] || null)}
-                      />
-                    </label>
-                    <p>or drag and drop</p>
-                  </div>
-                  <p className="text-xs text-gray-500">PDF, DOC, DOCX up to 10MB</p>
-                </div>
-              </div>
-              {resumeFile && (
-                <p className="mt-2 text-sm text-gray-600">Selected: {resumeFile.name}</p>
-              )}
             </div>
           </div>
 
@@ -833,9 +936,10 @@ function JobDetailPage({ params }) {
             </button>
             <button
               type="submit"
-              className="w-full sm:w-auto px-6 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-[#f1592a] to-[#ff7a45] hover:from-[#ff7a45] hover:to-[#f1592a] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f1592a] transition-all shadow-lg"
+              disabled={isSubmitting}
+              className="w-full sm:w-auto px-6 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-[#f1592a] to-[#ff7a45] hover:from-[#ff7a45] hover:to-[#f1592a] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f1592a] transition-all shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Submit Application
+              {isSubmitting ? 'Submitting...' : 'Submit Application'}
             </button>
           </div>
         </form>

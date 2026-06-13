@@ -69,7 +69,7 @@ function AnimatedCounter({ value, suffix }) {
 }
 function StatsSection() {
   return (
-    <section className="py-16 lg:py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {' '}
       <div className="absolute inset-0 opacity-30">
         {' '}

@@ -490,7 +490,7 @@ function VisitorManagementPage() {
             </div>
           </div>
         </section>
-        <section className="py-20 bg-white">
+        <section className="py-12 md:py-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -560,7 +560,7 @@ function VisitorManagementPage() {
             </div>
           </div>
         </section>
-        <section className="py-20 bg-gray-50">
+        <section className="py-12 md:py-16 bg-gray-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -604,7 +604,7 @@ function VisitorManagementPage() {
                 transition={{
                   delay: index * 0.1,
                 }}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-16 md:mb-32 ${index % 2 === 0 ? '' : 'lg:grid-flow-dense'}`}
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-16  ${index % 2 === 0 ? '' : 'lg:grid-flow-dense'}`}
               >
                 <div className={index % 2 === 0 ? 'order-2 lg:order-1' : 'order-1 lg:order-2'}>
                   <div
@@ -1037,7 +1037,7 @@ function VisitorManagementPage() {
             ))}
           </div>
         </section>
-        <section className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white">
+        <section className="py-12 md:py-16 bg-gradient-to-br from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{

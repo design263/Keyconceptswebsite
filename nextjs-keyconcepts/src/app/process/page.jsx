@@ -268,7 +268,7 @@ function ProcessPage() {
             </div>
           </div>
         </section>
-        <section className="py-20 bg-white relative overflow-hidden">
+        <section className="py-12 md:py-16 bg-white relative overflow-hidden">
           <div className="absolute inset-0 -z-10">
             <div className="absolute top-40 right-20 w-96 h-96 bg-[#f1592a]/3 rounded-full blur-3xl" />
             <div className="absolute bottom-40 left-20 w-96 h-96 bg-[#f1592a]/3 rounded-full blur-3xl" />
@@ -434,7 +434,7 @@ function ProcessPage() {
             </div>
           </div>
         </section>
-        <section className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+        <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
           <div className="absolute inset-0 -z-10">
             <div className="absolute top-20 left-10 w-96 h-96 bg-[#f1592a]/5 rounded-full blur-3xl" />
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#f1592a]/5 rounded-full blur-3xl" />
@@ -844,7 +844,7 @@ function ProcessPage() {
             </motion.div>
           </div>
         </section>
-        <section className="py-20 bg-gray-50">
+        <section className="py-12 md:py-16 bg-gray-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1536px]">
             <motion.div
               initial={{
@@ -935,7 +935,7 @@ function ProcessPage() {
             </motion.div>
           </div>
         </section>
-        <section className="py-20 bg-white">
+        <section className="py-12 md:py-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1536px]">
             <motion.div
               initial={{
@@ -1042,7 +1042,7 @@ function ProcessPage() {
             </motion.div>
           </div>
         </section>
-        <section className="py-20 bg-gray-50">
+        <section className="py-12 md:py-16 bg-gray-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1536px]">
             <motion.div
               initial={{
@@ -1158,7 +1158,7 @@ function ProcessPage() {
             </motion.div>
           </div>
         </section>
-        <section className="py-20 bg-white">
+        <section className="py-12 md:py-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1536px]">
             <motion.div
               initial={{

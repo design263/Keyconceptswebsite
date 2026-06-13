@@ -43,7 +43,25 @@ export default function AdminLeadsPage() {
   useEffect(() => {
     load()
   }, [load])
-
+  const getLeadDetails = (lead) => {
+    const lines = lead?.message?.split('\n') || []
+  
+    const message = lines.find(
+      (line) => !line.startsWith('Company:') && !line.startsWith('Phone:')
+    )
+  
+    const company =
+      lines.find((line) => line.startsWith('Company:'))?.replace('Company:', '').trim() || '-'
+  
+    const phone =
+      lines.find((line) => line.startsWith('Phone:'))?.replace('Phone:', '').trim() || '-'
+  
+    return {
+      message: message || '-',
+      company,
+      phone,
+    }
+  }
   return (
     <div className="space-y-5">
       <div className="flex items-center justify-between">
@@ -90,7 +108,7 @@ export default function AdminLeadsPage() {
           >
             <td className="px-5 py-3 font-semibold text-foreground">{lead.name}</td>
             <td className="px-5 py-3 text-muted-foreground">{lead.email}</td>
-            <td className="px-5 py-3 text-muted-foreground">{lead.phone}</td>
+            <td className="px-5 py-3 text-muted-foreground">{lead.subject}</td>
             <td className="px-5 py-3 text-muted-foreground max-w-xs truncate">{lead.message}</td>
             <td className="px-5 py-2">
               <div className="flex items-center gap-2">
@@ -155,20 +173,28 @@ export default function AdminLeadsPage() {
                   </div>
                   <div>
                     <label className="text-sm font-semibold text-foreground">Phone</label>
-                    <p className="text-muted-foreground">{selectedLeadMessage.phone}</p>
+                    <p className="text-muted-foreground">{getLeadDetails(selectedLeadMessage).phone}</p>
+                  </div>
+                  <div>
+                    <label className="text-sm font-semibold text-foreground">Company</label>
+                    <p className="text-muted-foreground">{getLeadDetails(selectedLeadMessage).company}</p>
+                  </div>
+                  <div>
+                    <label className="text-sm font-semibold text-foreground">Subject</label>
+                    <p className="text-muted-foreground">{selectedLeadMessage.subject}</p>
                   </div>
                   <div>
                     <label className="text-sm font-semibold text-foreground">Date</label>
-                    <td className="px-5 py-3 text-muted-foreground">
+                    <p className="text-muted-foreground">
                       {selectedLeadMessage.createdAt
                         ? new Date(selectedLeadMessage.createdAt).toLocaleDateString()
                         : '-'}
-                    </td>
+                    </p>
                   </div>
                 </div>
                 <div>
                   <label className="text-sm font-semibold text-foreground">Message</label>
-                  <p className="text-muted-foreground mt-1">{selectedLeadMessage.message}</p>
+                  <p className="text-muted-foreground mt-1">{getLeadDetails(selectedLeadMessage).message}</p>
                 </div>
               </div>
             </div>

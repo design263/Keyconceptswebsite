@@ -147,7 +147,7 @@ function HeroSection() {
           y,
           opacity,
         }}
-        className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10 relative z-10"
+        className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-4 relative z-10"
       >
         {' '}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 py-10 items-center">
@@ -208,7 +208,7 @@ function HeroSection() {
                   Transformation Partner
                 </span>
               </motion.h1>{' '}
-              <motion.div
+              {/* <motion.div
                 initial={{
                   opacity: 0,
                 }}
@@ -224,7 +224,7 @@ function HeroSection() {
                 <p className=" text-lg lg:text-xl sm:text-2xl text-gray-600 font-bold">
                   {displayedText} <span className="animate-pulse">|</span>
                 </p>
-              </motion.div>{' '}
+              </motion.div>{' '} */}
               <motion.p
                 initial={{
                   opacity: 0,

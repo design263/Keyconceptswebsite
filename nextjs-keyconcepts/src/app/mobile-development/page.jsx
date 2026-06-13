@@ -565,7 +565,7 @@ function MobileDevelopmentPage() {
             className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-br from-[#f1592a]/5 to-[#ff7a45]/5 rounded-full blur-3xl"
           />
         </section>
-        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white relative">
+        <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white relative">
           <div
             className="absolute inset-0 opacity-[0.02]"
             style={{
@@ -658,7 +658,7 @@ function MobileDevelopmentPage() {
             </div>
           </div>
         </section>
-        <section className="lg:py-24 py-16 bg-white relative overflow-hidden">
+        <section className="py-12 md:py-16 bg-white relative overflow-hidden">
           <div
             className="absolute inset-0 opacity-[0.015]"
             style={{
@@ -792,7 +792,7 @@ function MobileDevelopmentPage() {
             </div>
           </div>
         </section>
-        <section className="lg:py-24 py-16 bg-gradient-to-b from-gray-50 to-white relative">
+        <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white relative">
           <div
             className="absolute inset-0 opacity-[0.02]"
             style={{
@@ -861,7 +861,7 @@ function MobileDevelopmentPage() {
             </div>
           </div>
         </section>
-        <section className="py-16 md:py-24 bg-white relative">
+        <section className="py-12 md:py-16 bg-white relative">
           <div
             className="absolute inset-0 opacity-[0.015]"
             style={{

@@ -1,20 +1,37 @@
 'use client'
 
 import Link from 'next/link'
-import { Mail, Phone, MapPin, Link as LinkIcon, Share2, Globe, MessageSquare } from 'lucide-react'
-// import logo from '/images/logo.png'  
-import { FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Link as LinkIcon,
+  Share2,
+  Globe,
+  MessageSquare,
+  ExternalLink,
+} from 'lucide-react'
+// import logo from '/images/logo.png'
+import { FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
 function Footer() {
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
-    { href: "https://www.facebook.com/visitorz.io", icon: <FaFacebookF />, label: "Facebook" },
-    { href: "https://twitter.com/visitorz_io", icon: <FaXTwitter />, label: "Twitter" },
-    { href: "https://www.linkedin.com/company/visitorz-io", icon: <FaLinkedinIn />, label: "LinkedIn" },
-    { href: "https://www.instagram.com/visitorz.io/", icon: <FaInstagram />, label: "Instagram" },
-    { href: "https://www.youtube.com/channel/UCagjYMmwY2mMrEM-0dcoUaQ", icon: <FaYoutube />, label: "YouTube" },
-];
+    { href: 'https://www.facebook.com/visitorz.io', icon: <FaFacebookF />, label: 'Facebook' },
+    { href: 'https://twitter.com/visitorz_io', icon: <FaXTwitter />, label: 'Twitter' },
+    {
+      href: 'https://www.linkedin.com/company/visitorz-io',
+      icon: <FaLinkedinIn />,
+      label: 'LinkedIn',
+    },
+    { href: 'https://www.instagram.com/visitorz.io/', icon: <FaInstagram />, label: 'Instagram' },
+    {
+      href: 'https://www.youtube.com/channel/UCagjYMmwY2mMrEM-0dcoUaQ',
+      icon: <FaYoutube />,
+      label: 'YouTube',
+    },
+  ]
 
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
@@ -27,7 +44,7 @@ function Footer() {
             <div className="space-y-6">
               <div className="flex items-center space-x-6">
                 <img
-                  src="/images/logo.png"
+                  src="/images/KC_logo-footer.png"
                   alt="Key Concepts Logo"
                   className="h-10 w-auto"
                 />
@@ -43,7 +60,7 @@ function Footer() {
               <Link href="/" className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm">
                 Home
               </Link> */}
-               {socialLinks.map((social, index) => (
+              {socialLinks.map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
@@ -209,6 +226,14 @@ function Footer() {
                   301, Highfield Ascot, Opp. Palm Avenue, <br />
                   VIP Road, Vesu, Surat - 395007. <br />
                   Gujarat, India.
+                  <a
+                    href="https://maps.google.com/?q=301+Highfield+Ascot+Opp+Palm+Avenue+VIP+Road+Vesu+Surat+395007"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Open in Google Maps"
+                    className="inline-flex ml-1 align-middle text-[#f1592a] hover:text-orange-400"                  >
+                    <ExternalLink size={13} />
+                  </a>
                 </span>
               </li>{' '}
               <li className="flex items-start space-x-3">

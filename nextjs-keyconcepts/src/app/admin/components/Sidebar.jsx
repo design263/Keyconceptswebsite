@@ -51,8 +51,8 @@ export function Sidebar({ isCollapsed, onToggle }) {
   `}
 >
         {/* Logo Section */}
-        <div className="relative flex items-center justify-between px-4 h-[70px] border-b border-gray-200">
-          <div className={`flex items-center ${isCollapsed ? 'justify-center w-full' : ''}`}>
+        <div className="relative flex items-center  px-4 h-[70px] border-b border-gray-200">
+          <div className={`flex items-center ${isCollapsed ? ' w-full' : ''}`}>
             <Image
               src="/86d73f4575e82c2f8cca971638d48b77628092fb.png"
               alt="logo"
@@ -80,7 +80,7 @@ export function Sidebar({ isCollapsed, onToggle }) {
                       ? "bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white shadow-sm"
                       : "text-gray-600 hover:bg-orange-50 hover:text-[#f1592a]"
                     }
-                    ${isCollapsed ? 'justify-center px-2' : ''}
+                    ${isCollapsed ? ' px-2' : ''}
                   `}
                   title={isCollapsed ? item.label : ""}
                 >
