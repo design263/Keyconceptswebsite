@@ -146,9 +146,9 @@ function ServicesSection() {
                 key={service.title}
               >
                 {' '}
-                <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-6 lg:p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300">
+                <div className="relative h-full bg-white/60 backdrop-blur-lg rounded-2xl p-4 lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300">
                   {' '}
-                  <div className="flex items-start gap-6">
+                  <div className="flex items-start lg:flex-row flex-col gap-6">
                     {' '}
                     <div className="relative w-12 h-12 lg:w-14 lg:h-14 flex-shrink-0 group-hover:scale-110 transition-transform">
                       {' '}
@@ -247,7 +247,7 @@ function ServicesSection() {
                     className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-80 group-hover:opacity-90 transition-opacity`}
                   />
                 </div>{' '}
-                <div className="relative h-full p-8 flex flex-col justify-end text-white">
+                <div className="relative h-full p-8 flex flex-col justify-center lg:justify-end text-white">
                   {' '}
                   <div className="mb-4 transform group-hover:scale-110 transition-transform origin-left">
                     {' '}

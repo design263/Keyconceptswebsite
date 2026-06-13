@@ -317,10 +317,10 @@ function OurStoryPage() {
                     transition={{
                       delay: index * 0.1,
                     }}
-                    className="group p-6 md:p-8 bg-gradient-to-b from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
+                    className="group p-4 lg:p-6 bg-gradient-to-b from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
                     key={item.title}
                   >
-                    <div className="flex items-start space-x-4">
+                    <div className="flex items-start lg:flex-row flex-col gap-4 space-x-4">
                       <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#f1592a]/10 to-[#ff7a45]/10 rounded-xl flex items-center justify-center border border-[#f1592a]/20">
                         <item.icon className="text-[#f1592a] w-6 h-6 md:w-7 md:h-7"  strokeWidth={2} />
                       </div>
@@ -382,7 +382,7 @@ function OurStoryPage() {
                   transition={{
                     delay: index * 0.1,
                   }}
-                  className="group p-6 bg-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
+                  className="group p-4 lg:p-6 bg-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
                   key={item.title}
                 >
                   <div className="relative w-12 h-12 mb-4">
@@ -454,7 +454,7 @@ function OurStoryPage() {
                   key={value.title}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-[#f1592a]/5 to-[#ff7a45]/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all" />
-                  <div className="relative p-6 md:p-8 bg-white rounded-3xl border border-gray-200 hover:border-[#f1592a]/30 shadow-lg hover:shadow-2xl transition-all h-full">
+                  <div className="relative p-4 lg:p-6 bg-white rounded-3xl border border-gray-200 hover:border-[#f1592a]/30 shadow-lg hover:shadow-2xl transition-all h-full">
                     <div
                       className={`w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br ${value.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
                     >
@@ -519,7 +519,7 @@ function OurStoryPage() {
                   className="relative group"
                   key={stat.label}
                 >
-                  <div className="p-6 md:p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#f1592a]/30 hover:bg-white/10 transition-all text-center">
+                  <div className="p-4 lg:p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#f1592a]/30 hover:bg-white/10 transition-all text-center">
                     <div className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-xl mb-4 shadow-lg">
                       <stat.icon className="text-white w-6 h-6 md:w-7 md:h-7"  strokeWidth={2} />
                     </div>
@@ -607,7 +607,7 @@ function OurStoryPage() {
                   transition={{
                     delay: index * 0.1,
                   }}
-                  className="group p-6 md:p-8 bg-gradient-to-b from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
+                  className="group p-4 lg:p-6 bg-gradient-to-b from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
                   key={reason.title}
                 >
                   <div className="relative w-12 h-12 mb-6">

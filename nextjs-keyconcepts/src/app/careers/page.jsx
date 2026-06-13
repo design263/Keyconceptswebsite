@@ -1,6 +1,7 @@
 'use client'
 
 import LayoutWrapper from '@/components/layout-wrapper'
+import { PageLoader } from '@/components/page-loader'
 import { motion } from 'motion/react'
 import {
   ArrowRight,
@@ -481,10 +482,7 @@ function CareersPage() {
     return (
       <LayoutWrapper>
         <div className="min-h-screen bg-white flex items-center justify-center">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#f1592a] mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading job positions...</p>
-          </div>
+          <PageLoader label="Loading job positions..." />
         </div>
       </LayoutWrapper>
     )
@@ -664,7 +662,7 @@ function CareersPage() {
                   transition={{
                     delay: index * 0.1,
                   }}
-                  className="group p-6 md:p-8 bg-gradient-to-b from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
+                  className="group p-4 lg:p-6 bg-gradient-to-b from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
                   key={benefit.title}
                 >
                   <div className="relative w-12 h-12 md:w-14 md:h-14 mb-6">
@@ -907,7 +905,7 @@ function CareersPage() {
                     }}
                     className="group bg-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all overflow-hidden"
                   >
-                    <div className="p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                    <div className="p-4 lg:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                       <div className="flex items-start space-x-4 flex-1">
                         <div className="flex-1">
                           <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">

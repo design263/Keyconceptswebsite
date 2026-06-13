@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Header } from './components/Header'
 import { Sidebar } from './components/Sidebar'
+import { NavigationLoader } from '@/components/navigation-loader'
 
 export default function AdminShell({ children }) {
   const [isCollapsed, setIsCollapsed] = useState(false)
@@ -23,6 +24,7 @@ export default function AdminShell({ children }) {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <NavigationLoader />
       <div className="flex">
         <Sidebar isCollapsed={isCollapsed} onToggle={toggleSidebar} />
         <div

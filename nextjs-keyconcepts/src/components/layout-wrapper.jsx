@@ -7,11 +7,13 @@ import { EnquiryModal } from './enquiry-modal'
 import { CareerModalProvider, useCareerModal } from '../context/career-modal-context'
 import { CareerModal } from './career-modal'
 import { ScrollToTop } from './scroll-to-top'
+import { NavigationLoader } from './navigation-loader'
 
 function LayoutWrapper({ children }) {
   return (
     <EnquiryModalProvider>
       <CareerModalProvider>
+        <NavigationLoader />
         <ScrollToTop />
         <div className="min-h-screen flex flex-col">
           <MegaMenuHeader />

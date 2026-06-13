@@ -2,7 +2,7 @@
 
 import LayoutWrapper from '@/components/layout-wrapper'
 import { motion } from 'motion/react'
-import { Mail, Phone, MapPin, Send, MessageSquare, Map } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, MessageSquare, Map, ChevronDown } from 'lucide-react'
 import { useState } from 'react'
 import { api, endpoints } from '@/lib/api'
 
@@ -133,7 +133,7 @@ function ContactPage() {
                 transition={{
                   delay: 0.4,
                 }}
-                className="text-xl text-gray-600 mb-12 leading-relaxed max-w-3xl mx-auto"
+                className="text-xl text-gray-600  leading-relaxed max-w-3xl mx-auto"
               >
                 We're here to help transform your business with cutting-edge ERP solutions, custom
                 development, and intelligent technology services.
@@ -164,7 +164,7 @@ function ContactPage() {
                     Fill out the form below and we'll get back to you shortly.
                   </p>
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className=" grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label
                           htmlFor="name"
@@ -238,7 +238,7 @@ function ContactPage() {
                         />
                       </div>
                     </div>
-                    <div>
+                    <div className=" relative">
                       <label
                         htmlFor="service"
                         className="block text-sm font-medium text-gray-700 mb-2"
@@ -251,7 +251,7 @@ function ContactPage() {
                         value={formData.service}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#f1592a] focus:outline-none transition-colors"
+                        className="appearance-none w-full px-4 py-3.5 pr-12 rounded-lg border border-gray-200 focus:border-[#f1592a] focus:outline-none transition-colors"
                       >
                         <option value="">Select a service</option>
                         <option value="odoo-erp">Odoo ERP Solutions</option>
@@ -264,13 +264,17 @@ function ContactPage() {
                         <option value="support-maintenance">Support & Maintenance</option>
                         <option value="other">Other</option>
                       </select>
+                      <ChevronDown
+                        size={18}
+                        className="absolute right-4 top-2/3 -translate-y-1/2 text-gray-500 pointer-events-none"
+                      />
                     </div>
                     <div>
                       <label
                         htmlFor="message"
                         className="block text-sm font-medium text-gray-700 mb-2"
                       >
-                        Message <span className="text-red-500">*</span> 
+                        Message <span className="text-red-500">*</span>
                       </label>
                       <textarea
                         id="message"
@@ -283,51 +287,53 @@ function ContactPage() {
                         placeholder="Tell us about your project..."
                       />
                     </div>
-                    <motion.button
-                      type="submit"
-                      whileHover={{
-                        scale: 1.02,
-                      }}
-                      whileTap={{
-                        scale: 0.98,
-                      }}
-                      disabled={isSubmitting}
-                      className="group w-full px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center space-x-2 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <svg
-                            className="animate-spin h-5 w-5 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <circle
-                              className="opacity-25"
-                              cx="12"
-                              cy="12"
-                              r="10"
-                              stroke="currentColor"
-                              strokeWidth="4"
-                            ></circle>
-                            <path
-                              className="opacity-75"
-                              fill="currentColor"
-                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                            ></path>
-                          </svg>
-                          <span>Sending...</span>
-                        </>
-                      ) : (
-                        <>
-                          <span>Book a Discovery Call</span>
-                          <Send
-                            className="group-hover:translate-x-1 transition-transform"
-                            size={20}
-                          />
-                        </>
-                      )}
-                    </motion.button>
+                    <div className="flex justify-center">
+                      <motion.button
+                        type="submit"
+                        whileHover={{
+                          scale: 1.02,
+                        }}
+                        whileTap={{
+                          scale: 0.98,
+                        }}
+                        disabled={isSubmitting}
+                        className="group  px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center space-x-2 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <svg
+                              className="animate-spin h-5 w-5 text-white"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <circle
+                                className="opacity-25"
+                                cx="12"
+                                cy="12"
+                                r="10"
+                                stroke="currentColor"
+                                strokeWidth="4"
+                              ></circle>
+                              <path
+                                className="opacity-75"
+                                fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                              ></path>
+                            </svg>
+                            <span>Sending...</span>
+                          </>
+                        ) : (
+                          <>
+                            <span>Book a <span className='hidden sm:inline'>Discovery</span> Call</span>
+                            <Send
+                              className="group-hover:translate-x-1 transition-transform"
+                              size={20}
+                            />
+                          </>
+                        )}
+                      </motion.button>
+                    </div>
                   </form>
                 </div>
               </motion.div>

@@ -175,7 +175,7 @@ function ProductDevelopmentPage() {
   return (
     <LayoutWrapper>
       <div className="min-h-screen bg-white">
-        <section className="relative mt-5 py-20 md:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
+        <section className="relative mt-5 py-20 md:py-32 md:pb-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
           <div className="absolute inset-0 opacity-30">
             <div className="absolute top-20 left-10 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
             <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-gray-300/20 rounded-full blur-3xl" />
@@ -339,7 +339,7 @@ function ProductDevelopmentPage() {
                   className="group"
                   key={audience.title}
                 >
-                  <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full text-center">
+                  <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-4 lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full text-center">
                     <div className="relative w-14 h-14 mb-4 mx-auto group-hover:scale-110 transition-transform">
                       <div className="w-full h-full bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-white transition-all">
                         <audience.icon className="text-gray-700" size={28} strokeWidth={1.5} />
@@ -588,7 +588,7 @@ function ProductDevelopmentPage() {
                   className="relative"
                   key={step.number}
                 >
-                  <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full">
+                  <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-4 lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full">
                     <div className="text-3xl md:text-5xl font-bold text-[#f1592a]/20 mb-4">{step.number}</div>
                     <h3 className="text-lg md:text-xl font-bold mb-3">{step.title}</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
@@ -617,7 +617,7 @@ function ProductDevelopmentPage() {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1640262014524-37583237e7e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZ2lsZSUyMHNwcmludCUyMHBsYW5uaW5nJTIwbWV0aG9kb2xvZ3l8ZW58MXx8fHwxNzcxODQ3MjQzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="/assets/productDev/agile.jpg"
                   alt="Agile Development Process"
                   className="w-full h-[220px] sm:h-[320px] md:h-[400px] lg:h-[500px] object-cover"
                 />
@@ -686,7 +686,7 @@ function ProductDevelopmentPage() {
                   className="group"
                   key={model.title}
                 >
-                  <div className="relative bg-white/60 backdrop-blur-lg rounded-3xl p-6  md:p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full">
+                  <div className="relative bg-white/60 backdrop-blur-lg rounded-3xl p-4  lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full">
                     <div className="absolute top-6 right-6">
                       <span className="px-3 py-1 bg-[#f1592a]/10 text-[#f1592a] text-xs font-semibold rounded-full">
                         {model.highlight}
@@ -780,7 +780,7 @@ function ProductDevelopmentPage() {
                   className="group"
                   key={category}
                 >
-                  <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full">
+                  <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-4 lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full">
                     <h3 className="text-lg font-bold mb-4 capitalize text-center">{category}</h3>
                     <ul className="space-y-2">
                       {technologies.map((tech) => (
@@ -894,7 +894,7 @@ function ProductDevelopmentPage() {
                   transition={{
                     delay: index * 0.1,
                   }}
-                  className="text-center"
+                  className="bg-white/60 backdrop-blur-lg rounded-2xl p-4 lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 text-center"
                   key={item.title}
                 >
                   <div className="relative w-12 h-12 mx-auto mb-4">

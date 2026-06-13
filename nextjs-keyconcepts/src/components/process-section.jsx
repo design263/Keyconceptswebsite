@@ -130,9 +130,9 @@ function ProcessSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="relative"
+                    className="relative h-full" 
                   >
-                    <div className="group relative bg-white/60 backdrop-blur-lg rounded-2xl p-5 sm:p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300">
+                    <div className="group h-full relative bg-white/60 backdrop-blur-lg rounded-2xl p-4 lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300">
 
                       {/* Desktop: floating number bubble above card */}
                       <div className="hidden lg:flex absolute -top-[38px] left-1/2 -translate-x-1/2 w-16 h-16 bg-white rounded-full border-4 border-gray-100 items-center justify-center z-10 group-hover:border-[#f1592a]/20 transition-colors">
@@ -211,7 +211,7 @@ function ProcessSection() {
             whileTap={{ scale: 0.95 }}
             className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg hover:shadow-2xl hover:shadow-[#f1592a]/30 transition-all font-semibold text-sm sm:text-base"
           >
-            Book a Discovery Call
+            Book a <span className='hidden sm:inline'>Discovery</span> Call
           </motion.a>
         </motion.div>
       </div>

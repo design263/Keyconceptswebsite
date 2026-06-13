@@ -456,7 +456,7 @@ function OdooERPPage() {
                   className="group"
                   key={industry.name}
                 >
-                  <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full text-center">
+                  <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-4 lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full text-center">
                     <div className="relative w-14 h-14 mb-4 mx-auto group-hover:scale-110 transition-transform">
                       <div className="w-full h-full bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-white transition-all">
                         <industry.icon className="text-gray-700" size={28} strokeWidth={1.5} />
@@ -544,7 +544,7 @@ function OdooERPPage() {
                   transition={{
                     delay: index * 0.1,
                   }}
-                  className="text-center"
+                  className="bg-white/60 backdrop-blur-lg rounded-2xl p-4 lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 text-center"
                   key={item.title}
                 >
                   <div className="relative w-12 h-12 mx-auto mb-4">

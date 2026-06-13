@@ -211,7 +211,7 @@ export default function AboutPage() {
                 }}
                 className="relative group"
               >
-                <div className="bg-white/60 backdrop-blur-lg rounded-3xl p-6 md:p-12 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all">
+                <div className="bg-white/60 backdrop-blur-lg rounded-3xl p-4 lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all">
                   <div className="relative md:w-16 md:h-16 w-14 h-14 mb-6 group-hover:scale-110 transition-transform">
                     <div className="w-full h-full bg-gray-700 rounded-2xl flex items-center justify-center">
                       <Users className="text-white w-8 h-8 md:w-10 md:h-10" strokeWidth={1.5} />
@@ -333,7 +333,7 @@ export default function AboutPage() {
                   className="group text-center"
                   key={member.name}
                 >
-                  <div className="bg-white/60 backdrop-blur-lg rounded-3xl p-6 md:p-8 shadow-lg border border-white/60 hover:shadow-2xl transition-all">
+                  <div className="bg-white/60 backdrop-blur-lg rounded-3xl p-4 lg:p-6 shadow-lg border border-white/60 hover:shadow-2xl transition-all">
                     <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-full flex items-center justify-center text-white text-xl md:text-2xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform">
                       {member.initial}
                     </div>

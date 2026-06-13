@@ -102,7 +102,7 @@ function TestimonialsSection() {
               key={index}
             >
               {' '}
-              <div className="relative bg-white/60 backdrop-blur-lg rounded-3xl p-6  md:p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300">
+              <div className="relative bg-white/60 backdrop-blur-lg rounded-3xl p-4  lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300">
                 {' '}
                 <div className="absolute top-8 right-8 text-[#f1592a]/10 group-hover:text-[#f1592a]/20 transition-colors">
                   {' '}

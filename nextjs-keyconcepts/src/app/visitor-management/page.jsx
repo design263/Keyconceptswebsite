@@ -342,7 +342,7 @@ function VisitorManagementPage() {
                   duration: 0.8,
                   delay: 0.3,
                 }}
-                className="relative flex justify-center lg:justify-end"
+                className="relative mx-auto flex justify-center lg:justify-end"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#f1592a]/20 to-gray-300/20 blur-3xl scale-75" />
                 <div className="relative z-10 w-[320px] h-[640px] bg-gray-900 rounded-[3rem] shadow-2xl border-8 border-gray-900 overflow-hidden">
@@ -452,7 +452,7 @@ function VisitorManagementPage() {
                     repeat: Infinity,
                     ease: 'easeInOut',
                   }}
-                  className="absolute top-10 -left-4 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-xl border border-gray-100"
+                  className="z-10 absolute top-10 -left-4 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-xl border border-gray-100"
                 >
                   <div className="flex items-center space-x-2">
                     <div className="w-8 h-8 bg-[#f1592a] rounded-lg flex items-center justify-center">
@@ -474,7 +474,7 @@ function VisitorManagementPage() {
                     ease: 'easeInOut',
                     delay: 1,
                   }}
-                  className="absolute bottom-20 -right-4 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-xl border border-gray-100"
+                  className="z-10 absolute bottom-20 -right-4 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-xl border border-gray-100"
                 >
                   <div className="flex items-center space-x-2">
                     <div className="w-8 h-8 bg-[#f1592a] rounded-lg flex items-center justify-center">
@@ -540,7 +540,7 @@ function VisitorManagementPage() {
                   className="group relative"
                   key={feature.title}
                 >
-                  <div className="h-full bg-gradient-to-br from-white to-gray-50 rounded-3xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-2xl hover:border-[#f1592a]/20 transition-all">
+                  <div className="h-full bg-gradient-to-br from-white to-gray-50 rounded-3xl p-4 lg:p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:border-[#f1592a]/20 transition-all">
                     <div className="relative w-12 h-12 md:w-14 md:h-14 mb-6">
                       <div className="w-full h-full bg-gray-100 rounded-2xl flex items-center justify-center group-hover:bg-white transition-all">
                         <feature.icon className="text-gray-700" size={28} strokeWidth={1.5} />
@@ -935,9 +935,7 @@ function VisitorManagementPage() {
                         </div>
                       )}
                     </div>
-                  </div>
-                  {/* Floating stat badges */}
-                  {product.title === 'Meeting Room Management' && (
+                    {product.title === 'Meeting Room Management' && (
                     <motion.div
                       animate={{
                         y: [0, -10, 0],
@@ -1032,12 +1030,15 @@ function VisitorManagementPage() {
                       </div>
                     </motion.div>
                   )}
+                  </div>
+                  {/* Floating stat badges */}
+                  
                 </div>
               </motion.div>
             ))}
           </div>
         </section>
-        <section className="py-12 md:py-16 bg-gradient-to-br from-gray-50 to-white">
+        <section className="pb-12 md:pb-16 bg-gradient-to-br from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{

@@ -287,7 +287,7 @@ function SupportMaintenancePage() {
   return (
     <LayoutWrapper>
       <div className="min-h-screen bg-white">
-        <section className="relative mt-5 py-20 md:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
+        <section className="relative mt-5 py-20 md:py-32 md:pb-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
           <div className="absolute inset-0 opacity-30">
             <div className="absolute top-20 left-10 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
             <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-gray-300/20 rounded-full blur-3xl" />
@@ -641,7 +641,7 @@ function SupportMaintenancePage() {
                     </div>
                   )}
                   <div
-                    className={`relative h-full bg-white/60 backdrop-blur-lg rounded-3xl p-8 shadow-lg border ${tier.highlight ? 'border-[#f1592a] shadow-2xl scale-105' : 'border-white/60 hover:border-[#f1592a] hover:shadow-2xl'} transition-all duration-300`}
+                    className={`relative h-full bg-white/60 backdrop-blur-lg rounded-3xl p-4 lg:p-6 shadow-lg border ${tier.highlight ? 'border-[#f1592a] shadow-2xl scale-105' : 'border-white/60 hover:border-[#f1592a] hover:shadow-2xl'} transition-all duration-300`}
                   >
                     <div className="text-center mb-6">
                       <h3 className="text-2xl font-bold mb-2">{tier.tier}</h3>
@@ -757,7 +757,7 @@ function SupportMaintenancePage() {
                   className="group"
                   key={item.title}
                 >
-                  <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full text-center">
+                  <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-4 lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full text-center">
                     <div className="relative w-14 h-14 mb-4 mx-auto group-hover:scale-110 transition-transform">
                       <div className="w-full h-full bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-xl flex items-center justify-center">
                         <item.icon className="text-white" size={28} strokeWidth={1.5} />
@@ -843,7 +843,7 @@ function SupportMaintenancePage() {
                   transition={{
                     delay: index * 0.1,
                   }}
-                  className="bg-white/60 backdrop-blur-lg rounded-2xl p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300"
+                  className="bg-white/60 backdrop-blur-lg rounded-2xl p-4 lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300"
                   key={item.title}
                 >
                   <div className="relative w-12 h-12 mb-6">

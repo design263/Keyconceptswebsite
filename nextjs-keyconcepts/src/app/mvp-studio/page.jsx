@@ -212,7 +212,7 @@ function MVPStudioPage() {
   return (
     <LayoutWrapper>
       <div className="min-h-screen bg-white">
-        <section className="relative mt-5 py-20 md:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
+        <section className="relative mt-5 py-20 md:py-32 md:pb-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
           <div className="absolute inset-0 opacity-30">
             <div className="absolute top-20 left-10 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
             <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-gray-300/20 rounded-full blur-3xl" />
@@ -409,7 +409,7 @@ function MVPStudioPage() {
                   transition={{
                     delay: index * 0.1,
                   }}
-                  className="bg-white/60 backdrop-blur-lg rounded-2xl p-6 md:p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 text-center"
+                  className="bg-white/60 backdrop-blur-lg rounded-2xl p-4 lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 text-center"
                   key={item.title}
                 >
                   <div className="relative w-12 h-12 md:w-14 md:h-14 mx-auto mb-6">
@@ -620,7 +620,7 @@ function MVPStudioPage() {
                   className="relative"
                   key={phase.week}
                 >
-                  <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full">
+                  <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-4 lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full">
                     <div className="inline-block px-3 py-1 bg-[#f1592a] text-white text-sm font-bold rounded-full mb-4">
                       {phase.week}
                     </div>
@@ -744,7 +744,7 @@ function MVPStudioPage() {
                   className="group"
                   key={requirement.title}
                 >
-                  <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full text-center">
+                  <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-4 lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full text-center">
                     <div className="relative w-14 h-14 mb-4 mx-auto group-hover:scale-110 transition-transform">
                       <div className="w-full h-full bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-white transition-all">
                         <requirement.icon className="text-gray-700" size={28} strokeWidth={1.5} />
@@ -840,7 +840,7 @@ function MVPStudioPage() {
                   transition={{
                     delay: index * 0.1,
                   }}
-                  className="bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 text-center"
+                  className="bg-white/60 backdrop-blur-lg rounded-2xl p-4 lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 text-center"
                   key={item.title}
                 >
                   <div className="relative w-12 h-12 mx-auto mb-4">

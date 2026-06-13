@@ -93,7 +93,7 @@ export function BlogPostDetail({ post }) {
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="sticky top-8"
                   >
-                    <div className="bg-gray-50 rounded-xl p-6 mb-6">
+                    <div className="bg-gray-50 rounded-xl p-4 lg:p-6 mb-6">
                       <h3 className="font-semibold mb-4">About Author</h3>
                       <div className="flex items-center space-x-3 mb-4">
                         <div className="w-12 h-12 bg-[#f1592a] rounded-full flex items-center justify-center">
@@ -107,7 +107,7 @@ export function BlogPostDetail({ post }) {
                     </div>
 
                     {post.tags?.length > 0 && (
-                      <div className="bg-gray-50 rounded-xl p-6 mb-6">
+                      <div className="bg-gray-50 rounded-xl p-4 lg:p-6 mb-6">
                         <h3 className="font-semibold mb-4">Tags</h3>
                         <div className="flex flex-wrap gap-2">
                           {post.tags.map((tag) => (

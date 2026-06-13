@@ -272,7 +272,7 @@ function MegaMenuHeader() {
                           >
                             <Link
                               href={service.link || '/services'}
-                              className="block p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
+                              className="block h-full p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
                             >
                               <div className="relative w-12 h-12 mb-4">
                                 <div className="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center group-hover/item:bg-white transition-all">
@@ -388,7 +388,7 @@ function MegaMenuHeader() {
                           >
                             <Link
                               href={product.link || '/services'}
-                              className="block p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
+                              className="block h-full p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
                             >
                               <div className="relative w-12 h-12 mb-4">
                                 <div className="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center group-hover/item:bg-white transition-all">
@@ -498,7 +498,7 @@ function MegaMenuHeader() {
                           >
                             <Link
                               href={item.link}
-                              className="block p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
+                              className="block h-full p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
                             >
                               <div className="relative w-12 h-12 mb-4">
                                 <div className="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center group-hover/item:bg-white transition-all">
@@ -608,7 +608,7 @@ function MegaMenuHeader() {
                           >
                             <Link
                               href={item.link}
-                              className="block p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
+                              className="block h-full p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
                             >
                               <div className="relative w-12 h-12 mb-4">
                                 <div className="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center group-hover/item:bg-white transition-all">

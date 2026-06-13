@@ -531,9 +531,9 @@ function YounitedCommunitiesPage() {
                     />
                   </div>
                   <div className="text-left">
-                    <div className="font-bold">{feature.title}</div>
+                    <div className=" font-bold">{feature.title}</div>
                     <div
-                      className={`text-sm ${activeTab === feature.id ? 'text-white/80' : 'text-gray-500'}`}
+                      className={`hidden lg:block text-sm ${activeTab === feature.id ? 'text-white/80' : 'text-gray-500'}`}
                     >
                       {feature.description}
                     </div>
@@ -727,7 +727,7 @@ function YounitedCommunitiesPage() {
                       transition={{
                         delay: 0.5,
                       }}
-                      className="bg-gradient-to-br from-[#f1592a]/10 to-[#ff7a45]/10 rounded-2xl p-6 mb-8 border border-[#f1592a]/20"
+                      className="bg-gradient-to-br from-[#f1592a]/10 to-[#ff7a45]/10 rounded-2xl p-4 lg:p-6 mb-8 border border-[#f1592a]/20"
                     >
                       <div className="flex items-start space-x-4">
                         <div className="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-[#f1592a]/30 shadow-sm">
@@ -858,7 +858,7 @@ function YounitedCommunitiesPage() {
                   transition={{
                     delay: index * 0.1,
                   }}
-                  className="group p-6 md:p-8 bg-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
+                  className="group p-4 lg:p-6 bg-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
                   key={benefit.title}
                 >
                   <div className="relative w-12 h-12 md:w-14 md:h-14 mb-6">
@@ -924,7 +924,7 @@ function YounitedCommunitiesPage() {
                   className="group p-6 bg-gray-50 rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:bg-white hover:shadow-lg transition-all"
                   key={capability.title}
                 >
-                  <div className="flex items-start space-x-4">
+                  <div className="flex items-start lg:flex-row flex-col gap-4 lg:gap-0 space-x-4">
                     <div className="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-gray-200 group-hover:border-[#f1592a]/30 transition-all">
                       <capability.icon
                         className="text-gray-700 group-hover:text-[#f1592a] transition-colors"

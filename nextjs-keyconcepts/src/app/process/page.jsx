@@ -645,7 +645,7 @@ function ProcessPage() {
                   transition={{
                     delay: 0.2,
                   }}
-                  className="bg-white border border-gray-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all group"
+                  className="bg-white border border-gray-200 rounded-2xl p-4 lg:p-6 shadow-lg hover:shadow-xl transition-all group"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center space-x-3">
@@ -887,7 +887,7 @@ function ProcessPage() {
                   className="group"
                   key={tool.name}
                 >
-                  <div className="bg-white border border-gray-200 rounded-2xl p-4 md:p-6 hover:border-[#f1592a]/30 hover:shadow-lg transition-all duration-300 text-center h-full flex flex-col items-center justify-center">
+                  <div className="bg-white border border-gray-200 rounded-2xl p-4 lg:p-6 hover:border-[#f1592a]/30 hover:shadow-lg transition-all duration-300 text-center h-full flex flex-col items-center justify-center">
                     <div className="relative mb-3">
                       <div className="w-12 h-12 md:w-14 md:h-14 bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-[#f1592a]/5 transition-all mx-auto">
                         {typeof tool.icon === 'string' ? (
@@ -978,7 +978,7 @@ function ProcessPage() {
                   className="group"
                   key={qa.step}
                 >
-                  <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 h-full hover:border-[#f1592a]/30 hover:bg-white hover:shadow-lg transition-all duration-300">
+                  <div className="bg-gray-50 border border-gray-200 rounded-2xl p-4 lg:p-6 h-full hover:border-[#f1592a]/30 hover:bg-white hover:shadow-lg transition-all duration-300">
                     <div className="relative w-12 h-12 md:w-14 md:h-14 mb-4">
                       <div className="w-full h-full bg-white rounded-lg flex items-center justify-center group-hover:bg-[#f1592a]/5 transition-all border border-gray-200">
                         <qa.icon
@@ -1086,7 +1086,7 @@ function ProcessPage() {
                   key={tier.title}
                 >
                   <div
-                    className={`relative bg-white border-2 rounded-3xl p-6 md:p-8 h-full ${index === 0 ? 'border-[#f1592a] shadow-xl shadow-[#f1592a]/10' : 'border-gray-200 hover:border-gray-300'} transition-all duration-300`}
+                    className={`relative bg-white border-2 rounded-3xl p-4 lg:p-6 h-full ${index === 0 ? 'border-[#f1592a] shadow-xl shadow-[#f1592a]/10' : 'border-gray-200 hover:border-gray-300'} transition-all duration-300`}
                   >
                     {index === 0 && (
                       <div className="absolute -top-4 left-1/2 -translate-x-1/2">

@@ -15,14 +15,14 @@ const stats = [
     icon: Users,
     value: 25,
     suffix: '+',
-    label: 'Experts Team Members',
+    label: 'Expert Members',
     color: 'from-[#f1592a] to-[#ff7a45]',
   },
   {
     icon: Clock,
     value: 1,
     suffix: 'Mn+',
-    label: ' Hours Delivered Experience',
+    label: ' Hours Delivered',
     color: 'from-[#f1592a] to-[#ff7a45]',
   },
   {
@@ -138,7 +138,7 @@ function StatsSection() {
               key={stat.label}
             >
               {' '}
-              <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-6 lg:p-8 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300">
+              <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-4 lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300">
                 {' '}
                 <div className="flex items-start gap-6">
                   {' '}
