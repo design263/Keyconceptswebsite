@@ -193,8 +193,8 @@ export function createPageMetadata(pageKey, overrides = {}) {
 
 export const adminMetadata = {
   title: 'Admin',
-  robots: {
-    index: false,
-    follow: false,
-  },
+  // robots: {
+  //   index: false,
+  //   follow: false,
+  // },
 }
