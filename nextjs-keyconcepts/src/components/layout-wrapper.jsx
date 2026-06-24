@@ -2,10 +2,8 @@
 
 import { MegaMenuHeader } from './mega-menu-header-final'
 import { Footer } from './footer'
-import { EnquiryModalProvider, useEnquiryModal } from '../context/enquiry-modal-context'
-import { EnquiryModal } from './enquiry-modal'
-import { CareerModalProvider, useCareerModal } from '../context/career-modal-context'
-import { CareerModal } from './career-modal'
+import { EnquiryModalProvider } from '../context/enquiry-modal-context'
+import { CareerModalProvider } from '../context/career-modal-context'
 import { ScrollToTop } from './scroll-to-top'
 import { NavigationLoader } from './navigation-loader'
 

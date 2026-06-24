@@ -1,5 +1,6 @@
 'use client'
 
+import { AnimatedH1 } from '@/components/animated-h1'
 import { motion, useScroll, useTransform } from 'motion/react'
 import { useEffect, useState, useRef } from 'react'
 import { ArrowRight, Sparkles } from 'lucide-react'
@@ -14,7 +15,6 @@ function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
   const canvasRef = useRef(null)
   const particlesRef = useRef([])
-  const animationRef = useRef()
   useEffect(() => {
     let currentIndex = 0
     const interval = setInterval(() => {
@@ -32,6 +32,10 @@ function HeroSection() {
     if (!canvas) return
     const ctx = canvas.getContext('2d')
     if (!ctx) return
+
+    let animationFrameId
+    let isActive = true
+
     const updateCanvasSize = () => {
       const container = canvas.parentElement
       if (container) {
@@ -39,29 +43,39 @@ function HeroSection() {
         canvas.height = container.offsetHeight
       }
     }
-    updateCanvasSize()
-    window.addEventListener('resize', updateCanvasSize)
-    const particleCount = 80
-    const centerX = canvas.width / 2
-    const centerY = canvas.height / 2
-    const radius = Math.min(canvas.width, canvas.height) * 0.3
-    particlesRef.current = []
-    for (let i = 0; i < particleCount; i++) {
-      const angle = (i / particleCount) * Math.PI * 2
-      const distance = radius + (Math.random() - 0.5) * 50
-      particlesRef.current.push({
-        x: centerX + Math.cos(angle) * distance,
-        y: centerY + Math.sin(angle) * distance,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        radius: Math.random() * 2 + 1,
-      })
+
+    const initParticles = () => {
+      updateCanvasSize()
+      const particleCount = 80
+      const centerX = canvas.width / 2
+      const centerY = canvas.height / 2
+      const radius = Math.min(canvas.width, canvas.height) * 0.3
+      particlesRef.current = []
+      for (let i = 0; i < particleCount; i++) {
+        const angle = (i / particleCount) * Math.PI * 2
+        const distance = radius + (Math.random() - 0.5) * 50
+        particlesRef.current.push({
+          x: centerX + Math.cos(angle) * distance,
+          y: centerY + Math.sin(angle) * distance,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          radius: Math.random() * 2 + 1,
+        })
+      }
     }
+
     const animate = () => {
+      if (!isActive || document.visibilityState === 'hidden') {
+        animationFrameId = requestAnimationFrame(animate)
+        return
+      }
+
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       const particles = particlesRef.current
       const centerX2 = canvas.width / 2
       const centerY2 = canvas.height / 2
+      const radius = Math.min(canvas.width, canvas.height) * 0.3
+
       particles.forEach((particle, i) => {
         particle.x += particle.vx
         particle.y += particle.vy
@@ -102,13 +116,31 @@ function HeroSection() {
           }
         })
       })
-      animationRef.current = requestAnimationFrame(animate)
+      animationFrameId = requestAnimationFrame(animate)
     }
-    animate()
+
+    const startAnimation = () => {
+      initParticles()
+      animate()
+    }
+
+    const deferredStart =
+      typeof window.requestIdleCallback === 'function'
+        ? window.requestIdleCallback(startAnimation, { timeout: 500 })
+        : setTimeout(startAnimation, 0)
+
+    window.addEventListener('resize', updateCanvasSize)
+
     return () => {
+      isActive = false
       window.removeEventListener('resize', updateCanvasSize)
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current)
+      if (typeof window.cancelIdleCallback === 'function') {
+        window.cancelIdleCallback(deferredStart)
+      } else {
+        clearTimeout(deferredStart)
+      }
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId)
       }
     }
   }, [])
@@ -189,7 +221,7 @@ function HeroSection() {
             </motion.div>{' '}
             <div className="space-y-4">
               {' '}
-              <motion.h1
+              <AnimatedH1
                 initial={{
                   opacity: 0,
                   y: 20,
@@ -207,7 +239,7 @@ function HeroSection() {
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
                   Transformation Partner
                 </span>
-              </motion.h1>{' '}
+              </AnimatedH1>{' '}
               {/* <motion.div
                 initial={{
                   opacity: 0,

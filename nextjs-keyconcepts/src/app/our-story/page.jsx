@@ -1,6 +1,7 @@
 'use client'
 
 import LayoutWrapper from '@/components/layout-wrapper'
+import { AnimatedH1 } from '@/components/animated-h1'
 import { motion } from 'motion/react'
 import {
   Target,
@@ -206,7 +207,7 @@ function OurStoryPage() {
                 <Building2 className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5"  strokeWidth={2} />
                 <span className="text-xs md:text-sm font-medium text-gray-700">Our Story</span>
               </motion.span>
-              <motion.h1
+              <AnimatedH1
                 initial={{
                   opacity: 0,
                   y: 20,
@@ -225,7 +226,7 @@ function OurStoryPage() {
                 </span>
                 <br />
                 with Legacy
-              </motion.h1>
+              </AnimatedH1>
               <motion.p
                 initial={{
                   opacity: 0,

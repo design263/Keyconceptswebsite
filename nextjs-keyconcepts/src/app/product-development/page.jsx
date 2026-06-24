@@ -1,6 +1,7 @@
 'use client'
 
 import LayoutWrapper from '@/components/layout-wrapper'
+import { AnimatedH1 } from '@/components/animated-h1'
 import { motion } from 'motion/react'
 import {
   Code,
@@ -211,7 +212,7 @@ function ProductDevelopmentPage() {
                   Custom Product Development
                 </span>
               </motion.span>
-              <motion.h1
+              <AnimatedH1
                 initial={{
                   opacity: 0,
                   y: 20,
@@ -229,7 +230,7 @@ function ProductDevelopmentPage() {
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
                   Users Love
                 </span>
-              </motion.h1>
+              </AnimatedH1>
               <motion.p
                 initial={{
                   opacity: 0,

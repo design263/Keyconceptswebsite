@@ -1,6 +1,7 @@
 'use client'
 
 import LayoutWrapper from '@/components/layout-wrapper'
+import { AnimatedH1 } from '@/components/animated-h1'
 import { motion, useInView, useMotionValue, useSpring } from 'motion/react'
 import {
   Users,
@@ -338,7 +339,7 @@ function ElectionMobilizationPage() {
                 <Vote className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5"  strokeWidth={2} />
                 <span className="md:text-sm text-xs font-medium text-gray-700">Election Campaign Platform</span>
               </motion.span>
-              <motion.h1
+              <AnimatedH1
                 initial={{
                   opacity: 0,
                   y: 20,
@@ -355,7 +356,7 @@ function ElectionMobilizationPage() {
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
                   Power Your Digital Campaign
                 </span>
-              </motion.h1>
+              </AnimatedH1>
               <motion.p
                 initial={{
                   opacity: 0,
@@ -574,6 +575,7 @@ function ElectionMobilizationPage() {
                     src={activeFeature.image}
                     alt={activeFeature.title}
                     className="w-full h-auto"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>

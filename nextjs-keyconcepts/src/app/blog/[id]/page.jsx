@@ -1,7 +1,9 @@
 import { notFound } from 'next/navigation'
 import { BlogPostDetail } from '@/components/blog-post-detail'
+import { JsonLd } from '@/components/json-ld'
 import { getBlogPostById } from '@/data/blog-posts'
-import { createPageMetadata } from '@/lib/seo'
+import { createPageMetadata, SITE_URL } from '@/lib/seo'
+import { blogPostingSchema, breadcrumbSchema } from '@/lib/structured-data'
 
 export async function generateMetadata({ params }) {
   const { id } = await params
@@ -32,5 +34,19 @@ export default async function BlogPostPage({ params }) {
     notFound()
   }
 
-  return <BlogPostDetail post={post} />
+  return (
+    <>
+      <JsonLd
+        data={[
+          blogPostingSchema(post, id),
+          breadcrumbSchema([
+            { name: 'Home', url: SITE_URL },
+            { name: 'Industry Trends', url: `${SITE_URL}/insights/trends` },
+            { name: post.title, url: `${SITE_URL}/blog/${id}` },
+          ]),
+        ]}
+      />
+      <BlogPostDetail post={post} />
+    </>
+  )
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import LayoutWrapper from '@/components/layout-wrapper'
-import { PageLoader } from '@/components/page-loader'
+import { AnimatedH1 } from '@/components/animated-h1'
 import { motion } from 'motion/react'
 import {
   ArrowRight,
@@ -35,6 +35,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { api, endpoints } from '@/lib/api'
 import { submitJobApplication, validateResumeFile } from '@/lib/submitJobApplication'
+import { PageLoader } from '@/components/page-loader'
 
 const whyWorkHere = [
   {
@@ -530,7 +531,7 @@ function CareersPage() {
                     We're Hiring!
                   </span>
                 </motion.span>
-                <motion.h1
+                <AnimatedH1
                   initial={{
                     opacity: 0,
                     y: 20,
@@ -548,7 +549,7 @@ function CareersPage() {
                   <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
                     Key Concepts
                   </span>
-                </motion.h1>
+                </AnimatedH1>
                 <motion.p
                   initial={{
                     opacity: 0,

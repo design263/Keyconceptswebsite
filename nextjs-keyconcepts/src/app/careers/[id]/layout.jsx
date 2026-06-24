@@ -1,31 +1,40 @@
-import { createPageMetadata, SITE_URL } from '@/lib/seo'
+import { createPageMetadata, SITE_URL, trimMetaDescription } from '@/lib/seo'
 import { endpoints } from '@/lib/api'
+import { JsonLd } from '@/components/json-ld'
+import { breadcrumbSchema, jobPostingSchema } from '@/lib/structured-data'
 
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL ||
   process.env.VITE_API_BASE_URL ||
   'http://localhost:5000/api'
 
+async function fetchJob(id) {
+  const response = await fetch(`${API_BASE_URL}${endpoints.JOB_BY_ID(id)}`, {
+    next: { revalidate: 3600 },
+  })
+
+  if (!response.ok) return null
+  return response.json()
+}
+
 export async function generateMetadata({ params }) {
   const { id } = await params
 
   try {
-    const response = await fetch(`${API_BASE_URL}${endpoints.JOB_BY_ID(id)}`, {
-      next: { revalidate: 3600 },
-    })
+    const job = await fetchJob(id)
 
-    if (!response.ok) {
+    if (!job) {
       return {
         title: 'Job Not Found',
         description: 'The career opportunity you are looking for is no longer available.',
       }
     }
 
-    const job = await response.json()
-    const description =
+    const description = trimMetaDescription(
       typeof job.description === 'string'
-        ? job.description.replace(/\s+/g, ' ').trim().slice(0, 160)
-        : `Apply for the ${job.title} role at Key Concepts and join our growing technology team.`
+        ? job.description
+        : `Apply for the ${job.title} role at Key Concepts and join our growing technology team.`,
+    )
 
     return createPageMetadata('careers', {
       title: `${job.title} Job Opening`,
@@ -51,6 +60,31 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export default function CareerJobLayout({ children }) {
-  return children
+export default async function CareerJobLayout({ children, params }) {
+  const { id } = await params
+  let structuredData = null
+
+  try {
+    const job = await fetchJob(id)
+
+    if (job) {
+      structuredData = [
+        jobPostingSchema(job, id),
+        breadcrumbSchema([
+          { name: 'Home', url: SITE_URL },
+          { name: 'Careers', url: `${SITE_URL}/careers` },
+          { name: job.title, url: `${SITE_URL}/careers/${id}` },
+        ]),
+      ]
+    }
+  } catch {
+    structuredData = null
+  }
+
+  return (
+    <>
+      {structuredData ? <JsonLd data={structuredData} /> : null}
+      {children}
+    </>
+  )
 }

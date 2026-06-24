@@ -1,6 +1,7 @@
 'use client'
 
 import LayoutWrapper from '@/components/layout-wrapper'
+import { AnimatedH1 } from '@/components/animated-h1'
 import { motion } from 'motion/react'
 import { Mail, Phone, MapPin, Send, MessageSquare, Map, ChevronDown } from 'lucide-react'
 import { useState } from 'react'
@@ -102,7 +103,7 @@ function ContactPage() {
                 <MessageSquare className="text-[#f1592a]" size={18} />
                 <span className="text-sm font-medium text-gray-700">Get in Touch</span>
               </motion.span>
-              <motion.h1
+              <AnimatedH1
                 initial={{
                   opacity: 0,
                   y: 20,
@@ -120,7 +121,7 @@ function ContactPage() {
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
                   Building Together
                 </span>
-              </motion.h1>
+              </AnimatedH1>
               <motion.p
                 initial={{
                   opacity: 0,
@@ -234,7 +235,7 @@ function ContactPage() {
                           value={formData.phone}
                           onChange={handleChange}
                           className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#f1592a] focus:outline-none transition-colors"
-                          placeholder="+91 9374 356 357"
+                          placeholder="+91 823X XXX XXX"
                         />
                       </div>
                     </div>

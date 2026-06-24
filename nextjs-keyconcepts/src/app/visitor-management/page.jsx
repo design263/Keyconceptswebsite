@@ -1,6 +1,7 @@
 'use client'
 
 import LayoutWrapper from '@/components/layout-wrapper'
+import { AnimatedH1 } from '@/components/animated-h1'
 import { motion } from 'motion/react'
 import {
   Shield,
@@ -227,7 +228,7 @@ function VisitorManagementPage() {
                     Enterprise-Grade Security
                   </span>
                 </motion.div>
-                <motion.h1
+                <AnimatedH1
                   initial={{
                     opacity: 0,
                     y: 20,
@@ -245,7 +246,7 @@ function VisitorManagementPage() {
                   <span className="block bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
                     Built for Safety & Speed
                   </span>
-                </motion.h1>
+                </AnimatedH1>
                 <motion.p
                   initial={{
                     opacity: 0,

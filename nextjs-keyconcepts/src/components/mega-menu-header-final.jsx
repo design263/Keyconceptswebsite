@@ -110,11 +110,13 @@ function MegaMenuHeader() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center group">
+          <Link href="/" className="flex items-center group" title="Key Concepts logo">
             <img
               src="/images/logo.png"
               alt="Key Concepts"
-              className="h-12 w-auto transition-transform group-hover:scale-105"
+              title="Key Concepts logo"
+              className="w-auto transition-transform group-hover:scale-105"
+              style={{ height: '68px' }}
             />
           </Link>
           <nav className="hidden lg:flex items-center space-x-1">

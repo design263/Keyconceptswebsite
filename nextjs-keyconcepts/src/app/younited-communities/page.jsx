@@ -1,6 +1,7 @@
 'use client'
 
 import LayoutWrapper from '@/components/layout-wrapper'
+import { AnimatedH1 } from '@/components/animated-h1'
 import { motion, useInView, useMotionValue, useSpring } from 'motion/react'
 import {
   Users,
@@ -339,7 +340,7 @@ function YounitedCommunitiesPage() {
                   Community Management Platform
                 </span>
               </motion.span>
-              <motion.h1
+              <AnimatedH1
                 initial={{
                   opacity: 0,
                   y: 20,
@@ -358,7 +359,7 @@ function YounitedCommunitiesPage() {
                 </span>
                 <br />
                 Simplify. Engage. Scale.
-              </motion.h1>
+              </AnimatedH1>
               <motion.p
                 initial={{
                   opacity: 0,

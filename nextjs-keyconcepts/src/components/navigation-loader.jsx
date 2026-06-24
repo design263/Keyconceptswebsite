@@ -4,26 +4,19 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { PageLoaderPortal } from './page-loader'
 
-const MIN_VISIBLE_MS = 320
-
 export function NavigationLoader() {
   const pathname = usePathname()
   const [visible, setVisible] = useState(true)
   const timerRef = useRef(null)
-  const startedAtRef = useRef(Date.now())
   const isMountedRef = useRef(false)
 
   const showLoader = () => {
-    startedAtRef.current = Date.now()
     setVisible(true)
   }
 
   const hideLoader = () => {
-    const elapsed = Date.now() - startedAtRef.current
-    const remaining = Math.max(0, MIN_VISIBLE_MS - elapsed)
-
     if (timerRef.current) clearTimeout(timerRef.current)
-    timerRef.current = setTimeout(() => setVisible(false), remaining)
+    setVisible(false)
   }
 
   useEffect(() => {
@@ -47,7 +40,7 @@ export function NavigationLoader() {
     }
 
     showLoader()
-    timerRef.current = setTimeout(hideLoader, 80)
+    timerRef.current = setTimeout(hideLoader, 0)
 
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current)

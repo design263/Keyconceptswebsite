@@ -1,6 +1,7 @@
 'use client'
 
 import LayoutWrapper from '@/components/layout-wrapper'
+import { AnimatedH1 } from '@/components/animated-h1'
 import { motion, useInView, useMotionValue, useSpring } from 'motion/react'
 import {
   Shield,
@@ -321,7 +322,7 @@ function SupportMaintenancePage() {
                 <Shield className="text-[#f1592a]" size={18} />
                 <span className="text-xs md:text-sm font-medium text-gray-700">Support & Maintenance</span>
               </motion.span>
-              <motion.h1
+              <AnimatedH1
                 initial={{
                   opacity: 0,
                   y: 20,
@@ -339,7 +340,7 @@ function SupportMaintenancePage() {
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
                   Secure, Fast, & Always Online
                 </span>
-              </motion.h1>
+              </AnimatedH1>
               <motion.p
                 initial={{
                   opacity: 0,

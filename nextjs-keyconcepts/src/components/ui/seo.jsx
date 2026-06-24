@@ -9,7 +9,6 @@ const SEO = ({
   ogUrl,
   twitterHandle = '@KCITSindia',
   twitterUrl = 'https://twitter.com/KCITSindia',
-  // robots = 'index, follow',
   canonical,
 }) => {
   const pathname = usePathname()
@@ -26,7 +25,6 @@ const SEO = ({
       <meta name="title" content={fullTitle} />
       <meta name="description" content={siteDescription} />
       {keywords && <meta name="keywords" content={keywords} />}
-      {/* <meta name="robots" content={robots} /> */}
       {canonical && <link rel="canonical" href={canonical} />}
 
       {/* Open Graph / Facebook */}

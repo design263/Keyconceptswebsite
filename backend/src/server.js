@@ -82,7 +82,7 @@ import { connectDB } from "./config/db.js";
 import { errorHandler, notFound } from "./middlewares/errorHandler.js";
 
 //  SEO meta function import
-import { resolveRouteMeta, DEFAULT_OG_IMAGE } from "../../src/app/seo/route-meta.js";
+import { resolveRouteMeta, DEFAULT_OG_IMAGE } from "./seo/route-meta.js";
 
 const app = express();
 

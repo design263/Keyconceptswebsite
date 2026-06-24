@@ -894,6 +894,7 @@ function ProcessPage() {
                           <img
                             src={tool.icon}
                             alt={tool.name}
+                            title={tool.name}
                             className="h-7 w-7 object-contain opacity-90 group-hover:opacity-100 transition-opacity"
                           />
                         ) : (

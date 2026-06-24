@@ -18,19 +18,19 @@ function Footer() {
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
-    { href: 'https://www.facebook.com/visitorz.io', icon: <FaFacebookF />, label: 'Facebook' },
-    { href: 'https://twitter.com/visitorz_io', icon: <FaXTwitter />, label: 'Twitter' },
+    { href: 'https://www.facebook.com/KeyConceptsIT/', icon: <FaFacebookF />, label: 'Facebook' },
+    { href: 'https://twitter.com/kcitsindia', icon: <FaXTwitter />, label: 'Twitter' },
     {
-      href: 'https://www.linkedin.com/company/visitorz-io',
+      href: 'https://www.linkedin.com/company/keyconcepts/',
       icon: <FaLinkedinIn />,
       label: 'LinkedIn',
     },
-    { href: 'https://www.instagram.com/visitorz.io/', icon: <FaInstagram />, label: 'Instagram' },
-    {
-      href: 'https://www.youtube.com/channel/UCagjYMmwY2mMrEM-0dcoUaQ',
-      icon: <FaYoutube />,
-      label: 'YouTube',
-    },
+    { href: 'https://www.instagram.com/keyconceptsit/', icon: <FaInstagram />, label: 'Instagram' },
+    // {
+    //   href: 'https://www.youtube.com/channel/UCagjYMmwY2mMrEM-0dcoUaQ',
+    //   icon: <FaYoutube />,
+    //   label: 'YouTube',
+    // },
   ]
 
   return (
@@ -46,7 +46,8 @@ function Footer() {
                 <img
                   src="/images/KC_logo-footer.png"
                   alt="Key Concepts Logo"
-                  className="h-10 w-auto"
+                  title="Key Concepts Logo"
+                  className="h-14 w-auto"
                 />
               </div>
             </div>
@@ -67,6 +68,7 @@ function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
+                  title={social.label}
                   className="inline-flex items-center justify-center w-[35px] h-[35px] text-gray-400 border border-gray-600 rounded-md hover:text-[#f1592a] hover:border-[#f1592a] transition-all duration-300"
                 >
                   {social.icon}

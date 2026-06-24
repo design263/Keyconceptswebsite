@@ -119,6 +119,7 @@ function ClientLogos() {
                 <img
                   src={client.logo}
                   alt={client.name}
+                  title={client.name + ' logo'}
                   className="max-h-10 max-w-full w-auto object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all"
                   loading="lazy"
                 />
