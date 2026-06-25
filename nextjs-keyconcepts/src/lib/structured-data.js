@@ -136,3 +136,51 @@ export function breadcrumbSchema(items) {
     })),
   }
 }
+
+export function localBusinessSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: SITE_NAME,
+    url: SITE_URL,
+    logo: `${SITE_URL}${ORGANIZATION_LOGO}`,
+    image: `${SITE_URL}${ORGANIZATION_LOGO}`,
+    telephone: '+919374356357',
+    email: 'info@keyconcepts.co.in',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '301 Highfield Ascot, Opp Palm Avenue, VIP Road, Vesu',
+      addressLocality: 'Surat',
+      addressRegion: 'Gujarat',
+      postalCode: '395007',
+      addressCountry: 'IN',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: '21.141237',
+      longitude: '72.779298',
+    },
+    sameAs: [
+      'https://www.facebook.com/KeyConceptsIT/',
+      'https://twitter.com/kcitsindia',
+      'https://www.linkedin.com/company/keyconcepts/',
+      'https://www.instagram.com/keyconceptsit/',
+    ],
+    priceRange: '$$',
+  }
+}
+
+export function faqSchema(faqs) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  }
+}

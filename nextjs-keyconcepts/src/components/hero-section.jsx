@@ -6,8 +6,10 @@ import { useEffect, useState, useRef } from 'react'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useEnquiryModal } from '@/context/enquiry-modal-context'
 
 function HeroSection() {
+  const { openModal } = useEnquiryModal()
   const [displayedText, setDisplayedText] = useState('')
   const fullText = 'Transform Your Business with Next-Gen Technology'
   const { scrollYProgress } = useScroll()
@@ -145,7 +147,7 @@ function HeroSection() {
     }
   }, [])
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100">
+    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100">
       {' '}
       <div className="absolute inset-0 overflow-hidden">
         {' '}
@@ -179,10 +181,10 @@ function HeroSection() {
           y,
           opacity,
         }}
-        className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-4 relative z-10"
+        className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-4 relative z-10"
       >
         {' '}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 py-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 py-4 items-center">
           {' '}
           <motion.div
             initial={{
@@ -235,28 +237,11 @@ function HeroSection() {
                 }}
                 className="text-3xl sm:text-5xl lg:text-5xl font-bold leading-tight"
               >
-                Product Engineering & Digital{' '}
-                <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Transformation Partner
+                Build Faster. Scale Smarter.{' '}
+                <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent block sm:inline">
+                  Transform Digitally.
                 </span>
               </AnimatedH1>{' '}
-              {/* <motion.div
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: 1,
-                }}
-                transition={{
-                  delay: 0.5,
-                }}
-                className="h-16 flex items-center justify-center lg:justify-start"
-              >
-                {' '}
-                <p className=" text-lg lg:text-xl sm:text-2xl text-gray-600 font-bold">
-                  {displayedText} <span className="animate-pulse">|</span>
-                </p>
-              </motion.div>{' '} */}
               <motion.p
                 initial={{
                   opacity: 0,
@@ -269,19 +254,18 @@ function HeroSection() {
                 transition={{
                   delay: 0.7,
                 }}
-                className="text-md lg:text-lg text-gray-600 leading-relaxed"
+                className="text-md lg:text-lg text-gray-600 leading-relaxed font-medium"
               >
-                From MVP to enterprise-grade systems — we ship fast, keep quality high, and stay
-                with you for long-term support.
+                Empowering businesses with custom software, ERP, CRM, mobile apps, and AI-driven solutions that streamline operations, accelerate growth, and drive digital transformation.
               </motion.p>
             </div>{' '}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col items-center sm:items-start sm:flex-row gap-4 w-full"
             >
-              <Link href="/contact" className="w-full sm:w-auto">
+              <Link href="/contact" className="w-[80%] sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -295,7 +279,7 @@ function HeroSection() {
                 </motion.button>
               </Link>
 
-              <Link href="/services" className="w-full sm:w-auto">
+              <Link href="/services" className="w-[80%] sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

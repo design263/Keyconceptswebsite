@@ -1,3 +1,4 @@
+import { Inter } from "next/font/google";
 import "./globals.css";
 import "../styles/theme.css";
 import "../styles/tailwind.css";
@@ -13,6 +14,12 @@ import {
 } from "@/lib/seo";
 import { JsonLd } from "@/components/json-ld";
 import { organizationSchema, websiteSchema } from "@/lib/structured-data";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans",
+});
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -61,8 +68,8 @@ export default function RootLayout({
   children,
 }) {
   return (
-    <html lang="en" className="h-full">
-      <body className="min-h-full flex flex-col antialiased">
+    <html lang="en" className={`h-full ${inter.variable}`} suppressHydrationWarning>
+      <body className="min-h-full flex flex-col antialiased font-sans" suppressHydrationWarning>
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         {children}
       </body>

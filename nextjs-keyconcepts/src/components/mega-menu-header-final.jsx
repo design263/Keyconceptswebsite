@@ -918,8 +918,8 @@ function MegaMenuHeader() {
                 </div>
               ))}
 
-              <Link href="/contact" onClick={closeMobileMenu}>
-                <button className="w-full mt-4 md:px-6 px-4 py-3 text-sm md:text-md bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg font-semibold cursor-pointer">
+              <Link href="/contact" onClick={closeMobileMenu} className="flex justify-center w-full">
+                <button className="w-[80%] md:w-full mt-4 md:px-6 px-4 py-3 text-sm md:text-md bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg font-semibold cursor-pointer">
                   Contact Us
                 </button>
               </Link>

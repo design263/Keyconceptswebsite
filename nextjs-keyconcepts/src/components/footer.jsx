@@ -275,15 +275,15 @@ function Footer() {
           </p>{' '}
           <div className="flex space-x-6 text-sm">
             {' '}
-            <a href="#" className="text-gray-400 hover:text-[#f1592a] transition-colors">
+            <Link href="/privacy-policy" className="text-gray-400 hover:text-[#f1592a] transition-colors">
               Privacy Policy
-            </a>{' '}
-            <a href="#" className="text-gray-400 hover:text-[#f1592a] transition-colors">
+            </Link>{' '}
+            <Link href="/terms-of-service" className="text-gray-400 hover:text-[#f1592a] transition-colors">
               Terms of Service
-            </a>{' '}
-            <a href="#" className="text-gray-400 hover:text-[#f1592a] transition-colors">
+            </Link>{' '}
+            <Link href="/cookie-policy" className="text-gray-400 hover:text-[#f1592a] transition-colors">
               Cookie Policy
-            </a>
+            </Link>
           </div>
         </div>
       </div>

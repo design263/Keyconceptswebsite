@@ -4,7 +4,7 @@ import { motion } from 'motion/react'
 import { Database, Layers, Rocket, Settings, Wrench } from 'lucide-react'
 import { ImageWithFallback } from './figma/ImageWithFallback'
 // import productDevelopmentImage from '/images/support/product_development.jpg'
-// import specializedPlatformsImage from '/images/support/specialized_developmeny.jpg'
+// import specializedPlatformsImage from '/images/support/specialized_development.jpg'
 // import odooDevelopmentImage from '/images/support/odoo_development.jpg'
 // import supportMaintenanceImage from '/images/support/support.jpg'
 // import mvpDevelopmentImage from '/images/support/MVP.png'
@@ -13,7 +13,7 @@ const services = [
     icon: Layers,
     title: 'Product Development',
     description:
-      'End-to-end product development from ideation to launch, building scalable and innovative solutions.',
+      'Overcome software scaling blocks. We engineer high-performance platforms that handle heavy user traffic and drive 2x operational efficiency.',
     image: '/images/support/product_development.jpg',
     color: 'from-gray-600 to-gray-800',
     span: 'lg:row-span-2',
@@ -22,8 +22,8 @@ const services = [
     icon: Rocket,
     title: 'Specialized Platforms',
     description:
-      'Custom-built platforms including Visitorz, Younited Communities, and Election Mobilization solutions.',
-    image: '/images/support/specialized_developmeny.jpg',
+      'Escape restrictive off-the-shelf limitations. We build custom community hubs and visitor portals designed for your exact organizational workflows.',
+    image: '/images/support/specialized_development.jpg',
     color: 'from-[#f1592a] to-[#ff7a45]',
     span: 'lg:col-span-2',
   },
@@ -31,7 +31,7 @@ const services = [
     icon: Database,
     title: 'Odoo Development',
     description:
-      'Expert Odoo ERP implementation, customization, and integration tailored to your business needs.',
+      'Stop dealing with disjointed business data. We centralize inventory, sales, and accounting with Odoo ERP, reducing admin overhead by 30%.',
     image: '/images/support/odoo_development.jpg',
     color: 'from-gray-700 to-gray-900',
     span: 'lg:col-span-2',
@@ -40,7 +40,7 @@ const services = [
     icon: Settings,
     title: 'MVP Development',
     description:
-      'Rapidly build and validate your minimum viable product with our agile development approach.',
+      'Mitigate market launch risks. We build feature-focused, investor-ready MVPs in 6-10 weeks to validate your product-market fit fast.',
     image: '/images/support/MVP.png',
     color: 'from-gray-600 to-gray-800',
     span: 'lg:col-span-2',
@@ -49,7 +49,7 @@ const services = [
     icon: Wrench,
     title: 'Support & Maintenance',
     description:
-      '24/7 technical support and ongoing maintenance to keep your systems running smoothly.',
+      'Eliminate costly system downtime. Our 24/7 proactive monitoring and rapid bug fixes guarantee 99.9% operational uptime.',
     image: '/images/support/support.jpg',
     color: 'from-[#f1592a] to-[#ff7a45]',
   },

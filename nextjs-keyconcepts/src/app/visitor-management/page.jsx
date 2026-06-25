@@ -298,9 +298,9 @@ function VisitorManagementPage() {
                   transition={{
                     delay: 0.6,
                   }}
-                  className="flex flex-col sm:flex-row gap-4"
+                  className="flex flex-col items-center sm:items-start sm:flex-row gap-4"
                 >
-                  <Link href="/contact">
+                  <Link href="/contact" className="w-[80%] sm:w-auto">
                     <motion.button
                       whileHover={{
                         scale: 1.05,
@@ -324,7 +324,7 @@ function VisitorManagementPage() {
                     whileTap={{
                       scale: 0.95,
                     }}
-                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg"
+                    className="w-[80%] sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg"
                   >
                     <span className="text-sm md:text-md font-semibold">View Pricing</span>
                   </motion.button>
@@ -1087,7 +1087,7 @@ function VisitorManagementPage() {
                   speed, and seamless operations.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/contact">
+                  <Link href="/contact" className="w-full sm:w-auto flex justify-center">
                     <motion.button
                       whileHover={{
                         scale: 1.05,
@@ -1095,7 +1095,7 @@ function VisitorManagementPage() {
                       whileTap={{
                         scale: 0.95,
                       }}
-                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all"
+                      className="w-[80%] sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all"
                     >
                       <span className="text-sm md:text-md">Schedule a Demo</span>
                     </motion.button>

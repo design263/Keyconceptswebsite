@@ -61,7 +61,7 @@ function AnimatedCounter({ value, suffix }) {
     <span className="inline-flex items-baseline">
       {' '}
       <span ref={ref} className="tabular-nums">
-        0
+        {value}
       </span>{' '}
       <span className="ml-1">{suffix}</span>
     </span>

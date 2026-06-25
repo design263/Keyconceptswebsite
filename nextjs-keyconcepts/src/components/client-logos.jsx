@@ -27,7 +27,12 @@ const logoModules = {
 
 function pathToDisplayName(filePath) {
   const base = filePath.split(/[/\\]/).pop().replace(/\.[^.]+$/, '')
-  return base.replace(/[-_]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
+  return base
+    .replace(/Picsart|Background|Remover/gi, '')
+    .replace(/[-_]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(/\b\w/g, (c) => c.toUpperCase())
 }
 
 function normalizeClientKey(name) {
@@ -65,13 +70,13 @@ function ClientLogos() {
   const duration = totalWidth / SPEED // seconds for one full cycle
 
   return (
-    <section className="py-16 bg-white border-t border-gray-100">
+    <section className="pt-16 pb-10 bg-white border-t border-gray-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
           <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
             Trusted By Industry Leaders
@@ -107,6 +112,7 @@ function ClientLogos() {
               width: 'max-content',
               animation: `marquee ${duration}s linear infinite`,
               animationPlayState: isPaused ? 'paused' : 'running',
+              padding: '10px 0 20px',
             }}
           >
             {doubled.map((client, i) => (
@@ -122,6 +128,7 @@ function ClientLogos() {
                   title={client.name + ' logo'}
                   className="max-h-10 max-w-full w-auto object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all"
                   loading="lazy"
+                  suppressHydrationWarning
                 />
               </div>
             ))}

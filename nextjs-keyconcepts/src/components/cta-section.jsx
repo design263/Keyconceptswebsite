@@ -3,7 +3,10 @@
 import { motion } from 'motion/react'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import Link from 'next/link'
+import { useEnquiryModal } from '@/context/enquiry-modal-context'
+
 function CTASection() {
+  const { openModal } = useEnquiryModal()
   return (
     <section className="relative py-12 md:py-16 overflow-hidden">
       {' '}
@@ -58,11 +61,11 @@ function CTASection() {
             solutions. Book a discovery call today.
           </p>{' '}
           <div className="flex flex-col sm:flex-row gap-4 justify-center w-full">
-            <Link href="/contact" className="w-full sm:w-auto">
+            <Link href="/contact" className="w-full sm:w-auto flex justify-center">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all flex items-center justify-center space-x-2 font-semibold"
+                className="group w-[80%] sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all flex items-center justify-center space-x-2 font-semibold"
               >
                 <span>Schedule a Consultation</span>
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />

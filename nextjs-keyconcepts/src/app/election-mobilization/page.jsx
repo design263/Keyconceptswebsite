@@ -60,7 +60,7 @@ function AnimatedCounter({
   }, [springValue, prefix, suffix, decimals])
   return (
     <span ref={ref}>
-      {prefix}0{suffix}
+      {prefix}{value}{suffix}
     </span>
   )
 }
@@ -369,22 +369,6 @@ function ElectionMobilizationPage() {
                 transition={{
                   delay: 0.4,
                 }}
-                className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed"
-              >
-                Digital Campaigning. Voter Reachout. Simplified.
-              </motion.p>
-              <motion.p
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{
-                  delay: 0.5,
-                }}
                 className="text-base text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed"
               >
                 A centralized platform designed to manage digital campaigning, engage voters
@@ -400,7 +384,7 @@ function ElectionMobilizationPage() {
                   y: 0,
                 }}
                 transition={{
-                  delay: 0.6,
+                  delay: 0.5,
                 }}
                 className="flex flex-col sm:flex-row items-center justify-center gap-4"
               >
@@ -412,7 +396,7 @@ function ElectionMobilizationPage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="w-full sm:w-auto group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                  className="w-[80%] sm:w-auto group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                 >
                   <span className="text-sm md:text-md font-semibold">Request a Demo</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
@@ -425,7 +409,7 @@ function ElectionMobilizationPage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg"
+                  className="w-[80%] sm:w-auto text-center px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg"
                 >
                   <span className="text-sm md:text-md font-semibold">Explore Features</span>
                 </motion.a>
@@ -1007,7 +991,7 @@ function ElectionMobilizationPage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="w-full sm:w-auto group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                  className="w-[80%] sm:w-auto group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                 >
                   <span className="text-sm md:text-md font-semibold">Book a Demo</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />

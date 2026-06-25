@@ -1,12 +1,14 @@
 export const SITE_NAME = 'Key Concepts'
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || 'https://v2.keyconcepts.co.in'
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000'
+    : (process.env.NEXT_PUBLIC_SITE_URL || 'https://v2.keyconcepts.co.in')
 export const DEFAULT_OG_IMAGE = '/opengraph-image'
 export const OG_IMAGE_WIDTH = 1200
 export const OG_IMAGE_HEIGHT = 630
 export const TWITTER_HANDLE = '@KCITSindia'
 
-export const META_TITLE_MAX = 60
+export const META_TITLE_MAX = 80
 export const META_DESC_MIN = 50
 export const META_DESC_MAX = 160
 
@@ -59,22 +61,22 @@ export function resolveFullTitle(title) {
 export const pageSeo = {
   home: {
     title: {
-      absolute: 'Web, App & Software Development Company | Key Concepts Surat',
+      absolute: 'Custom Software Development Company in Surat | Key Concepts',
     },
     description:
-      'Key Concepts is a Surat-based web, app, and software development company since 2009. We design websites, mobile apps, Odoo ERP, and custom digital products.',
+      'Key Concepts is a top software development company in Surat. We build custom ERP, CRM, mobile apps, and Next.js web solutions that accelerate business growth.',
     keywords:
-      'web development Surat, software development company, mobile app development, Odoo ERP, UI UX design, product development',
+      'Software Development Company, ERP Software Company, CRM Development, Mobile App Development, Web Development, Odoo ERP, software company Surat',
     path: '/',
   },
   about: {
     title: {
-      absolute: 'About Key Concepts | IT Company in Surat Since 2009',
+      absolute: 'About Key Concepts | Software Development & IT Company',
     },
     description:
-      'Trusted IT company in Surat since 2009. We deliver websites, mobile apps, custom software, branding, and Odoo ERP solutions for clients worldwide.',
+      'Key Concepts is a premier software development company and IT company since 2009. Discover our mission, values, and expert team building custom software and Odoo ERP solutions.',
     keywords:
-      'about Key Concepts, IT company Surat, software development company, web development team Surat',
+      'Software Company, Software Development Company, IT Company, Odoo ERP, custom software, developer team Surat, Key Concepts about',
     path: '/about',
   },
   'our-story': {
@@ -199,32 +201,32 @@ export const pageSeo = {
   },
   'visitor-management': {
     title: {
-      absolute: 'Visitorz | Visitor Management for Offices',
+      absolute: 'Visitor Management System & Gate Pass Software | Visitorz',
     },
     description:
-      'Visitorz by Key Concepts: QR check-in, host alerts, visitor badges, blacklist screening, pre-registration, and visitor history.',
+      'Implement Visitorz, India\'s leading visitor management system for offices, corporate parks & schools. Features touchless QR check-in, host alerts & e-badges.',
     keywords:
-      'visitor management system, gate management software, visitor check-in app, reception management, Visitorz',
+      'visitor management system, gate pass software, visitor check-in app, visitor tracking system, reception management, Visitorz India',
     path: '/visitor-management',
   },
   'younited-communities': {
     title: {
-      absolute: 'Younited Communities | Housing Society Platform',
+      absolute: 'Housing Society Management Software & App India | Younited',
     },
     description:
-      'Younited Communities: manage housing society members, events, communications, payments, and daily operations in one platform.',
+      'Simplify society accounting, member billing, helper tracking & communications with Younited, the best housing society management software & app in India.',
     keywords:
-      'community management software, association management app, housing society software, member management platform',
+      'housing society management software, society management app, housing society accounting software, community management app, Younited India',
     path: '/younited-communities',
   },
   'election-mobilization': {
     title: {
-      absolute: 'Election Mobilization | Campaign Management App',
+      absolute: 'Election Campaign & Voter Management Software | Key Concepts',
     },
     description:
-      'Digital campaigning, voter outreach, volunteer coordination, field mobilization, and campaign activity tracking by Key Concepts.',
+      'Run winning campaigns in India with our election campaign management software. Track voters, manage booth committees, and coordinate volunteers in real time.',
     keywords:
-      'election campaign app, voter outreach software, political campaign platform, field mobilization app',
+      'election campaign management software, voter management app, political campaign software, booth management system, volunteer tracking India',
     path: '/election-mobilization',
   },
   'insights-trends': {
@@ -256,6 +258,36 @@ export const pageSeo = {
     keywords:
       'Key Concepts blog, web development articles, mobile app articles, Odoo ERP blog, software development',
     path: '/blog',
+  },
+  'privacy-policy': {
+    title: {
+      absolute: 'Privacy Policy | Key Concepts',
+    },
+    description:
+      'Read our Privacy Policy to understand how Key Concepts collects, uses, protects, and manages your personal and business data.',
+    keywords:
+      'privacy policy, data protection, privacy terms, data safety, Key Concepts privacy',
+    path: '/privacy-policy',
+  },
+  'terms-of-service': {
+    title: {
+      absolute: 'Terms of Service | Key Concepts',
+    },
+    description:
+      'Read our Terms of Service. Understand the terms, conditions, and rules for using Key Concepts software development and IT services.',
+    keywords:
+      'terms of service, terms and conditions, terms of use, service agreement, Key Concepts terms',
+    path: '/terms-of-service',
+  },
+  'cookie-policy': {
+    title: {
+      absolute: 'Cookie Policy | Key Concepts',
+    },
+    description:
+      'Learn about our Cookie Policy. Find out how Key Concepts uses cookies and tracking technologies to optimize your experience on our website.',
+    keywords:
+      'cookie policy, web cookies, tracking technologies, browser cookies, user tracking',
+    path: '/cookie-policy',
   },
 }
 

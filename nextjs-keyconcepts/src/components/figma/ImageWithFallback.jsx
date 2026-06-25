@@ -24,6 +24,7 @@ export function ImageWithFallback(props) {
     title,
     width,
     height,
+    fill,
     ...rest
   } = props
 
@@ -51,6 +52,24 @@ export function ImageWithFallback(props) {
     )
   }
 
+  if (fill) {
+    return (
+      <Image
+        src={imageSrc}
+        alt={alt || ''}
+        title={imageTitle}
+        className={className}
+        style={style}
+        priority={priority}
+        sizes={sizes || '100vw'}
+        onError={() => setDidError(true)}
+        suppressHydrationWarning
+        fill
+        {...rest}
+      />
+    )
+  }
+
   if (width && height) {
     return (
       <Image
@@ -64,6 +83,7 @@ export function ImageWithFallback(props) {
         priority={priority}
         sizes={sizes}
         onError={() => setDidError(true)}
+        suppressHydrationWarning
         {...rest}
       />
     )
@@ -81,6 +101,7 @@ export function ImageWithFallback(props) {
       priority={priority}
       sizes={sizes || '100vw'}
       onError={() => setDidError(true)}
+      suppressHydrationWarning
       {...rest}
     />
   )
