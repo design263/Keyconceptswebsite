@@ -7,6 +7,14 @@ import { Mail, Phone, MapPin, Send, MessageSquare, Map, ChevronDown } from 'luci
 import { useState } from 'react'
 import { api, endpoints } from '@/lib/api'
 
+const countries = [
+  { code: '+91', flag: '🇮🇳', label: 'India', placeholder: '98765 43210', pattern: /^[6-9]\d{9}$/, error: 'Please enter a valid 10-digit mobile number' },
+  { code: '+1', flag: '🇺🇸', label: 'USA', placeholder: '202 555 0111', pattern: /^\d{10}$/, error: 'Please enter a valid 10-digit number' },
+  { code: '+44', flag: '🇬🇧', label: 'UK', placeholder: '7123 456789', pattern: /^7\d{9}$/, error: 'Please enter a valid UK mobile number starting with 7' },
+  { code: '+61', flag: '🇦🇺', label: 'Australia', placeholder: '412 345 678', pattern: /^4\d{8}$/, error: 'Please enter a valid Australian mobile number' },
+  { code: '+971', flag: '🇦🇪', label: 'UAE', placeholder: '50 123 4567', pattern: /^5\d{8}$/, error: 'Please enter a valid UAE mobile number' },
+]
+
 function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
@@ -17,27 +25,35 @@ function ContactPage() {
     message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [selectedCountry, setSelectedCountry] = useState(countries[0])
+  const [phoneError, setPhoneError] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (isSubmitting) return // Prevent multiple submissions
 
+    if (formData.phone && !selectedCountry.pattern.test(formData.phone)) {
+      setPhoneError(selectedCountry.error)
+      return
+    }
+
     console.log('Form submission started...') // Debug log
     setIsSubmitting(true)
     try {
+      const fullPhone = `${selectedCountry.code} ${formData.phone}`
       // Send form data to API using contact-leads endpoint like React version
       console.log('Sending data:', {
         name: formData.name,
         email: formData.email,
         subject: formData.service || 'General Inquiry',
-        message: `${formData.message}${formData.company ? `\nCompany: ${formData.company}` : ''}${formData.phone ? `\nPhone: ${formData.phone}` : ''}`,
+        message: `${formData.message}${formData.company ? `\nCompany: ${formData.company}` : ''}${formData.phone ? `\nPhone: ${fullPhone}` : ''}`,
       })
 
       const res = await api.post('/contact-leads', {
         name: formData.name,
         email: formData.email,
         subject: formData.service || 'General Inquiry',
-        message: `${formData.message}${formData.company ? `\nCompany: ${formData.company}` : ''}${formData.phone ? `\nPhone: ${formData.phone}` : ''}`,
+        message: `${formData.message}${formData.company ? `\nCompany: ${formData.company}` : ''}${formData.phone ? `\nPhone: ${fullPhone}` : ''}`,
       })
 
       console.log('API response:', res) // Debug log
@@ -51,6 +67,7 @@ function ContactPage() {
         service: '',
         message: '',
       })
+      setPhoneError('')
 
       // Show success message
       alert('Message sent successfully!')
@@ -67,6 +84,39 @@ function ContactPage() {
       ...prev,
       [e.target.name]: e.target.value,
     }))
+  }
+
+  const handlePhoneChange = (e) => {
+    const val = e.target.value.replace(/\D/g, '')
+    setFormData((prev) => ({
+      ...prev,
+      phone: val,
+    }))
+    
+    if (val === '') {
+      setPhoneError('')
+      return
+    }
+
+    if (!selectedCountry.pattern.test(val)) {
+      setPhoneError(selectedCountry.error)
+    } else {
+      setPhoneError('')
+    }
+  }
+
+  const handleCountryChange = (e) => {
+    const selected = countries.find(c => c.code === e.target.value)
+    if (selected) {
+      setSelectedCountry(selected)
+      if (formData.phone) {
+        if (!selected.pattern.test(formData.phone)) {
+          setPhoneError(selected.error)
+        } else {
+          setPhoneError('')
+        }
+      }
+    }
   }
 
   // Test loading state
@@ -228,15 +278,34 @@ function ContactPage() {
                         >
                           Phone Number
                         </label>
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#f1592a] focus:outline-none transition-colors"
-                          placeholder="+91 823X XXX XXX"
-                        />
+                        <div className="relative flex items-center">
+                          <div className="absolute left-0 pl-3 flex items-center pointer-events-auto z-10 border-r border-gray-200 pr-2">
+                            <select
+                              value={selectedCountry.code}
+                              onChange={handleCountryChange}
+                              className="bg-transparent text-sm text-gray-800 focus:outline-none cursor-pointer pr-4 appearance-none outline-none"
+                            >
+                              {countries.map((c) => (
+                                <option key={c.label} value={c.code}>
+                                  {c.flag} {c.code}
+                                </option>
+                              ))}
+                            </select>
+                            <ChevronDown size={10} className="text-gray-400 -ml-3 pointer-events-none" />
+                          </div>
+                          <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handlePhoneChange}
+                            className={`w-full pl-24 pr-4 py-3 rounded-lg border focus:outline-none transition-colors ${phoneError ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-[#f1592a]'}`}
+                            placeholder={selectedCountry.placeholder}
+                          />
+                        </div>
+                        {phoneError && (
+                          <p className="text-red-500 text-xs mt-1">{phoneError}</p>
+                        )}
                       </div>
                     </div>
                     <div className=" relative">

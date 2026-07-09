@@ -11,36 +11,22 @@ function PortfolioSection() {
   const displayStudies = caseStudies.slice(0, 3)
 
   return (
-    <section className="py-12 md:py-16 bg-white">
+    <section className="py-12 md:py-16 bg-white border-b border-gray-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div className="text-center mb-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-2xl"
+            className=""
           >
             <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4">
               Proven Outcomes
             </span>
             <h2 className="text-3xl md:text-5xl font-bold mb-4">Our Success Stories</h2>
-            <p className="text-md md:text-lg text-gray-600">
+            <p className="text-md md:text-lg text-gray-600 max-w-2xl mx-auto">
               Explore how we've helped startups and enterprise businesses launch products, optimize ERPs, and grow globally.
             </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="mt-4 md:mt-0"
-          >
-            <Link
-              href="/insights/case-studies"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-gray-200 rounded-full text-gray-800 hover:border-[#f1592a] hover:text-[#f1592a] transition-all font-semibold"
-            >
-              <span>View All Case Studies</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
           </motion.div>
         </div>
 
@@ -98,6 +84,21 @@ function PortfolioSection() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex justify-center mt-10"
+        >
+          <Link
+            href="/insights/case-studies"
+            className="inline-flex items-center gap-1.5 px-4 py-2 border border-gray-200 rounded-full text-gray-800 hover:border-[#f1592a] hover:text-[#f1592a] transition-all font-semibold text-xs sm:text-sm"
+          >
+            <span>View All Case Studies</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   )

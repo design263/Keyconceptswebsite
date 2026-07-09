@@ -260,12 +260,7 @@ function Footer() {
                   info@keyconcepts.co.in
                 </a>
               </li>
-            </ul>{' '}
-            <div className="mt-6 pt-6 border-t border-gray-700">
-              {' '}
-              <h4 className="text-sm font-semibold mb-2 text-gray-300">Our Branches</h4>{' '}
-              <p className="text-gray-400 text-sm">London | New York</p>
-            </div>
+            </ul>
           </div>
         </div>{' '}
         <div className="mt-12 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">

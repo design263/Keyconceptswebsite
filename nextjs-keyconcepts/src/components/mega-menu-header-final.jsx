@@ -22,7 +22,7 @@ const mobileNavMenus = [
   },
   {
     id: 'products',
-    label: 'Our Platforms',
+    label: 'Products',
     items: [
       { href: '/visitor-management', label: 'Visitorz Management System', description: 'Visitors & gate management system', icon: Users },
       { href: '/younited-communities', label: 'Younited Communities', description: 'Community & association management', icon: Building2 },
@@ -334,7 +334,7 @@ function MegaMenuHeader() {
               onMouseLeave={handleMouseLeave}
             >
               <button className="group flex items-center space-x-1 px-4 py-2 text-gray-700 hover:text-[#f1592a] transition-colors font-medium">
-                <span>Our Platforms</span>
+                <span>Products</span>
                 <ChevronDown
                   size={16}
                   className={`transition-transform duration-200 ${activeMegaMenu === 'products' ? 'rotate-180' : ''}`}
@@ -366,12 +366,6 @@ function MegaMenuHeader() {
                     className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[800px] bg-white backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-100 overflow-hidden"
                   >
                     <div className="p-8">
-                      <div className="mb-6">
-                        <h3 className="font-bold text-gray-900 text-lg flex items-center space-x-2">
-                          <div className="w-1 h-6 bg-gradient-to-b from-[#f1592a] to-[#ff7a45] rounded-full" />
-                          <span>Specialized Platforms</span>
-                        </h3>
-                      </div>
                       <div className="grid grid-cols-3 gap-6">
                         <motion.div
                           initial={{

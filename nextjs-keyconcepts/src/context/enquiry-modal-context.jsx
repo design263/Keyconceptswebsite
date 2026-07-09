@@ -1,7 +1,10 @@
 'use client'
 
 import { createContext, useContext, useState } from 'react'
+import { EnquiryModal } from '../components/enquiry-modal'
+
 const EnquiryModalContext = createContext(void 0)
+
 function EnquiryModalProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false)
   const openModal = () => setIsOpen(true)
@@ -15,6 +18,7 @@ function EnquiryModalProvider({ children }) {
       }}
     >
       {children}
+      <EnquiryModal isOpen={isOpen} onClose={closeModal} />
     </EnquiryModalContext.Provider>
   )
 }

@@ -1039,12 +1039,18 @@ function VisitorManagementPage() {
             ))}
           </div>
         </section>
-        <section className="pb-12 md:pb-16 bg-gradient-to-br from-gray-50 to-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative py-12 md:py-16 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#f1592a] via-[#ff7a45] to-[#f1592a]">
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+              <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+            </div>
+          </div>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <motion.div
               initial={{
                 opacity: 0,
-                y: 30,
+                y: 50,
               }}
               whileInView={{
                 opacity: 1,
@@ -1053,17 +1059,8 @@ function VisitorManagementPage() {
               viewport={{
                 once: true,
               }}
-              className="bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-3xl p-12 lg:p-16 text-center shadow-2xl relative overflow-hidden"
+              className="max-w-4xl mx-auto text-center"
             >
-              <div className="absolute inset-0 opacity-10">
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-                    backgroundSize: '30px 30px',
-                  }}
-                />
-              </div>
               <div className="relative z-10">
                 <motion.div
                   initial={{
@@ -1075,16 +1072,15 @@ function VisitorManagementPage() {
                   viewport={{
                     once: true,
                   }}
-                  className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-white/20 backdrop-blur-sm rounded-2xl mb-6"
+                  className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-white/20 backdrop-blur-sm rounded-2xl mb-6 border border-white/40"
                 >
                   <Shield className="text-white w-8 h-8 md:w-10 md:h-10"  strokeWidth={1.5} />
                 </motion.div>
-                <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
+                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
                   Ready to Modernize Your Reception?
                 </h2>
-                <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-                  Join hundreds of companies that trust our visitor management system for safety,
-                  speed, and seamless operations.
+                <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
+                  Join hundreds of companies that trust our visitor management system for safety, speed, and seamless operations.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link href="/contact" className="w-full sm:w-auto flex justify-center">
@@ -1095,7 +1091,7 @@ function VisitorManagementPage() {
                       whileTap={{
                         scale: 0.95,
                       }}
-                      className="w-[80%] sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all"
+                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all font-semibold flex items-center justify-center space-x-2"
                     >
                       <span className="text-sm md:text-md">Schedule a Demo</span>
                     </motion.button>
@@ -1107,7 +1103,7 @@ function VisitorManagementPage() {
                     whileTap={{
                       scale: 0.95,
                     }}
-                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border-2 border-white/30 hover:border-white/50 transition-all font-semibold"
+                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-transparent text-white rounded-full border-2 border-white hover:bg-white hover:text-[#f1592a] transition-all font-semibold flex items-center justify-center space-x-2"
                   >
                     <span className="text-sm md:text-md">Download Brochure</span>
                   </motion.button>

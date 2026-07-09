@@ -1,336 +1,538 @@
 'use client'
 
 import { motion, AnimatePresence } from 'motion/react'
-import { X, Mail, Phone, User, MessageSquare, Building } from 'lucide-react'
-import { useState } from 'react'
+import { X, ChevronLeft, ChevronRight, Check, Calendar, Building2, User, Phone, MessageSquare, ArrowRight, ShieldCheck, Clock, Award } from 'lucide-react'
+import { useState, useEffect } from 'react'
+
+const clientLogos = [
+  { name: 'Rajhans', src: '/assets/clientLogo/rajhans-logos.png' },
+  { name: 'Genius', src: '/assets/clientLogo/Genius-Logo.png' },
+  { name: 'Jivraj', src: '/assets/clientLogo/Jivraj.jpg' },
+  { name: 'Nobletex', src: '/assets/clientLogo/Nobletex.jpg' },
+  { name: 'PPSU', src: '/assets/clientLogo/PPSU.png' },
+  { name: 'Dolphy', src: '/assets/clientLogo/dolphy-logo.png' },
+  { name: 'Easysell', src: '/assets/clientLogo/easysell_logo.png' },
+  { name: 'Heartfulness', src: '/assets/clientLogo/heartfulness.png' },
+  { name: 'Solex', src: '/assets/clientLogo/solex.png' },
+]
+
 function EnquiryModal({ isOpen, onClose }) {
+  const [step, setStep] = useState(1)
+  const [currentDate, setCurrentDate] = useState(new Date())
+  const [selectedDate, setSelectedDate] = useState(null)
+
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     phone: '',
     company: '',
+    service: '',
     message: '',
   })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitSuccess, setSubmitSuccess] = useState(false)
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    setIsSubmitting(false)
-    setSubmitSuccess(true)
-    setTimeout(() => {
+
+  const [errors, setErrors] = useState({
+    name: '',
+    phone: '',
+    service: '',
+  })
+
+  const [countryCode, setCountryCode] = useState('+91')
+
+  // Reset modal state on close or open
+  useEffect(() => {
+    if (isOpen) {
+      setStep(1)
+      setSelectedDate(null)
+      setCurrentDate(new Date())
       setFormData({
         name: '',
-        email: '',
         phone: '',
         company: '',
+        service: '',
         message: '',
       })
-      setSubmitSuccess(false)
-      onClose()
-    }, 2e3)
+      setErrors({
+        name: '',
+        phone: '',
+        service: '',
+      })
+      setCountryCode('+91')
+    }
+  }, [isOpen])
+
+  // Calendar logic
+  const year = currentDate.getFullYear()
+  const month = currentDate.getMonth()
+  const monthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ]
+
+  const firstDayOfMonth = new Date(year, month, 1).getDay()
+  const daysInMonth = new Date(year, month + 1, 0).getDate()
+
+  const handlePrevMonth = () => {
+    const now = new Date()
+    if (year > now.getFullYear() || (year === now.getFullYear() && month > now.getMonth())) {
+      setCurrentDate(new Date(year, month - 1, 1))
+    }
   }
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+
+  const handleNextMonth = () => {
+    setCurrentDate(new Date(year, month + 1, 1))
+  }
+
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+
+  const isFutureDate = (day) => {
+    const dateToCheck = new Date(year, month, day)
+    return dateToCheck > today
+  }
+
+  const handleDateSelect = (day) => {
+    if (isFutureDate(day)) {
+      setSelectedDate(new Date(year, month, day))
+    }
+  }
+
+  // Form Validation
+  const validateField = (name, value) => {
+    let errorMsg = ''
+    if (name === 'name') {
+      if (!value) {
+        errorMsg = 'Full Name is required'
+      } else if (value.trim().length < 3) {
+        errorMsg = 'Name must be at least 3 characters'
+      }
+    } else if (name === 'phone') {
+      if (!value) {
+        errorMsg = 'Contact Number is required'
+      } else if (!/^\d+$/.test(value)) {
+        errorMsg = 'Phone number must contain digits only'
+      } else if (value.length < 10 || value.length > 15) {
+        errorMsg = 'Phone number must be between 10 and 15 digits'
+      }
+    } else if (name === 'service') {
+      if (!value) {
+        errorMsg = 'Required Service is required'
+      }
+    }
+    setErrors((prev) => ({ ...prev, [name]: errorMsg }))
+  }
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+    validateField(name, value)
+  }
+
+  const handleServiceChange = (e) => {
+    const { value } = e.target
+    setFormData((prev) => ({ ...prev, service: value }))
+    validateField('service', value)
+  }
+
+  const isFormValid =
+    formData.name.trim().length >= 3 &&
+    /^\d+$/.test(formData.phone) &&
+    formData.phone.length >= 10 &&
+    formData.phone.length <= 15 &&
+    formData.service !== '' &&
+    !errors.name &&
+    !errors.phone &&
+    !errors.service
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (isFormValid) {
+      setStep(3)
+    }
+  }
+
+  // Generate blank prefix boxes and days
+  const blankDays = Array(firstDayOfMonth).fill(null)
+  const monthDays = Array.from({ length: daysInMonth }, (_, i) => i + 1)
+  const allDays = [...blankDays, ...monthDays]
+
+  const formattedSelectedDate = selectedDate
+    ? selectedDate.toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
     })
-  }
+    : ''
+
   return (
     <AnimatePresence>
       {isOpen && (
         <>
-          {' '}
+          {/* Overlay */}
           <motion.div
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: 1,
-            }}
-            exit={{
-              opacity: 0,
-            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
-          />{' '}
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
-            {' '}
+            className="fixed inset-0 bg-gray-900/60 backdrop-blur-md z-[100]"
+          />
+
+          {/* Modal Container */}
+          <div className="fixed inset-0 z-[101] flex items-center justify-center p-4 overflow-y-auto">
             <motion.div
-              initial={{
-                opacity: 0,
-                scale: 0.9,
-                y: 20,
-              }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                y: 0,
-              }}
-              exit={{
-                opacity: 0,
-                scale: 0.9,
-                y: 20,
-              }}
-              transition={{
-                type: 'spring',
-                duration: 0.5,
-              }}
-              className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl pointer-events-auto max-h-[90vh] overflow-y-auto"
-              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.3 }}
+              className="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row my-8"
             >
-              {' '}
+              {/* Close Button */}
               <button
                 onClick={onClose}
-                className="absolute top-3 right-3 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors z-10"
+                className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white md:text-gray-500 md:bg-gray-100 md:hover:bg-gray-200 transition-colors"
+                aria-label="Close modal"
               >
-                {' '}
-                <X className="text-gray-600" size={18} />
-              </button>{' '}
-              <div className="bg-gradient-to-br from-[#f1592a] to-[#ff7a45] p-5 md:p-6 rounded-t-2xl">
-                {' '}
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    y: 20,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    delay: 0.2,
-                  }}
-                >
-                  {' '}
-                  <h2 className="text-xl md:text-2xl font-bold text-white mb-1.5">
-                    Let's Get Started
-                  </h2>{' '}
-                  <p className="text-white/90 text-xs md:text-sm">
-                    Fill out the form below and our team will get back to you within 24 hours
+                <X size={18} />
+              </button>
+
+              {/* Left Column (35%) - Orange Gradient Theme */}
+              <div className="w-full md:w-[35%] bg-gradient-to-br from-[#f1592a] via-[#ff7a45] to-[#f1592a] p-6 md:p-8 text-white flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10 shrink-0">
+                <div>
+                  <div className="inline-flex items-center space-x-2 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold text-white border border-white/30 mb-6">
+                    <Calendar size={13} />
+                    <span>Discovery Session</span>
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">
+                    Book a Discovery Call
+                  </h2>
+                  <p className="text-white/90 text-sm leading-relaxed mb-6">
+                    Schedule a 15-minute consultation with our product managers to map your development strategy.
                   </p>
-                </motion.div>
-              </div>{' '}
-              <div className="p-5 md:p-6">
-                {submitSuccess ? (
-                  <motion.div
-                    initial={{
-                      opacity: 0,
-                      scale: 0.8,
-                    }}
-                    animate={{
-                      opacity: 1,
-                      scale: 1,
-                    }}
-                    className="text-center py-8"
-                  >
-                    {' '}
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                      {' '}
-                      <svg
-                        className="w-8 h-8 text-green-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+
+                  {/* Trust Badges */}
+                  <div className="space-y-3 mb-8">
+                    <div className="flex items-center space-x-2 text-sm text-white/95">
+                      <Check size={16} className="text-white" />
+                      <span>Trusted by 400+ Clients</span>
+                    </div>
+                    <div className="flex items-center space-x-2 text-sm text-white/95">
+                      <Check size={16} className="text-white" />
+                      <span>Free Consultation</span>
+                    </div>
+                    <div className="flex items-center space-x-2 text-sm text-white/95">
+                      <Check size={16} className="text-white" />
+                      <span>No Obligation</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Client Logos Grid - 3-in-a-row colored logos */}
+                <div className="mt-6">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-white/80 mb-3">
+                    Supported Brands
+                  </p>
+                  <div className="grid grid-cols-3 gap-3 bg-white/10 p-3 rounded-2xl border border-white/20">
+                    {clientLogos.map((logo) => (
+                      <div
+                        key={logo.name}
+                        className="aspect-square flex items-center justify-center p-1 bg-white rounded-xl hover:bg-gray-50 transition-all shadow-sm"
+                        title={logo.name}
                       >
-                        {' '}
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
+                        <img
+                          src={logo.src}
+                          alt={logo.name}
+                          className="max-h-7 max-w-full object-contain"
                         />
-                      </svg>
-                    </div>{' '}
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Thank You!</h3>{' '}
-                    <p className="text-gray-600 text-sm">
-                      We've received your enquiry and will be in touch soon.
-                    </p>
-                  </motion.div>
-                ) : (
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column (65%) */}
+              <div className="w-full md:w-[65%] p-6 md:p-8 bg-white flex flex-col justify-center min-h-[500px]">
+                {step === 1 && (
+                  <div className="space-y-6">
+                    <div className="flex justify-between items-center border-b border-gray-100 pb-4">
+                      <h3 className="text-lg font-bold text-gray-900">Select Date</h3>
+                      <div className="flex items-center space-x-1">
+                        <button
+                          onClick={handlePrevMonth}
+                          className="p-2 text-gray-600 hover:text-[#f1592a] hover:bg-gray-50 rounded-lg transition-colors"
+                        >
+                          <ChevronLeft size={20} />
+                        </button>
+                        <span className="text-sm font-semibold text-gray-800 w-32 text-center">
+                          {monthNames[month]} {year}
+                        </span>
+                        <button
+                          onClick={handleNextMonth}
+                          className="p-2 text-gray-600 hover:text-[#f1592a] hover:bg-gray-50 rounded-lg transition-colors"
+                        >
+                          <ChevronRight size={20} />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Calendar grid */}
+                    <div>
+                      {/* Weekday headers */}
+                      <div className="grid grid-cols-7 gap-1 text-center mb-2">
+                        {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map((d) => (
+                          <div key={d} className="text-xs font-bold text-gray-400 py-1">
+                            {d}
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Day cells */}
+                      <div className="grid grid-cols-7 gap-1.5 text-center">
+                        {allDays.map((day, idx) => {
+                          if (day === null) {
+                            return <div key={`empty-${idx}`} />
+                          }
+
+                          const isSelectable = isFutureDate(day)
+                          const isSelected =
+                            selectedDate &&
+                            selectedDate.getDate() === day &&
+                            selectedDate.getMonth() === month &&
+                            selectedDate.getFullYear() === year
+
+                          return (
+                            <button
+                              key={`day-${day}`}
+                              disabled={!isSelectable}
+                              onClick={() => handleDateSelect(day)}
+                              className={`aspect-square rounded-full text-sm font-semibold flex items-center justify-center transition-all ${isSelected
+                                ? 'bg-[#f1592a] text-white shadow-lg shadow-[#f1592a]/30'
+                                : isSelectable
+                                  ? 'text-gray-800 hover:bg-[#f1592a]/10 hover:text-[#f1592a]'
+                                  : 'text-gray-300 cursor-not-allowed'
+                                }`}
+                            >
+                              {day}
+                            </button>
+                          )
+                        })}
+                      </div>
+                    </div>
+
+                    <div className="pt-4 border-t border-gray-100 flex justify-between items-center">
+                      <span className="text-xs text-gray-500">
+                        {selectedDate
+                          ? `Selected: ${formattedSelectedDate}`
+                          : 'Please select a future date'}
+                      </span>
+                      <button
+                        onClick={() => setStep(2)}
+                        disabled={!selectedDate}
+                        className="px-6 py-2.5 bg-[#f1592a] text-white rounded-full font-semibold text-sm hover:bg-[#d94d24] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-md shadow-[#f1592a]/20"
+                      >
+                        Continue
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {step === 2 && (
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    {' '}
-                    <div>
-                      {' '}
-                      <label
-                        htmlFor="name"
-                        className="block text-xs font-semibold text-gray-700 mb-1.5"
+                    <div className="border-b border-gray-100 pb-3 mb-2 flex items-center space-x-2">
+                      <button
+                        type="button"
+                        onClick={() => setStep(1)}
+                        className="text-xs text-gray-500 hover:text-[#f1592a] font-semibold"
                       >
+                        ← Back to Calendar
+                      </button>
+                      <span className="text-xs text-gray-300">|</span>
+                      <span className="text-xs text-[#f1592a] font-bold">
+                        {formattedSelectedDate}
+                      </span>
+                    </div>
+
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">Provide Contact Details</h3>
+
+                    {/* Full Name */}
+                    <div>
+                      <label className="block text-xs font-semibold text-gray-700 mb-1">
                         Full Name *
-                      </label>{' '}
+                      </label>
                       <div className="relative">
-                        {' '}
-                        <User
-                          className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
-                          size={18}
-                        />{' '}
+                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                          <User size={16} />
+                        </div>
                         <input
                           type="text"
-                          id="name"
                           name="name"
-                          required
                           value={formData.name}
-                          onChange={handleChange}
-                          className="w-full pl-10 pr-3 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-transparent transition-all"
-                          placeholder="John Doe"
+                          onChange={handleInputChange}
+                          className={`block w-full pl-9 pr-3 py-2 text-sm border rounded-xl focus:ring-1 focus:ring-[#f1592a] focus:border-[#f1592a] transition-all outline-none ${errors.name ? 'border-red-500' : 'border-gray-200'
+                            }`}
+                          placeholder="e.g. John Doe"
                         />
                       </div>
-                    </div>{' '}
+                      {errors.name && (
+                        <p className="text-xs text-red-500 mt-1">{errors.name}</p>
+                      )}
+                    </div>
+
+                    {/* Contact Number with Flag Dropdown */}
                     <div>
-                      {' '}
-                      <label
-                        htmlFor="email"
-                        className="block text-xs font-semibold text-gray-700 mb-1.5"
-                      >
-                        Email Address *
-                      </label>{' '}
-                      <div className="relative">
-                        {' '}
-                        <Mail
-                          className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
-                          size={18}
-                        />{' '}
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          required
-                          value={formData.email}
-                          onChange={handleChange}
-                          className="w-full pl-10 pr-3 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-transparent transition-all"
-                          placeholder="sandeep@example.com"
-                        />
+                      <label className="block text-xs font-semibold text-gray-700 mb-1">
+                        Contact Number *
+                      </label>
+                      <div className="flex gap-2">
+                        <select
+                          value={countryCode}
+                          onChange={(e) => setCountryCode(e.target.value)}
+                          className="px-2.5 py-2 text-sm border border-gray-200 rounded-xl focus:ring-1 focus:ring-[#f1592a] focus:border-[#f1592a] outline-none bg-white font-medium cursor-pointer shrink-0"
+                        >
+                          <option value="+91">🇮🇳 +91</option>
+                          <option value="+1">🇺🇸 +1</option>
+                          <option value="+44">🇬🇧 +44</option>
+                          <option value="+971">🇦🇪 +971</option>
+                          <option value="+61">🇦🇺 +61</option>
+                          <option value="+1">🇨🇦 +1</option>
+                        </select>
+                        <div className="relative flex-1">
+                          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                            <Phone size={16} />
+                          </div>
+                          <input
+                            type="text"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleInputChange}
+                            className={`block w-full pl-9 pr-3 py-2 text-sm border rounded-xl focus:ring-1 focus:ring-[#f1592a] focus:border-[#f1592a] transition-all outline-none ${errors.phone ? 'border-red-500' : 'border-gray-200'
+                              }`}
+                            placeholder="e.g. 9876543210"
+                          />
+                        </div>
                       </div>
-                    </div>{' '}
+                      {errors.phone && (
+                        <p className="text-xs text-red-500 mt-1">{errors.phone}</p>
+                      )}
+                    </div>
+
+                    {/* Company Name */}
                     <div>
-                      {' '}
-                      <label
-                        htmlFor="phone"
-                        className="block text-xs font-semibold text-gray-700 mb-1.5"
-                      >
-                        Phone Number
-                      </label>{' '}
+                      <label className="block text-xs font-semibold text-gray-700 mb-1">
+                        Company Name (optional)
+                      </label>
                       <div className="relative">
-                        {' '}
-                        <Phone
-                          className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
-                          size={18}
-                        />{' '}
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          className="w-full pl-10 pr-3 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-transparent transition-all"
-                          placeholder="+91 00000-00000"
-                        />
-                      </div>
-                    </div>{' '}
-                    <div>
-                      {' '}
-                      <label
-                        htmlFor="company"
-                        className="block text-xs font-semibold text-gray-700 mb-1.5"
-                      >
-                        Company Name
-                      </label>{' '}
-                      <div className="relative">
-                        {' '}
-                        <Building
-                          className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
-                          size={18}
-                        />{' '}
+                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                          <Building2 size={16} />
+                        </div>
                         <input
                           type="text"
-                          id="company"
                           name="company"
                           value={formData.company}
-                          onChange={handleChange}
-                          className="w-full pl-10 pr-3 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-transparent transition-all"
-                          placeholder="Your Company"
+                          onChange={handleInputChange}
+                          className="block w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-xl focus:ring-1 focus:ring-[#f1592a] focus:border-[#f1592a] transition-all outline-none"
+                          placeholder="e.g. Acme Corporation"
                         />
                       </div>
-                    </div>{' '}
+                    </div>
+
+                    {/* Required Service Dropdown */}
                     <div>
-                      {' '}
-                      <label
-                        htmlFor="message"
-                        className="block text-xs font-semibold text-gray-700 mb-1.5"
+                      <label className="block text-xs font-semibold text-gray-700 mb-1">
+                        Required Service *
+                      </label>
+                      <select
+                        name="service"
+                        value={formData.service}
+                        onChange={handleServiceChange}
+                        className={`block w-full px-3 py-2 text-sm border rounded-xl focus:ring-1 focus:ring-[#f1592a] focus:border-[#f1592a] transition-all outline-none bg-white ${errors.service ? 'border-red-500' : 'border-gray-200'
+                          }`}
                       >
-                        Message *
-                      </label>{' '}
-                      <div className="relative">
-                        {' '}
-                        <MessageSquare
-                          className="absolute left-3 top-3 text-gray-400"
-                          size={18}
-                        />{' '}
-                        <textarea
-                          id="message"
-                          name="message"
-                          required
-                          value={formData.message}
-                          onChange={handleChange}
-                          rows={3}
-                          className="w-full pl-10 pr-3 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-transparent transition-all resize-none"
-                          placeholder="Tell us about your project..."
-                        />
-                      </div>
-                    </div>{' '}
-                    <motion.button
-                      type="submit"
-                      disabled={isSubmitting}
-                      whileHover={{
-                        scale: isSubmitting ? 1 : 1.02,
-                      }}
-                      whileTap={{
-                        scale: isSubmitting ? 1 : 0.98,
-                      }}
-                      className={`w-full py-3 text-sm bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
-                    >
-                      {isSubmitting ? (
-                        <span className="flex items-center justify-center">
-                          {' '}
-                          <svg
-                            className="animate-spin -ml-1 mr-3 h-4 w-4 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            {' '}
-                            <circle
-                              className="opacity-25"
-                              cx="12"
-                              cy="12"
-                              r="10"
-                              stroke="currentColor"
-                              strokeWidth="4"
-                            />{' '}
-                            <path
-                              className="opacity-75"
-                              fill="currentColor"
-                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                            />
-                          </svg>
-                          Sending...
-                        </span>
-                      ) : (
-                        'Send Enquiry'
+                        <option value="">-- Select Service --</option>
+                        <option value="Product Development">Product Development</option>
+                        <option value="MVP Development">MVP Development</option>
+                        <option value="Odoo ERP Development">Odoo ERP Development</option>
+                        <option value="Support & Maintenance">Support & Maintenance</option>
+                        <option value="Other">Other Solutions</option>
+                      </select>
+                      {errors.service && (
+                        <p className="text-xs text-red-500 mt-1">{errors.service}</p>
                       )}
-                    </motion.button>{' '}
-                    <p className="text-center text-xs text-gray-500 pt-1">
-                      We respect your privacy. Your information will never be shared.
-                    </p>
+                    </div>
+
+                    {/* Message */}
+                    <div>
+                      <label className="block text-xs font-semibold text-gray-700 mb-1">
+                        Message (optional)
+                      </label>
+                      <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        rows={2}
+                        className="block w-full px-3 py-2 text-sm border border-gray-200 rounded-xl focus:ring-1 focus:ring-[#f1592a] focus:border-[#f1592a] transition-all outline-none resize-none"
+                        placeholder="Briefly describe your project requirements..."
+                      />
+                    </div>
+
+                    <div className="pt-2 flex justify-end">
+                      <button
+                        type="submit"
+                        disabled={!isFormValid}
+                        className="px-6 py-2.5 bg-[#f1592a] text-white rounded-full font-semibold text-sm hover:bg-[#d94d24] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-md shadow-[#f1592a]/20"
+                      >
+                        Confirm Booking
+                      </button>
+                    </div>
                   </form>
+                )}
+
+                {step === 3 && (
+                  <div className="text-center py-6 space-y-6">
+                    <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto text-green-500">
+                      <Check size={32} />
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="text-2xl font-bold text-gray-900">
+                        ✅ Booking Request Submitted Successfully!
+                      </h3>
+                      <p className="text-gray-500 text-sm">
+                        Our team will contact you soon.
+                      </p>
+                    </div>
+
+                    <div className="max-w-md mx-auto bg-gray-50 border border-gray-100 rounded-2xl p-4 text-left">
+                      <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">
+                        Meeting Date
+                      </p>
+                      <p className="text-sm font-semibold text-gray-800">
+                        {formattedSelectedDate}
+                      </p>
+                      {formData.phone && (
+                        <>
+                          <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1 mt-3">
+                            Contact Info
+                          </p>
+                          <p className="text-sm font-semibold text-gray-800">
+                            {countryCode} {formData.phone}
+                          </p>
+                        </>
+                      )}
+                    </div>
+
+                    <button
+                      onClick={onClose}
+                      className="px-8 py-3 bg-gray-900 text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center"
+                    >
+                      Close
+                    </button>
+                  </div>
                 )}
               </div>
             </motion.div>
           </div>
         </>
       )}
-    </AnimatePresence>
+    </ AnimatePresence>
   )
 }
+
 export { EnquiryModal }

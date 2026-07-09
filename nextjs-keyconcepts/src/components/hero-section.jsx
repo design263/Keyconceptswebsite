@@ -147,7 +147,7 @@ function HeroSection() {
     }
   }, [])
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100">
+    <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100">
       {' '}
       <div className="absolute inset-0 overflow-hidden">
         {' '}
@@ -181,10 +181,10 @@ function HeroSection() {
           y,
           opacity,
         }}
-        className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-4 relative z-10"
+        className="container mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-4 relative z-10"
       >
         {' '}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 py-4 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {' '}
           <motion.div
             initial={{
@@ -265,7 +265,7 @@ function HeroSection() {
               transition={{ delay: 0.9 }}
               className="flex flex-col items-center sm:items-start sm:flex-row gap-4 w-full"
             >
-              <Link href="/contact" className="w-[80%] sm:w-auto">
+              <div onClick={openModal} className="w-[80%] sm:w-auto cursor-pointer">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -277,15 +277,16 @@ function HeroSection() {
                     size={20}
                   />
                 </motion.button>
-              </Link>
+              </div>
 
               <Link href="/services" className="w-[80%] sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center"
+                  className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center space-x-2 group"
                 >
                   <span className="text-sm md:text-base font-semibold">Explore Our Products</span>
+                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                 </motion.button>
               </Link>
             </motion.div>

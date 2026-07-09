@@ -5,8 +5,8 @@ import {
   Factory,
   ShoppingCart,
   Building2,
-  Hospital,
-  GraduationCap,
+  Hotel,
+  ClipboardCheck,
   Truck,
   Rocket,
   TrendingUp,
@@ -29,14 +29,14 @@ const industries = [
     description: 'Property listings, custom CRM management, and deal pipeline automation.',
   },
   {
-    icon: Hospital,
-    name: 'Healthcare & Pharma',
-    description: 'Secure customer dashboards, digital workflows, and appointment pipeline software.',
+    icon: Hotel,
+    name: 'Hospitality',
+    description: 'Booking engine systems, custom CRM, and guest management portal applications.',
   },
   {
-    icon: GraduationCap,
-    name: 'Education & E-learning',
-    description: 'Student portal networks, administrative dashboards, and LMS system designs.',
+    icon: ClipboardCheck,
+    name: 'Claims Management System',
+    description: 'Automated claim processing, validation workflows, and digital documentation portals.',
   },
   {
     icon: Truck,
@@ -85,14 +85,16 @@ function IndustriesSection() {
               whileHover={{ y: -5 }}
               className="group"
             >
-              <div className="relative h-full bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center">
-                <div className="relative w-14 h-14 mb-4 group-hover:scale-110 transition-transform shrink-0">
-                  <div className="w-full h-full bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-white transition-all border border-gray-100 group-hover:border-[#f1592a]/10">
-                    <ind.icon className="text-gray-700 w-6 h-6" strokeWidth={1.5} />
+              <div className="relative h-full bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 flex flex-col items-start text-left">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="relative w-12 h-12 group-hover:scale-110 transition-transform shrink-0">
+                    <div className="w-full h-full bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-white transition-all border border-gray-100 group-hover:border-[#f1592a]/10">
+                      <ind.icon className="text-gray-700 w-5 h-5" strokeWidth={1.5} />
+                    </div>
+                    <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-[#f1592a] rounded-full border-2 border-white" />
                   </div>
-                  <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#f1592a] rounded-full border-2 border-white" />
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900 leading-snug">{ind.name}</h3>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{ind.name}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{ind.description}</p>
               </div>
             </motion.div>

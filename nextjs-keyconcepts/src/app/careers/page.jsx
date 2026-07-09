@@ -606,9 +606,10 @@ function CareersPage() {
                     whileTap={{
                       scale: 0.95,
                     }}
-                    className="px-8 py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg"
+                    className="px-8 py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center space-x-2 group"
                   >
                     <span className="font-semibold">Learn More</span>
+                    <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                   </motion.a>
                 </motion.div>
               </motion.div>
@@ -988,17 +989,19 @@ function CareersPage() {
 
         <section
           id="apply"
-          className="py-12 md:py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden"
+          className="relative py-12 md:py-16 overflow-hidden"
         >
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#f1592a] via-[#ff7a45] to-[#f1592a]">
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+              <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+            </div>
           </div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <motion.div
               initial={{
                 opacity: 0,
-                y: 30,
+                y: 50,
               }}
               whileInView={{
                 opacity: 1,
@@ -1009,17 +1012,14 @@ function CareersPage() {
               }}
               className="text-center max-w-4xl mx-auto"
             >
-              <div className="inline-flex items-center space-x-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-8">
-                <Rocket className="text-[#f1592a]" size={18} />
+              <div className="inline-flex items-center space-x-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/40 mb-8">
+                <Rocket className="text-white" size={18} />
                 <span className="text-sm font-medium text-white">Ready to Join Us?</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                Let's Build Something{' '}
-                <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Amazing Together
-                </span>
+                Let's Build Something Amazing Together
               </h2>
-              <p className="text-lg text-gray-300 mb-10 leading-relaxed">
+              <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed">
                 Don't see a role that fits? Send us your resume anyway! We're always looking for
                 talented people to join our growing team.
               </p>
@@ -1067,7 +1067,7 @@ function CareersPage() {
                 }}
                 className="mt-12 pt-12 border-t border-white/10"
               >
-                <p className="text-gray-400 mb-4">Or reach out to us directly:</p>
+                <p className="text-white mb-4">Or reach out to us directly:</p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white">
                   <a
                     href="mailto:careers@keyconcepts.co.in"

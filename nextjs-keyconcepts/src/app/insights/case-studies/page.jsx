@@ -188,35 +188,36 @@ function CaseStudiesPage() {
             </div>
           </div>
         </section>
-        <section className="py-12 md:py-16 bg-gradient-to-br from-gray-50 to-white">
-          <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative py-12 md:py-16 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#f1592a] via-[#ff7a45] to-[#f1592a]">
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+              <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+            </div>
+          </div>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-3xl overflow-hidden p-8 md:p-16"
+              className="max-w-4xl mx-auto text-center"
             >
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl" />
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl" />
-              </div>
-              <div className="relative text-center max-w-3xl mx-auto">
-                <div className="flex justify-center mb-6">
-                  <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
-                    <Target className="text-white" size={32} />
-                  </div>
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center border border-white/40">
+                  <Target className="text-white" size={32} />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                  Ready to Write Your Success Story?
-                </h2>
-                <p className="text-white/90 text-lg mb-8">
-                  Let's discuss how we can help you achieve similar results and transform your
-                  business operations.
-                </p>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                Ready to Write Your Success Story?
+              </h2>
+              <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto">
+                Let's discuss how we can help you achieve similar results and transform your business operations.
+              </p>
+              <div className="flex justify-center">
                 <Link href="/contact">
-                  <button className="px-8 py-4 bg-white text-[#f1592a] rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-xl">
-                    Start Your Project Today
+                  <button className="px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all font-semibold flex items-center justify-center space-x-2 group">
+                    <span>Start Your Project Today</span>
+                    <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                   </button>
                 </Link>
               </div>

@@ -2,7 +2,7 @@
 
 import LayoutWrapper from '@/components/layout-wrapper'
 import { motion } from 'motion/react'
-import { Calendar, Clock, ArrowRight, User, TrendingUp } from 'lucide-react'
+import { Calendar, Clock, ArrowRight, User, TrendingUp, RefreshCw } from 'lucide-react'
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
 import Link from 'next/link'
 import { getFeaturedBlogPost, getRegularBlogPosts } from '@/data/blog-posts'
@@ -238,18 +238,25 @@ function IndustryTrendsPage() {
               }}
               className="text-center mt-16"
             >
-              <button className="px-6 md:px-8 py-3 md:py-4 text-sm md:text-md bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full font-semibold shadow-lg hover:shadow-xl hover:shadow-[#f1592a]/30 transition-all hover:scale-105">
-                Load More Articles
+              <button className="px-6 md:px-8 py-3 md:py-4 text-sm md:text-md bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full font-semibold shadow-lg hover:shadow-xl hover:shadow-[#f1592a]/30 transition-all hover:scale-105 flex items-center justify-center space-x-2 group mx-auto">
+                <span>Load More Articles</span>
+                <RefreshCw className="group-hover:rotate-180 transition-transform duration-500" size={16} />
               </button>
             </motion.div>
           </div>
         </section>
-        <section className="py-12 md:py-16 bg-gradient-to-br from-gray-50 to-white">
-          <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative py-12 md:py-16 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#f1592a] via-[#ff7a45] to-[#f1592a]">
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+              <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+            </div>
+          </div>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <motion.div
               initial={{
                 opacity: 0,
-                y: 20,
+                y: 50,
               }}
               whileInView={{
                 opacity: 1,
@@ -258,37 +265,27 @@ function IndustryTrendsPage() {
               viewport={{
                 once: true,
               }}
-              transition={{
-                duration: 0.6,
-              }}
-              className="relative bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-3xl overflow-hidden p-8 md:p-16"
+              className="max-w-4xl mx-auto text-center"
             >
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl" />
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl" />
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                Stay Updated with Our Newsletter
+              </h2>
+              <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto">
+                Get the latest industry trends, insights, and exclusive content delivered directly to your inbox.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+                <input
+                  type="email"
+                  placeholder="Enter your email address"
+                  className="flex-1 md:px-6 md:py-4 px-4 py-3 text-sm md:text-md border border-white/40 bg-white/20 backdrop-blur-sm rounded-full text-white placeholder-white/80 focus:outline-none focus:ring-2 focus:ring-white"
+                />
+                <button className="px-6 md:px-8 py-3 md:py-4 text-sm md:text-md bg-white text-[#f1592a] rounded-full font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap shadow-2xl hover:shadow-white/50">
+                  Subscribe Now
+                </button>
               </div>
-              <div className="relative text-center max-w-3xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                  Stay Updated with Our Newsletter
-                </h2>
-                <p className="text-white/90 md:text-lg text-md mb-8 ">
-                  Get the latest industry trends, insights, and exclusive content delivered directly
-                  to your inbox.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
-                  <input
-                    type="email"
-                    placeholder="Enter your email address"
-                    className="flex-1 md:px-6 md:py-4 px-4 py-3 text-sm md:text-md border border-white rounded-full text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white"
-                  />
-                  <button className="px-6 md:px-8 py-3 md:py-4 text-sm md:text-md bg-white text-[#f1592a] rounded-full font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
-                    Subscribe Now
-                  </button>
-                </div>
-                <p className="text-white/80 text-sm mt-4">
-                  Join 10,000+ professionals staying ahead of the curve
-                </p>
-              </div>
+              <p className="text-white/80 text-sm mt-4">
+                Join 10,000+ professionals staying ahead of the curve
+              </p>
             </motion.div>
           </div>
         </section>

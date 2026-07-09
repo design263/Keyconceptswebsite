@@ -771,9 +771,10 @@ function BrandingServicesPage() {
                       whileTap={{
                         scale: 0.95,
                       }}
-                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all"
+                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all flex items-center justify-center space-x-2 group"
                     >
                       <span className="text-sm md:text-md">Start Your Project</span>
+                      <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                     </motion.button>
                   </Link>
                   <motion.button

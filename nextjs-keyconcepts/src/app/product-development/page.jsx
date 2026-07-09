@@ -271,9 +271,10 @@ function ProductDevelopmentPage() {
                   href="#who-its-for"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center"
+                  className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center space-x-2 group"
                 >
                   <span className="text-sm md:text-base font-semibold">Learn More</span>
+                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                 </motion.a>
               </motion.div>
             </motion.div>
@@ -895,16 +896,22 @@ function ProductDevelopmentPage() {
                   transition={{
                     delay: index * 0.1,
                   }}
-                  className="bg-white/60 backdrop-blur-lg rounded-2xl p-4 lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 text-center"
+                  whileHover={{ y: -5 }}
+                  className="group"
                   key={item.title}
                 >
-                  <div className="relative w-12 h-12 mx-auto mb-4">
-                    <div className="w-full h-full bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-xl flex items-center justify-center">
-                      <item.icon className="text-white" size={24} strokeWidth={2} />
+                  <div className="relative h-full bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 flex flex-col items-start text-left">
+                    <div className="flex items-center space-x-4 mb-4">
+                      <div className="relative w-12 h-12 group-hover:scale-110 transition-transform shrink-0">
+                        <div className="w-full h-full bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-white transition-all border border-gray-100 group-hover:border-[#f1592a]/10">
+                          <item.icon className="text-gray-700 w-5 h-5" strokeWidth={1.5} />
+                        </div>
+                        <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-[#f1592a] rounded-full border-2 border-white" />
+                      </div>
+                      <h3 className="text-base sm:text-lg font-bold text-gray-900 leading-snug">{item.title}</h3>
                     </div>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
                   </div>
-                  <h3 className="md:text-xl text-lg font-bold mb-3">{item.title}</h3>
-                  <p className="text-gray-600 text-md md:text-lg leading-relaxed">{item.description}</p>
                 </motion.div>
               ))}
             </div>

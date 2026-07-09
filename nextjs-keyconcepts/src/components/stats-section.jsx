@@ -2,8 +2,9 @@
 
 import { motion, useInView, useMotionValue, useSpring } from 'motion/react'
 import { useEffect, useRef } from 'react'
-import { Award, Users, Clock, Globe } from 'lucide-react'
+import { Award, Users, Clock, Globe, CheckCircle } from 'lucide-react'
 const stats = [
+
   {
     icon: Award,
     value: 16,
@@ -30,6 +31,13 @@ const stats = [
     value: 400,
     suffix: '+',
     label: 'Clients Worldwide',
+    color: 'from-[#f1592a] to-[#ff7a45]',
+  },
+  {
+    icon: CheckCircle,
+    value: 500,
+    suffix: '+',
+    label: 'Projects Completed',
     color: 'from-[#f1592a] to-[#ff7a45]',
   },
 ]
@@ -114,7 +122,7 @@ function StatsSection() {
             Trusted by enterprises and startups worldwide for innovative software solutions
           </p>
         </motion.div>{' '}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {stats.map((stat, index) => (
             <motion.div
               initial={{
@@ -129,7 +137,7 @@ function StatsSection() {
                 once: true,
               }}
               transition={{
-                delay: index * 0.1,
+                delay: stat.value === 1 ? 0 : index * 0.1,
               }}
               whileHover={{
                 y: -10,
@@ -142,15 +150,15 @@ function StatsSection() {
                 {' '}
                 <div className="flex items-start gap-6">
                   {' '}
-                  <div className="relative w-12 h-12 lg:w-14 lg:h-14 flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <div className="relative w-12 h-12 flex-shrink-0 group-hover:scale-110 transition-transform">
                     {' '}
                     <div className="w-full h-full bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-white transition-all">
                       <stat.icon
-                        className="text-gray-700 w-6 h-6 lg:w-7 lg:h-7"
+                        className="text-gray-700 w-5 h-5"
                         strokeWidth={1.5}
                       />
                     </div>{' '}
-                    <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#f1592a] rounded-full border-2 border-white" />
+                    <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-[#f1592a] rounded-full border-2 border-white" />
                   </div>{' '}
                   <div className="flex-1 min-w-0">
                     {' '}
@@ -158,7 +166,14 @@ function StatsSection() {
                       {' '}
                       <div className="text-3xl md:text-4xl font-bold bg-gradient-to-br from-gray-900 to-gray-700 bg-clip-text text-transparent">
                         {' '}
-                        <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                        {stat.value === 1 ? (
+                          <span className="inline-flex items-baseline">
+                            <span className="tabular-nums">{stat.value}</span>
+                            <span className="ml-1">{stat.suffix}</span>
+                          </span>
+                        ) : (
+                          <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                        )}
                       </div>
                     </div>{' '}
                     <p className="text-gray-600 font-medium leading-relaxed">{stat.label}</p>
@@ -170,32 +185,7 @@ function StatsSection() {
               </div>
             </motion.div>
           ))}
-        </div>{' '}
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            delay: 0.4,
-          }}
-          className="text-center mt-12"
-        >
-          {' '}
-          <p className="text-gray-600 text-lg">
-            Ready to transform your business with proven expertise?{' '}
-            <a href="/contact" className="text-[#f1592a] font-semibold hover:underline">
-              Let's talk
-            </a>
-          </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

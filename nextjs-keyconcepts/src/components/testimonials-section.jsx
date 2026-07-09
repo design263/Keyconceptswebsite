@@ -4,44 +4,44 @@ import { motion } from 'motion/react'
 import { Star, Quote } from 'lucide-react'
 const testimonials = [
   {
-    name: 'Sarah Johnson',
-    role: 'CEO, TechVentures Inc.',
+    name: 'Paresh Chaudhari',
+    role: 'CEO',
     content:
-      'Key Concepts transformed our entire business operations with their Odoo ERP solution. The AI-powered automation has saved us countless hours and significantly improved our efficiency.',
+      'Great experience to working with Key Concepts team. Very co-operative staff.',
     rating: 5,
-    company: 'TechVentures',
+    company: 'Nobletex Industries Ltd.',
   },
   {
-    name: 'Michael Chen',
-    role: 'CTO, InnovateSoft',
+    name: 'Municipal School Board',
+    role: 'Administrative Officer',
     content:
-      'Their cloud-native app development expertise is unmatched. We launched our product 3 months ahead of schedule with their dedicated team. Absolutely phenomenal work!',
+      'We would like to express our satisfaction and appriciation to key Concepts team for their excellent efforts towards sucessfully completeing the project. We also admire their aspiration for their prompt and flawless quality deliverables.',
     rating: 5,
-    company: 'InnovateSoft',
+    company: 'Municipal School Board',
   },
   {
-    name: 'Emily Rodriguez',
-    role: 'Marketing Director, GrowthLab',
+    name: 'Jitendra Desai',
+    role: 'President and Chief Innovist',
     content:
-      'The digital marketing and SEO services have tripled our online visibility. Their data-driven approach and transparent reporting make them stand out from the competition.',
+      'Young, smart and.High energy team doing great work. Excellent attitude and intentions, keep advancing with confidence!',
     rating: 5,
-    company: 'GrowthLab',
+    company: 'Innovaam inc',
   },
   {
-    name: 'David Thompson',
-    role: 'Founder, StartupHub',
+    name: 'Pooja Parekh',
+    role: 'Media Manager',
     content:
-      'From API integration to mobile app development, Key Concepts handled everything seamlessly. Their technical expertise and customer service are second to none.',
+      'We are utilising the services of Key concepts from long time in every posible way in our organisation. We as a construction business, now totally moving towards technology in every aspect. Key Concepts is providing great support for our all IT implementations (ERP solution, web catalog or any other IT solutions). The response to problems is always very fast, resolved quickly. Great service all round, I would not hesitate to recommend Key Concepts to all my network line business!',
     rating: 5,
-    company: 'StartupHub',
+    company: 'Green Group Developers',
   },
 ]
 function TestimonialsSection() {
+  const doubledTestimonials = [...testimonials, ...testimonials]
+  
   return (
-    <section className="py-12 md:py-16  bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-      {' '}
+    <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {' '}
         <motion.div
           initial={{
             opacity: 0,
@@ -54,9 +54,8 @@ function TestimonialsSection() {
           viewport={{
             once: true,
           }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
-          {' '}
           <motion.span
             initial={{
               opacity: 0,
@@ -72,124 +71,72 @@ function TestimonialsSection() {
             className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-cyan-500/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
           >
             Client Success Stories
-          </motion.span>{' '}
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Trusted by Industry Leaders</h2>{' '}
+          </motion.span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Trusted by Industry Leaders</h2>
           <p className="text-md lg:text-lg text-gray-600 max-w-2xl mx-auto">
             See what our clients say about their transformation journey with us
           </p>
-        </motion.div>{' '}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 50,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                delay: index * 0.1,
-              }}
-              whileHover={{
-                y: -10,
-              }}
-              className="group relative"
-              key={index}
-            >
-              {' '}
-              <div className="relative bg-white/60 backdrop-blur-lg rounded-3xl p-4  lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300">
-                {' '}
-                <div className="absolute top-8 right-8 text-[#f1592a]/10 group-hover:text-[#f1592a]/20 transition-colors">
-                  {' '}
-                  <Quote className="w-10 h-10 md:w-12 md:h-12" />
-                </div>{' '}
-                <div className="flex items-center space-x-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star size={18} className="fill-[#f1592a] text-[#f1592a]" key={i} />
-                  ))}
-                </div>{' '}
-                <p className="text-sm md:text-mdtext-gray-700 leading-relaxed mb-6 relative z-10">
-                  "{testimonial.content}"
-                </p>{' '}
-                <div className="flex items-center space-x-4">
-                  {' '}
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-full flex items-center justify-center text-white font-bold">
-                    {testimonial.name.charAt(0)}
-                  </div>{' '}
-                  <div>
-                    {' '}
-                    <div className="font-semibold text-gray-900">{testimonial.name}</div>{' '}
-                    <div className="text-sm text-gray-600">{testimonial.role}</div>
-                  </div>
-                </div>{' '}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#f1592a]/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl" />
-              </div>
-            </motion.div>
-          ))}
-        </div>{' '}
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 50,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"
-        >
-          {[
-            {
-              value: '500+',
-              label: 'Projects Completed',
-            },
-            {
-              value: '98%',
-              label: 'Client Satisfaction',
-            },
-            {
-              value: '150+',
-              label: 'Enterprise Clients',
-            },
-            {
-              value: '24/7',
-              label: 'Support Available',
-            },
-          ].map((stat, index) => (
-            <motion.div
-              initial={{
-                opacity: 0,
-                scale: 0.8,
-              }}
-              whileInView={{
-                opacity: 1,
-                scale: 1,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                delay: index * 0.1,
-              }}
-              className="text-center"
-              key={index}
-            >
-              {' '}
-              <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent mb-2">
-                {stat.value}
-              </div>{' '}
-              <div className="text-sm text-gray-600">{stat.label}</div>
-            </motion.div>
-          ))}
         </motion.div>
+
+        {/* Scrolling testimonials track */}
+        <div
+          className="relative w-full overflow-hidden"
+          style={{
+            maskImage:
+              'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+            WebkitMaskImage:
+              'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+          }}
+        >
+          <style>{`
+            @keyframes testimonials-marquee {
+              0%   { transform: translateX(0); }
+              100% { transform: translateX(-${testimonials.length * 420}px); }
+            }
+          `}</style>
+
+          <div
+            style={{
+              display: 'flex',
+              gap: '20px',
+              width: 'max-content',
+              animation: `testimonials-marquee 35s linear infinite`,
+              padding: '10px 0 20px',
+            }}
+            className="hover:[animation-play-state:paused]"
+          >
+            {doubledTestimonials.map((testimonial, i) => (
+              <div
+                key={i}
+                style={{ width: '400px', flexShrink: 0 }}
+                className="relative bg-white/60 backdrop-blur-lg rounded-3xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+              >
+                <div className="absolute top-6 right-6 text-[#f1592a]/10 group-hover:text-[#f1592a]/20 transition-colors">
+                  <Quote className="w-8 h-8" />
+                </div>
+                <div>
+                  <div className="flex items-center space-x-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, idx) => (
+                      <Star size={16} className="fill-[#f1592a] text-[#f1592a]" key={idx} />
+                    ))}
+                  </div>
+                  <p className="text-gray-700 text-sm leading-relaxed mb-6">
+                    "{testimonial.content}"
+                  </p>
+                </div>
+                <div className="flex items-center space-x-4 mt-auto">
+                  <div className="w-10 h-10 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0">
+                    {testimonial.name.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="font-semibold text-gray-900 text-sm">{testimonial.name}</div>
+                    <div className="text-xs text-gray-500">{testimonial.role}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )

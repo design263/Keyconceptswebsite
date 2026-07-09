@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react'
 import { Search, Target, Palette, Code, Rocket, Settings } from 'lucide-react'
+import { useEnquiryModal } from '../context/enquiry-modal-context'
 
 const processSteps = [
   {
@@ -65,7 +66,7 @@ function ConnectorArrow({ index, total, isLastInRow }) {
 
       {/* Desktop: horizontal right arrow — only between cards in same row (not last in row, not last overall) */}
       {!isLast && !isLastInRow && (
-        <div className="hidden lg:block absolute top-[100px] -right-4 w-8 h-0.5
+        <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 -right-4 w-8 h-0.5
                         bg-gradient-to-r from-[#f1592a] to-[#ff7a45] z-10">
           {/* rightward arrowhead */}
           <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full
@@ -80,6 +81,7 @@ function ConnectorArrow({ index, total, isLastInRow }) {
 }
 
 function ProcessSection() {
+  const { openModal } = useEnquiryModal()
   const COLS = 3 // desktop grid columns
 
   return (
@@ -149,18 +151,18 @@ function ProcessSection() {
                       </div>
 
                       <div className="flex items-start gap-4 sm:gap-6">
-                        <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <div className="relative w-12 h-12 flex-shrink-0 group-hover:scale-110 transition-transform">
                           <div className="w-full h-full bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-white transition-all">
-                            <step.icon className="text-gray-700" size={24} strokeWidth={1.5} />
+                            <step.icon className="text-gray-700" size={20} strokeWidth={1.5} />
                           </div>
-                          <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#f1592a] rounded-full border-2 border-white" />
+                          <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-[#f1592a] rounded-full border-2 border-white" />
                         </div>
 
                         <div className="flex-1 min-w-0">
-                          <h3 className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2 group-hover:text-[#f1592a] transition-colors">
+                          <h3 className="text-lg md:text-lg font-bold mb-1 sm:mb-2 group-hover:text-[#f1592a] transition-colors">
                             {step.title}
                           </h3>
-                          <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                          <p className="text-gray-600 text-sm leading-relaxed">
                             {step.description}
                           </p>
                         </div>
@@ -204,15 +206,14 @@ function ProcessSection() {
           transition={{ delay: 0.6 }}
           className="text-center mt-12 sm:mt-16"
         >
-          <p className="text-gray-600 mb-6">Ready to start your project journey?</p>
-          <motion.a
-            href="/contact"
+          <motion.button
+            onClick={openModal}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg hover:shadow-2xl hover:shadow-[#f1592a]/30 transition-all font-semibold text-sm sm:text-base"
+            className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg hover:shadow-2xl hover:shadow-[#f1592a]/30 transition-all font-semibold text-sm sm:text-base cursor-pointer"
           >
             Book a <span className='hidden sm:inline'>Discovery</span> Call
-          </motion.a>
+          </motion.button>
         </motion.div>
       </div>
     </section>

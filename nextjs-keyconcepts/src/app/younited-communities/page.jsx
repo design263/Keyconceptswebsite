@@ -413,9 +413,10 @@ function YounitedCommunitiesPage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="w-[80%] sm:w-auto text-center px-8 py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg"
+                  className="w-[80%] sm:w-auto text-center px-8 py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center space-x-2 group"
                 >
                   <span className="font-semibold">Explore Features</span>
+                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                 </motion.a>
               </motion.div>
               <motion.div
@@ -947,16 +948,18 @@ function YounitedCommunitiesPage() {
             </div>
           </div>
         </section>
-        <section className="py-12 md:py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
+        <section className="relative py-12 md:py-16 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#f1592a] via-[#ff7a45] to-[#f1592a]">
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+              <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+            </div>
           </div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <motion.div
               initial={{
                 opacity: 0,
-                y: 30,
+                y: 50,
               }}
               whileInView={{
                 opacity: 1,
@@ -967,22 +970,17 @@ function YounitedCommunitiesPage() {
               }}
               className="text-center max-w-4xl mx-auto"
             >
-              <div className="inline-flex items-center space-x-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-8">
-                <Sparkles className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" />
+              <div className="inline-flex items-center space-x-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/40 mb-8">
+                <Sparkles className="text-white w-4 h-4 md:w-5 md:h-5" />
                 <span className="text-xs md:text-sm font-medium text-white">
                   Ready to Transform Your Community?
                 </span>
               </div>
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                Start Your{' '}
-                <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Free Demo
-                </span>{' '}
-                Today
+                Start Your Free Demo Today
               </h2>
-              <p className="text-md md:text-lg text-gray-300 mb-10 leading-relaxed">
-                See how Younited Communities can streamline your operations, boost engagement, and
-                help your community thrive. Schedule a personalized demo with our team.
+              <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto">
+                See how Younited Communities can streamline your operations, boost engagement, and help your community thrive. Schedule a personalized demo with our team.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <motion.a
@@ -993,9 +991,9 @@ function YounitedCommunitiesPage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="w-[80%] sm:w-auto group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                  className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all flex items-center justify-center space-x-2 font-semibold"
                 >
-                  <span className="text-sm md:text-md font-semibold">Schedule Demo</span>
+                  <span className="text-sm md:text-md">Schedule Demo</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                 </motion.a>
                 <motion.a
@@ -1006,9 +1004,10 @@ function YounitedCommunitiesPage() {
                   whileTap={{
                     scale: 0.95,
                   }}
-                  className="px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm text-white rounded-full border-2 border-white/30 hover:border-white/50 transition-all"
+                  className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-transparent text-white rounded-full border-2 border-white hover:bg-white hover:text-[#f1592a] transition-all font-semibold flex items-center justify-center space-x-2 group"
                 >
-                  <span className="text-sm md:text-md font-semibold">Contact Sales</span>
+                  <span className="text-sm md:text-md">Contact Sales</span>
+                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                 </motion.a>
               </div>
             </motion.div>

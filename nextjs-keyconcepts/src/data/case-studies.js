@@ -47,8 +47,8 @@ export const caseStudies = [
         value: '3x',
       },
       {
-        label: 'Order Processing',
-        value: '60% faster',
+        label: 'Faster Order Processing',
+        value: '60%',
       },
     ],
   },

@@ -76,9 +76,10 @@ function CTASection() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-transparent text-white rounded-full border-2 border-white hover:bg-white hover:text-[#f1592a] transition-all font-semibold"
+                className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-transparent text-white rounded-full border-2 border-white hover:bg-white hover:text-[#f1592a] transition-all font-semibold flex items-center justify-center space-x-2 group"
               >
-                <span >View All Services</span>
+                <span>View All Services</span>
+                <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
               </motion.button>
             </Link>
           </div>{' '}
@@ -123,7 +124,7 @@ function CTASection() {
                   clipRule="evenodd"
                 />
               </svg>{' '}
-              <span className="text-sm">24/7 Support Available</span>
+              <span className="text-sm">Client-Focused Solutions</span>
             </div>
           </motion.div>
         </motion.div>

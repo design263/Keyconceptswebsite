@@ -24,6 +24,10 @@ import {
   Settings,
   Award,
   ArrowRight,
+  Palette,
+  Laptop,
+  Cloud,
+  ClipboardList,
 } from 'lucide-react'
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
 
@@ -45,7 +49,7 @@ const processSteps = [
       'Our design team creates intuitive wireframes and interactive prototypes, ensuring user experience is at the forefront.',
     icon: FileText,
     image:
-      'https://images.unsplash.com/photo-1748801583975-720cb5e4985e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXNpZ24lMjBwcm90b3R5cGUlMjBtb2NrdXAlMjBzY3JlZW58ZW58MXx8fHwxNzcxOTI5Mzg2fDA&ixlib=rb-4.1.0&q=80&w=1080',
+      '/assets/Design-&-Prototyping.jpg',
     deliverables: ['Wireframes', 'UI/UX designs', 'Interactive prototypes'],
   },
   {
@@ -117,42 +121,133 @@ const reportingFeatures = [
   },
 ]
 
-const tools = [
+// Inline SVG Brand Logos for high-fidelity rendering
+function BrandLogo({ name }) {
+  switch (name) {
+    case 'Figma':
+      return <img src="/assets/techLogo/figma.png" alt="Figma" className="w-[30px] h-[30px] object-contain" />
+    case 'Adobe Photoshop':
+      return <img src="/assets/techLogo/photoshop.png" alt="Adobe Photoshop" className="w-[30px] h-[30px] object-contain" />
+    case 'Adobe Illustrator':
+      return <img src="/assets/techLogo/illustrator.png" alt="Adobe Illustrator" className="w-[30px] h-[30px] object-contain" />
+    case 'GitHub':
+      return <img src="/assets/techLogo/github.svg" alt="GitHub" className="w-[30px] h-[30px] object-contain" />
+    case 'Docker':
+      return <img src="/assets/techLogo/docker.svg" alt="Docker" className="w-[30px] h-[30px] object-contain" />
+    case 'AWS':
+      return <img src="/assets/techLogo/aws-logo.svg" alt="AWS" className="w-[30px] h-[30px] object-contain" />
+    case 'Jira':
+      return <img src="/assets/techLogo/Jira.png" alt="Jira" className="w-[30px] h-[30px] object-contain" />
+    case 'ClickUp':
+      return <img src="/assets/techLogo/clickup.png" alt="ClickUp" className="w-[30px] h-[30px] object-contain" />
+    case 'Slack':
+      return <img src="/assets/techLogo/Slack.png" alt="Slack" className="w-[30px] h-[30px] object-contain" />
+    case 'Microsoft Teams':
+      return <img src="/assets/techLogo/teams.png" alt="Microsoft Teams" className="w-[30px] h-[30px] object-contain" />
+    case 'React':
+      return (
+        <svg className="w-[30px] h-[30px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 9.5C10.62 9.5 9.5 10.62 9.5 12s1.12 2.5 2.5 2.5 2.5-1.12 2.5-2.5S13.38 9.5 12 9.5Z" fill="#61DAFB" />
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#61DAFB" opacity="0.3" />
+          <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(30 12 12)" stroke="#61DAFB" strokeWidth="1.2" fill="none" />
+          <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(90 12 12)" stroke="#61DAFB" strokeWidth="1.2" fill="none" />
+          <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(150 12 12)" stroke="#61DAFB" strokeWidth="1.2" fill="none" />
+        </svg>
+      )
+    case 'Next.js':
+      return (
+        <svg className="w-[30px] h-[30px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="11.5" fill="black" stroke="#333" strokeWidth="1" />
+          <path d="M17.5 17.5L10.2 8H8.5V16H10V10.2L16.2 17.5H17.5Z" fill="white" />
+          <rect x="15" y="8" width="1.5" height="8" fill="white" />
+        </svg>
+      )
+    case 'Node.js':
+      return (
+        <svg className="w-[30px] h-[30px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L4 6.5v11L12 22l8-4.5v-11L12 2zm6 14.3l-6 3.4-6-3.4V7.7l6-3.4 6 3.4v8.6z" fill="#339933" />
+          <path d="M12 6.5L7 9.3v5.4l5 2.8 5-2.8V9.3l-5-2.8z" fill="#339933" opacity="0.5" />
+        </svg>
+      )
+    case 'Vercel':
+      return (
+        <svg className="w-[30px] h-[30px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 22H22L12 2Z" fill="black" />
+        </svg>
+      )
+    case 'Google Analytics':
+      return (
+        <svg className="w-[30px] h-[30px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="14" width="4" height="7" rx="1" fill="#FF9F00" />
+          <rect x="10" y="8" width="4" height="13" rx="1" fill="#FF8F00" />
+          <rect x="17" y="3" width="4" height="18" rx="1" fill="#FF6F00" />
+        </svg>
+      )
+    case 'Google Search Console':
+      return (
+        <svg className="w-[30px] h-[30px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7v6c0 5.5 4.5 10 10 11 5.5-1 10-5.5 10-11V7l-10-5z" fill="#4285F4" />
+          <path d="M12 6l-6 3v4c0 3.7 3 6.8 6 7.7V6z" fill="#34A853" />
+          <circle cx="12" cy="12" r="3" fill="#FBBC05" />
+        </svg>
+      )
+    default:
+      return null
+  }
+}
+
+const techCategories = [
   {
-    name: 'Jira',
-    category: 'Project Management',
-    description: 'Agile project tracking and sprint planning',
-    icon: '/assets/techLogo/Jira.png',
+    title: 'Design',
+    icon: Palette,
+    technologies: [
+      { name: 'Figma' },
+      { name: 'Adobe Photoshop' },
+      { name: 'Adobe Illustrator' },
+    ],
   },
   {
-    name: 'ClickUp',
-    category: 'Task Management',
-    description: 'Daily task tracking and team collaboration',
-    icon: '/assets/techLogo/clickup.png',
+    title: 'Development',
+    icon: Code,
+    technologies: [
+      { name: 'React' },
+      { name: 'Next.js' },
+      { name: 'Node.js' },
+      { name: 'GitHub' },
+    ],
   },
   {
-    name: 'Git / GitHub',
-    category: 'Version Control',
-    description: 'Code repository and version management',
-    icon: '/assets/techLogo/GitHub.png',
+    title: 'Cloud & Deployment',
+    icon: Cloud,
+    technologies: [
+      { name: 'Docker' },
+      { name: 'AWS' },
+      { name: 'Vercel' },
+    ],
   },
   {
-    name: 'Slack',
-    category: 'Communication',
-    description: 'Real-time team communication',
-    icon: '/assets/techLogo/Slack.png',
+    title: 'Project Management',
+    icon: ClipboardList,
+    technologies: [
+      { name: 'Jira' },
+      { name: 'ClickUp' },
+    ],
   },
   {
-    name: 'Figma',
-    category: 'Design',
-    description: 'UI/UX design and prototyping',
-    icon: Eye,
+    title: 'Collaboration',
+    icon: MessageSquare,
+    technologies: [
+      { name: 'Slack' },
+      { name: 'Microsoft Teams' },
+    ],
   },
   {
-    name: 'Jenkins / CI/CD',
-    category: 'Automation',
-    description: 'Automated testing and deployment',
-    icon: '/assets/techLogo/Jenkins.png',
+    title: 'Analytics & SEO',
+    icon: BarChart3,
+    technologies: [
+      { name: 'Google Analytics' },
+      { name: 'Google Search Console' },
+    ],
   },
 ]
 
@@ -177,7 +272,7 @@ const qaProcess = [
   },
   {
     step: 'UAT Testing',
-    description: 'Client validation in staging environment',
+    description: 'Client validation in staging environment before deployment',
     coverage: 'All user stories',
     icon: Users,
   },
@@ -250,7 +345,7 @@ function ProcessPage() {
                 }}
               >
                 <div className="inline-flex items-center space-x-2   md:px-4 md:py-2 px-3 py-2 bg-[#f1592a]/10 rounded-full mb-6">
-                  <Award className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5"  strokeWidth={2} />
+                  <Award className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" strokeWidth={2} />
                   <span className="text-[#f1592a] text-xs md:text-sm font-semibold">Our Proven Process</span>
                 </div>
                 <h1 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
@@ -289,7 +384,7 @@ function ProcessPage() {
               className="text-center mb-20"
             >
               <div className="inline-flex items-center space-x-2 px-4 py-2 bg-[#f1592a]/10 rounded-full mb-4">
-                <Target className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5"  strokeWidth={2} />
+                <Target className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" strokeWidth={2} />
                 <span className="text-[#f1592a] text-xs md:text-sm font-semibold">HOW WE WORK</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4">
@@ -322,7 +417,7 @@ function ProcessPage() {
                       delay: index * 0.15,
                       duration: 0.6,
                     }}
-                    className="relative mb-10 md:mb-20 lg:mb-32"
+                    className={`relative ${index === processSteps.length - 1 ? 'mb-0' : 'mb-10 md:mb-20 lg:mb-32'}`}
                     key={step.number}
                   >
                     <div
@@ -455,7 +550,7 @@ function ProcessPage() {
               className="text-center mb-16"
             >
               <div className="inline-flex items-center space-x-2 px-4 py-2 bg-[#f1592a]/10 rounded-full mb-4">
-                <Zap className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5"  strokeWidth={2} />
+                <Zap className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" strokeWidth={2} />
                 <span className="text-[#f1592a] text-xs md:text-sm font-semibold">COMMUNICATION & DELIVERY</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4">
@@ -490,7 +585,7 @@ function ProcessPage() {
                     <div className="w-12 h-12 md:w-14 md:h-14 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center group-hover:border-[#f1592a]/30 transition-all shadow-sm">
                       <Rocket
                         className="text-gray-700 group-hover:text-[#f1592a] transition-colors w-6 h-6 md:w-7 md:h-7"
-                      
+
                         strokeWidth={1.5}
                       />
                     </div>
@@ -562,7 +657,7 @@ function ProcessPage() {
                     <div className="w-12 h-12 md:w-14 md:h-14 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center group-hover:border-[#f1592a]/30 transition-all shadow-sm">
                       <Award
                         className="text-gray-700 group-hover:text-[#f1592a] transition-colors w-6 h-6 md:w-7 md:h-7"
-                        
+
                         strokeWidth={1.5}
                       />
                     </div>
@@ -765,83 +860,7 @@ function ProcessPage() {
                 </motion.div>
               </div>
             </div>
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              className="mt-16 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 text-white"
-            >
-              <div className="text-center mb-8">
-                <h3 className="text-3xl font-bold mb-3">Communication & Release Schedule</h3>
-                <p className="text-gray-300">
-                  Regular touchpoints and automated deployments for maximum transparency
-                </p>
-              </div>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="md:text-xl text-lg font-bold mb-4 flex items-center">
-                    <MessageSquare className="mr-2 text-[#f1592a]" size={24} />
-                    Communication Touchpoints
-                  </h4>
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                      <span className="font-semibold text-sm md:text-md">Daily</span>
-                      <span className="text-[#f1592a] text-xs md:text-sm">Slack updates</span>
-                    </div>
-                    <div className="flex items-center justify-between bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                      <span className="font-semibold text-sm md:text-md">Weekly</span>
-                      <span className="text-[#f1592a] text-xs md:text-sm">Stand-up calls</span>
-                    </div>
-                    <div className="flex items-center justify-between bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                      <span className="font-semibold text-sm md:text-md">Bi-weekly</span>
-                      <span className="text-[#f1592a] text-xs md:text-sm">Sprint reports</span>
-                    </div>
-                    <div className="flex items-center justify-between bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                      <span className="font-semibold text-sm md:text-md">Monthly</span>
-                      <span className="text-[#f1592a] text-xs md:text-sm">Executive summary</span>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <h4 className="md:text-xl text-lg font-bold mb-4 flex items-center">
-                    <GitBranch className="mr-2 text-[#f1592a]" size={24} />
-                    Release Pipeline
-                  </h4>
-                  <div className="space-y-3">
-                    {[
-                      'Code Commit',
-                      'Auto Tests',
-                      'Staging Deploy',
-                      'Client Review',
-                      'Production',
-                    ].map((stage, i) => (
-                      <div
-                        className="flex items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20"
-                        key={stage}
-                      >
-                        <div className="w-8 h-8 bg-[#f1592a] rounded-full flex items-center justify-center mr-3 text-sm font-bold flex-shrink-0">
-                          {i + 1}
-                        </div>
-                        <span className="font-semibold text-sm md:text-md flex-1">{stage}</span>
-                        {i < 4 && <div className="text-gray-400"><ArrowRight className="w-4 h-4 md:w-5 md:h-5"  strokeWidth={2} /></div>}
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-4 flex items-center justify-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
-                    <Zap className="text-[#f1592a]" size={16} />
-                    <span className="text-sm">Average deployment: 15 minutes</span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+
           </div>
         </section>
         <section className="py-12 md:py-16 bg-gray-50">
@@ -861,14 +880,14 @@ function ProcessPage() {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                <span className="text-[#f1592a]">Industry-Leading</span> Tools
+                Industry-Leading <span className="text-[#f1592a]">Technologies</span>
               </h2>
               <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-                We use the best tools to ensure efficiency, collaboration, and quality
+                Leveraging industry-standard tools across design, development, collaboration, deployment, and analytics to deliver high-quality digital solutions.
               </p>
             </motion.div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-              {tools.map((tool, index) => (
+              {techCategories.map((category, index) => (
                 <motion.div
                   initial={{
                     opacity: 0,
@@ -885,55 +904,30 @@ function ProcessPage() {
                     delay: index * 0.05,
                   }}
                   className="group"
-                  key={tool.name}
+                  key={category.title}
                 >
-                  <div className="bg-white border border-gray-200 rounded-2xl p-4 lg:p-6 hover:border-[#f1592a]/30 hover:shadow-lg transition-all duration-300 text-center h-full flex flex-col items-center justify-center">
-                    <div className="relative mb-3">
-                      <div className="w-12 h-12 md:w-14 md:h-14 bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-[#f1592a]/5 transition-all mx-auto">
-                        {typeof tool.icon === 'string' ? (
-                          <img
-                            src={tool.icon}
-                            alt={tool.name}
-                            title={tool.name}
-                            className="h-7 w-7 object-contain opacity-90 group-hover:opacity-100 transition-opacity"
-                          />
-                        ) : (
-                          <tool.icon
-                            className="text-gray-700 group-hover:text-[#f1592a] transition-colors"
-                            size={28}
-                            strokeWidth={1.5}
-                          />
-                        )}
-                      </div>
-                      <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#f1592a] rounded-full border-2 border-white" />
+                  <div className="bg-white border border-gray-200 rounded-2xl p-4 lg:px-2 lg:py-6 hover:border-[#f1592a]/30 hover:shadow-lg transition-all duration-300 text-center h-full flex flex-col items-center justify-between min-h-[160px]">
+                    <div className="w-full">
+                      <h3 className="text-sm font-bold text-gray-900 leading-tight mb-3">{category.title}</h3>
                     </div>
-                    <h3 className="text-base font-bold text-gray-900">{tool.name}</h3>
+                    {/* Horizontal row of monochrome/colored logos */}
+                    <div className="flex items-center justify-center gap-1.5 mt-auto pt-2 flex-wrap">
+                      {category.technologies.map((tech) => (
+                        <div
+                          key={tech.name}
+                          className="w-10 h-10 rounded-lg bg-gray-50 flex items-center justify-center border border-gray-100 shadow-sm"
+                          title={tech.name}
+                        >
+                          <div className="transition-all duration-300">
+                            <BrandLogo name={tech.name} />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </motion.div>
               ))}
             </div>
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              className="mt-12 text-center"
-            >
-              <div className="inline-block bg-white border border-gray-200 rounded-2xl p-4 md:p-6">
-                <p className="text-gray-600 mb-2">
-                  <span className="font-semibold text-gray-900">Plus:</span> Tailored tool stack based
-                  on your team's preferences
-                </p>
-                <p className="text-sm text-gray-500">We adapt to your existing workflows and tools</p>
-              </div>
-            </motion.div>
           </div>
         </section>
         <section className="py-12 md:py-16 bg-white">
@@ -999,172 +993,20 @@ function ProcessPage() {
                 </motion.div>
               ))}
             </div>
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 text-white"
-            >
-              <div className="text-center mb-8">
-                <h3 className="text-3xl font-bold mb-3">Release Pipeline</h3>
-                <p className="text-gray-300">Automated CI/CD for faster, safer deployments</p>
-              </div>
-              <div className="grid md:grid-cols-5 gap-4">
-                {['Code Commit', 'Auto Tests', 'Staging Deploy', 'Client Review', 'Production'].map(
-                  (stage, i) => (
-                    <div className="relative" key={stage}>
-                      <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 text-center hover:bg-white/20 transition-all">
-                        <div className="w-8 h-8 bg-[#f1592a] rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">
-                          {i + 1}
-                        </div>
-                        <p className="text-sm font-semibold">{stage}</p>
-                      </div>
-                      {i < 4 && (
-                        <div className="hidden md:block absolute top-1/2 -right-2 w-4 h-0.5 bg-white/30 -translate-y-1/2" />
-                      )}
-                    </div>
-                  )
-                )}
-              </div>
-              <div className="mt-8 text-center">
-                <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
-                  <Zap className="text-[#f1592a]" size={16} />
-                  <span className="text-sm">Average deployment time: 15 minutes</span>
-                </div>
-              </div>
-            </motion.div>
           </div>
         </section>
-        <section className="py-12 md:py-16 bg-gray-50">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1536px]">
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                <span className="text-[#f1592a]">Post-Launch</span> Support Model
-              </h2>
-              <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-                We don't disappear after launch. We're here for the long haul.
-              </p>
-            </motion.div>
-            <div className="grid md:grid-cols-3 gap-8">
-              {supportTiers.map((tier, index) => (
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    y: 30,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                  }}
-                  transition={{
-                    delay: index * 0.1,
-                  }}
-                  className="group"
-                  key={tier.title}
-                >
-                  <div
-                    className={`relative bg-white border-2 rounded-3xl p-4 lg:p-6 h-full ${index === 0 ? 'border-[#f1592a] shadow-xl shadow-[#f1592a]/10' : 'border-gray-200 hover:border-gray-300'} transition-all duration-300`}
-                  >
-                    {index === 0 && (
-                      <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                        <div className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white px-4 py-1 rounded-full text-sm font-semibold">
-                          Most Critical
-                        </div>
-                      </div>
-                    )}
-                    <div
-                      className={`w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br ${tier.color} rounded-2xl flex items-center justify-center mb-6`}
-                    >
-                      <tier.icon className="text-white w-6 h-6 md:w-8 md:h-8" strokeWidth={1.5} />
-                    </div>
-                    <h3 className="md:text-2xl text-xl font-bold text-gray-900 mb-1">{tier.title}</h3>
-                    <p className="text-[#f1592a] font-semibold mb-6">{tier.subtitle}</p>
-                    <ul className="space-y-3">
-                      {tier.features.map((feature, i) => (
-                        <li className="flex items-start space-x-3" key={i}>
-                          <CheckCircle
-                            className={
-                              index === 0
-                                ? 'text-[#f1592a] flex-shrink-0 mt-0.5'
-                                : 'text-gray-400 flex-shrink-0 mt-0.5'
-                            }
-                            size={18}
-                          />
-                          <span className="text-gray-600 text-sm md:text-md">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
-              ))}
+        <section className="relative py-12 md:py-16 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#f1592a] via-[#ff7a45] to-[#f1592a]">
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+              <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
             </div>
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              className="mt-16 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] rounded-3xl p-8 md:p-12 text-white text-center"
-            >
-              <Shield className="mx-auto mb-4" size={48} />
-              <h3 className="md:text-3xl text-2xl font-bold mb-4">Our Support Guarantee</h3>
-              <p className="md:text-lg text-md text-white/90 max-w-3xl mx-auto mb-6">
-                Every project includes a 30-day critical support period with unlimited bug fixes and
-                optimizations. We're committed to your success, not just your launch.
-              </p>
-              <div className="flex flex-wrap justify-center gap-8 text-center">
-                <div>
-                  <div className="md:text-4xl text-3xl font-bold mb-1">{'<2hr'}</div>
-                  <div className="text-white/80 text-sm">Critical issue response</div>
-                </div>
-                <div>
-                  <div className="md:text-4xl text-3xl font-bold mb-1">99.9%</div>
-                  <div className="text-white/80 text-sm">Uptime guarantee</div>
-                </div>
-                <div>
-                  <div className="md:text-4xl text-3xl font-bold mb-1">24/7</div>
-                  <div className="text-white/80 text-sm">Monitoring & alerts</div>
-                </div>
-              </div>
-            </motion.div>
           </div>
-        </section>
-        <section className="py-12 md:py-16 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1536px]">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <motion.div
               initial={{
                 opacity: 0,
-                y: 20,
+                y: 50,
               }}
               whileInView={{
                 opacity: 1,
@@ -1173,47 +1015,43 @@ function ProcessPage() {
               viewport={{
                 once: true,
               }}
-              className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-16 text-center relative overflow-hidden"
+              className="max-w-4xl mx-auto text-center"
             >
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-10 right-10 w-64 h-64 bg-[#f1592a] rounded-full blur-3xl" />
-                <div className="absolute bottom-10 left-10 w-64 h-64 bg-[#ff7a45] rounded-full blur-3xl" />
-              </div>
-              <div className="relative z-10">
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                  Ready to Experience <br /> <span className="text-[#f1592a]">Our Process?</span>
-                </h2>
-                <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                  Let's discuss your project and show you exactly how we'll bring it to life
-                </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <a href="/contact">
-                    <motion.button
-                      whileHover={{
-                        scale: 1.05,
-                      }}
-                      whileTap={{
-                        scale: 0.95,
-                      }}
-                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 text-sm md:text-md bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full font-semibold shadow-lg hover:shadow-2xl hover:shadow-[#f1592a]/30 transition-all"
-                    >
-                      <span className="text-sm md:text-md">Start Your Project</span>
-                    </motion.button>
-                  </a>
-                  <a href="/our-story">
-                    <motion.button
-                      whileHover={{
-                        scale: 1.05,
-                      }}
-                      whileTap={{
-                        scale: 0.95,
-                      }}
-                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 text-sm md:text-md bg-white/10 backdrop-blur-sm text-white rounded-full font-semibold border border-white/20 hover:bg-white/20 transition-all"
-                    >
-                      <span className="text-sm md:text-md">Learn About Us</span>
-                    </motion.button>
-                  </a>
-                </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                Ready to Experience Our Process?
+              </h2>
+              <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto">
+                Let's discuss your project and show you exactly how we'll bring it to life
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="/contact" className="w-full sm:w-auto">
+                  <motion.button
+                    whileHover={{
+                      scale: 1.05,
+                    }}
+                    whileTap={{
+                      scale: 0.95,
+                    }}
+                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all font-semibold flex items-center justify-center space-x-2 group"
+                  >
+                    <span className="text-sm md:text-md">Start Your Project</span>
+                    <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
+                  </motion.button>
+                </a>
+                <a href="/our-story" className="w-full sm:w-auto">
+                  <motion.button
+                    whileHover={{
+                      scale: 1.05,
+                    }}
+                    whileTap={{
+                      scale: 0.95,
+                    }}
+                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-transparent text-white rounded-full border-2 border-white hover:bg-white hover:text-[#f1592a] transition-all font-semibold flex items-center justify-center space-x-2 group"
+                  >
+                    <span className="text-sm md:text-md">Learn About Us</span>
+                    <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
+                  </motion.button>
+                </a>
               </div>
             </motion.div>
           </div>
