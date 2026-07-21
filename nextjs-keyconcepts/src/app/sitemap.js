@@ -1,16 +1,9 @@
 import { SITE_URL, pageSeo } from '@/lib/seo'
-import { blogPosts } from '@/data/blog-posts'
-import { caseStudies } from '@/data/case-studies'
-import { endpoints } from '@/lib/api'
-
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL ||
-  process.env.VITE_API_BASE_URL ||
-  'http://localhost:5000/api'
+import { endpoints, api } from '@/lib/api'
 
 async function getJobRoutes() {
   try {
-    const response = await fetch(`${API_BASE_URL}${endpoints.JOBS}`, {
+    const response = await fetch(`${api.baseUrl}${endpoints.JOBS}`, {
       next: { revalidate: 3600 },
     })
 
@@ -32,6 +25,54 @@ async function getJobRoutes() {
   }
 }
 
+async function getBlogRoutes() {
+  try {
+    const response = await fetch(`${api.baseUrl}${endpoints.BLOGS}?limit=100&sort=-publishedAt`, {
+      next: { revalidate: 3600 },
+    })
+
+    if (!response.ok) return []
+
+    const blogs = await response.json()
+    const list = Array.isArray(blogs) ? blogs : blogs?.data || []
+
+    return list
+      .filter((post) => post?.slug)
+      .map((post) => ({
+        url: `${SITE_URL}/blog/${post.slug}`,
+        lastModified: new Date(post.updatedAt || post.publishedAt || post.createdAt || Date.now()),
+        changeFrequency: 'monthly',
+        priority: 0.7,
+      }))
+  } catch {
+    return []
+  }
+}
+
+async function getCaseStudyRoutes() {
+  try {
+    const response = await fetch(`${api.baseUrl}${endpoints.CASE_STUDIES}?limit=100&sort=-publishedAt`, {
+      next: { revalidate: 3600 },
+    })
+
+    if (!response.ok) return []
+
+    const caseStudies = await response.json()
+    const list = Array.isArray(caseStudies) ? caseStudies : caseStudies?.data || []
+
+    return list
+      .filter((study) => study?.slug)
+      .map((study) => ({
+        url: `${SITE_URL}/case-study/${study.slug}`,
+        lastModified: new Date(study.updatedAt || study.publishedAt || study.createdAt || Date.now()),
+        changeFrequency: 'monthly',
+        priority: 0.7,
+      }))
+  } catch {
+    return []
+  }
+}
+
 export default async function sitemap() {
   const staticRoutes = Object.values(pageSeo)
     .filter((page) => page.path !== '/blog')
@@ -42,20 +83,8 @@ export default async function sitemap() {
       priority: page.path === '/' ? 1 : 0.8,
     }))
 
-  const blogRoutes = blogPosts.map((post) => ({
-    url: `${SITE_URL}/blog/${post.id}`,
-    lastModified: post.date ? new Date(post.date) : new Date(),
-    changeFrequency: 'monthly',
-    priority: 0.7,
-  }))
-
-  const caseStudyRoutes = caseStudies.map((study) => ({
-    url: `${SITE_URL}/case-study/${study.id}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly',
-    priority: 0.7,
-  }))
-
+  const blogRoutes = await getBlogRoutes()
+  const caseStudyRoutes = await getCaseStudyRoutes()
   const jobRoutes = await getJobRoutes()
 
   return [...staticRoutes, ...blogRoutes, ...caseStudyRoutes, ...jobRoutes]

@@ -1,15 +1,14 @@
-'use client'
-
 import LayoutWrapper from '@/components/layout-wrapper'
-import { motion } from 'motion/react'
 import { Calendar, Clock, ArrowRight, User, TrendingUp, RefreshCw } from 'lucide-react'
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
 import Link from 'next/link'
-import { getFeaturedBlogPost, getRegularBlogPosts } from '@/data/blog-posts'
+import { getFeaturedBlogPost, getRegularBlogPosts } from '@/lib/content-api'
 
-function IndustryTrendsPage() {
-  const featuredPost = getFeaturedBlogPost()
-  const regularPosts = getRegularBlogPosts()
+export const dynamic = 'force-dynamic'
+
+async function IndustryTrendsPage() {
+  const featuredPost = await getFeaturedBlogPost()
+  const regularPosts = await getRegularBlogPosts()
 
   return (
     <LayoutWrapper>
@@ -20,37 +19,11 @@ function IndustryTrendsPage() {
             <div className="absolute bottom-20 left-20 w-96 h-96 bg-gray-300/30 rounded-full blur-3xl" />
           </div>
           <div className="relative w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 0.6,
-              }}
-              className="text-center mb-12"
-            >
-              <motion.span
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{
-                  delay: 0.1,
-                }}
-                className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/50 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
-              >
+            <div className="text-center mb-12">
+              <span className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/50 rounded-full text-sm font-semibold text-[#f1592a] mb-4">
                 <TrendingUp size={16} /> 
                 <span className="text-xs md:text-sm">Industry Insights</span>
-              </motion.span>
+              </span>
               <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold mb-6">
                 Industry Trends & Insights
               </h1>
@@ -58,24 +31,10 @@ function IndustryTrendsPage() {
                 Stay ahead of the curve with our expert insights on the latest technology trends, best
                 practices, and industry innovations.
               </p>
-            </motion.div>
+            </div>
             {featuredPost && (
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 30,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.2,
-                }}
-                className="relative group"
-              >
-                <Link href={`/blog/${featuredPost.id}`} className="block">
+              <div className="relative group">
+                <Link href={`/blog/${featuredPost.slug}`} className="block">
                   <div className="relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100">
                     <div className="grid md:grid-cols-2 gap-0">
                       <div className="relative h-64 md:h-full overflow-hidden">
@@ -123,29 +82,13 @@ function IndustryTrendsPage() {
                     </div>
                   </div>
                 </Link>
-              </motion.div>
+              </div>
             )}
           </div>
         </section>
         <section className="py-12 md:py-16 bg-white">
           <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                duration: 0.6,
-              }}
-              className="text-center mb-16"
-            >
+            <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 Latest Articles
               </h2>
@@ -153,29 +96,11 @@ function IndustryTrendsPage() {
                 Explore our collection of in-depth articles covering the latest trends, technologies,
                 and best practices in IT and ERP solutions.
               </p>
-            </motion.div>
+            </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {regularPosts.map((post, index) => (
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    y: 30,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                  }}
-                  transition={{
-                    duration: 0.6,
-                    delay: index * 0.1,
-                  }}
-                  className="group"
-                  key={post.id}
-                >
-                  <Link href={`/blog/${post.id}`} className="block h-full">
+              {regularPosts.map((post) => (
+                <div className="group" key={post.id}>
+                  <Link href={`/blog/${post.slug}`} className="block h-full">
                     <div className="h-full bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col">
                       <div className="relative h-56 overflow-hidden">
                         <ImageWithFallback
@@ -218,31 +143,15 @@ function IndustryTrendsPage() {
                       </div>
                     </div>
                   </Link>
-                </motion.div>
+                </div>
               ))}
             </div>
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                duration: 0.6,
-              }}
-              className="text-center mt-16"
-            >
+            <div className="text-center mt-16">
               <button className="px-6 md:px-8 py-3 md:py-4 text-sm md:text-md bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full font-semibold shadow-lg hover:shadow-xl hover:shadow-[#f1592a]/30 transition-all hover:scale-105 flex items-center justify-center space-x-2 group mx-auto">
                 <span>Load More Articles</span>
                 <RefreshCw className="group-hover:rotate-180 transition-transform duration-500" size={16} />
               </button>
-            </motion.div>
+            </div>
           </div>
         </section>
         <section className="relative py-12 md:py-16 overflow-hidden">
@@ -253,20 +162,7 @@ function IndustryTrendsPage() {
             </div>
           </div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 50,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              className="max-w-4xl mx-auto text-center"
-            >
+            <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
                 Stay Updated with Our Newsletter
               </h2>
@@ -286,7 +182,7 @@ function IndustryTrendsPage() {
               <p className="text-white/80 text-sm mt-4">
                 Join 10,000+ professionals staying ahead of the curve
               </p>
-            </motion.div>
+            </div>
           </div>
         </section>
       </div>

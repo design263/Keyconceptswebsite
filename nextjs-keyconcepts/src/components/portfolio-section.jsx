@@ -1,13 +1,11 @@
-'use client'
-
 import { motion } from 'motion/react'
 import Link from 'next/link'
 import { ArrowRight, Trophy } from 'lucide-react'
 import { ImageWithFallback } from './figma/ImageWithFallback'
-import { caseStudies } from '@/data/case-studies'
+import { getCaseStudies } from '@/lib/content-api'
 
-function PortfolioSection() {
-  // Only display a few case studies on the home page (e.g., first 3) to keep cognitive load low
+async function PortfolioSection() {
+  const caseStudies = await getCaseStudies()
   const displayStudies = caseStudies.slice(0, 3)
 
   return (
@@ -59,7 +57,7 @@ function PortfolioSection() {
                   {study.client}
                 </span>
                 <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#f1592a] transition-colors leading-tight">
-                  <Link href={`/case-study/${study.id}`}>{study.title}</Link>
+                  <Link href={`/case-study/${study.slug}`}>{study.title}</Link>
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-1">
                   {study.challenge}

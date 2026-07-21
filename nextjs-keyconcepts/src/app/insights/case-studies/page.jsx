@@ -1,15 +1,14 @@
-'use client'
-
 import LayoutWrapper from '@/components/layout-wrapper'
-import { motion } from 'motion/react'
 import { Award, ArrowRight, Target } from 'lucide-react'
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
 import Link from 'next/link'
-import { getFeaturedCaseStudy, getRegularCaseStudies } from '@/data/case-studies'
+import { getFeaturedCaseStudy, getRegularCaseStudies } from '@/lib/content-api'
 
-function CaseStudiesPage() {
-  const featuredCase = getFeaturedCaseStudy()
-  const regularCases = getRegularCaseStudies()
+export const dynamic = 'force-dynamic'
+
+async function CaseStudiesPage() {
+  const featuredCase = await getFeaturedCaseStudy()
+  const regularCases = await getRegularCaseStudies()
 
   return (
     <LayoutWrapper>
@@ -20,35 +19,20 @@ function CaseStudiesPage() {
             <div className="absolute bottom-20 left-20 w-96 h-96 bg-gray-300/30 rounded-full blur-3xl" />
           </div>
           <div className="relative w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/50 rounded-full text-sm font-semibold text-[#f1592a] mb-4"
-              >
+            <div className="text-center mb-12">
+              <span className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/50 rounded-full text-sm font-semibold text-[#f1592a] mb-4">
                 <Award size={16} /> 
                 <span className="text-xs md:text-sm">Success Stories</span>
-              </motion.span>
+              </span>
               <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold mb-6">Case Studies</h1>
               <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Discover how we've helped businesses transform their operations and achieve remarkable
                 results with our innovative solutions.
               </p>
-            </motion.div>
+            </div>
             {featuredCase && (
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative group"
-              >
-                <Link href={`/case-study/${featuredCase.id}`} className="block">
+              <div className="relative group">
+                <Link href={`/case-study/${featuredCase.slug}`} className="block">
                   <div className="relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100">
                     <div className="grid md:grid-cols-2 gap-0">
                       <div className="relative h-64 md:h-full overflow-hidden">
@@ -104,19 +88,13 @@ function CaseStudiesPage() {
                     </div>
                   </div>
                 </Link>
-              </motion.div>
+              </div>
             )}
           </div>
         </section>
         <section className="py-12 md:py-16 bg-white">
           <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
+            <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 More Success Stories
               </h2>
@@ -124,18 +102,11 @@ function CaseStudiesPage() {
                 Explore how we've partnered with businesses across industries to deliver measurable
                 results and drive growth.
               </p>
-            </motion.div>
+            </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {regularCases.map((caseStudy, index) => (
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="group"
-                  key={caseStudy.id}
-                >
-                  <Link href={`/case-study/${caseStudy.id}`} className="block h-full">
+              {regularCases.map((caseStudy) => (
+                <div className="group" key={caseStudy.id}>
+                  <Link href={`/case-study/${caseStudy.slug}`} className="block h-full">
                     <div className="h-full bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col">
                       <div className="relative h-56 overflow-hidden">
                         <ImageWithFallback
@@ -183,7 +154,7 @@ function CaseStudiesPage() {
                       </div>
                     </div>
                   </Link>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -196,12 +167,7 @@ function CaseStudiesPage() {
             </div>
           </div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-4xl mx-auto text-center"
-            >
+            <div className="max-w-4xl mx-auto text-center">
               <div className="flex justify-center mb-6">
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center border border-white/40">
                   <Target className="text-white" size={32} />
@@ -221,7 +187,7 @@ function CaseStudiesPage() {
                   </button>
                 </Link>
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
       </div>

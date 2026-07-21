@@ -78,6 +78,8 @@ import authRoutes from "./routes/authRoutes.js";
 import jobRoutes from "./routes/jobRoutes.js";
 import applicationRoutes from "./routes/applicationRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
+import blogRoutes from "./routes/blogRoutes.js";
+import caseStudyRoutes from "./routes/caseStudyRoutes.js";
 import { connectDB } from "./config/db.js";
 import { errorHandler, notFound } from "./middlewares/errorHandler.js";
 
@@ -116,6 +118,8 @@ app.use(
 app.get("/api/health", (_, res) => res.json({ status: "ok" }));
 app.use("/api/auth", authRoutes);
 app.use("/api/jobs", jobRoutes);
+app.use("/api/blogs", blogRoutes);
+app.use("/api/case-studies", caseStudyRoutes);
 app.use("/api/applications", applicationRoutes);
 app.use("/api/contact-leads", contactRoutes);
 

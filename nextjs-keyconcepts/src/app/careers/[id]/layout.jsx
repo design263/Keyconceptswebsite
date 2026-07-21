@@ -1,15 +1,10 @@
 import { createPageMetadata, SITE_URL, trimMetaDescription } from '@/lib/seo'
-import { endpoints } from '@/lib/api'
+import { endpoints, api } from '@/lib/api'
 import { JsonLd } from '@/components/json-ld'
 import { breadcrumbSchema, jobPostingSchema } from '@/lib/structured-data'
 
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL ||
-  process.env.VITE_API_BASE_URL ||
-  'http://localhost:5000/api'
-
 async function fetchJob(id) {
-  const response = await fetch(`${API_BASE_URL}${endpoints.JOB_BY_ID(id)}`, {
+  const response = await fetch(`${api.baseUrl}${endpoints.JOB_BY_ID(id)}`, {
     next: { revalidate: 3600 },
   })
 

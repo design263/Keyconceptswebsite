@@ -2,13 +2,15 @@ import LayoutWrapper from '@/components/layout-wrapper'
 import Link from 'next/link'
 import { Calendar, Clock, User, ArrowRight } from 'lucide-react'
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
-import { blogPosts } from '@/data/blog-posts'
-
 import { createPageMetadata } from '@/lib/seo'
+import { getBlogPosts } from '@/lib/content-api'
 
 export const metadata = createPageMetadata('blog')
+export const dynamic = 'force-dynamic'
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const blogPosts = await getBlogPosts()
+
   return (
     <LayoutWrapper>
       <div className="min-h-screen bg-white">
@@ -60,7 +62,7 @@ export default function BlogPage() {
                     </div>
                   </div>
                   <Link
-                    href={`/blog/${post.id}`}
+                    href={`/blog/${post.slug}`}
                     className="mt-4 inline-flex items-center text-[#f1592a] hover:text-[#e0481a] font-medium"
                   >
                     Read More

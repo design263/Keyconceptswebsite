@@ -38,9 +38,13 @@ export function websiteSchema() {
   }
 }
 
-export function blogPostingSchema(post, id) {
-  const url = `${SITE_URL}/blog/${id}`
-  const published = post.date ? new Date(post.date).toISOString() : undefined
+export function blogPostingSchema(post, slug) {
+  const url = `${SITE_URL}/blog/${slug}`
+  const published = post.publishedAt
+    ? new Date(post.publishedAt).toISOString()
+    : post.date
+      ? new Date(post.date).toISOString()
+      : undefined
 
   return {
     '@context': 'https://schema.org',
@@ -67,8 +71,8 @@ export function blogPostingSchema(post, id) {
   }
 }
 
-export function articleSchema(caseStudy, id) {
-  const url = `${SITE_URL}/case-study/${id}`
+export function articleSchema(caseStudy, slug) {
+  const url = `${SITE_URL}/case-study/${slug}`
 
   return {
     '@context': 'https://schema.org',

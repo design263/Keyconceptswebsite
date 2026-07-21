@@ -1,13 +1,15 @@
 import { notFound } from 'next/navigation'
 import { BlogPostDetail } from '@/components/blog-post-detail'
 import { JsonLd } from '@/components/json-ld'
-import { getBlogPostById } from '@/data/blog-posts'
 import { createPageMetadata, SITE_URL } from '@/lib/seo'
 import { blogPostingSchema, breadcrumbSchema } from '@/lib/structured-data'
+import { getBlogPostBySlug } from '@/lib/content-api'
+
+export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }) {
-  const { id } = await params
-  const post = getBlogPostById(id)
+  const { id: slug } = await params
+  const post = await getBlogPostBySlug(slug)
 
   if (!post) {
     return {
@@ -19,7 +21,7 @@ export async function generateMetadata({ params }) {
   return createPageMetadata('blog', {
     title: post.title,
     description: post.excerpt,
-    path: `/blog/${id}`,
+    path: `/blog/${slug}`,
     type: 'article',
     image: post.image,
     keywords: [...(post.tags || []), post.category, 'blog', 'industry trends'].join(', '),
@@ -27,8 +29,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function BlogPostPage({ params }) {
-  const { id } = await params
-  const post = getBlogPostById(id)
+  const { id: slug } = await params
+  const post = await getBlogPostBySlug(slug)
 
   if (!post) {
     notFound()
@@ -38,11 +40,11 @@ export default async function BlogPostPage({ params }) {
     <>
       <JsonLd
         data={[
-          blogPostingSchema(post, id),
+          blogPostingSchema(post, slug),
           breadcrumbSchema([
             { name: 'Home', url: SITE_URL },
             { name: 'Industry Trends', url: `${SITE_URL}/insights/trends` },
-            { name: post.title, url: `${SITE_URL}/blog/${id}` },
+            { name: post.title, url: `${SITE_URL}/blog/${slug}` },
           ]),
         ]}
       />

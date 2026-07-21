@@ -1,6 +1,6 @@
 const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL ||
-  process.env.VITE_API_BASE_URL ||
+  // process.env.NEXT_PUBLIC_API_BASE_URL ||
+  // process.env.VITE_API_BASE_URL ||
   "http://localhost:5000/api";
 
 async function request(path, options = {}) {
@@ -89,6 +89,16 @@ export const endpoints = {
   // Jobs
   JOBS: '/jobs',
   JOB_BY_ID: (id) => `/jobs/${id}`,
+
+  // Blogs
+  BLOGS: '/blogs',
+  BLOG_BY_ID: (id) => `/blogs/${id}`,
+  BLOG_BY_SLUG: (slug) => `/blogs/slug/${slug}`,
+
+  // Case studies
+  CASE_STUDIES: '/case-studies',
+  CASE_STUDY_BY_ID: (id) => `/case-studies/${id}`,
+  CASE_STUDY_BY_SLUG: (slug) => `/case-studies/slug/${slug}`,
   
   // Applications
   APPLICATIONS: '/applications',

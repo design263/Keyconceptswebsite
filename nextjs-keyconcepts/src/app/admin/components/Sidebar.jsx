@@ -9,11 +9,13 @@ import {
   Settings, ShieldCheck, FileSpreadsheet,
   BriefcaseBusiness, ChevronDown,
   Users, Building2, Award, LogOut,
-  ChevronLeft, ChevronRight
+  ChevronLeft, ChevronRight, Newspaper
 } from 'lucide-react'
 
 const NavItems = [
   { href: "/admin/jobs", label: "Job Openings", icon: BriefcaseBusiness },
+  { href: "/admin/blogs", label: "Blogs", icon: Newspaper },
+  { href: "/admin/case-studies", label: "Case Studies", icon: Award },
   { href: "/admin/applications", label: "Applications", icon: FileSpreadsheet },
   { href: "/admin/leads", label: "Contact Leads", icon: Mail },
 ]

@@ -15,6 +15,7 @@ import { JsonLd } from '@/components/json-ld'
 import { localBusinessSchema } from '@/lib/structured-data'
 
 export const metadata = createPageMetadata('home')
+export const dynamic = 'force-dynamic'
 
 export default function HomePage() {
   return (
