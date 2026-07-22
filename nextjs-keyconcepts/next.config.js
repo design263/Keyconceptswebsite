@@ -1,6 +1,16 @@
 /** @type {import('next').NextConfig} */
 import bundleAnalyzer from '@next/bundle-analyzer'
 
+// api.keyconcepts.co.in ships an incomplete TLS chain; Node SSR fails with
+// UNABLE_TO_VERIFY_LEAF_SIGNATURE. Enable only for local/dev via .env.local.
+// Fix the cert on the API host for a proper production solution.
+if (
+  process.env.ALLOW_INSECURE_TLS === 'true' ||
+  process.env.NODE_ENV !== 'production'
+) {
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+}
+
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 })

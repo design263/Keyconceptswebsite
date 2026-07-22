@@ -1,17 +1,29 @@
 import { endpoints, api } from '@/lib/api'
 
 async function fetchContent(path, { revalidate, cache = 'no-store' } = {}) {
-  const response = await fetch(`${api.baseUrl}${path}`, {
-    cache,
-    ...(typeof revalidate === 'number' ? { next: { revalidate } } : {}),
-  })
+  try {
+    const response = await fetch(`${api.baseUrl}${path}`, {
+      cache,
+      ...(typeof revalidate === 'number' ? { next: { revalidate } } : {}),
+    })
 
-  if (!response.ok) {
-    if (response.status === 404) return null
-    throw new Error(`Failed to fetch content from ${path}`)
+    if (!response.ok) {
+      if (response.status === 404) return null
+      console.error(`Content API ${path} failed: ${response.status}`)
+      return null
+    }
+
+    return response.json()
+  } catch (error) {
+    // Incomplete API TLS chain → UNABLE_TO_VERIFY_LEAF_SIGNATURE in Node SSR
+    if (process.env.NODE_ENV === 'development') {
+      console.warn(
+        `Content API ${path} unreachable:`,
+        error?.cause?.code || error.message
+      )
+    }
+    return null
   }
-
-  return response.json()
 }
 
 const formatDate = (value) => {
@@ -52,7 +64,7 @@ export function normalizeCaseStudy(caseStudy) {
 export async function getBlogPosts() {
   const response = await fetchContent(`${endpoints.BLOGS}?limit=100&sort=-publishedAt`)
   const list = Array.isArray(response) ? response : response?.data || []
-  return list.map(normalizeBlogPost)
+  return list.map(normalizeBlogPost).filter(Boolean)
 }
 
 export async function getBlogPostBySlug(slug) {
@@ -74,7 +86,7 @@ export async function getRegularBlogPosts() {
 export async function getCaseStudies() {
   const response = await fetchContent(`${endpoints.CASE_STUDIES}?limit=100&sort=-publishedAt`)
   const list = Array.isArray(response) ? response : response?.data || []
-  return list.map(normalizeCaseStudy)
+  return list.map(normalizeCaseStudy).filter(Boolean)
 }
 
 export async function getCaseStudyBySlug(slug) {
