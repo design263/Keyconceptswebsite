@@ -72,7 +72,7 @@ function CTASection() {
               </motion.button>
             </Link>
 
-            <Link href="/services" className="w-full sm:w-auto">
+            {/* <Link href="/services" className="w-full sm:w-auto">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -81,7 +81,7 @@ function CTASection() {
                 <span>View All Services</span>
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
               </motion.button>
-            </Link>
+            </Link> */}
           </div>{' '}
           <motion.div
             initial={{
