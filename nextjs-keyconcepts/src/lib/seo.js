@@ -292,7 +292,11 @@ export const pageSeo = {
 }
 
 export function createPageMetadata(pageKey, overrides = {}) {
-  const page = pageSeo[pageKey]
+  const aliases = {
+    'odoo-erp': 'custom-erp-solutions',
+  }
+  const resolvedKey = aliases[pageKey] || pageKey
+  const page = pageSeo[resolvedKey]
 
   if (!page && !overrides.title && !overrides.description) {
     throw new Error(`Unknown SEO page key: ${pageKey}`)

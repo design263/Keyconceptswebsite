@@ -42,6 +42,11 @@ const nextConfig = {
         destination: '/insights/trends',
         permanent: true,
       },
+      {
+        source: '/odoo-erp',
+        destination: '/custom-erp-solutions',
+        permanent: true,
+      },
     ]
   },
   async headers() {
