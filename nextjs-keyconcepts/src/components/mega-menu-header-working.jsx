@@ -200,7 +200,7 @@ function MegaMenuHeader() {
                           className="group/item"
                         >
                           <Link
-                            href="/odoo-erp"
+                            href="/custom-erp-solutions"
                             className="block h-full p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
                           >
                             <div className="relative w-12 h-12 mb-4">
@@ -210,7 +210,7 @@ function MegaMenuHeader() {
                               <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-[#f1592a] rounded-full border-2 border-white" />
                             </div>
                             <h3 className="font-bold text-gray-900 mb-2 group-hover/item:text-[#f1592a] transition-colors">
-                              Odoo Development
+                              Custom ERP Solutions
                             </h3>
                             <p className="text-sm text-gray-600 leading-relaxed">
                               Implement, customize, integrate, support

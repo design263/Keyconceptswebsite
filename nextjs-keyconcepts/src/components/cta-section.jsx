@@ -67,7 +67,7 @@ function CTASection() {
                 whileTap={{ scale: 0.95 }}
                 className="group w-[80%] sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all flex items-center justify-center space-x-2 font-semibold"
               >
-                <span>Schedule a Consultation</span>
+                <span>Talk to an Expert</span>
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
               </motion.button>
             </Link>
@@ -101,7 +101,7 @@ function CTASection() {
             className="mt-6 md:mt-10 flex flex-wrap justify-center  gap-4 md:gap-8 text-white/80"
           >
             {' '}
-            
+
             <div className="flex items-center space-x-2">
               {' '}
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">

@@ -38,10 +38,14 @@ async function request(path, options = {}) {
 
     return data;
   } catch (error) {
-    console.error(`API Error (${path}):`, error);
+    console.warn(`API Error (${path}):`, error);
     throw error;
   }
 }
+
+
+
+
 
 export const api = {
   // GET request

@@ -47,9 +47,9 @@ const processSteps = [
   },
   {
     number: '06',
-    title: 'Maintain',
+    title: 'Deliver',
     description:
-      'Continuous support and optimization keep your solution running at peak performance.',
+      'Provide ongoing support, maintenance, and updates to keep your software performing at its best.',
     icon: Settings,
     color: 'from-gray-700 to-gray-900',
   },
@@ -62,7 +62,7 @@ function ConnectorArrow({ index, total, isLastInRow }) {
   return (
     <>
       {/* Mobile & Tablet: vertical down arrow between every card except last */}
-      
+
 
       {/* Desktop: horizontal right arrow — only between cards in same row (not last in row, not last overall) */}
       {!isLast && !isLastInRow && (
@@ -105,7 +105,7 @@ function ProcessSection() {
             viewport={{ once: true }}
             className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
           >
-            Our Process
+            Process
           </motion.span>
           <h2 className="text-3xl sm:text-3xl md:text-5xl font-bold mb-4">How We Work</h2>
           <p className="text-base sm:text-md lg:text-lg text-gray-600 max-w-2xl mx-auto px-2">
@@ -132,7 +132,7 @@ function ProcessSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="relative h-full" 
+                    className="relative h-full"
                   >
                     <div className="group h-full relative bg-white/60 backdrop-blur-lg rounded-2xl p-4 lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300">
 

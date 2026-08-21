@@ -149,15 +149,15 @@ export const pageSeo = {
       'MVP development, startup product build, minimum viable product, rapid app development, MVP studio',
     path: '/mvp-studio',
   },
-  'odoo-erp': {
+  'custom-erp-solutions': {
     title: {
-      absolute: 'Odoo ERP Development & Implementation Services',
+      absolute: 'Custom ERP Solutions for Businesses in India | Key Concepts',
     },
     description:
-      'Odoo ERP by Key Concepts: implementation, custom modules, integrations, data migration, and AMC support for sales, inventory, and HR.',
+      'Streamline operations with custom ERP solutions tailored to your business. Automate workflows, manage resources, and improve productivity with Key Concepts.',
     keywords:
-      'Odoo development Surat, Odoo ERP implementation, Odoo customization, Odoo integration, ERP software',
-    path: '/odoo-erp',
+      'custom ERP solutions, custom ERP software, ERP development company, ERP solutions, business ERP software, enterprise ERP solutions, custom ERP development',
+    path: '/custom-erp-solutions',
   },
   'support-maintenance': {
     title: {

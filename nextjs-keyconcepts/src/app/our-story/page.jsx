@@ -303,7 +303,7 @@ function TeamCarousel() {
   }
 
   return (
-    <div 
+    <div
       className="relative w-full"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -374,9 +374,8 @@ function TeamCarousel() {
             <button
               key={index}
               onClick={() => handleDotClick(index)}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                isActive ? 'bg-[#f1592a] w-6' : 'bg-white/30 hover:bg-white/50'
-              }`}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${isActive ? 'bg-[#f1592a] w-6' : 'bg-white/30 hover:bg-white/50'
+                }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           )
@@ -437,9 +436,8 @@ function TeamCarousel() {
                     key={lightboxIndex}
                     src={teamImages[lightboxIndex].src}
                     alt={teamImages[lightboxIndex].caption}
-                    className={`max-w-full max-h-[70vh] object-contain rounded-lg transition-transform duration-300 ${
-                      zoom ? 'scale-150 cursor-zoom-out' : 'scale-100 cursor-zoom-in'
-                    }`}
+                    className={`max-w-full max-h-[70vh] object-contain rounded-lg transition-transform duration-300 ${zoom ? 'scale-150 cursor-zoom-out' : 'scale-100 cursor-zoom-in'
+                      }`}
                     onClick={() => setZoom(!zoom)}
                     initial={{ scale: 0.95, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
@@ -521,7 +519,7 @@ function OurStoryPage() {
                 className="text-3xl md:text-5xl font-bold mb-6"
               >
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  New Generation Company
+                  New Generation Company's
                 </span>
                 <br />
                 with Legacy
@@ -555,14 +553,37 @@ function OurStoryPage() {
                 transition={{
                   delay: 0.5,
                 }}
-                className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200 w-full md:w-1/2 mx-auto"
+                className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mt-12 px-4"
               >
-                <ImageWithFallback
-                  src="/assets/ourStory/Our-Story.jpg"
-                  alt="Key Concepts Office"
-                  className="w-full h-auto"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                {/* Image 1: Main Story */}
+                <div className="md:col-span-2 relative rounded-3xl overflow-hidden shadow-xl border border-gray-100 min-h-[350px] md:min-h-[450px] group">
+                  <ImageWithFallback
+                    src="/assets/ourStory/Our-Story.jpg"
+                    alt="Key Concepts Office Workspace"
+                    className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                  />
+                </div>
+
+                {/* Column 2: Stacked vertical cards */}
+                <div className="flex flex-col gap-6">
+                  {/* Image 2 */}
+                  <div className="relative rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex-1 min-h-[210px] group">
+                    <ImageWithFallback
+                      src="/images/20159685-22.jpg"
+                      alt="Team Collaboration"
+                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                    />
+                  </div>
+
+                  {/* Image 3 */}
+                  <div className="relative rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex-1 min-h-[210px] group">
+                    <ImageWithFallback
+                      src="/images/20181881.jpg"
+                      alt="Legacy and Reliability"
+                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                    />
+                  </div>
+                </div>
               </motion.div>
             </div>
           </div>
@@ -935,19 +956,7 @@ function OurStoryPage() {
                   <span className="text-sm md:text-md">Get In Touch</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                 </motion.a>
-                <motion.a
-                  href="/services"
-                  whileHover={{
-                    scale: 1.05,
-                  }}
-                  whileTap={{
-                    scale: 0.95,
-                  }}
-                  className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-transparent text-white rounded-full border-2 border-white hover:bg-white hover:text-[#f1592a] transition-all font-semibold flex items-center justify-center space-x-2 group"
-                >
-                  <span className="text-sm md:text-md">Explore Services</span>
-                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-                </motion.a>
+
               </div>
             </motion.div>
           </div>

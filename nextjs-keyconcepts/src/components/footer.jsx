@@ -199,10 +199,10 @@ function Footer() {
               <li>
                 {' '}
                 <Link
-                  href="/odoo-erp"
+                  href="/custom-erp-solutions"
                   className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm"
                 >
-                  Odoo Development
+                  Custom ERP Solutions
                 </Link>
               </li>{' '}
               <li>

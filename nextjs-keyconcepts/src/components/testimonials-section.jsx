@@ -5,11 +5,12 @@ import { Star, Quote } from 'lucide-react'
 const testimonials = [
   {
     name: 'Paresh Chaudhari',
-    role: 'CEO',
+    role: 'CEO - Nobletex Industries Ltd.',
     content:
       'Great experience to working with Key Concepts team. Very co-operative staff.',
     rating: 5,
     company: 'Nobletex Industries Ltd.',
+    image: '/images/nobletex.jpg',
   },
   {
     name: 'Municipal School Board',
@@ -18,6 +19,7 @@ const testimonials = [
       'We would like to express our satisfaction and appriciation to key Concepts team for their excellent efforts towards sucessfully completeing the project. We also admire their aspiration for their prompt and flawless quality deliverables.',
     rating: 5,
     company: 'Municipal School Board',
+    image: '/images/Municipal-School-Board.jpg',
   },
   {
     name: 'Jitendra Desai',
@@ -29,23 +31,24 @@ const testimonials = [
   },
   {
     name: 'Pooja Parekh',
-    role: 'Media Manager',
+    role: 'Media Manager - Intstu Aspirations',
     content:
       'We are utilising the services of Key concepts from long time in every posible way in our organisation. We as a construction business, now totally moving towards technology in every aspect. Key Concepts is providing great support for our all IT implementations (ERP solution, web catalog or any other IT solutions). The response to problems is always very fast, resolved quickly. Great service all round, I would not hesitate to recommend Key Concepts to all my network line business!',
     rating: 5,
     company: 'Green Group Developers',
+    image: '/images/Intstu-aspirations.jpg',
   },
 ]
 function TestimonialsSection() {
   const doubledTestimonials = [...testimonials, ...testimonials]
-  
+
   return (
     <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{
             opacity: 0,
-            y: 50,
+            y: 30,
           }}
           whileInView={{
             opacity: 1,
@@ -54,27 +57,13 @@ function TestimonialsSection() {
           viewport={{
             once: true,
           }}
-          className="text-center mb-10"
+          className="text-center mb-16"
         >
-          <motion.span
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-cyan-500/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
-          >
-            Client Success Stories
-          </motion.span>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Trusted by Industry Leaders</h2>
-          <p className="text-md lg:text-lg text-gray-600 max-w-2xl mx-auto">
-            See what our clients say about their transformation journey with us
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            Trusted by Industry Leaders
+          </h2>
+          <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
+            See what our clients say about their experience working with Key Concepts.
           </p>
         </motion.div>
 
@@ -83,9 +72,9 @@ function TestimonialsSection() {
           className="relative w-full overflow-hidden"
           style={{
             maskImage:
-              'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+              'linear-gradient(to right, transparent, white 20%, white 80%, transparent)',
             WebkitMaskImage:
-              'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+              'linear-gradient(to right, transparent, white 20%, white 80%, transparent)',
           }}
         >
           <style>{`
@@ -125,9 +114,17 @@ function TestimonialsSection() {
                   </p>
                 </div>
                 <div className="flex items-center space-x-4 mt-auto">
-                  <div className="w-10 h-10 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0">
-                    {testimonial.name.charAt(0)}
-                  </div>
+                  {testimonial.image ? (
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-10 h-10 rounded-full object-cover shrink-0"
+                    />
+                  ) : (
+                    <div className="w-10 h-10 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0">
+                      {testimonial.name.charAt(0)}
+                    </div>
+                  )}
                   <div>
                     <div className="font-semibold text-gray-900 text-sm">{testimonial.name}</div>
                     <div className="text-xs text-gray-500">{testimonial.role}</div>

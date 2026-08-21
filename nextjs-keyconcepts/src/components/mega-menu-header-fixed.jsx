@@ -62,10 +62,10 @@ const services = [
     link: '/mvp-studio',
   },
   {
-    name: 'Odoo Development',
+    name: 'Custom ERP Solutions',
     description: 'Implement, customize, integrate, support',
     icon: 'Settings',
-    link: '/odoo-erp',
+    link: '/custom-erp-solutions',
   },
   {
     name: 'Support Maintenance',

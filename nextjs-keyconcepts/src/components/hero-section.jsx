@@ -235,11 +235,11 @@ function HeroSection() {
                 transition={{
                   delay: 0.3,
                 }}
-                className="text-3xl sm:text-5xl lg:text-5xl font-bold leading-tight"
+                className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight"
               >
-                Build Faster. Scale Smarter.{' '}
+                Build, Launch & Scale Digital Products with {' '}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent block sm:inline">
-                  Transform Digitally.
+                  One Technology Partner.
                 </span>
               </AnimatedH1>{' '}
               <motion.p
@@ -256,7 +256,7 @@ function HeroSection() {
                 }}
                 className="text-md lg:text-lg text-gray-600 leading-relaxed font-medium"
               >
-                Empowering businesses with custom software, ERP, CRM, mobile apps, and AI-driven solutions that streamline operations, accelerate growth, and drive digital transformation.
+                From MVP development and custom software engineering to long-term product maintenance and scaling, we help businesses build products that continue to evolve with changing customer needs.
               </motion.p>
             </div>{' '}
             <motion.div
@@ -278,17 +278,6 @@ function HeroSection() {
                   />
                 </motion.button>
               </div>
-
-              <Link href="/services" className="w-[80%] sm:w-auto">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center space-x-2 group"
-                >
-                  <span className="text-sm md:text-base font-semibold">Explore Our Products</span>
-                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-                </motion.button>
-              </Link>
             </motion.div>
           </motion.div>{' '}
           <motion.div

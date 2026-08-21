@@ -1,4 +1,6 @@
 import { endpoints, api } from '@/lib/api'
+import { caseStudies as fallbackCaseStudies } from '@/data/case-studies'
+import { blogPosts as fallbackBlogPosts } from '@/data/blog-posts'
 
 async function fetchContent(path, { revalidate, cache = 'no-store' } = {}) {
   try {
@@ -64,12 +66,13 @@ export function normalizeCaseStudy(caseStudy) {
 export async function getBlogPosts() {
   const response = await fetchContent(`${endpoints.BLOGS}?limit=100&sort=-publishedAt`)
   const list = Array.isArray(response) ? response : response?.data || []
-  return list.map(normalizeBlogPost).filter(Boolean)
+  const normalized = list.map(normalizeBlogPost).filter(Boolean)
+  return normalized.length > 0 ? normalized : fallbackBlogPosts
 }
 
-export async function getBlogPostBySlug(slug) {
-  const response = await fetchContent(endpoints.BLOG_BY_SLUG(slug))
-  return normalizeBlogPost(response)
+export function getBlogPostBySlug(slug) {
+  // If slug is not found from API, check fallback
+  return getBlogPosts().then((posts) => posts.find((post) => post.slug === slug) ?? null)
 }
 
 export async function getFeaturedBlogPost() {
@@ -86,12 +89,12 @@ export async function getRegularBlogPosts() {
 export async function getCaseStudies() {
   const response = await fetchContent(`${endpoints.CASE_STUDIES}?limit=100&sort=-publishedAt`)
   const list = Array.isArray(response) ? response : response?.data || []
-  return list.map(normalizeCaseStudy).filter(Boolean)
+  const normalized = list.map(normalizeCaseStudy).filter(Boolean)
+  return normalized.length > 0 ? normalized : fallbackCaseStudies
 }
 
-export async function getCaseStudyBySlug(slug) {
-  const response = await fetchContent(endpoints.CASE_STUDY_BY_SLUG(slug))
-  return normalizeCaseStudy(response)
+export function getCaseStudyBySlug(slug) {
+  return getCaseStudies().then((studies) => studies.find((study) => study.slug === slug) ?? null)
 }
 
 export async function getFeaturedCaseStudy() {

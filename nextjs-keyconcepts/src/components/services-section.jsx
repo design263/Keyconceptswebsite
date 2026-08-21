@@ -13,7 +13,7 @@ const services = [
     icon: Layers,
     title: 'Product Development',
     description:
-      'Overcome software scaling blocks. We engineer high-performance platforms that handle heavy user traffic and drive 2x operational efficiency.',
+      'Turn your idea into a market-ready digital product with end-to-end product development.',
     image: '/images/support/product_development.jpg',
     color: 'from-gray-600 to-gray-800',
     span: 'lg:row-span-2',
@@ -22,16 +22,16 @@ const services = [
     icon: Rocket,
     title: 'Specialized Platforms',
     description:
-      'Escape restrictive off-the-shelf limitations. We build custom community hubs and visitor portals designed for your exact organizational workflows.',
+      'Develop custom portals and business platforms to streamline operations and enhance the user experience.',
     image: '/images/support/specialized_development.jpg',
     color: 'from-[#f1592a] to-[#ff7a45]',
     span: 'lg:col-span-2',
   },
   {
     icon: Database,
-    title: 'Odoo Development',
+    title: 'Custom Software Development',
     description:
-      'Stop dealing with disjointed business data. We centralize inventory, sales, and accounting with Odoo ERP, reducing admin overhead by 30%.',
+      'Build secure, scalable custom software tailored to your business needs and future growth.',
     image: '/images/support/odoo_development.jpg',
     color: 'from-gray-700 to-gray-900',
     span: 'lg:col-span-2',
@@ -40,7 +40,7 @@ const services = [
     icon: Settings,
     title: 'MVP Development',
     description:
-      'Mitigate market launch risks. We build feature-focused, investor-ready MVPs in 6-10 weeks to validate your product-market fit fast.',
+      'Launch a feature-focused MVP quickly to test your idea and validate your product in the market.',
     image: '/images/support/MVP.png',
     color: 'from-gray-600 to-gray-800',
     span: 'lg:col-span-2',
@@ -49,7 +49,7 @@ const services = [
     icon: Wrench,
     title: 'Support & Maintenance',
     description:
-      'Eliminate system downtime. Proactive monitoring with fast bug fixes ensures 99.9% uptime.',
+      'Keep your software secure, up to date, and running smoothly with ongoing support and maintenance.',
     image: '/images/support/support.jpg',
     color: 'from-[#f1592a] to-[#ff7a45]',
   },
@@ -57,24 +57,24 @@ const services = [
 const trendingServices = [
   {
     icon: Layers,
-    title: 'Product Development',
+    title: 'Complete Product Lifecycle Ownership',
     description:
-      'Transform your ideas into scalable, market-ready products with our end-to-end development expertise.',
-    gradient: 'from-[#f1592a] to-[#d94d24]',
+      'From idea validation to post-launch growth, we stay involved through every stage of your product journey.',
+    image: '/assets/Complete Product Lifecycle Ownership.png',
   },
   {
     icon: Rocket,
-    title: 'MVP Studio',
+    title: 'Long-Term Product Partnership',
     description:
-      'Rapidly build, test, and launch your minimum viable product to validate your business concept.',
-    gradient: 'from-[#f1592a] to-[#d94d24]',
+      'We dont hand over code and walk away. We continue building, improving, and supporting your product as your business evolves.',
+    image: '/assets/Long-Term Product Partnership.png',
   },
   {
     icon: Database,
-    title: 'Odoo Development',
+    title: 'Continuous Innovation',
     description:
-      'Streamline your business operations with our expert Odoo development and customization services.',
-    gradient: 'from-[#f1592a] to-[#d94d24]',
+      'We help you prioritize new features, improve user experience, optimize performance, and keep your product competitive.',
+    image: '/assets/Continuous Innovation.png',
   },
 ]
 function ServicesSection() {
@@ -116,53 +116,61 @@ function ServicesSection() {
             >
               What we do
             </motion.span>{' '}
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Core Capabilities</h2>{' '}
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">What Sets Us Apart</h2>{' '}
             <p className="text-md lg:text-lg text-gray-600 max-w-2xl mx-auto">
               Empowering businesses with innovative solutions across product development, rapid MVP
               creation, and enterprise ERP systems
             </p>
           </div>{' '}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {trendingServices.map((service, index) => (
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 50,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  delay: index * 0.1,
-                }}
-                whileHover={{
-                  y: -10,
-                }}
-                className="group relative overflow-visible"
-                key={service.title}
-              >
-                {' '}
-                <div className="relative h-full bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 flex flex-col items-start text-left">
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className="relative w-12 h-12 group-hover:scale-110 transition-transform shrink-0">
-                      <div className="w-full h-full bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-white transition-all border border-gray-100 group-hover:border-[#f1592a]/10">
-                        <service.icon className="text-gray-700 w-5 h-5" strokeWidth={1.5} />
-                      </div>
-                      <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-[#f1592a] rounded-full border-2 border-white" />
+          <div className="flex flex-col gap-8 md:gap-12 max-w-[976px] mx-auto">
+            {trendingServices.map((service, index) => {
+              const isEven = index % 2 === 0;
+              return (
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    y: 50,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.1,
+                  }}
+                  className="bg-white border border-gray-100 rounded-[12px] p-3 sm:p-4 md:p-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_-5px_rgba(0,0,0,0.08)] transition-all duration-300"
+                  key={service.title}
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+                    {/* Text Container */}
+                    <div className={`flex flex-col text-left ${isEven ? 'order-2 md:order-1' : 'order-2 md:order-2'}`}>
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
+                        {service.description}
+                      </p>
                     </div>
-                    <h3 className="text-base sm:text-lg font-bold text-gray-900 leading-snug">{service.title}</h3>
+
+                    {/* Image Container */}
+                    <div className={`order-1 ${isEven ? 'md:order-2' : 'md:order-1'}`}>
+                      <div className="flex-shrink-0 max-w-[450px] mx-auto">
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="max-w-full max-h-full object-contain select-none"
+                          draggable="false"
+                        />
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity rounded-2xl shadow-lg`}
-                  />
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>{' '}
         <motion.div
@@ -196,7 +204,7 @@ function ServicesSection() {
               }}
               className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-cyan-500/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
             >
-              Our Services
+              Services
             </motion.span>{' '}
             <h2 className="text-3xl md:text-5xl font-bold mb-4">Comprehensive IT Solutions</h2>{' '}
             <p className="text-md lg:text-lg text-gray-600 max-w-2xl mx-auto">

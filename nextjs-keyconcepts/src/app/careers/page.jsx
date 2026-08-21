@@ -193,20 +193,20 @@ const cultureImages = [
     alt: 'Team Collaboration',
   },
   {
-    url: 'https://images.unsplash.com/photo-1758873272809-7947b9a73fe5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    alt: 'Creative Brainstorming',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1693386556810-43d9451bdda5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    url: '/assets/ourStory/womens-Day-7.jpg',
     alt: 'Diverse Team',
   },
   {
-    url: 'https://images.unsplash.com/photo-1758691737584-a8f17fb34475?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    url: '/assets/ourStory/team.jpg',
     alt: 'Team Celebration',
   },
   {
     url: 'https://images.unsplash.com/photo-1632910121591-29e2484c0259?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     alt: 'Coding Together',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1758873272809-7947b9a73fe5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    alt: 'Creative Brainstorming',
   },
 ]
 
@@ -311,7 +311,7 @@ function CultureImageSlider() {
         transition={{
           delay: 0.3,
         }}
-        className="absolute -bottom-6 -left-2 md:p-6 p-4 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200"
+        className="absolute -bottom-6 -left-2 md:p-3 p-4 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200"
       >
         <div className="flex items-center space-x-4">
           <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-xl flex items-center justify-center">
@@ -324,33 +324,7 @@ function CultureImageSlider() {
         </div>
       </motion.div>
 
-      <motion.div
-        initial={{
-          opacity: 0,
-          y: 20,
-        }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-        }}
-        viewport={{
-          once: true,
-        }}
-        transition={{
-          delay: 0.4,
-        }}
-        className="absolute -top-6 -right-2 md:p-6 p-4 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200"
-      >
-        <div className="flex items-center space-x-4">
-          <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-xl flex items-center justify-center">
-            <Award className="text-white w-6 h-6 md:w-8 md:h-8" strokeWidth={2} />
-          </div>
-          <div>
-            <div className="md:text-2xl text-xl font-bold text-gray-900">4.8/5</div>
-            <div className="text-sm text-gray-600">Employee Rating</div>
-          </div>
-        </div>
-      </motion.div>
+
     </motion.div>
   )
 }
@@ -359,9 +333,9 @@ const getRequirementTags = (requirements) =>
   Array.isArray(requirements)
     ? requirements
     : requirements
-        ?.split(',')
-        .map((item) => item.trim())
-        .filter(Boolean)
+      ?.split(',')
+      .map((item) => item.trim())
+      .filter(Boolean)
 
 const normalizeRole = (job) => ({
   ...job,
@@ -387,7 +361,7 @@ function CareersPage() {
         const jobsList = data?.data || data || []
         setOpenRoles(getActiveRoles(jobsList))
       } catch (error) {
-        console.error('Error fetching roles:', error)
+        console.warn('Error fetching roles, using static fallback:', error)
         setOpenRoles(getActiveRoles(openRolesStatic))
       } finally {
         setLoading(false)
@@ -791,13 +765,13 @@ function CareersPage() {
                     </div>
                   </div>
                 </div>
-                <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-200">
+                <div className="relative rounded-2xl overflow-hidden">
                   <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1758873272809-7947b9a73fe5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-                    alt="Team Collaboration"
+                    src="/assets/Complete Product Lifecycle Ownership.png"
+                    alt="Complete Product Lifecycle Ownership"
                     className="w-full h-auto"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+
                 </div>
               </div>
             </motion.div>
@@ -1187,11 +1161,10 @@ function CareersPage() {
       relative flex flex-col items-center justify-center
       px-6 py-10 border-2 border-dashed rounded-xl
       transition-all duration-300 cursor-pointer
-      ${
-        dragActive
-          ? 'border-[#f1592a] bg-orange-50'
-          : 'border-gray-300 hover:border-[#f1592a] hover:bg-gray-50'
-      }
+      ${dragActive
+                            ? 'border-[#f1592a] bg-orange-50'
+                            : 'border-gray-300 hover:border-[#f1592a] hover:bg-gray-50'
+                          }
     `}
                       >
                         <input

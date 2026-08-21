@@ -15,7 +15,7 @@ const mobileNavMenus = [
     items: [
       { href: '/product-development', label: 'Product Development', description: 'Crafting Scalable Product Experiences', icon: Layers },
       { href: '/mvp-studio', label: 'MVP Development', description: 'Build, Test, Launch, Scale.', icon: Rocket },
-      { href: '/odoo-erp', label: 'Odoo Development', description: 'Implement, customize, integrate, support', icon: Settings },
+      { href: '/custom-erp-solutions', label: 'Custom ERP Solutions', description: 'Implement, customize, integrate, support', icon: Settings },
       { href: '/support-maintenance', label: 'Support Maintenance', description: 'Performance Optimized, Always Secure', icon: Shield },
     ],
     cta: { href: '/contact', label: 'Get Started' },
@@ -243,7 +243,7 @@ function MegaMenuHeader() {
                           className="group/item"
                         >
                           <Link
-                            href="/odoo-erp"
+                            href="/custom-erp-solutions"
                             className="block h-full p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
                           >
                             <div className="relative w-12 h-12 mb-4">
@@ -253,7 +253,7 @@ function MegaMenuHeader() {
                               <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-[#f1592a] rounded-full border-2 border-white" />
                             </div>
                             <h3 className="font-bold text-gray-900 mb-2 group-hover/item:text-[#f1592a] transition-colors">
-                              Odoo Development
+                              Custom ERP Solutions
                             </h3>
                             <p className="text-sm text-gray-600 leading-relaxed">
                               Implement, customize, integrate, support

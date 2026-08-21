@@ -39,7 +39,7 @@ const processSteps = [
       'We start by understanding your business goals, target audience, and project requirements through detailed workshops and documentation.',
     icon: Target,
     image:
-      'https://images.unsplash.com/photo-1728917330520-9456e3f49529?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9qZWN0JTIwcGxhbm5pbmclMjBkYXNoYm9hcmQlMjB3aXJlZnJhbWV8ZW58MXx8fHwxNzcxOTI5Mzg1fDA&ixlib=rb-4.1.0&q=80&w=1080',
+      '/assets/Discovery-&-Planning.png',
     deliverables: ['Project roadmap', 'Technical specifications', 'Timeline & milestones'],
   },
   {
@@ -49,7 +49,7 @@ const processSteps = [
       'Our design team creates intuitive wireframes and interactive prototypes, ensuring user experience is at the forefront.',
     icon: FileText,
     image:
-      '/assets/Design-&-Prototyping.jpg',
+      '/assets/Design-&-Prototyping.png',
     deliverables: ['Wireframes', 'UI/UX designs', 'Interactive prototypes'],
   },
   {
@@ -59,7 +59,7 @@ const processSteps = [
       'Agile development with 2-week sprints, continuous integration, and regular code reviews to maintain quality standards.',
     icon: Code,
     image:
-      'https://images.unsplash.com/photo-1753998943413-8cba1b923c0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RlJTIwZGV2ZWxvcG1lbnQlMjBwcm9ncmFtbWluZyUyMHNjcmVlbnxlbnwxfHx8fDE3NzE5MjkzODZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
+      '/assets/Development-Sprint.png',
     deliverables: ['Working features', 'Code documentation', 'Sprint demos'],
   },
   {
@@ -69,7 +69,7 @@ const processSteps = [
       'Rigorous testing including functional, performance, security, and user acceptance testing before any release.',
     icon: TestTube,
     image:
-      'https://images.unsplash.com/photo-1621361753831-e972c09ceec9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2Z0d2FyZSUyMHRlc3RpbmclMjBxdWFsaXR5JTIwYXNzdXJhbmNlfGVufDF8fHx8MTc3MTkyOTM4N3ww&ixlib=rb-4.1.0&q=80&w=1080',
+      '/assets/Quality-Assurance.png',
     deliverables: ['Test reports', 'Bug fixes', 'Performance metrics'],
   },
   {
@@ -79,7 +79,7 @@ const processSteps = [
       'Smooth deployment with zero-downtime releases, comprehensive monitoring, and immediate post-launch support.',
     icon: Rocket,
     image:
-      'https://images.unsplash.com/photo-1762135245629-1e79d4cc30b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyb2NrZXQlMjBsYXVuY2glMjBkZXBsb3ltZW50fGVufDF8fHx8MTc3MTkyOTM4N3ww&ixlib=rb-4.1.0&q=80&w=1080',
+      '/assets/Deployment-&-Launch.png',
     deliverables: ['Production release', 'Deployment docs', 'Monitoring setup'],
   },
   {
@@ -89,7 +89,7 @@ const processSteps = [
       'Ongoing maintenance, performance optimization, feature enhancements, and 24/7 technical support.',
     icon: RefreshCw,
     image:
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbmFseXRpY3MlMjBkYXNoYm9hcmQlMjBwZXJmb3JtYW5jZSUyMG1ldHJpY3N8ZW58MXx8fHwxNzcxOTI5Mzg3fDA&ixlib=rb-4.1.0&q=80&w=1080',
+      '/assets/Support-&-Optimization.png',
     deliverables: ['Monthly reports', 'Updates & patches', 'Performance analytics'],
   },
 ]
@@ -491,14 +491,14 @@ function ProcessPage() {
                           className="relative group"
                         >
                           <div className="absolute -inset-4 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500 shadow-2xl shadow-gray-400/50" />
-                          <div className="relative bg-white rounded-2xl border-2 border-gray-200 overflow-hidden shadow-lg transition-all duration-500">
-                            <div className="aspect-[4/3] relative">
+                          <div className="relative bg-white rounded-2xl overflow-hidden shadow-md/10 transition-all duration-500">
+                            <div className="rounded-2xl relative overflow-hidden">
                               <ImageWithFallback
                                 src={step.image}
                                 alt={step.title}
                                 className="w-full h-full object-cover"
                               />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 transition-opacity duration-500" />
                             </div>
                           </div>
                         </motion.div>
@@ -745,16 +745,28 @@ function ProcessPage() {
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center space-x-3">
                       <div className="flex -space-x-2">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#f1592a] to-[#ff7a45] border-2 border-white" />
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 border-2 border-white" />
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gray-500 to-gray-700 border-2 border-white" />
+                        <img
+                          src="/images/nobletex.jpg"
+                          alt="Nobletex Logo"
+                          className="w-8 h-8 rounded-full object-cover border-2 border-white bg-white"
+                        />
+                        <img
+                          src="/images/Municipal-School-Board.jpg"
+                          alt="Municipal School Board Logo"
+                          className="w-8 h-8 rounded-full object-cover border-2 border-white bg-white"
+                        />
+                        <img
+                          src="/images/Intstu-aspirations.jpg"
+                          alt="Intstu Aspirations Logo"
+                          className="w-8 h-8 rounded-full object-cover border-2 border-white bg-white"
+                        />
                       </div>
                       <TrendingUp className="text-[#f1592a]" size={20} />
                     </div>
-                    <span className="text-2xl md:text-3xl font-bold text-[#f1592a]">66k+</span>
+                    <span className="text-2xl md:text-3xl font-bold text-[#f1592a]">400+</span>
                   </div>
                   <p className="text-sm font-semibold text-gray-900">Happy Clients</p>
-                  <p className="text-xs text-gray-500 mt-1">Across 40+ countries worldwide</p>
+                  <p className="text-xs text-gray-500 mt-1">Across 5+ countries worldwide</p>
                 </motion.div>
                 <motion.div
                   initial={{
@@ -775,7 +787,7 @@ function ProcessPage() {
                 >
                   <div className="flex items-center justify-between mb-2">
                     <BarChart3 className="text-[#f1592a]" size={24} />
-                    <span className="text-3xl font-bold text-[#f1592a]">89.89%</span>
+                    <span className="text-3xl font-bold text-[#f1592a]">96.89%</span>
                   </div>
                   <p className="text-sm font-semibold text-gray-900">Client Satisfaction</p>
                   <div className="mt-3 h-2 bg-gray-100 rounded-full overflow-hidden">

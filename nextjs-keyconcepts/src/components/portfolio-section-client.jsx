@@ -59,7 +59,6 @@ export function PortfolioSectionClient({ studies = [] }) {
                 <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-1">
                   {study.challenge}
                 </p>
-
                 {study.metrics?.length > 0 && (
                   <div className="grid grid-cols-3 gap-2 border-t border-gray-200 pt-6 mt-auto">
                     {study.metrics.map((metric, midx) => (

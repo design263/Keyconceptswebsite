@@ -324,7 +324,7 @@ function ContactPage() {
                         className="appearance-none w-full px-4 py-3.5 pr-12 rounded-lg border border-gray-200 focus:border-[#f1592a] focus:outline-none transition-colors"
                       >
                         <option value="">Select a service</option>
-                        <option value="odoo-erp">Odoo ERP Solutions</option>
+                        <option value="odoo-erp">Custom ERP Solutions</option>
                         <option value="custom-development">Custom Product Development</option>
                         <option value="mvp-studio">MVP Studio</option>
                         <option value="web-mobile">Web & Mobile Development</option>
