@@ -6,6 +6,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import Link from 'next/link'
 import Image from 'next/image'
+import logo from '../../../../public/assets/86d73f4575e82c2f8cca971638d48b77628092fb.png'
 import { MdOutlineRemoveRedEye } from 'react-icons/md'
 import { HiOutlineEyeOff } from 'react-icons/hi'
 
@@ -107,10 +108,11 @@ export function AdminLoginPage() {
           <div className="text-center space-y-2">
             <div className="flex justify-center relative">
               <Image
-                src="/assets/86d73f4575e82c2f8cca971638d48b77628092fb.png"
+                src={logo}
                 alt="logo"
                 height={150}
                 width={150}
+                priority
               />
             </div>
             <p className="text-muted-foreground text-sm">
@@ -187,7 +189,7 @@ export function AdminLoginPage() {
 
         {/* Company name footer */}
         <p className="text-center text-xs text-muted-foreground/60 mt-6 animate-fade-in">
-          © {new Date().getFullYear()} Your Company. All rights reserved.
+          © {new Date().getFullYear()} Key Concepts. All rights reserved.
         </p>
       </form>
 

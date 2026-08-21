@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
+import logo from '../../../../public/assets/86d73f4575e82c2f8cca971638d48b77628092fb.png'
 import {
   LayoutGrid, ListTodo, Mail,
   Settings, ShieldCheck, FileSpreadsheet,
@@ -56,11 +57,12 @@ export function Sidebar({ isCollapsed, onToggle }) {
         <div className="relative flex items-center  px-4 h-[70px] border-b border-gray-200">
           <div className={`flex items-center ${isCollapsed ? ' w-full' : ''}`}>
             <Image
-              src="/assets/86d73f4575e82c2f8cca971638d48b77628092fb.png"
+              src={logo}
               alt="logo"
               width={isCollapsed ? 48 : 80}
               height={isCollapsed ? 48 : 64}
               className={`object-contain transition-all duration-300`}
+              priority
             />
           </div>
         </div>

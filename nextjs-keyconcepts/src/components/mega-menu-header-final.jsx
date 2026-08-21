@@ -1,7 +1,9 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import logo from '../../public/images/logo.png'
 import { motion, AnimatePresence } from 'motion/react'
 import { Menu, X, ChevronDown, Users, Target, Package, Vote, Sparkles, Building2, Layers, Rocket, Settings, Shield, Heart, Briefcase, Lightbulb, FolderOpen } from 'lucide-react'
 import { useState, useEffect, useRef } from 'react'
@@ -111,12 +113,13 @@ function MegaMenuHeader() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center group" title="Key Concepts logo">
-            <img
-              src="/images/logo.png"
+            <Image
+              src={logo}
               alt="Key Concepts"
               title="Key Concepts logo"
               className="w-auto transition-transform group-hover:scale-105"
               style={{ height: '68px' }}
+              priority
             />
           </Link>
           <nav className="hidden lg:flex items-center space-x-1">
