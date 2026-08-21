@@ -107,7 +107,7 @@ export function AdminLoginPage() {
           <div className="text-center space-y-2">
             <div className="flex justify-center relative">
               <Image
-                src="/86d73f4575e82c2f8cca971638d48b77628092fb.png"
+                src="/assets/86d73f4575e82c2f8cca971638d48b77628092fb.png"
                 alt="logo"
                 height={150}
                 width={150}
