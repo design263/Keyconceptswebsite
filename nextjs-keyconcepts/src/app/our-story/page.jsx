@@ -34,23 +34,23 @@ import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
 const coreValues = [
   {
     icon: Target,
-    title: 'Delivery Discipline',
+    title: 'Solve the Right Problem',
     description:
-      'We ship on time, every time. Structured execution with clear milestones, strong QA, and predictable timelines ensure consistent delivery.',
+      'We start with the business requirement, understand what the product needs to achieve, and build around that.',
     color: 'from-[#f1592a] to-[#ff7a45]',
   },
   {
     icon: Shield,
-    title: 'Transparency',
+    title: 'Take Ownership',
     description:
-      'Clear communication at every stage. You know where your project stands - risks, progress, and decisions are communicated openly.',
+      'Our involvement does not end at delivery. We stay involved with fixes, improvements, new features, and the next stage of the product.',
     color: 'from-[#f1592a] to-[#ff7a45]',
   },
   {
     icon: Heart,
-    title: 'Long-Term Ownership',
+    title: 'Build for the Long Term',
     description:
-      'We build systems meant to last. Maintenance, improvements, and ongoing support - we stay invested in your success beyond launch.',
+      'We build products that can adapt to new users, changing requirements, and future business growth.',
     color: 'from-[#f1592a] to-[#ff7a45]',
   },
 ]
@@ -86,44 +86,6 @@ const whatWeCombine = [
   },
 ]
 
-const hybridApproach = [
-  {
-    title: 'Modern Stack',
-    description: 'Latest technologies with proven stability',
-    icon: Zap,
-    benefit: 'Speed without compromise',
-  },
-  {
-    title: 'Strong Fundamentals',
-    description: 'Engineering discipline built over years',
-    icon: Building2,
-    benefit: 'Reliability you can trust',
-  },
-  {
-    title: 'Rapid Iterations',
-    description: 'Fast feedback cycles + continuous delivery',
-    icon: TrendingUp,
-    benefit: 'Quick market response',
-  },
-  {
-    title: 'Stability Focus',
-    description: 'Never sacrifice system integrity for speed',
-    icon: Shield,
-    benefit: 'Production-grade quality',
-  },
-  {
-    title: 'Clear Communication',
-    description: 'Stakeholder-friendly updates and timelines',
-    icon: Globe,
-    benefit: 'Predictable outcomes',
-  },
-  {
-    title: 'Long-Term Support',
-    description: 'Maintenance + continuous improvements',
-    icon: Heart,
-    benefit: 'Lasting partnerships',
-  },
-]
 
 const teamStats = [
   {
@@ -148,44 +110,6 @@ const teamStats = [
   },
 ]
 
-const whyClientsStay = [
-  {
-    icon: Target,
-    title: 'Predictable Delivery',
-    description:
-      'We commit to timelines and hit them. Clients know they can count on us for consistent, reliable delivery - sprint after sprint.',
-  },
-  {
-    icon: Shield,
-    title: 'Proactive Risk Management',
-    description:
-      'We identify issues before they become problems. Senior oversight and strong architecture reviews prevent costly surprises.',
-  },
-  {
-    icon: Users,
-    title: 'True Partnership',
-    description:
-      "We're not just vendors - we're invested in your success. Long-term relationships built on trust, transparency, and shared goals.",
-  },
-  {
-    icon: Lightbulb,
-    title: 'Strategic Guidance',
-    description:
-      'Beyond code, we provide strategic advice on technology decisions, roadmap planning, and business-aligned solutions.',
-  },
-  {
-    icon: Clock,
-    title: 'Responsive Support',
-    description:
-      "Post-launch support that's actually responsive. Bug fixes, improvements, and feature updates handled with the same discipline.",
-  },
-  {
-    icon: TrendingUp,
-    title: 'Continuous Improvement',
-    description:
-      "We don't just maintain - we continuously optimize. Performance improvements, refactoring, and tech debt management included.",
-  },
-]
 
 const teamImages = [
   {
@@ -588,82 +512,49 @@ function OurStoryPage() {
             </div>
           </div>
         </section>
-        <section className="py-12 md:py-16 bg-white">
+        <section className="py-12 md:py-20 bg-white">
           <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 30,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              className="container mx-auto px-4 sm:px-6 lg:px-8"
-            >
-              <div className="text-center mb-16">
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+              {/* Left Side: Image */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="relative rounded-3xl group min-h-[300px] md:min-h-[400px]"
+              >
+                <ImageWithFallback
+                  src="/assets/about-3.png"
+                  alt="About Key Concepts"
+                  className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                />
+              </motion.div>
+
+              {/* Right Side: Content */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="text-left"
+              >
                 <h2 className="text-3xl md:text-5xl font-bold mb-6">
                   About{' '}
                   <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
                     Key Concepts
                   </span>
                 </h2>
-                <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                  <strong>Key Concepts Innovations Pvt. Ltd.</strong> is a global technology partner
-                  focused on{' '}
-                  <span className="text-[#f1592a] font-semibold">
-                    product-grade software engineering
-                  </span>
-                  . We build systems that run day-to-day operations - where uptime, clarity, and
-                  accountability matter.
-                </p>
-              </div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {whatWeCombine.map((item, index) => (
-                  <motion.div
-                    initial={{
-                      opacity: 0,
-                      y: 30,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      y: 0,
-                    }}
-                    viewport={{
-                      once: true,
-                    }}
-                    transition={{
-                      delay: index * 0.1,
-                    }}
-                    className="group p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:border-[#f1592a]/30 hover:shadow-lg transition-all"
-                    key={item.title}
-                  >
-                    <div className="flex flex-col items-start">
-                      <div className="relative w-12 h-12 flex-shrink-0 group-hover:scale-110 transition-transform mb-4">
-                        <div className="w-full h-full bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-white transition-all border border-gray-200/50">
-                          <item.icon className="text-gray-700" size={20} strokeWidth={1.5} />
-                        </div>
-                        <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-[#f1592a] rounded-full border-2 border-white" />
-                      </div>
-                      <div className="w-full text-left">
-                        <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-[#f1592a] transition-colors">{item.title}</h3>
-                        <p className="text-xs text-[#f1592a] font-semibold mb-2">
-                          {item.description}
-                        </p>
-                        <p className="text-gray-600 text-sm leading-relaxed">{item.details}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+                <div className="text-md md:text-lg text-gray-600 leading-relaxed space-y-4">
+                  <p><strong>Founded in 2009 by Punit and Rahul Prajapati,</strong> Key Concepts started as a development company and has grown into a technology and product development partner for startups and established businesses.</p>
+                  <p>Over the years, we have delivered <span className="text-[#f1592a] font-semibold">500+ projects</span> for clients across the <span className="text-[#f1592a] font-semibold">USA, UK, Australia, UAE, Europe, and India</span>. Our work covers website and software development, ERP and enterprise platforms, SaaS products, mobile applications, e-commerce platforms, and business automation.</p>
+                  <p>Today, our work goes beyond building a product. We work with businesses through the complete product lifecycle, from development and deployment to ongoing maintenance, new features, improvements, and scaling.</p>
+                  <p>When the business enters its next phase, the product needs to move with it. That is where our long-term involvement makes a difference.</p>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
-        <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-12 md:py-16 border-t border-gray-100  bg-gray-50">
+          <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
+
             <motion.div
               initial={{
                 opacity: 0,
@@ -678,56 +569,62 @@ function OurStoryPage() {
               }}
               className="text-center mb-16"
             >
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                The{' '}
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center">
+                Mission & {' '}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Hybrid Approach
+                  Vision
                 </span>
               </h2>
-              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Modern stack + strong engineering fundamentals. Rapid iterations without compromising
-                stability. Clear stakeholder communication and predictable timelines.
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
+                The principles that guide every project, every decision, and every line of code we
+                write.
               </p>
             </motion.div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {hybridApproach.map((item, index) => (
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    y: 30,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                  }}
-                  transition={{
-                    delay: index * 0.1,
-                  }}
-                  whileHover={{ y: -5 }}
-                  className="group"
-                  key={item.title}
-                >
-                  <div className="relative h-full bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 flex flex-col items-start text-left">
-                    <div className="flex items-center space-x-4 mb-4">
-                      <div className="relative w-12 h-12 group-hover:scale-110 transition-transform shrink-0">
-                        <div className="w-full h-full bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-white transition-all border border-gray-100 group-hover:border-[#f1592a]/10">
-                          <item.icon className="text-gray-700 w-5 h-5" strokeWidth={1.5} />
-                        </div>
-                        <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-[#f1592a] rounded-full border-2 border-white" />
-                      </div>
-                      <h3 className="text-base sm:text-lg font-bold text-gray-900 leading-snug">{item.title}</h3>
-                    </div>
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4">{item.description}</p>
-                    <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-[#f1592a]/5 rounded-full border border-[#f1592a]/20 mt-auto">
-                      <CheckCircle className="text-[#f1592a]" size={14} strokeWidth={2} />
-                      <span className="text-xs text-[#f1592a] font-semibold">{item.benefit}</span>
-                    </div>
+            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+              {/* Mission Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="relative group p-8 bg-white rounded-3xl border border-gray-100/80 shadow-sm hover:border-[#f1592a]/20 hover:shadow-lg transition-all duration-300 flex flex-col items-start"
+              >
+                <div className="relative w-12 h-12 flex-shrink-0 group-hover:scale-110 transition-transform mb-6 bg-white">
+                  <div className="w-full h-full bg-[#f1592a]/5 rounded-xl flex items-center justify-center border border-[#f1592a]/10">
+                    <Target className="text-[#f1592a]" size={24} strokeWidth={1.5} />
                   </div>
-                </motion.div>
-              ))}
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Mission</h3>
+                <h4 className="text-lg font-semibold text-[#f1592a] mb-4">Build Products That Solve Real Business Problems</h4>
+                <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
+                  Our mission is to help businesses turn ideas and requirements into useful, reliable digital products and continue developing those products as their needs change.
+                </p>
+                <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                  From the first version to future releases, we focus on building technology that serves a clear business purpose.
+                </p>
+              </motion.div>
+
+              {/* Vision Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="relative group p-8 bg-white rounded-3xl border border-gray-100/80 shadow-sm hover:border-[#f1592a]/20 hover:shadow-lg transition-all duration-300 flex flex-col items-start"
+              >
+
+                <div className="relative w-12 h-12 flex-shrink-0 group-hover:scale-110 transition-transform mb-6 bg-white">
+                  <div className="w-full h-full bg-[#f1592a]/5 rounded-xl flex items-center justify-center border border-[#f1592a]/10">
+                    <Lightbulb className="text-[#f1592a]" size={24} strokeWidth={1.5} />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Vision</h3>
+                <h4 className="text-lg font-semibold text-[#f1592a] mb-4">To Be the Technology Partner Businesses Grow With</h4>
+                <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
+                  We want Key Concepts to be the technology partner businesses can rely on beyond their first product release.
+                </p>
+                <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                  As products gain users, enter new markets, and require new capabilities, we continue to provide the development and technical support needed for the next stage.
+                </p>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -748,9 +645,9 @@ function OurStoryPage() {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                Our{' '}
+                Core{' '}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Core Values
+                  Values
                 </span>
               </h2>
               <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
@@ -817,9 +714,9 @@ function OurStoryPage() {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                Team{' '}
+                Life at{' '}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Snapshot
+                  Key Concepts
                 </span>
               </h2>
               <p className="text-lg text-gray-300 max-w-3xl mx-auto">
@@ -843,71 +740,6 @@ function OurStoryPage() {
             >
               <TeamCarousel />
             </motion.div>
-          </div>
-        </section>
-        <section className="py-12 md:py-16 bg-white">
-          <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 30,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                Why Clients{' '}
-                <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Stay With Us
-                </span>
-              </h2>
-              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
-                Our 98% client retention rate isn't accidental - it's the result of consistent delivery,
-                transparent communication, and genuine partnership.
-              </p>
-            </motion.div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {whyClientsStay.map((reason, index) => (
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    y: 30,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                  }}
-                  transition={{
-                    delay: index * 0.1,
-                  }}
-                  whileHover={{ y: -5 }}
-                  className="group"
-                  key={reason.title}
-                >
-                  <div className="relative h-full bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 flex flex-col items-start text-left">
-                    <div className="flex items-center space-x-4 mb-4">
-                      <div className="relative w-12 h-12 group-hover:scale-110 transition-transform shrink-0">
-                        <div className="w-full h-full bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-white transition-all border border-gray-100 group-hover:border-[#f1592a]/10">
-                          <reason.icon className="text-gray-700 w-5 h-5" strokeWidth={1.5} />
-                        </div>
-                        <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-[#f1592a] rounded-full border-2 border-white" />
-                      </div>
-                      <h3 className="text-base sm:text-lg font-bold text-gray-900 leading-snug">{reason.title}</h3>
-                    </div>
-                    <p className="text-gray-600 text-sm leading-relaxed">{reason.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </section>
         <section className="relative py-12 md:py-16 overflow-hidden">

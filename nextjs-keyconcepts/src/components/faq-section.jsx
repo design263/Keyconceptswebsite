@@ -54,7 +54,7 @@ function FAQSection() {
           <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4">
             Got Questions?
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-gray-900">Frequently Asked Questions</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-gray-900">Frequently Asked <span className="text-[#f1592a]">Questions</span></h2>
           <p className="text-md md:text-lg text-gray-600">
             Find answers to common inquiries about our software development, ERP, CRM, and mobile app services.
           </p>

@@ -60,7 +60,7 @@ function TestimonialsSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Trusted by Industry Leaders
+            Trusted by Industry <span className="text-[#f1592a]">Leaders</span>
           </h2>
           <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
             See what our clients say about their experience working with Key Concepts.

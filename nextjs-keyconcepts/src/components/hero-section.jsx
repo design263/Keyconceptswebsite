@@ -218,7 +218,7 @@ function HeroSection() {
               {' '}
               <Sparkles className="text-[#f1592a]" size={18} />{' '}
               <span className="text-xs md:text-sm font-medium text-gray-700">
-                End-to-end Product Development Company
+                End-to-End Product Development Company
               </span>
             </motion.div>{' '}
             <div className="space-y-4">
@@ -237,9 +237,9 @@ function HeroSection() {
                 }}
                 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight"
               >
-                Build, Launch & Scale Digital Products with {' '}
+                Product Development Services -  {' '}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent block sm:inline">
-                  One Technology Partner.
+                  From Build to Scale.
                 </span>
               </AnimatedH1>{' '}
               <motion.p
@@ -256,7 +256,7 @@ function HeroSection() {
                 }}
                 className="text-md lg:text-lg text-gray-600 leading-relaxed font-medium"
               >
-                From MVP development and custom software engineering to long-term product maintenance and scaling, we help businesses build products that continue to evolve with changing customer needs.
+                Key Concepts provides end-to-end product development for startups and established businesses, from product development and deployment to ongoing support, enhancements, and scaling.
               </motion.p>
             </div>{' '}
             <motion.div

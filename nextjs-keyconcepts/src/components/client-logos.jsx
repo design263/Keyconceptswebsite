@@ -77,7 +77,7 @@ function ClientLogos() {
           className="text-center mb-8"
         >
           <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
-            Trusted By Industry Leaders
+            Trusted By Industry <span className="text-[#f1592a]">Leaders</span>
           </p>
         </motion.div>
 

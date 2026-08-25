@@ -20,18 +20,18 @@ const services = [
   },
   {
     icon: Rocket,
-    title: 'Specialized Platforms',
+    title: 'AI Automation',
     description:
-      'Develop custom portals and business platforms to streamline operations and enhance the user experience.',
+      'Transform your business with intelligent automation. We design and implement custom AI solutions that streamline workflows, reduce manual effort, and unlock new levels of efficiency.',
     image: '/images/support/specialized_development.jpg',
     color: 'from-[#f1592a] to-[#ff7a45]',
     span: 'lg:col-span-2',
   },
   {
     icon: Database,
-    title: 'Custom Software Development',
+    title: 'Custom ERP Solutions',
     description:
-      'Build secure, scalable custom software tailored to your business needs and future growth.',
+      'Streamline your business operations with our custom ERP solutions, designed to optimize workflows, manage resources, and drive growth.',
     image: '/images/support/odoo_development.jpg',
     color: 'from-gray-700 to-gray-900',
     span: 'lg:col-span-2',
@@ -47,7 +47,7 @@ const services = [
   },
   {
     icon: Wrench,
-    title: 'Support & Maintenance',
+    title: 'GTM Outreach & PR',
     description:
       'Keep your software secure, up to date, and running smoothly with ongoing support and maintenance.',
     image: '/images/support/support.jpg',
@@ -116,7 +116,7 @@ function ServicesSection() {
             >
               What we do
             </motion.span>{' '}
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">What Sets Us Apart</h2>{' '}
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">What Sets Us <span className="text-[#f1592a]">Apart</span></h2>{' '}
             <p className="text-md lg:text-lg text-gray-600 max-w-2xl mx-auto">
               Empowering businesses with innovative solutions across product development, rapid MVP
               creation, and enterprise ERP systems
@@ -206,7 +206,9 @@ function ServicesSection() {
             >
               Services
             </motion.span>{' '}
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Comprehensive IT Solutions</h2>{' '}
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">Comprehensive <span className="text-[#f1592a]">
+              IT Solutions
+            </span></h2>{' '}
             <p className="text-md lg:text-lg text-gray-600 max-w-2xl mx-auto">
               From strategy to execution, we deliver excellence in every aspect of digital
               transformation

@@ -110,7 +110,7 @@ function StatsSection() {
           >
             Impact
           </motion.span>{' '}
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Delivering Excellence Globally</h2>{' '}
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Delivering Excellence <span className="text-[#f1592a]">Globally</span></h2>{' '}
           <p className="text-md lg:text-lg text-gray-600 max-w-2xl mx-auto">
             Trusted by enterprises and startups worldwide for innovative software solutions
           </p>

@@ -18,7 +18,7 @@ export function PortfolioSectionClient({ studies = [] }) {
             <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4">
               Proven Outcomes
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Our Success Stories</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">Our Success <span className="text-[#f1592a]">Stories</span></h2>
             <p className="text-md md:text-lg text-gray-600 max-w-2xl mx-auto">
               Explore how we&apos;ve helped startups and enterprise businesses launch products, optimize ERPs, and grow globally.
             </p>

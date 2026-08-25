@@ -5,53 +5,54 @@ import {
   Factory,
   ShoppingCart,
   Building2,
-  Hotel,
+  Trophy,
   ClipboardCheck,
-  Truck,
+  Scale,
   Rocket,
   TrendingUp,
 } from 'lucide-react'
 
 const industries = [
   {
-    icon: Factory,
-    name: 'Manufacturing & Industrial',
-    description: 'Custom ERP and Odoo solutions to streamline production, supply chain, and warehouse operations.',
-  },
-  {
-    icon: ShoppingCart,
-    name: 'Retail & E-commerce',
-    description: 'Omnichannel commerce hubs, point-of-sale integrations, and automated inventory systems.',
-  },
-  {
-    icon: Building2,
-    name: 'Real Estate & Infrastructure',
-    description: 'Property listings, custom CRM management, and deal pipeline automation.',
-  },
-  {
-    icon: Hotel,
-    name: 'Hospitality',
-    description: 'Booking engine systems, custom CRM, and guest management portal applications.',
-  },
-  {
     icon: ClipboardCheck,
-    name: 'Claims Management System',
+    name: 'Insurance & Reg. Tech',
     description: 'Automated claim processing, validation workflows, and digital documentation portals.',
   },
   {
-    icon: Truck,
-    name: 'Logistics & Distribution',
-    description: 'End-to-end fleet tracking, logistics dashboards, and shipment optimization metrics.',
+    icon: Factory,
+    name: 'Manufacturing',
+    description: 'Custom ERP integrations, warehouse management solutions, inventory tracking, and supply chain optimization.',
   },
   {
+    icon: Building2,
+    name: 'Real Estate & Infra',
+    description: 'Property listings, custom CRM management, and deal pipeline automation.',
+  },
+
+  {
     icon: Rocket,
-    name: 'SaaS & Tech Startups',
-    description: 'Scalable MVP development, cloud infrastructure setup, and rapid system prototyping.',
+    name: 'SaaS & Tech',
+    description: 'Scalable MVP development, multi-tenant architectures, API integrations, and cloud infrastructure setup.',
   },
   {
     icon: TrendingUp,
     name: 'Financial Services',
     description: 'Digital auditing platforms, custom payment modules, and high-performance financial reports.',
+  },
+  {
+    icon: Trophy,
+    name: 'Sports & Recreation',
+    description: 'Facility scheduling, league management systems, booking engines, and member engagement applications.',
+  },
+  {
+    icon: Scale,
+    name: 'Legal Tech',
+    description: 'Custom contract management, automated document generation, legal research platforms, and compliance workflows.',
+  },
+  {
+    icon: ShoppingCart,
+    name: 'Trade & Commerce',
+    description: 'Omnichannel commerce hubs, point-of-sale integrations, and automated inventory systems.',
   },
 ]
 
@@ -68,7 +69,7 @@ function IndustriesSection() {
           <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4">
             Industry Expertise
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Industries We Serve</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Industries We <span className="text-[#f1592a]">Serve</span></h2>
           <p className="text-md md:text-lg text-gray-600 max-w-2xl mx-auto">
             Providing tailored digital transformations and custom software engineering across key vertical sectors.
           </p>
