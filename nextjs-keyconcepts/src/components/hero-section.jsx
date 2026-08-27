@@ -218,7 +218,7 @@ function HeroSection() {
               {' '}
               <Sparkles className="text-[#f1592a]" size={18} />{' '}
               <span className="text-xs md:text-sm font-medium text-gray-700">
-                End-to-End Product Development Company
+                6 Years · 400+ Clients · India, UK & USA
               </span>
             </motion.div>{' '}
             <div className="space-y-4">
@@ -237,9 +237,9 @@ function HeroSection() {
                 }}
                 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight"
               >
-                Product Development Services -  {' '}
+                We Don't Just Build Software. We Partner in Your {' '}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent block sm:inline">
-                  From Build to Scale.
+                  Digital Journey.
                 </span>
               </AnimatedH1>{' '}
               <motion.p
@@ -256,14 +256,14 @@ function HeroSection() {
                 }}
                 className="text-md lg:text-lg text-gray-600 leading-relaxed font-medium"
               >
-                Key Concepts provides end-to-end product development for startups and established businesses, from product development and deployment to ongoing support, enhancements, and scaling.
+                Whether you're a startup with a napkin idea or a growing business that's outgrown its current systems — we listen first, understand your constraints, and then build technology that actually fits your world. No jargon. No surprises. Just results.
               </motion.p>
             </div>{' '}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 }}
-              className="flex flex-col items-center sm:items-start sm:flex-row gap-4 w-full"
+              className="flex flex-col items-center sm:items-start sm:flex-row gap-4 w-full sm:w-auto"
             >
               <div onClick={openModal} className="w-[80%] sm:w-auto cursor-pointer">
                 <motion.button
@@ -271,13 +271,27 @@ function HeroSection() {
                   whileTap={{ scale: 0.95 }}
                   className="group w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                 >
-                  <span className="text-sm md:text-base font-semibold">Book a Discovery Call</span>
+                  <span className="text-sm md:text-base font-semibold">Start a Conversation</span>
                   <ArrowRight
                     className="group-hover:translate-x-1 transition-transform"
                     size={20}
                   />
                 </motion.button>
               </div>
+              <Link href="/our-story" className="w-[80%] sm:w-auto">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-full shadow-2xl border border-gray-200 rounded-full text-gray-800 hover:border-[#f1592a] hover:text-[#f1592a] transition-all flex items-center justify-center space-x-2"
+                >
+                  <span className="text-sm md:text-base font-semibold">Our Story</span>
+                  <ArrowRight
+                    className="group-hover:translate-x-1 transition-transform"
+                    size={20}
+                  />
+                </motion.button>
+              </Link>
+
             </motion.div>
           </motion.div>{' '}
           <motion.div

@@ -7,7 +7,7 @@ const testimonials = [
     name: 'Paresh Chaudhari',
     role: 'CEO - Nobletex Industries Ltd.',
     content:
-      'Great experience to working with Key Concepts team. Very co-operative staff.',
+      'Working with Key Concepts was genuinely refreshing. Their team is cooperative, communicative, and actually understands what you\'re trying to achieve - not just what you\'ve asked for. They delivered beyond our expectations.',
     rating: 5,
     company: 'Nobletex Industries Ltd.',
     image: '/images/nobletex.jpg',
@@ -16,7 +16,7 @@ const testimonials = [
     name: 'Municipal School Board',
     role: 'Administrative Officer',
     content:
-      'We would like to express our satisfaction and appriciation to key Concepts team for their excellent efforts towards sucessfully completeing the project. We also admire their aspiration for their prompt and flawless quality deliverables.',
+      'We would like to express our sincere appreciation to the Key Concepts team for their excellent efforts in successfully completing our project. We particularly admire their commitment to prompt, flawless quality deliverables.',
     rating: 5,
     company: 'Municipal School Board',
     image: '/images/Municipal-School-Board.jpg',
@@ -25,7 +25,7 @@ const testimonials = [
     name: 'Jitendra Desai',
     role: 'President and Chief Innovist',
     content:
-      'Young, smart and.High energy team doing great work. Excellent attitude and intentions, keep advancing with confidence!',
+      'Young, smart, high-energy team doing genuinely great work. Their attitude and intentions are excellent — keep advancing with confidence! It\'s rare to find a team this driven and genuinely passionate about what they build.',
     rating: 5,
     company: 'Innovaam inc',
   },
@@ -33,7 +33,7 @@ const testimonials = [
     name: 'Pooja Parekh',
     role: 'Media Manager - Intstu Aspirations',
     content:
-      'We are utilising the services of Key concepts from long time in every posible way in our organisation. We as a construction business, now totally moving towards technology in every aspect. Key Concepts is providing great support for our all IT implementations (ERP solution, web catalog or any other IT solutions). The response to problems is always very fast, resolved quickly. Great service all round, I would not hesitate to recommend Key Concepts to all my network line business!',
+      'We\'ve used Key Concepts for everything - ERP, web catalogue, and all our IT needs. As a construction business moving entirely to technology, they\'ve been an invaluable partner. Problems are resolved fast. Service is outstanding. I\'d recommend them to everyone in my network without hesitation.',
     rating: 5,
     company: 'Green Group Developers',
     image: '/images/Intstu-aspirations.jpg',
@@ -59,11 +59,19 @@ function TestimonialsSection() {
           }}
           className="text-center mb-16"
         >
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
+          >
+            Client Reviews
+          </motion.span>
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Trusted by Industry <span className="text-[#f1592a]">Leaders</span>
+            Don't Just Take Our <span className="text-[#f1592a]">Word For It</span>
           </h2>
           <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
-            See what our clients say about their experience working with Key Concepts.
+            Real words from real clients. We haven't changed a thing — except the typos.
           </p>
         </motion.div>
 

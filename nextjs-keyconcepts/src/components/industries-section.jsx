@@ -14,45 +14,45 @@ import {
 
 const industries = [
   {
-    icon: ClipboardCheck,
-    name: 'Insurance & Reg. Tech',
-    description: 'Automated claim processing, validation workflows, and digital documentation portals.',
-  },
-  {
     icon: Factory,
     name: 'Manufacturing',
-    description: 'Custom ERP integrations, warehouse management solutions, inventory tracking, and supply chain optimization.',
+    description: 'When your floor operations, inventory, and accounts are all talking different languages, production suffers. We bring them into one system that your entire team can actually use.',
+  },
+  {
+    icon: ClipboardCheck,
+    name: 'Insurance & RegTech',
+    description: 'Slow claim cycles and manual documentation frustrate customers and cost money. We automate the paperwork so your team can focus on relationships and decisions, not data entry.',
   },
   {
     icon: Building2,
     name: 'Real Estate & Infra',
-    description: 'Property listings, custom CRM management, and deal pipeline automation.',
+    description: 'Missed follow-ups and scattered property data cost deals. Our custom CRMs and listing platforms keep your pipeline organized and your clients engaged at every stage.',
   },
 
   {
     icon: Rocket,
     name: 'SaaS & Tech',
-    description: 'Scalable MVP development, multi-tenant architectures, API integrations, and cloud infrastructure setup.',
+    description: 'Speed to market matters when you are building a SaaS product. We help you validate quickly with an MVP, then scale with the right architecture — without costly rewrites later.',
   },
   {
     icon: TrendingUp,
     name: 'Financial Services',
-    description: 'Digital auditing platforms, custom payment modules, and high-performance financial reports.',
-  },
-  {
-    icon: Trophy,
-    name: 'Sports & Recreation',
-    description: 'Facility scheduling, league management systems, booking engines, and member engagement applications.',
+    description: 'Compliance, accuracy, and speed are non-negotiable in finance. We build platforms that handle high-volume financial data reliably, with the audit trails and reporting your team needs.',
   },
   {
     icon: Scale,
     name: 'Legal Tech',
-    description: 'Custom contract management, automated document generation, legal research platforms, and compliance workflows.',
+    description: 'Legal work is time-sensitive and detail-heavy. We build contract management and document automation tools that reduce manual effort and let your team focus on what clients actually pay for.',
+  },
+  {
+    icon: Trophy,
+    name: 'Sports & Recreation',
+    description: 'Running a sports facility or league should not require three different tools and a spreadsheet. We build booking, scheduling, and member management systems built for how you actually operate.',
   },
   {
     icon: ShoppingCart,
     name: 'Trade & Commerce',
-    description: 'Omnichannel commerce hubs, point-of-sale integrations, and automated inventory systems.',
+    description: 'Whether you are managing a distribution network or running retail stores, we connect your inventory, orders, and customer data so the right products reach the right people at the right time.',
   },
 ]
 
@@ -67,11 +67,11 @@ function IndustriesSection() {
           className="text-center mb-12"
         >
           <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4">
-            Industry Expertise
+            Industries We Serve
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Industries We <span className="text-[#f1592a]">Serve</span></h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">We've Worked In Your <span className="text-[#f1592a]">World Before</span></h2>
           <p className="text-md md:text-lg text-gray-600 max-w-2xl mx-auto">
-            Providing tailored digital transformations and custom software engineering across key vertical sectors.
+            We don't reinvent the wheel for every client. We bring 16 years of domain knowledge and deliver solutions that speak your industry's language from day one.
           </p>
         </motion.div>
 

@@ -16,11 +16,11 @@ export function PortfolioSectionClient({ studies = [] }) {
             viewport={{ once: true }}
           >
             <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4">
-              Proven Outcomes
+              Success Stories
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Our Success <span className="text-[#f1592a]">Stories</span></h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">Real Problems. <span className="text-[#f1592a]">Real Results.</span></h2>
             <p className="text-md md:text-lg text-gray-600 max-w-2xl mx-auto">
-              Explore how we&apos;ve helped startups and enterprise businesses launch products, optimize ERPs, and grow globally.
+              We let the outcomes do the talking. Here are three businesses we&apos;ve partnered with and what changed when we started working together.
             </p>
           </motion.div>
         </div>
@@ -54,13 +54,13 @@ export function PortfolioSectionClient({ studies = [] }) {
                   {study.client}
                 </span>
                 <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#f1592a] transition-colors leading-tight">
-                  <Link href={`/case-study/${study.slug}`}>{study.title}</Link>
+                  <Link href="/insights/case-studies">{study.title}</Link>
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-1">
                   {study.challenge}
                 </p>
                 {study.metrics?.length > 0 && (
-                  <div className="grid grid-cols-3 gap-2 border-t border-gray-200 pt-6 mt-auto">
+                  <div className="grid grid-cols-3 gap-2 border-t border-gray-200 pt-6 mt-auto mb-6">
                     {study.metrics.map((metric, midx) => (
                       <div key={midx} className="text-center">
                         <div className="text-lg md:text-xl font-extrabold text-[#f1592a] tracking-tight">
@@ -73,6 +73,16 @@ export function PortfolioSectionClient({ studies = [] }) {
                     ))}
                   </div>
                 )}
+
+                {/* <div className="flex justify-center mt-auto">
+                  <Link
+                    href={`/case-study/${study.slug}`}
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#f1592a] hover:bg-[#ff7a45] text-white rounded-full font-semibold text-sm transition-all hover:shadow-lg hover:shadow-[#f1592a]/20 group/btn"
+                  >
+                    <span>Read Full Story</span>
+                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                  </Link>
+                </div> */}
               </div>
             </motion.div>
           ))}
@@ -86,7 +96,7 @@ export function PortfolioSectionClient({ studies = [] }) {
         >
           <Link
             href="/insights/case-studies"
-            className="inline-flex items-center gap-1.5 px-4 py-2 border border-gray-200 rounded-full text-gray-800 hover:border-[#f1592a] hover:text-[#f1592a] transition-all font-semibold text-xs sm:text-sm"
+            className="inline-flex items-center gap-1.5 px-4 py-3 border border-gray-200 rounded-full text-gray-800 hover:border-[#f1592a] hover:text-[#f1592a] transition-all font-semibold text-xs sm:text-sm"
           >
             <span>View All Case Studies</span>
             <ArrowRight className="w-3.5 h-3.5" />

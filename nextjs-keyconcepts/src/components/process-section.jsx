@@ -1,56 +1,56 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { Search, Target, Palette, Code, Rocket, Settings } from 'lucide-react'
+import { MessageSquare, ClipboardList, Palette, Code, Rocket, Handshake } from 'lucide-react'
 import { useEnquiryModal } from '../context/enquiry-modal-context'
 
 const processSteps = [
   {
     number: '01',
-    title: 'Discover',
+    title: 'We Listen',
     description:
-      'We dive deep into your business goals, target audience, and challenges to understand your unique needs.',
-    icon: Search,
+      'No forms, no questionnaires to start. Just a real conversation about your business, your goals, and what\'s not working right now.',
+    icon: MessageSquare,
     color: 'from-[#f1592a] to-[#ff7a45]',
   },
   {
     number: '02',
-    title: 'Define',
+    title: 'We Plan Together',
     description:
-      'Clear objectives and requirements are established, creating a roadmap for your project success.',
-    icon: Target,
+      'We map out what to build, what to skip, and what it\'ll cost - honestly. No vague estimates or scope that magically grows later.',
+    icon: ClipboardList,
     color: 'from-gray-600 to-gray-800',
   },
   {
     number: '03',
-    title: 'Design',
+    title: 'We Design It Right',
     description:
-      'Our designers craft intuitive, beautiful interfaces that align with your brand and user expectations.',
+      'Great software starts with great design. We make sure the experience is intuitive for your team and your customers before a single line of code is written.',
     icon: Palette,
     color: 'from-gray-700 to-gray-900',
   },
   {
     number: '04',
-    title: 'Develop',
+    title: 'We Build It Properly',
     description:
-      'Expert developers bring designs to life with clean, scalable code and cutting-edge technologies.',
+      'Our developers write clean, scalable code - not quick hacks that break in six months. You get progress updates, not silence.',
     icon: Code,
     color: 'from-gray-600 to-gray-800',
   },
   {
     number: '05',
-    title: 'Deploy',
+    title: 'We Launch Carefully',
     description:
-      'We launch your solution with rigorous testing, ensuring a smooth and successful go-live experience.',
+      'We test rigorously before going live. When we flip the switch, it works - because we\'ve made sure of it.',
     icon: Rocket,
     color: 'from-[#f1592a] to-[#d94d24]',
   },
   {
     number: '06',
-    title: 'Deliver',
+    title: 'We Stay With You',
     description:
-      'Provide ongoing support, maintenance, and updates to keep your software performing at its best.',
-    icon: Settings,
+      'After launch is where most agencies disappear. We stay. Supporting, improving, and growing your product as your business evolves.',
+    icon: Handshake,
     color: 'from-gray-700 to-gray-900',
   },
 ]
@@ -105,11 +105,11 @@ function ProcessSection() {
             viewport={{ once: true }}
             className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
           >
-            Process
+            How We Work
           </motion.span>
-          <h2 className="text-3xl sm:text-3xl md:text-5xl font-bold mb-4">How We Work</h2>
+          <h2 className="text-3xl sm:text-3xl md:text-5xl font-bold mb-4">Simple Process. No Surprises.</h2>
           <p className="text-base sm:text-md lg:text-lg text-gray-600 max-w-2xl mx-auto px-2">
-            A proven methodology that transforms your vision into reality through six strategic phases
+            We keep things straightforward because we know you don't have time for complicated agency processes. Here's exactly what working with us looks like.
           </p>
         </motion.div>
 
@@ -198,23 +198,7 @@ function ProcessSection() {
           </div>
         </div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-          className="text-center mt-12 sm:mt-16"
-        >
-          <motion.button
-            onClick={openModal}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg hover:shadow-2xl hover:shadow-[#f1592a]/30 transition-all font-semibold text-sm sm:text-base cursor-pointer"
-          >
-            Book a <span className='hidden sm:inline'>Discovery</span> Call
-          </motion.button>
-        </motion.div>
+
       </div>
     </section>
   )
