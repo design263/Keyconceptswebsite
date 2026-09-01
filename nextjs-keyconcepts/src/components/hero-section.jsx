@@ -284,7 +284,7 @@ function HeroSection() {
                   whileTap={{ scale: 0.95 }}
                   className="group w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-full shadow-2xl border border-gray-200 rounded-full text-gray-800 hover:border-[#f1592a] hover:text-[#f1592a] transition-all flex items-center justify-center space-x-2"
                 >
-                  <span className="text-sm md:text-base font-semibold">Our Story</span>
+                  <span className="text-sm md:text-base font-semibold bg-white">Our Story</span>
                   <ArrowRight
                     className="group-hover:translate-x-1 transition-transform"
                     size={20}

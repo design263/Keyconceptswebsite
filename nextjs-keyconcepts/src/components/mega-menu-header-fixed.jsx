@@ -61,12 +61,6 @@ const services = [
     icon: 'Settings',
     link: '/custom-erp-solutions',
   },
-  {
-    name: 'Support Maintenance',
-    description: 'Performance Optimized, Always Secure',
-    icon: 'Shield',
-    link: '/support-maintenance',
-  },
 ]
 
 const company = [

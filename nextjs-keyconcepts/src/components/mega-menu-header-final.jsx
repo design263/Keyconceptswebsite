@@ -18,7 +18,6 @@ const mobileNavMenus = [
       { href: '/product-development', label: 'Product Development', description: 'Crafting Scalable Product Experiences', icon: Layers },
       { href: '/mvp-studio', label: 'MVP Development', description: 'Build, Test, Launch, Scale.', icon: Rocket },
       { href: '/custom-erp-solutions', label: 'Custom ERP Solutions', description: 'Implement, customize, integrate, support', icon: Settings },
-      { href: '/support-maintenance', label: 'Support Maintenance', description: 'Performance Optimized, Always Secure', icon: Shield },
     ],
     cta: { href: '/contact', label: 'Get Started' },
   },
@@ -169,7 +168,7 @@ function MegaMenuHeader() {
                     className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[800px] bg-white backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-100 overflow-hidden"
                   >
                     <div className="p-8">
-                      <div className="grid grid-cols-4 gap-6">
+                      <div className="grid grid-cols-3 gap-6">
                         <motion.div
                           initial={{
                             opacity: 0,
@@ -260,38 +259,6 @@ function MegaMenuHeader() {
                             </h3>
                             <p className="text-sm text-gray-600 leading-relaxed">
                               Implement, customize, integrate, support
-                            </p>
-                          </Link>
-                        </motion.div>
-                        <motion.div
-                          initial={{
-                            opacity: 0,
-                            y: 20,
-                          }}
-                          animate={{
-                            opacity: 1,
-                            y: 0,
-                          }}
-                          transition={{
-                            delay: 0.15,
-                          }}
-                          className="group/item"
-                        >
-                          <Link
-                            href="/support-maintenance"
-                            className="block h-full p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
-                          >
-                            <div className="relative w-12 h-12 mb-4">
-                              <div className="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center group-hover/item:bg-white transition-all">
-                                <Shield className="text-gray-700" size={24} strokeWidth={1.5} />
-                              </div>
-                              <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-[#f1592a] rounded-full border-2 border-white" />
-                            </div>
-                            <h3 className="font-bold text-gray-900 mb-2 group-hover/item:text-[#f1592a] transition-colors">
-                              Support Maintenance
-                            </h3>
-                            <p className="text-sm text-gray-600 leading-relaxed">
-                              Performance Optimized, Always Secure
                             </p>
                           </Link>
                         </motion.div>

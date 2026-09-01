@@ -204,15 +204,6 @@ function Footer() {
                 >
                   Custom ERP Solutions
                 </Link>
-              </li>{' '}
-              <li>
-                {' '}
-                <Link
-                  href="/support-maintenance"
-                  className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm"
-                >
-                  Support & Maintenance
-                </Link>
               </li>
             </ul>
           </div>{' '}

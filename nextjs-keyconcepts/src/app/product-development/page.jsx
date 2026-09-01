@@ -163,11 +163,36 @@ const engagementModels = [
 ]
 
 const techStack = {
-  frontend: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-  mobile: ['React Native', 'Flutter', 'Swift', 'Kotlin'],
-  backend: ['Node.js', 'Python', 'PostgreSQL', 'MongoDB'],
-  cloud: ['AWS', 'Azure', 'Vercel', 'Docker'],
-  ai: ['OpenAI', 'LangChain', 'TensorFlow', 'Hugging Face'],
+  frontend: [
+    { name: 'React', logo: '/assets/techLogo/react-icon.svg' },
+    { name: 'TypeScript', logo: '/assets/techLogo/typescript.png' },
+    { name: 'Tailwind CSS', logo: '/assets/techLogo/tailwind css.png' },
+    { name: 'Next.js', logo: '/assets/techLogo/react-icon.svg' },
+  ],
+  mobile: [
+    { name: 'React Native', logo: '/assets/techLogo/react-native-icon.svg' },
+    { name: 'Flutter', logo: '/assets/techLogo/flutter.png' },
+    { name: 'Swift', logo: '/assets/techLogo/swift.jpg' },
+    { name: 'Kotlin', logo: '/assets/techLogo/kotlin.jpg' },
+  ],
+  backend: [
+    { name: 'Python', logo: '/assets/techLogo/python.jpg' },
+    { name: 'PostgreSQL', logo: '/assets/techLogo/postgresql.png' },
+    { name: 'MongoDB', logo: '/assets/techLogo/mongodb.png' },
+    { name: 'Jenkins', logo: '/assets/techLogo/Jenkins.png' },
+  ],
+  cloud: [
+    { name: 'AWS', logo: '/assets/techLogo/AWS.png' },
+    { name: 'Azure', logo: '/assets/techLogo/microsoft-azure-logo-icon.svg' },
+    { name: 'Docker', logo: '/assets/techLogo/docker.png' },
+    { name: 'Jenkins', logo: '/assets/techLogo/Jenkins.png' },
+  ],
+  ai: [
+    { name: 'OpenAI', logo: '/assets/techLogo/openai-logo-icon.svg' },
+    { name: 'LangChain', logo: '/assets/techLogo/langchain.png' },
+    { name: 'TensorFlow', logo: '/assets/techLogo/tensorflow.png' },
+    { name: 'Hugging Face', logo: '/assets/techLogo/hugging face.png' },
+  ],
 }
 
 function ProductDevelopmentPage() {
@@ -271,7 +296,7 @@ function ProductDevelopmentPage() {
                   href="#who-its-for"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center space-x-2 group"
+                  className="w-[80%] sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center space-x-2 group"
                 >
                   <span className="text-sm md:text-base font-semibold">Learn More</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
@@ -628,7 +653,7 @@ function ProductDevelopmentPage() {
             </motion.div>
           </div>
         </section>
-        <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white">
+        <section className="hidden py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -762,7 +787,7 @@ function ProductDevelopmentPage() {
                 We use proven frameworks and tools that scale with your business
               </p>
             </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
               {Object.entries(techStack).map(([category, technologies], index) => (
                 <motion.div
                   initial={{
@@ -779,20 +804,32 @@ function ProductDevelopmentPage() {
                   transition={{
                     delay: index * 0.1,
                   }}
-                  className="group"
+                  className="group h-full"
                   key={category}
                 >
-                  <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-4 lg:p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 h-full">
-                    <h3 className="text-lg font-bold mb-4 capitalize text-center">{category}</h3>
-                    <ul className="space-y-2">
+                  <div className="relative bg-white/70 backdrop-blur-lg rounded-3xl p-5 shadow-lg border border-gray-100 hover:bg-white hover:border-[#f1592a]/30 hover:shadow-2xl transition-all duration-300 h-full flex flex-col justify-start">
+                    <h3 className="text-base font-extrabold mb-5 capitalize text-center text-gray-900 border-b border-gray-100 pb-3 tracking-wider">
+                      {category}
+                    </h3>
+                    <div className="grid grid-cols-2 gap-3 my-auto">
                       {technologies.map((tech) => (
-                        <li className="text-center" key={tech}>
-                          <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-lg group-hover:bg-[#f1592a]/10 group-hover:text-[#f1592a] transition-all">
-                            {tech}
+                        <div
+                          key={tech.name}
+                          className="flex flex-col items-center justify-center p-3 rounded-2xl bg-gray-50/80 hover:bg-white border border-gray-100/80 hover:border-[#f1592a]/30 hover:shadow-md transition-all duration-300 group/tech text-center"
+                        >
+                          <div className="w-10 h-10 mb-2 flex items-center justify-center rounded-xl p-1 bg-white border border-gray-100 shadow-xs group-hover/tech:scale-110 transition-transform">
+                            <img
+                              src={tech.logo}
+                              alt={tech.name}
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                          <span className="text-xs font-semibold text-gray-800 text-center leading-tight">
+                            {tech.name}
                           </span>
-                        </li>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 </motion.div>
               ))}

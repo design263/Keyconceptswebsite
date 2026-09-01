@@ -39,49 +39,49 @@ const features = [
     icon: Bell,
     title: 'Instant Host Alerts',
     description:
-      'The moment a visitor checks in, their host gets a notification — on mobile, email, or desk. No more visitors waiting awkwardly at reception while staff get manually tracked down.',
-    iconBg: 'bg-amber-500/10 text-amber-500 border border-amber-500/20',
-    dotBg: 'bg-amber-500',
+      'The moment a visitor checks in, their host gets a notification - on mobile, email, or desk. No more visitors waiting awkwardly at reception while staff get manually tracked down.',
+    iconBg: 'bg-orange-500/10 text-orange-500 border border-orange-500/20',
+    dotBg: 'bg-orange-500',
   },
   {
     icon: Smartphone,
     title: 'Touchless QR Check-In',
     description:
-      'Visitors scan a QR code with their phone — no touch, no queue, no shared surfaces. The entire check-in completes in seconds. Modern, hygienic, and exactly what visitors expect today.',
-    iconBg: 'bg-blue-500/10 text-blue-500 border border-blue-500/20',
-    dotBg: 'bg-blue-500',
+      'Visitors scan a QR code with their phone - no touch, no queue, no shared surfaces. The entire check-in completes in seconds. Modern, hygienic, and exactly what visitors expect today.',
+    iconBg: 'bg-orange-500/10 text-orange-500 border border-orange-500/20',
+    dotBg: 'bg-orange-500',
   },
   {
     icon: Ban,
     title: 'Blacklist Screening',
     description:
-      'Every visitor is automatically cross-checked against your blocked list the moment they attempt check-in. Security is alerted instantly — before the person reaches the floor, not after.',
-    iconBg: 'bg-red-500/10 text-red-500 border border-red-500/20',
-    dotBg: 'bg-red-500',
+      'Every visitor is automatically cross-checked against your blocked list the moment they attempt check-in. Security is alerted instantly - before the person reaches the floor, not after.',
+    iconBg: 'bg-orange-500/10 text-orange-500 border border-orange-500/20',
+    dotBg: 'bg-orange-500',
   },
   {
     icon: ClipboardCheck,
     title: 'Pre-Registration',
     description:
-      'Invite visitors before they arrive. They register online, receive a QR code, and walk straight through on the day — no forms, no waiting. Especially powerful for meetings, interviews, and VIP visits.',
-    iconBg: 'bg-stone-500/10 text-stone-500 border border-stone-500/20',
-    dotBg: 'bg-stone-500',
+      'Invite visitors before they arrive. They register online, receive a QR code, and walk straight through on the day - no forms, no waiting. Especially powerful for meetings, interviews, and VIP visits.',
+    iconBg: 'bg-orange-500/10 text-orange-500 border border-orange-500/20',
+    dotBg: 'bg-orange-500',
   },
   {
     icon: IdCard,
     title: 'Visitor Badge Printing',
     description:
-      'Professional badges with visitor photo, name, host name, access area, and time stamp — printed automatically on check-in. Instantly identifies who belongs where throughout your facility.',
-    iconBg: 'bg-indigo-500/10 text-indigo-500 border border-indigo-500/20',
-    dotBg: 'bg-indigo-500',
+      'Professional badges with visitor photo, name, host name, access area, and time stamp - printed automatically on check-in. Instantly identifies who belongs where throughout your facility.',
+    iconBg: 'bg-orange-500/10 text-orange-500 border border-orange-500/20',
+    dotBg: 'bg-orange-500',
   },
   {
     icon: FileSpreadsheet,
     title: 'Complete Audit Trail',
     description:
-      'Every visit logged — who came, when, how long, who they met. For security audits, incident investigations, compliance reports, or simply knowing who\'s in your building right now.',
-    iconBg: 'bg-teal-500/10 text-teal-500 border border-teal-500/20',
-    dotBg: 'bg-teal-500',
+      'Every visit logged - who came, when, how long, who they met. For security audits, incident investigations, compliance reports, or simply knowing who\'s in your building right now.',
+    iconBg: 'bg-orange-500/10 text-orange-500 border border-orange-500/20',
+    dotBg: 'bg-orange-500',
   },
   {
     icon: Zap,
@@ -95,17 +95,17 @@ const features = [
     icon: Leaf,
     title: 'Fully Paperless',
     description:
-      'No more visitor registers, paper badges, or printed NDA forms. Digital check-ins, e-badges, and cloud-stored records eliminate paper entirely — better for the environment and easier to manage.',
-    iconBg: 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20',
-    dotBg: 'bg-emerald-500',
+      'No more visitor registers, paper badges, or printed NDA forms. Digital check-ins, e-badges, and cloud-stored records eliminate paper entirely - better for the environment and easier to manage.',
+    iconBg: 'bg-orange-500/10 text-orange-500 border border-orange-500/20',
+    dotBg: 'bg-orange-500',
   },
   {
     icon: Palette,
     title: 'Fully Customisable',
     description:
-      'Your branding, your access rules, your workflows. Visitorz adapts to your facility — whether it\'s a corporate HQ, a manufacturing plant, or a residential complex.',
-    iconBg: 'bg-yellow-500/10 text-yellow-600 border border-yellow-500/20',
-    dotBg: 'bg-yellow-500',
+      'Your branding, your access rules, your workflows. Visitorz adapts to your facility - whether it\'s a corporate HQ, a manufacturing plant, or a residential complex.',
+    iconBg: 'bg-orange-500/10 text-orange-600 border border-orange-500/20',
+    dotBg: 'bg-orange-500',
   },
 ]
 
@@ -129,7 +129,7 @@ const inbuiltProducts = [
     icon: Calendar,
     title: 'Event Management',
     description:
-      'From batch invitations to on-the-day access control — manage attendee registration, check-in, and real-time analytics for events of any size.',
+      'From batch invitations to on-the-day access control - manage attendee registration, check-in, and real-time analytics for events of any size.',
     features: [
       'Attendee registration and batch invitations',
       'QR-based access control on the day',
@@ -144,7 +144,7 @@ const inbuiltProducts = [
     icon: Package,
     title: 'Parcel Management',
     description:
-      'Track every incoming and outgoing parcel — with photo verification, digital signatures, and instant recipient notifications. No more lost packages or disputed deliveries.',
+      'Track every incoming and outgoing parcel - with photo verification, digital signatures, and instant recipient notifications. No more lost packages or disputed deliveries.',
     features: [
       'Parcel tracking from receipt to handover',
       'Instant delivery notifications to recipients',
@@ -179,7 +179,7 @@ const inbuiltProducts = [
       'Digital gate pass generation',
       'Role-based approval workflows',
       'Material movement tracking',
-      'Compliance reporting — 98% accuracy',
+      'Compliance reporting - 98% accuracy',
     ],
     color: 'from-red-500/10 to-rose-500/10',
     borderColor: 'group-hover:border-red-500/30',
@@ -228,7 +228,7 @@ const facilityTypes = [
   {
     icon: Factory,
     title: 'Manufacturing Plants',
-    description: 'Vendor check-in, contractor management, material gate passes, and safety compliance — all in one system.',
+    description: 'Vendor check-in, contractor management, material gate passes, and safety compliance - all in one system.',
     iconColor: 'text-amber-600',
     iconBg: 'bg-amber-500/5 border-amber-500/10',
   },
@@ -257,7 +257,7 @@ const processSteps = [
   {
     icon: Smartphone,
     title: 'Arrive & Scan',
-    description: 'Visitor scans QR code at reception — no forms, no queues',
+    description: 'Visitor scans QR code at reception - no forms, no queues',
   },
   {
     icon: Printer,
@@ -267,12 +267,12 @@ const processSteps = [
   {
     icon: Bell,
     title: 'Host Notified',
-    description: "Instant alert sent to host — they come down, visitor doesn't wait",
+    description: "Instant alert sent to host - they come down, visitor doesn't wait",
   },
   {
     icon: CheckCircle,
     title: 'Logged & Done',
-    description: 'Visit recorded — time in, time out, host, purpose. Always auditable',
+    description: 'Visit recorded - time in, time out, host, purpose. Always auditable',
   },
 ]
 
@@ -327,7 +327,7 @@ function VisitorManagementPage() {
                 >
                   <Shield className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" strokeWidth={1.5} />
                   <span className="text-xs md:text-sm font-semibold text-gray-700">
-                    Visitorz — Visitor Management System
+                    Visitorz - Visitor Management System
                   </span>
                 </motion.div>
                 <AnimatedH1
@@ -342,7 +342,7 @@ function VisitorManagementPage() {
                   transition={{
                     delay: 0.3,
                   }}
-                  className="text-4xl lg:text-5xl font-bold mb-6 leading-tight"
+                  className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6"
                 >
                   Your Reception, Finally{' '}
                   <span className="block bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
@@ -361,9 +361,9 @@ function VisitorManagementPage() {
                   transition={{
                     delay: 0.4,
                   }}
-                  className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8"
+                  className="text-md lg:text-lg text-gray-600 leading-relaxed font-medium mb-8"
                 >
-                  Paper registers. Manual badges. Security gaps nobody talks about. Visitorz replaces all of it — with a smart, touchless visitor management system that makes your reception faster, your facility safer, and your team's day significantly simpler.
+                  Paper registers. Manual badges. Security gaps nobody talks about. Visitorz replaces all of it - with a smart, touchless visitor management system that makes your reception faster, your facility safer, and your team's day significantly simpler.
                 </motion.p>
                 <motion.div
                   initial={{
@@ -377,7 +377,7 @@ function VisitorManagementPage() {
                   transition={{
                     delay: 0.5,
                   }}
-                  className="flex flex-col items-center sm:items-start sm:flex-row gap-4 mb-8"
+                  className="flex flex-col sm:flex-row items-center justify-center lg:justify-start lg:items-start gap-4 mb-8"
                 >
                   <Link href="/contact" className="w-[80%] sm:w-auto">
                     <motion.button
@@ -396,21 +396,30 @@ function VisitorManagementPage() {
                       />
                     </motion.button>
                   </Link>
-                  <motion.button
-                    whileHover={{
-                      scale: 1.05,
+                  <Link
+                    href="#core-features"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      document.getElementById('core-features')?.scrollIntoView({ behavior: 'smooth' })
                     }}
-                    whileTap={{
-                      scale: 0.95,
-                    }}
-                    className="w-[80%] sm:w-auto group px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center space-x-2"
+                    className="w-[80%] sm:w-auto"
                   >
-                    <span className="text-sm md:text-base font-semibold">See All Features</span>
-                    <ArrowRight
-                      className="group-hover:translate-x-1 transition-transform w-4 h-4 md:w-5 md:h-5 text-gray-800"
-                      strokeWidth={1.5}
-                    />
-                  </motion.button>
+                    <motion.button
+                      whileHover={{
+                        scale: 1.05,
+                      }}
+                      whileTap={{
+                        scale: 0.95,
+                      }}
+                      className="w-full group px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center space-x-2"
+                    >
+                      <span className="text-sm md:text-base font-semibold">See All Features</span>
+                      <ArrowRight
+                        className="group-hover:translate-x-1 transition-transform w-4 h-4 md:w-5 md:h-5 text-gray-800"
+                        strokeWidth={1.5}
+                      />
+                    </motion.button>
+                  </Link>
                 </motion.div>
                 <motion.div
                   initial={{
@@ -595,7 +604,7 @@ function VisitorManagementPage() {
             </div>
           </div>
         </section>
-        <section className="py-12 md:py-16 bg-white">
+        <section id="core-features" className="py-12 md:py-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{
@@ -628,7 +637,7 @@ function VisitorManagementPage() {
                 Core Features
               </motion.span>
               <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
-                Everything Your Reception Needs to Run Right
+                Everything Your Reception<br></br>Needs to Run Right
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Nine features. One platform. No paper, no gaps, no security surprises.
@@ -700,7 +709,7 @@ function VisitorManagementPage() {
                 </span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Visitorz comes with six integrated modules — each solving a specific facility management challenge, all working together from a single platform.
+                Visitorz comes with six integrated modules - each solving a specific facility management challenge, all working together from a single platform.
               </p>
             </motion.div>
             {inbuiltProducts.map((product, index) => (
@@ -758,23 +767,7 @@ function VisitorManagementPage() {
                       </li>
                     ))}
                   </ul>
-                  <button className="group px-6 py-3 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full font-semibold hover:shadow-lg hover:shadow-[#f1592a]/30 transition-all flex items-center space-x-2">
-                    <span className="text-sm md:text-md">Learn More</span>
-                    <motion.span
-                      animate={{
-                        x: [0, 5, 0],
-                      }}
-                      transition={{
-                        duration: 1.5,
-                        repeat: Infinity,
-                      }}
-                    >
-                      <ArrowRight
-                        className="group-hover:translate-x-1 transition-transform"
-                        size={20}
-                      />
-                    </motion.span>
-                  </button>
+
                 </div>
                 <div className={index % 2 === 0 ? 'order-1 lg:order-2' : 'order-2 lg:order-1'}>
                   <div className="relative bg-gradient-to-br from-gray-100 to-gray-50 rounded-3xl lg:p-8 p-4 border border-gray-200">
@@ -1297,7 +1290,7 @@ function VisitorManagementPage() {
                 A Complete Visit in Under 30 Seconds
               </h2>
               <p className="text-md md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed text-center">
-                From the moment a visitor arrives to the moment they're cleared to enter — Visitorz handles everything.
+                From the moment a visitor arrives to the moment they're cleared to enter - Visitorz handles everything.
               </p>
             </motion.div>
 
@@ -1306,7 +1299,7 @@ function VisitorManagementPage() {
               {/* Connecting line for desktop */}
               <div className="hidden lg:block absolute top-[28px] left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-[#f1592a]/20 via-indigo-500/20 to-[#f1592a]/20 pointer-events-none z-0" />
 
-              <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-4 relative z-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-4 relative z-10">
                 {processSteps.map((step, index) => (
                   <motion.div
                     key={index}
@@ -1323,7 +1316,7 @@ function VisitorManagementPage() {
                     {/* Title */}
                     <h3 className="text-base md:text-lg font-bold text-white mb-2">{step.title}</h3>
                     {/* Description */}
-                    <p className="text-xs md:text-sm text-slate-400 leading-relaxed max-w-[200px] lg:max-w-none">
+                    <p className="text-xs md:text-sm text-slate-400 leading-relaxed max-w-xs sm:max-w-sm lg:max-w-none">
                       {step.description}
                     </p>
                   </motion.div>
@@ -1375,7 +1368,7 @@ function VisitorManagementPage() {
                   Should Actually Look Like
                 </h2>
                 <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
-                  Book a 30-minute demo. We'll walk you through the full platform, show you how it works for your facility type, and answer every question you have — no commitment required.
+                  Book a 30-minute demo. We'll walk you through the full platform, show you how it works for your facility type, and answer every question you have - no commitment required.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link href="/contact" className="w-full sm:w-auto flex justify-center">

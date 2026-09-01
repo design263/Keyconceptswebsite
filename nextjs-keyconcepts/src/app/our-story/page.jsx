@@ -39,19 +39,19 @@ const coreValues = [
   {
     icon: Award,
     title: 'Integrity',
-    description: "We say what we'll do, and we do what we say. No hidden costs, no scope that quietly grows, no timelines padded to make us look good. When something is delayed, we tell you before you have to ask. When something is harder than we thought, we say so — and then we solve it together.",
+    description: "We say what we'll do, and we do what we say. No hidden costs, no scope that quietly grows, no timelines padded to make us look good. When something is delayed, we tell you before you have to ask. When something is harder than we thought, we say so - and then we solve it together.",
     footnote: "In 16 years, our most common source of new clients is referrals from existing ones. That only happens when trust is real."
   },
   {
     icon: Lightbulb,
     title: 'Innovation',
-    description: "We stay genuinely curious. Our team reads, builds side projects, follows what's emerging in AI, cloud, and product design — not because it looks good on a website, but because it means our clients get better solutions than they would have got from us two years ago. We bring new thinking to old problems. Every time.",
-    footnote: "From Odoo ERP to AI automation to LegalTech — we've built in categories that didn't exist in Gujarat before we built them."
+    description: "We stay genuinely curious. Our team reads, builds side projects, follows what's emerging in AI, cloud, and product design - not because it looks good on a website, but because it means our clients get better solutions than they would have got from us two years ago. We bring new thinking to old problems. Every time.",
+    footnote: "From Odoo ERP to AI automation to LegalTech - we've built in categories that didn't exist in Gujarat before we built them."
   },
   {
     icon: Target,
     title: 'Impact',
-    description: "Code is just code until it changes something. We measure our success by the real outcomes our clients experience — the operations manager who finishes work on time, the brand that reaches customers it never could before, the founder who raises funding because the product works. If the technology isn't creating impact, we haven't done our job.",
+    description: "Code is just code until it changes something. We measure our success by the real outcomes our clients experience - the operations manager who finishes work on time, the brand that reaches customers it never could before, the founder who raises funding because the product works. If the technology isn't creating impact, we haven't done our job.",
     footnote: "Every case study we publish starts with a real problem and ends with a measurable result. That's the standard we hold ourselves to."
   }
 ]
@@ -135,7 +135,7 @@ const journeyTimeline = [
   {
     year: '2019 – 2021',
     title: 'Product Engineering Focus',
-    description: "Transition from project delivery to product partnership model. Full lifecycle involvement — build, launch, maintain, grow. 300+ projects milestone crossed. COVID-era surge in digital transformation projects."
+    description: "Transition from project delivery to product partnership model. Full lifecycle involvement - build, launch, maintain, grow. 300+ projects milestone crossed. COVID-era surge in digital transformation projects."
   },
   {
     year: '2022 – 2024',
@@ -148,22 +148,22 @@ const ourPromises = [
   {
     icon: Ear,
     title: 'We Listen Before We Build',
-    description: "Every engagement starts with a real conversation about your business — not a requirements form. We ask questions most agencies don't think to ask. We push back when something doesn't make sense. We want to understand the problem before we propose the solution."
+    description: "Every engagement starts with a real conversation about your business - not a requirements form. We ask questions most agencies don't think to ask. We push back when something doesn't make sense. We want to understand the problem before we propose the solution."
   },
   {
     icon: Coins,
     title: 'We Respect Your Budget',
-    description: "We scope honestly from day one. No low-ball estimates that grow later. If your budget won't cover everything you want, we'll tell you — and help you decide what to build first. We'd rather scope it right than start it wrong."
+    description: "We scope honestly from day one. No low-ball estimates that grow later. If your budget won't cover everything you want, we'll tell you - and help you decide what to build first. We'd rather scope it right than start it wrong."
   },
   {
     icon: HandshakeIcon,
     title: 'We Stay After Launch',
-    description: "Most agencies disappear when the invoice is paid. We don't. We stay involved — supporting, improving, and growing your product as your business evolves. Our longest client relationships are over a decade old. That's not an accident."
+    description: "Most agencies disappear when the invoice is paid. We don't. We stay involved - supporting, improving, and growing your product as your business evolves. Our longest client relationships are over a decade old. That's not an accident."
   },
   {
     icon: PhoneCall,
     title: "We're Reachable When It Matters",
-    description: "You won't be passed to an account manager or a support ticket queue. When something important comes up, you talk to the people who built it. Fast response times aren't a premium feature — they're how we work."
+    description: "You won't be passed to an account manager or a support ticket queue. When something important comes up, you talk to the people who built it. Fast response times aren't a premium feature - they're how we work."
   },
   {
     icon: Compass,
@@ -173,7 +173,7 @@ const ourPromises = [
   {
     icon: TrendingUp,
     title: 'We Think About Your Next Stage',
-    description: "We build for where you're going, not just where you are. Scalable architecture, clean code, proper documentation — the decisions we make today don't hold you back when you're ready to grow."
+    description: "We build for where you're going, not just where you are. Scalable architecture, clean code, proper documentation - the decisions we make today don't hold you back when you're ready to grow."
   }
 ]
 
@@ -545,7 +545,7 @@ function OurStoryPage() {
                     transition={{
                       delay: 0.3,
                     }}
-                    className="text-3xl md:text-5xl font-bold leading-tight"
+                    className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight"
                   >
                     <span>Built in Surat. Trusted</span>
                     <br />
@@ -565,7 +565,7 @@ function OurStoryPage() {
                     }}
                     className="text-md md:text-md text-gray-600 leading-relaxed"
                   >
-                    Founded in 2008 by two engineers with a belief that technology should solve real problems — not create new ones. Sixteen years later, that belief still drives every decision we make, every product we build, and every client we serve.
+                    Founded in 2008 by two engineers with a belief that technology should solve real problems - not create new ones. Sixteen years later, that belief still drives every decision we make, every product we build, and every client we serve.
                   </motion.p>
                 </div>
 
@@ -679,7 +679,7 @@ function OurStoryPage() {
                 <div className="text-md md:text-md text-gray-600 leading-relaxed space-y-4">
                   <p>Key Concepts was founded in 2008 by <span className="text-[#f1592a] font-semibold">Punit Gajera</span> and <span className="text-[#f1592a] font-semibold">Rahul Prajapati</span> - two engineers in Surat who believed that businesses deserved technology partners who actually understood their problems, not just their project briefs.</p>
                   <p>We started as a small development studio. No investors, no shortcuts - just a small team, strong values, and a commitment to delivering work we were proud of. That approach earned us our first long-term clients. Their referrals earned us the next ones. And that's still how most of our business comes to us today.</p>
-                  <p>Over sixteen years we've grown into a full-service technology partner — delivering web platforms, mobile apps, ERP systems, AI automation, SaaS products, and product engineering for clients across India, the UK, the USA, Australia, the UAE, and Europe. <span className="text-[#f1592a] font-semibold">The size has changed. The way we work hasn't.</span></p>
+                  <p>Over sixteen years we've grown into a full-service technology partner - delivering web platforms, mobile apps, ERP systems, AI automation, SaaS products, and product engineering for clients across India, the UK, the USA, Australia, the UAE, and Europe. <span className="text-[#f1592a] font-semibold">The size has changed. The way we work hasn't.</span></p>
                 </div>
 
                 {/* Stats Grid */}
@@ -729,7 +729,7 @@ function OurStoryPage() {
                       <div>
                         <h4 className="font-bold text-gray-900 text-base">Punit Gajera</h4>
                         <p className="text-xs text-gray-500 mt-0.5">
-                          Director & CEO — Vision, strategy & client partnerships
+                          Director & CEO - Vision, strategy & client partnerships
                         </p>
                       </div>
                     </div>
@@ -742,7 +742,7 @@ function OurStoryPage() {
                       <div>
                         <h4 className="font-bold text-gray-900 text-base">Rahul Prajapati</h4>
                         <p className="text-xs text-gray-500 mt-0.5">
-                          CTO & Co-Founder — Engineering, architecture & delivery
+                          CTO & Co-Founder - Engineering, architecture & delivery
                         </p>
                       </div>
                     </div>
@@ -751,10 +751,10 @@ function OurStoryPage() {
 
                 <div className="pt-2">
                   <p className="text-gray-600 text-sm italic leading-relaxed">
-                    {"\"We started Key Concepts because we'd seen too many businesses left frustrated by technology partners who over-promised and under-delivered. We wanted to build something different — a company built on honest conversation, genuine understanding, and technology that actually works.\""}
+                    {"\"We started Key Concepts because we'd seen too many businesses left frustrated by technology partners who over-promised and under-delivered. We wanted to build something different - a company built on honest conversation, genuine understanding, and technology that actually works.\""}
                   </p>
                   <span className="text-sm font-semibold text-[#f1592a] block mt-4">
-                    — Punit Gajera, CEO
+                    - Punit Gajera, CEO
                   </span>
                 </div>
               </motion.div>
@@ -894,7 +894,7 @@ function OurStoryPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Mission</h3>
                 <h4 className="text-lg font-semibold text-[#f1592a] mb-4">Build Technology That Solves Real Business Problems</h4>
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
-                  We exist to help businesses turn ideas and requirements into digital products that actually work — and to keep improving those products as the business grows. Not just the first version. Every version. We measure our success by the results our clients see, not by the features we shipped.
+                  We exist to help businesses turn ideas and requirements into digital products that actually work - and to keep improving those products as the business grows. Not just the first version. Every version. We measure our success by the results our clients see, not by the features we shipped.
                 </p>
               </motion.div>
 
@@ -944,10 +944,10 @@ function OurStoryPage() {
               {/* Right Column: Explanatory text */}
               <div className="lg:col-span-7 text-left space-y-6 text-gray-600 text-sm md:text-base leading-relaxed">
                 <p>
-                  {"These aren't words we put on a wall. They're the principles we go back to when decisions get hard — when a deadline is tight, a budget is stretched, or a client is frustrated. They're what we've built our reputation on, and what our clients come back for."}
+                  {"These aren't words we put on a wall. They're the principles we go back to when decisions get hard - when a deadline is tight, a budget is stretched, or a client is frustrated. They're what we've built our reputation on, and what our clients come back for."}
                 </p>
                 <p>
-                  {"Every person who joins Key Concepts learns these not from an induction document, but from watching how we work — in how we scope projects, how we handle problems, and how we treat the people we build for."}
+                  {"Every person who joins Key Concepts learns these not from an induction document, but from watching how we work - in how we scope projects, how we handle problems, and how we treat the people we build for."}
                 </p>
               </div>
             </div>
@@ -1123,14 +1123,14 @@ function OurStoryPage() {
                 Local Roots. Global Reach.
               </h2>
               <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed text-center">
-                Headquartered in Surat — but our clients and our work span continents.
+                Headquartered in Surat - but our clients and our work span continents.
               </p>
             </motion.div>
 
             {/* Global Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               {[
-                { img: '/assets/india.png', title: 'India', desc: 'Headquarters — Surat, Gujarat. Primary delivery centre.' },
+                { img: '/assets/india.png', title: 'India', desc: 'Headquarters - Surat, Gujarat. Primary delivery centre.' },
                 { img: '/assets/uk.png', title: 'United Kingdom', desc: 'London office. UK client partnerships and delivery.' },
                 { img: '/assets/USA.png', title: 'United States', desc: 'New York presence. US market clients and partnerships.' },
                 { img: '/assets/world.png', title: 'Australia & UAE', desc: 'Project delivery across Australia, UAE, and Europe.' }
@@ -1188,7 +1188,7 @@ function OurStoryPage() {
               className="flex flex-wrap gap-4 max-w-4xl mx-auto justify-center"
             >
               {[
-                { text: 'CII — Confederation of Indian Industry', img: '/assets/Confederation_of_Indian_Industry_(CII)-logo.svg' },
+                { text: 'CII - Confederation of Indian Industry', img: '/assets/Confederation_of_Indian_Industry_(CII)-logo.svg' },
                 { text: 'Certified Odoo Partner', img: '/assets/Odoo-partner-logo.png' },
                 { text: 'SGCCI Member', img: '/assets/SGCCI-Member.png' },
                 { text: 'SICO', icon: Heart },

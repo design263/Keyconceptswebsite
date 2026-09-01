@@ -228,27 +228,6 @@ function MegaMenuHeader() {
                           }}
                           transition={{
                             delay: 0.15,
-                          }}
-                          className="group/item"
-                        >
-                          <Link
-                            href="/support-maintenance"
-                            className="block h-full p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
-                          >
-                            <div className="relative w-12 h-12 mb-4">
-                              <div className="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center group-hover/item:bg-white transition-all">
-                                <Shield className="text-gray-700" size={24} strokeWidth={1.5} />
-                              </div>
-                              <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-[#f1592a] rounded-full border-2 border-white" />
-                            </div>
-                            <h3 className="font-bold text-gray-900 mb-2 group-hover/item:text-[#f1592a] transition-colors">
-                              Support Maintenance
-                            </h3>
-                            <p className="text-sm text-gray-600 leading-relaxed">
-                              Performance Optimized, Always Secure
-                            </p>
-                          </Link>
-                        </motion.div>
                       </div>
                       <motion.div
                         initial={{

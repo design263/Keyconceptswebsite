@@ -33,6 +33,9 @@ import {
   ShoppingBag,
   ArrowUpRight,
   Sparkle,
+  Rocket,
+  DollarSign,
+  Package,
 } from 'lucide-react'
 import Link from 'next/link'
 
@@ -42,18 +45,54 @@ const stats = [
   { value: '60%', label: 'Faster Order Processing' },
 ]
 
-const challengeCards = [
+const resultMetrics = [
   {
-    title: 'Multi-Channel Stock Desync',
-    description: 'A sale on Amazon was not reflected on Myntra or Ajio for hours, causing frequent overselling, stockouts, and account penalties.',
+    value: '120%',
+    label: "Average sales growth for Brand Central's clients post-platform launch",
   },
   {
-    title: 'Price Synchronization Delays',
-    description: 'Updating product prices or scheduling promotional discounts across three channels manually took days and caused pricing mismatches.',
+    value: '3x',
+    label: 'More brand clients managed by the same team — no additional headcount',
   },
   {
-    title: 'Tripled Manual Overhead',
-    description: 'Listing teams were forced to copy-paste catalogs and manage orders across three distinct, complex seller portals daily.',
+    value: '60%',
+    label: 'Faster listing updates and order processing across all platforms',
+  },
+]
+
+const platformCards = [
+  {
+    name: 'AMAZON',
+    color: 'bg-amber-500',
+    description: 'Listings updated manually per SKU. Price changes took hours to reflect. Inventory counts frequently lagged behind actual stock — leading to orders accepted for items already sold on Myntra.',
+  },
+  {
+    name: 'MYNTRA',
+    color: 'bg-rose-500',
+    description: "Different catalogue format, different image specs, different content requirements. Every new brand onboarding required rebuilding the entire catalogue from scratch in Myntra's format manually.",
+  },
+  {
+    name: 'AJIO',
+    color: 'bg-purple-500',
+    description: 'Seasonal and trend-based listings required frequent rapid updates. Manual processes meant Brand Central was always a step behind — missing trend windows while competitors moved faster.',
+  },
+]
+
+const problemCards = [
+  {
+    icon: DollarSign,
+    title: 'Wrong Prices Live',
+    description: "Price changes made on one platform weren't reflected on others. Brands were unknowingly selling below margin on some platforms while overpriced on others.",
+  },
+  {
+    icon: Package,
+    title: 'Inventory Overselling',
+    description: "Stock sold on Amazon wasn't deducted from Myntra or Ajio in time. Overselling meant cancelled orders, bad reviews, and penalty flags from marketplaces.",
+  },
+  {
+    icon: Clock,
+    title: 'Listings Too Slow',
+    description: 'What should have taken minutes was taking days. Every new product, every seasonal update, every price campaign — done manually across three platforms.',
   },
 ]
 
@@ -61,86 +100,86 @@ const keyMetrics = [
   { label: 'Order Sync Accuracy', value: '100%' },
   { label: 'Supported Marketplaces', value: 'Amazon, Myntra, Ajio' },
   { label: 'Manual Effort Saved', value: '60%' },
+  { label: 'Stock Sync Speed', value: 'Real-Time' },
 ]
 
 const features = [
   {
-    icon: Database,
-    title: 'Unified Inventory Management',
-    description: 'Instant stock allocations update across all three marketplaces in real time as soon as a sale is recorded.',
+    icon: FileText,
+    title: 'Unified Listing Management',
+    description: 'Create or update a product listing once. The platform automatically formats, adapts, and pushes it to Amazon, Myntra, and Ajio — each in the correct format and spec required by that marketplace.',
   },
   {
     icon: RefreshCw,
-    title: 'Automated Pricing Sync',
-    description: 'Centrally configure pricing strategies, markups, and promotional discount periods across all platforms.',
-  },
-  {
-    icon: ShoppingBag,
-    title: 'Centralized Dispatch Hub',
-    description: 'A single dashboard to print shipping labels, request pickups, and update tracking numbers for all channels.',
+    title: 'Centralised Pricing Engine',
+    description: 'Set pricing rules and run campaigns from one place. Changes reflect across all platforms simultaneously — no more platforms out of sync, no more margin errors.',
   },
   {
     icon: BarChart3,
-    title: 'Multi-Channel Analytics',
-    description: 'Live charts detailing combined revenues, individual platform performances, and net profitability calculations.',
+    title: 'Real-Time Inventory Sync',
+    description: 'Every sale on any platform immediately updates stock across all others. Overselling eliminated. Marketplace penalty flags gone. Brand clients protected.',
   },
   {
-    icon: FileText,
-    title: 'Bulk Listing Editor',
-    description: 'Compile and listing product descriptions, specifications, and media once, then publish to all channels instantly.',
+    icon: ShoppingBag,
+    title: 'Centralised Order Management',
+    description: 'Orders from Amazon, Myntra, and Ajio flowing into one queue. Prioritised, assigned, and tracked in one place — no jumping between three platform dashboards.',
   },
   {
-    icon: Layers,
-    title: 'Unified Reverse Logistics',
-    description: 'Consolidated returns flow to trace customer returns, classify conditions, and manage restocks in a single panel.',
+    icon: Rocket,
+    title: 'Rapid Brand Onboarding',
+    description: 'New brands onboarded to all platforms in a fraction of the previous time. Catalogue templates built once, pushed everywhere. What took days now takes hours.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Performance Analytics Dashboard',
+    description: 'Brand-by-brand, platform-by-platform sales performance, inventory movement, and order fulfilment metrics — all in one report that Brand Central can share directly with clients.',
   },
 ]
 
 const beforeAfterData = {
   before: [
-    'Manual stock updates taking up to 12 hours, leading to severe overselling.',
-    'Frequent pricing discrepancies and account warnings from Ajio and Amazon.',
-    'Product listing took days of copy-pasting catalogs across three platforms.',
-    'Fulfillment delays from manually processing separate order channels.',
+    'Every listing updated manually — three times, platform by platform',
+    'Prices out of sync across platforms — margin errors going unnoticed',
+    'Inventory overselling — cancelled orders, penalty flags',
+    'New brand onboarding took days of manual catalogue work',
+    "Team capacity limited by manual workload — couldn't grow client base",
+    'No single view of performance across all platforms and clients',
   ],
   after: [
-    'Instantaneous real-time inventory adjustments on all marketplaces within milliseconds.',
-    'Centralized price scheduler guaranteeing 100% price parity across all panels.',
-    'Single catalog compilation tool to publish listings with one click.',
-    'Consolidated fulfillment pipeline reducing dispatch SLA times by 60%.',
+    'One update pushes to all platforms instantly — correctly formatted',
+    'Centralised pricing engine — all platforms always in sync',
+    'Real-time inventory sync — zero overselling, zero penalty flags',
+    'New brand live on all platforms in hours, not days',
+    'Same team handling 3× more clients — without adding headcount',
+    'Single analytics dashboard — shared directly with brand clients',
   ],
 }
 
 const timelineSteps = [
   {
-    phase: 'Phase 1',
-    title: 'MVP Scoping & Mapping',
-    time: 'Weeks 1-2',
-    desc: 'Identified sync triggers, catalog specifications, and defined core API endpoint architecture.',
+    title: 'Understanding the Real Workflow',
+    time: 'Weeks 1–2',
+    desc: "Sat with Brand Central's operations team. Mapped every manual task, every platform touchpoint, every decision that was being made by hand. Found the highest-pain, highest-frequency tasks to solve first.",
   },
   {
-    phase: 'Phase 2',
-    title: 'Database & Seller APIs',
-    time: 'Weeks 3-6',
-    desc: 'Connected secure API integrations for Amazon SP-API, Myntra API, and Ajio merchant endpoints.',
+    title: 'Architecture & API Planning',
+    time: 'Weeks 3–4',
+    desc: 'Mapped the API capabilities and constraints of Amazon, Myntra, and Ajio. Designed the data model that would make a single update propagate correctly across three different platform formats.',
   },
   {
-    phase: 'Phase 3',
-    title: 'Inventory Sync Workers',
-    time: 'Weeks 7-9',
-    desc: 'Built asynchronous background workers and allocation logic to process inventory updates under load.',
+    title: 'Build, Test, Refine',
+    time: 'Weeks 5–14',
+    desc: 'Built feature by feature — inventory sync first (the highest pain), then pricing, then listings, then orders. Each feature tested with real Brand Central accounts before moving to the next.',
   },
   {
-    phase: 'Phase 4',
-    title: 'Bulk Listing Engine',
-    time: 'Weeks 10-12',
-    desc: 'Developed catalog translation manager that maps centralized product attributes to distinct platform formats.',
+    title: 'Pilot with Live Clients',
+    time: 'Weeks 15–16',
+    desc: "Ran the platform live with a small group of Brand Central's actual brand clients — real products, real orders, real inventory. Caught edge cases, refined the experience, confirmed it worked under real conditions.",
   },
   {
-    phase: 'Phase 5',
-    title: 'Beta Launch & Scaling',
-    time: 'Weeks 13-14',
-    desc: 'Released public beta, verified order sync rates under stress test, and went live with full catalogs.',
+    title: 'All Clients Migrated',
+    time: 'Full Rollout',
+    desc: "Full platform rollout across all Brand Central's clients. Onboarding new brands now takes hours instead of days. The same team that was struggling to manage their existing clients could now take on three times as many.",
   },
 ]
 
@@ -180,23 +219,11 @@ export default function BrandCentralCaseStudyPage() {
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-lg md:text-xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed"
+                className="text-lg text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed"
               >
                 Brand Central helps brands sell on Amazon, Myntra, and Ajio - but everything was managed manually. Listings took days to update. Prices were out of sync across platforms. Inventory was overselling because a sale on one platform wasn't reflected on others. Key Concepts built the platform that turned that vision into reality.
               </motion.p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="flex flex-wrap justify-center gap-3 mb-16"
-              >
-                {['Omnichannel Sync', 'Amazon SP-API', 'Catalog Engine', 'SaaS Middleware'].map((badge) => (
-                  <span key={badge} className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs font-medium text-slate-300">
-                    {badge}
-                  </span>
-                ))}
-              </motion.div>
 
               {/* Stats Box */}
               <motion.div
@@ -221,57 +248,116 @@ export default function BrandCentralCaseStudyPage() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-start">
 
-              {/* Left Column: Description */}
-              <div className="lg:col-span-2 space-y-8">
+              {/* Left Column: Description & Subsections */}
+              <div className="lg:col-span-2 space-y-12">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
+                  className="space-y-6"
                 >
-                  <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4">
+                  <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a]">
                     The Challenge
                   </span>
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 tracking-tight">
-                    Struggling with Fragmented Portals and Manual Operations
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+                    The Challenge
                   </h2>
-                  <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
-                    Managing catalog updates, stock balances, and promotional changes across Amazon, Myntra, and Ajio separately was a logistical nightmare for Brand Central. Processing a single listing meant repeating manual setups three times. Inventory lags caused overselling, leading to severe penalties and degraded seller health rankings.
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                    Brand Central had a great business idea and a real market need. Brands across India — many of them manufacturers and D2C labels — wanted to sell on Amazon, Myntra, and Ajio but didn't know how to manage those platforms effectively. Brand Central stepped in as their expert partner: handle the listings, manage the catalogues, run the operations.
+                  </p>
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                    The problem was how they were doing it. <strong className="text-gray-900 font-semibold">Everything was manual.</strong> Every listing update, every price change, every inventory adjustment — done platform by platform, account by account, by hand. As their client roster grew, the cracks became craters.
                   </p>
                 </motion.div>
 
-                {/* Quote block */}
+                {/* Operations Lead Quote block */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className="pl-6 border-l-4 border-[#f1592a] bg-[#f1592a]/5 py-4 pr-4 rounded-r-2xl"
+                  className="pl-6 border-l-4 border-[#f1592a] bg-[#f1592a]/5 py-5 pr-4 rounded-r-2xl"
                 >
-                  <blockquote className="text-gray-800 italic text-sm md:text-base font-medium leading-relaxed">
-                    "Managing multiple seller portals manually was a logistical nightmare. A single dashboard to sync inventory, prices, and orders dynamically was exactly the infrastructure we needed to survive and scale."
+                  <blockquote className="text-gray-800 italic text-sm md:text-base font-semibold leading-relaxed">
+                    "We were managing three platforms for each client. Every change had to be made three times. And half the time, something was out of sync somewhere — and we wouldn't find out until a client called us angry."
                   </blockquote>
-                  <p className="text-xs font-bold text-[#f1592a] uppercase mt-2 tracking-wider">— Operations Director, Brand Central</p>
+                  <p className="text-xs font-bold text-[#f1592a] uppercase mt-3 tracking-wider">— Brand Central, Operations Lead</p>
                 </motion.div>
 
-                {/* Key challenges cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                  {challengeCards.map((card, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.1 }}
-                      className="p-5 border border-gray-100 rounded-2xl bg-gray-50/50 flex flex-col justify-start"
-                    >
-                      <h4 className="font-bold text-gray-900 text-sm mb-2">{card.title}</h4>
-                      <p className="text-gray-500 text-xs leading-relaxed">{card.description}</p>
-                    </motion.div>
-                  ))}
-                </div>
+                {/* Three Platforms. Three Separate Realities. Zero Sync. */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="space-y-6 pt-4"
+                >
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900">
+                    Three Platforms. Three Separate Realities. Zero Sync.
+                  </h3>
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                    Each marketplace had its own interface, its own rules, and its own format. Managing them separately meant Brand Central's team was doing the same work three times — and still getting it wrong:
+                  </p>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {platformCards.map((card, i) => (
+                      <div
+                        key={i}
+                        className="p-5 border border-gray-100 rounded-2xl bg-gray-50/50 flex flex-col justify-start"
+                      >
+                        <div className="flex items-center space-x-2 mb-3">
+                          <span className={`w-2.5 h-2.5 rounded-full ${card.color}`} />
+                          <span className="font-bold text-gray-900 text-xs tracking-wider uppercase">{card.name}</span>
+                        </div>
+                        <p className="text-gray-600 text-xs leading-relaxed">{card.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* Three Problems Costing Them Every Day */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="space-y-6 pt-4"
+                >
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900">
+                    Three Problems Costing Them Every Day
+                  </h3>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {problemCards.map((card, i) => (
+                      <div
+                        key={i}
+                        className="p-5 border border-red-100/60 rounded-2xl bg-red-50/30 flex flex-col justify-start text-center items-center"
+                      >
+                        <div className="w-10 h-10 rounded-full bg-red-100/60 flex items-center justify-center mb-3">
+                          <card.icon className="text-[#f1592a] w-5 h-5" strokeWidth={1.5} />
+                        </div>
+                        <h4 className="font-bold text-red-950 text-sm mb-2">{card.title}</h4>
+                        <p className="text-gray-600 text-xs leading-relaxed">{card.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* THE REAL COST Callout */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="p-6 md:p-8 border border-amber-200/80 rounded-3xl bg-amber-50/40"
+                >
+                  <span className="text-xs font-bold text-[#f1592a] uppercase tracking-wider block mb-3">
+                    THE REAL COST
+                  </span>
+                  <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                    Brand Central wasn't just losing efficiency — they were losing client trust. Every cancelled order due to overselling, every price error that a brand spotted, every trend missed because listings were slow — these were chips in the reputation of a company whose entire value was supposed to be making marketplace selling <strong className="text-gray-900 font-semibold">easier</strong> for their clients.
+                  </p>
+                </motion.div>
               </div>
 
               {/* Right Column: Sidebar Metrics & CTA */}
-              <div className="space-y-8">
+              <div className="space-y-8 lg:sticky lg:top-28">
                 {/* Metrics Card */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
@@ -330,7 +416,7 @@ export default function BrandCentralCaseStudyPage() {
                 What We Built
               </span>
               <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gray-900 tracking-tight text-center">
-                One Dashboard. Every Platform. Total Control.
+                What We Built — Feature by Feature
               </h2>
               <p className="text-md md:text-lg text-gray-600 text-center">
                 A high-speed SaaS retail middleware connecting stock levels, order allocations, and catalogs under one dynamic hub.
@@ -463,10 +549,7 @@ export default function BrandCentralCaseStudyPage() {
                   <div className="bg-white border border-gray-100 hover:border-[#f1592a]/20 hover:shadow-lg transition-all rounded-3xl p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="space-y-2">
                       <div className="flex items-center space-x-2">
-                        <span className="text-[10px] font-bold text-amber-800 bg-amber-100 border border-amber-200/50 px-2 py-0.5 rounded uppercase tracking-wider shrink-0">
-                          {step.phase}
-                        </span>
-                        <span className="text-xs font-bold text-gray-400">{step.time}</span>
+                        <span className="text-xs md:text-sm font-bold text-[#f1592a]">{step.time}</span>
                       </div>
                       <h3 className="text-lg font-bold text-gray-900 leading-snug">{step.title}</h3>
                       <p className="text-gray-500 text-xs md:text-sm leading-relaxed">{step.desc}</p>
@@ -478,7 +561,7 @@ export default function BrandCentralCaseStudyPage() {
           </div>
         </section>
 
-        {/* The Result Section */}
+        {/* The Result / Key Metrics Section */}
         <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto space-y-16">
@@ -494,29 +577,38 @@ export default function BrandCentralCaseStudyPage() {
                 <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gray-900 tracking-tight text-center">
                   Scale Operations. Eliminate Errors.
                 </h2>
-                <p className="text-md md:text-lg text-gray-600 text-center leading-relaxed">
-                  The unified middleware platform resolved overselling variables and cut overall order processing overhead in half.
-                </p>
               </motion.div>
 
               {/* Labeled Stats Cards */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {stats.map((stat, i) => (
+                {resultMetrics.map((stat, i) => (
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.05 }}
-                    className="p-6 border border-gray-100 rounded-3xl bg-gray-50 text-center"
+                    className="p-6 md:p-8 border border-gray-100 rounded-3xl bg-gray-50 text-center flex flex-col justify-between"
                   >
-                    <p className="text-4xl font-extrabold text-[#f1592a] mb-2">{stat.value}</p>
-                    <p className="text-xs uppercase font-bold text-gray-600 tracking-wider">{stat.label}</p>
+                    <p className="text-4xl md:text-5xl font-extrabold text-[#f1592a] mb-4">{stat.value}</p>
+                    <p className="text-xs md:text-sm font-medium text-gray-600 leading-relaxed">{stat.label}</p>
                   </motion.div>
                 ))}
               </div>
 
-              {/* Operations Director Quote */}
+              {/* Explanatory Paragraph */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-gray-600 text-sm md:text-base leading-relaxed"
+              >
+                <p>
+                  But the number we found most meaningful was quieter than any of these. Before the platform, Brand Central's team was spending the majority of their day doing repetitive manual work across three dashboards. After the platform, that same team was spending their time on strategy — helping brands grow, not just keeping up with the paperwork. <strong className="text-gray-900 font-bold">The platform didn't just make their work faster. It made their work matter more.</strong>
+                </p>
+              </motion.div>
+
+              {/* Founder Quote */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -524,22 +616,9 @@ export default function BrandCentralCaseStudyPage() {
                 className="pl-6 border-l-4 border-[#f1592a] bg-[#f1592a]/5 py-6 pr-6 rounded-r-3xl"
               >
                 <blockquote className="text-gray-800 italic text-sm md:text-base font-semibold leading-relaxed">
-                  "Key Concepts built the infrastructure that turned Brand Central from a struggling manual seller to a multi-channel automated category leader."
+                  "We used to dread onboarding a new brand — it meant days of catalogue work. Now we can take a brand live on all three platforms in a morning. We've taken on more clients in the last three months than in the entire previous year."
                 </blockquote>
-                <p className="text-xs font-bold text-[#f1592a] uppercase mt-2 tracking-wider">— CEO, Brand Central</p>
-              </motion.div>
-
-              {/* What This Means for Your Business */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="space-y-4"
-              >
-                <h3 className="text-xl md:text-2xl font-bold text-gray-900">What This Means for Your Business</h3>
-                <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                  For businesses managing multiple online storefronts or inventory warehouses, manual updates lead to inefficiencies and missed opportunities. By introducing unified API connections, automated stock adjustments, and multi-channel synchronization rules—our customized integrations secure your operational success.
-                </p>
+                <p className="text-xs font-bold text-[#f1592a] uppercase mt-3 tracking-wider">— Brand Central, Founder</p>
               </motion.div>
             </div>
           </div>
