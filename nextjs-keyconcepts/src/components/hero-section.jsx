@@ -218,7 +218,7 @@ function HeroSection() {
               {' '}
               <Sparkles className="text-[#f1592a]" size={18} />{' '}
               <span className="text-xs md:text-sm font-medium text-gray-700">
-                6 Years · 400+ Clients · India, UK & USA
+                16 Years · 400+ Clients · India, UK & USA
               </span>
             </motion.div>{' '}
             <div className="space-y-4">
@@ -256,7 +256,7 @@ function HeroSection() {
                 }}
                 className="text-md lg:text-lg text-gray-600 leading-relaxed font-medium"
               >
-                Whether you're a startup with a napkin idea or a growing business that's outgrown its current systems — we listen first, understand your constraints, and then build technology that actually fits your world. No jargon. No surprises. Just results.
+                Whether you're a startup with a napkin idea or a growing business that's outgrown its current systems - we listen first, understand your constraints, and then build technology that actually fits your world. No jargon. No surprises. Just results.
               </motion.p>
             </div>{' '}
             <motion.div

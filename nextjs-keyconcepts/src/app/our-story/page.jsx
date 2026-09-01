@@ -643,8 +643,8 @@ function OurStoryPage() {
           </div>
         </section>
         <section className="py-12 md:py-20 bg-white">
-          <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Side: Content */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
@@ -788,13 +788,13 @@ function OurStoryPage() {
             </motion.div>
 
             {/* Timeline container */}
-            <div className="relative max-w-5xl mx-auto">
+            <div className="relative max-w-7xl mx-auto">
               {/* Vertical line - hidden on small mobile, visible on tablet and desktop */}
               <div className="absolute left-4 lg:left-1/2 lg:-translate-x-1/2 top-2 bottom-2 w-[2px] bg-gray-200 pointer-events-none" />
 
-              <div className="space-y-12 lg:space-y-16">
+              <div className="space-y-8 lg:space-y-10">
                 {journeyTimeline.map((item, index) => {
-                  const isEven = index % 2 === 0
+                  const isEven = index % 2 !== 0
                   return (
                     <motion.div
                       key={index}
@@ -806,12 +806,12 @@ function OurStoryPage() {
                         } items-start lg:items-center`}
                     >
                       {/* Timeline dot */}
-                      <div className="absolute left-4 lg:left-1/2 lg:-translate-x-1/2 flex items-center justify-center w-8 h-8 rounded-full bg-white border-4 border-[#f1592a] shadow-md z-10">
+                      <div className="absolute left-0 top-4 lg:left-1/2 lg:-translate-x-1/2 flex items-center justify-center w-8 h-8 rounded-full bg-white border-4 border-[#f1592a] shadow-md z-10">
                         <div className="w-2.5 h-2.5 rounded-full bg-[#f1592a]" />
                       </div>
 
                       {/* Content Column */}
-                      <div className={`w-full lg:w-[calc(50%-3rem)] pl-12 lg:pl-0 ${isEven ? 'lg:text-right lg:pr-8' : 'lg:text-left lg:pl-8'
+                      <div className={`w-full lg:w-[calc(50%-3rem)] pl-12 lg:pl-0 ${isEven ? 'lg:text-left lg:pr-8' : 'lg:text-right lg:pl-8'
                         }`}>
                         <span className="text-xs font-bold text-[#f1592a] uppercase tracking-widest block mb-1">
                           {item.year}
@@ -1130,10 +1130,10 @@ function OurStoryPage() {
             {/* Global Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               {[
-                { code: 'IN', title: 'India', desc: 'Headquarters — Surat, Gujarat. Primary delivery centre.' },
-                { code: 'GB', title: 'United Kingdom', desc: 'London office. UK client partnerships and delivery.' },
-                { code: 'US', title: 'United States', desc: 'New York presence. US market clients and partnerships.' },
-                { code: 'AU_AE', title: 'Australia & UAE', desc: 'Project delivery across Australia, UAE, and Europe.', isSpecial: true }
+                { img: '/assets/india.png', title: 'India', desc: 'Headquarters — Surat, Gujarat. Primary delivery centre.' },
+                { img: '/assets/uk.png', title: 'United Kingdom', desc: 'London office. UK client partnerships and delivery.' },
+                { img: '/assets/USA.png', title: 'United States', desc: 'New York presence. US market clients and partnerships.' },
+                { img: '/assets/world.png', title: 'Australia & UAE', desc: 'Project delivery across Australia, UAE, and Europe.' }
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -1143,12 +1143,8 @@ function OurStoryPage() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 hover:border-[#f1592a]/20 hover:shadow-md transition-all duration-300 flex flex-col items-center text-center h-full justify-start"
                 >
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#f1592a] to-[#ff7a45] flex items-center justify-center text-white font-bold text-base shadow-sm mb-4 shrink-0">
-                    {item.isSpecial ? (
-                      <Globe className="w-5 h-5 text-white" />
-                    ) : (
-                      <span>{item.code}</span>
-                    )}
+                  <div className="w-12 h-12 flex items-center justify-center mb-4 shrink-0">
+                    <img src={item.img} alt={item.title} className="w-full h-full object-contain drop-shadow-sm" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
                   <p className="text-gray-500 text-xs md:text-sm leading-relaxed">{item.desc}</p>
@@ -1165,7 +1161,7 @@ function OurStoryPage() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-left mb-12 max-w-6xl mx-auto"
+              className="text-center mb-12 max-w-6xl mx-auto"
             >
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
@@ -1178,7 +1174,7 @@ function OurStoryPage() {
               <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gray-900 tracking-tight">
                 Connected to the Ecosystem
               </h2>
-              <p className="text-md md:text-lg text-gray-600 leading-relaxed max-w-3xl">
+              <p className="text-md md:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
                 {"Recognised by and connected with India's leading industry bodies and technology partners."}
               </p>
             </motion.div>
@@ -1189,24 +1185,30 @@ function OurStoryPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex flex-wrap gap-4 max-w-6xl mx-auto justify-start"
+              className="flex flex-wrap gap-4 max-w-4xl mx-auto justify-center"
             >
               {[
-                { text: 'CII — Confederation of Indian Industry', icon: Building2 },
-                { text: 'Certified Odoo Partner', icon: Award },
-                { text: 'SGCCI Member', icon: Users },
+                { text: 'CII — Confederation of Indian Industry', img: '/assets/Confederation_of_Indian_Industry_(CII)-logo.svg' },
+                { text: 'Certified Odoo Partner', img: '/assets/Odoo-partner-logo.png' },
+                { text: 'SGCCI Member', img: '/assets/SGCCI-Member.png' },
                 { text: 'SICO', icon: Heart },
-                { text: 'SITA', icon: Lightbulb },
-                { text: 'SSGITC', icon: Building2 }
+                { text: 'SITA', img: '/assets/Sita-logo.svg' },
+                { text: 'SGITC', img: '/assets/SGITC-logo.png' }
               ].map((tag, index) => (
                 <div
                   key={index}
-                  className="bg-white border border-gray-200/60 rounded-full px-5 py-2.5 flex items-center space-x-3 text-xs md:text-sm font-medium text-gray-700 shadow-sm hover:border-[#f1592a]/30 hover:shadow-md hover:bg-white transition-all duration-300"
+                  className="bg-white border border-gray-200/60 rounded-2xl p-4 md:p-6 flex flex-col items-center justify-center gap-4 text-center text-xs md:text-sm font-medium text-gray-700 shadow-sm hover:border-[#f1592a]/30 hover:shadow-md hover:bg-white transition-all duration-300 w-40 md:w-48 aspect-square"
                 >
-                  <div className="w-6 h-6 rounded-full bg-[#f1592a]/10 flex items-center justify-center border border-[#f1592a]/20 text-[#f1592a] shrink-0">
-                    <tag.icon size={12} strokeWidth={2} />
-                  </div>
-                  <span>{tag.text}</span>
+                  {tag.img ? (
+                    <div className="h-12 md:h-16 flex items-center justify-center shrink-0">
+                      <img src={tag.img} alt={tag.text} className="h-full w-auto object-contain block" />
+                    </div>
+                  ) : (
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#f1592a]/10 flex items-center justify-center border border-[#f1592a]/20 text-[#f1592a] shrink-0">
+                      <tag.icon className="w-6 h-6 md:w-8 md:h-8" strokeWidth={1.5} />
+                    </div>
+                  )}
+                  <span className="leading-tight">{tag.text}</span>
                 </div>
               ))}
             </motion.div>
@@ -1317,18 +1319,7 @@ function OurStoryPage() {
                 </svg>{' '}
                 <span className="text-sm">Response within 24 hours</span>
               </div>
-              <div className="flex items-center space-x-2">
-                {' '}
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  {' '}
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>{' '}
-                <span className="text-sm">15 minutes is all it takes to start</span>
-              </div>
+
 
             </motion.div>
           </div>

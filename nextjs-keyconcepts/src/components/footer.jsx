@@ -172,10 +172,10 @@ function Footer() {
               <li>
                 {' '}
                 <Link
-                  href="/election-mobilization"
+                  href="/claim-genie"
                   className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm"
                 >
-                  Election Mobilization
+                  Claim Genie
                 </Link>
               </li>{' '}
               <li>

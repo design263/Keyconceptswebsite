@@ -199,6 +199,46 @@ export const pageSeo = {
       'branding services, logo design Surat, brand identity, visual design, brand guidelines',
     path: '/branding-services',
   },
+  'claim-genie': {
+    title: {
+      absolute: 'AI Claims Processing Automation Software | Claim Genie',
+    },
+    description:
+      'Automate your insurance claims lifecycle with Claim Genie. Features automated surveyor assignment, AI photo damage estimation, fraud detection, and offline mobile surveying.',
+    keywords:
+      'claims processing software, insurance claims automation, surveyor app, damage estimation AI, fraud detection claims, Claim Genie India',
+    path: '/claim-genie',
+  },
+  'case-study-legaltech': {
+    title: {
+      absolute: 'LegalTech Document Automation Case Study | Key Concepts',
+    },
+    description:
+      'Discover how we helped a leading Indian LegalTech platform automate legal document draft creation, dynamically calculate state-wise stamp duty, and integrate Aadhaar e-signing.',
+    keywords:
+      'legaltech case study, document automation, online stamp duty, aadhaar e-sign integration, automated clause builder, legal documentation India',
+    path: '/case-study/legaltech',
+  },
+  'case-study-brand-central': {
+    title: {
+      absolute: 'E-commerce Multi-Channel Retail Case Study | Key Concepts',
+    },
+    description:
+      'Discover how we engineered a unified marketplace dashboard for Brand Central to synchronize inventory, automate product listings, and scale sales growth across Amazon, Myntra, Ajio.',
+    keywords:
+      'ecommerce case study, marketplace integration, inventory sync, product listing automation, multi-channel selling, Brand Central, Amazon Myntra Ajio sync',
+    path: '/case-study/brand-central',
+  },
+  'case-study-custom-erp': {
+    title: {
+      absolute: 'Custom ERP Manufacturing Case Study | Key Concepts',
+    },
+    description:
+      'Read how we scaled operations for a chemical manufacturer using a custom-engineered Odoo ERP connecting sales, inventory, production, and exports.',
+    keywords:
+      'erp case study, custom erp development, chemical manufacturing software, odoo customization Surat, export documentation automation, production planner',
+    path: '/case-study/custom-erp',
+  },
   'visitor-management': {
     title: {
       absolute: 'Visitor Management System & Gate Pass Software | Visitorz',

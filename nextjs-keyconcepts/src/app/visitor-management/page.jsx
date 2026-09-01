@@ -21,6 +21,16 @@ import {
   Leaf,
   UserCog,
   ArrowRight,
+  Ban,
+  IdCard,
+  FileSpreadsheet,
+  Palette,
+  Key,
+  Building2,
+  Factory,
+  Home,
+  School,
+  Printer,
 } from 'lucide-react'
 import Link from 'next/link'
 
@@ -29,55 +39,73 @@ const features = [
     icon: Bell,
     title: 'Instant Host Alerts',
     description:
-      'Real-time notifications sent to hosts the moment their visitor arrives, ensuring seamless communication.',
+      'The moment a visitor checks in, their host gets a notification — on mobile, email, or desk. No more visitors waiting awkwardly at reception while staff get manually tracked down.',
+    iconBg: 'bg-amber-500/10 text-amber-500 border border-amber-500/20',
+    dotBg: 'bg-amber-500',
   },
   {
-    icon: Scan,
-    title: 'Touchless Entry',
+    icon: Smartphone,
+    title: 'Touchless QR Check-In',
     description:
-      'QR code-based contactless check-in system for a safe, hygienic, and modern visitor experience.',
+      'Visitors scan a QR code with their phone — no touch, no queue, no shared surfaces. The entire check-in completes in seconds. Modern, hygienic, and exactly what visitors expect today.',
+    iconBg: 'bg-blue-500/10 text-blue-500 border border-blue-500/20',
+    dotBg: 'bg-blue-500',
   },
   {
-    icon: UserX,
-    title: 'Blacklist Management',
+    icon: Ban,
+    title: 'Blacklist Screening',
     description:
-      'Automated screening against blacklisted individuals with instant alerts for enhanced security.',
+      'Every visitor is automatically cross-checked against your blocked list the moment they attempt check-in. Security is alerted instantly — before the person reaches the floor, not after.',
+    iconBg: 'bg-red-500/10 text-red-500 border border-red-500/20',
+    dotBg: 'bg-red-500',
   },
   {
-    icon: Clock,
+    icon: ClipboardCheck,
     title: 'Pre-Registration',
     description:
-      'Allow visitors to pre-register online, reducing wait times and streamlining the check-in process.',
+      'Invite visitors before they arrive. They register online, receive a QR code, and walk straight through on the day — no forms, no waiting. Especially powerful for meetings, interviews, and VIP visits.',
+    iconBg: 'bg-stone-500/10 text-stone-500 border border-stone-500/20',
+    dotBg: 'bg-stone-500',
   },
   {
-    icon: Shield,
-    title: 'Visitor Badges',
+    icon: IdCard,
+    title: 'Visitor Badge Printing',
     description:
-      'Automatically generate and print professional visitor badges with photos and access permissions.',
+      'Professional badges with visitor photo, name, host name, access area, and time stamp — printed automatically on check-in. Instantly identifies who belongs where throughout your facility.',
+    iconBg: 'bg-indigo-500/10 text-indigo-500 border border-indigo-500/20',
+    dotBg: 'bg-indigo-500',
   },
   {
-    icon: CheckCircle,
-    title: 'Audit Trail',
+    icon: FileSpreadsheet,
+    title: 'Complete Audit Trail',
     description:
-      'Complete visitor history and analytics for compliance, security audits, and reporting.',
+      'Every visit logged — who came, when, how long, who they met. For security audits, incident investigations, compliance reports, or simply knowing who\'s in your building right now.',
+    iconBg: 'bg-teal-500/10 text-teal-500 border border-teal-500/20',
+    dotBg: 'bg-teal-500',
   },
   {
-    icon: TrendingUp,
-    title: 'Operational Efficiency',
+    icon: Zap,
+    title: 'Streamlined Reception Workflow',
     description:
-      'Streamline reception workflows with automated processes, reducing manual tasks and improving staff productivity.',
+      'Reception staff spend less time on manual check-in admin and more time on work that actually needs a human. Automated notifications, digital logs, and instant badge printing remove the repetitive load.',
+    iconBg: 'bg-orange-500/10 text-orange-500 border border-orange-500/20',
+    dotBg: 'bg-orange-500',
   },
   {
     icon: Leaf,
-    title: 'Sustainability',
+    title: 'Fully Paperless',
     description:
-      'Go paperless with digital check-ins, e-badges, and cloud storage, reducing environmental impact.',
+      'No more visitor registers, paper badges, or printed NDA forms. Digital check-ins, e-badges, and cloud-stored records eliminate paper entirely — better for the environment and easier to manage.',
+    iconBg: 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20',
+    dotBg: 'bg-emerald-500',
   },
   {
-    icon: UserCog,
-    title: 'Personalization',
+    icon: Palette,
+    title: 'Fully Customisable',
     description:
-      'Customize visitor experiences with personalized greetings, host preferences, and tailored access levels.',
+      'Your branding, your access rules, your workflows. Visitorz adapts to your facility — whether it\'s a corporate HQ, a manufacturing plant, or a residential complex.',
+    iconBg: 'bg-yellow-500/10 text-yellow-600 border border-yellow-500/20',
+    dotBg: 'bg-yellow-500',
   },
 ]
 
@@ -86,12 +114,12 @@ const inbuiltProducts = [
     icon: DoorOpen,
     title: 'Meeting Room Management',
     description:
-      'Smart booking system with real-time availability, automated scheduling, and resource allocation for all meeting spaces.',
+      'Real-time room availability, smart booking, automated check-in and check-out. No more double-booking, no more ghost meetings blocking rooms all day.',
     features: [
-      'Real-time room availability',
-      'Calendar integration',
-      'Automated check-in/out',
-      'Capacity management',
+      'Real-time room availability across all floors',
+      'Calendar integration with Google & Outlook',
+      'Automated check-in / check-out',
+      'Capacity and resource management',
     ],
     color: 'from-blue-500/10 to-cyan-500/10',
     borderColor: 'group-hover:border-blue-500/30',
@@ -101,12 +129,12 @@ const inbuiltProducts = [
     icon: Calendar,
     title: 'Event Management',
     description:
-      'Comprehensive event planning and coordination with attendee tracking, registration, and access control for seamless events.',
+      'From batch invitations to on-the-day access control — manage attendee registration, check-in, and real-time analytics for events of any size.',
     features: [
-      'Attendee registration',
-      'Batch invitations',
-      'Access control',
-      'Real-time analytics',
+      'Attendee registration and batch invitations',
+      'QR-based access control on the day',
+      'VIP and zone-based access tiers',
+      'Real-time attendance analytics',
     ],
     color: 'from-purple-500/10 to-pink-500/10',
     borderColor: 'group-hover:border-purple-500/30',
@@ -116,12 +144,12 @@ const inbuiltProducts = [
     icon: Package,
     title: 'Parcel Management',
     description:
-      'Track and manage all incoming and outgoing parcels with automatic notifications and secure handover verification.',
+      'Track every incoming and outgoing parcel — with photo verification, digital signatures, and instant recipient notifications. No more lost packages or disputed deliveries.',
     features: [
-      'Parcel tracking',
-      'Delivery notifications',
-      'Photo verification',
-      'Digital signatures',
+      'Parcel tracking from receipt to handover',
+      'Instant delivery notifications to recipients',
+      'Photo verification at collection',
+      'Digital signature on handover',
     ],
     color: 'from-green-500/10 to-emerald-500/10',
     borderColor: 'group-hover:border-green-500/30',
@@ -131,12 +159,12 @@ const inbuiltProducts = [
     icon: Car,
     title: 'Parking Management',
     description:
-      'Optimize parking space utilization with smart allocation, automated gate control, and violation monitoring.',
+      'Smart slot allocation, licence plate recognition, and automated gate control. Eliminate parking disputes, unauthorised vehicles, and the daily manual chaos at the gate.',
     features: [
-      'Slot allocation',
-      'License plate recognition',
-      'Automated gates',
-      'Violation alerts',
+      'Smart slot allocation per vehicle / visitor',
+      'Licence plate recognition at entry',
+      'Automated gate control integration',
+      'Violation alerts for unauthorised parking',
     ],
     color: 'from-orange-500/10 to-amber-500/10',
     borderColor: 'group-hover:border-orange-500/30',
@@ -146,31 +174,105 @@ const inbuiltProducts = [
     icon: ClipboardCheck,
     title: 'Material Gate Pass',
     description:
-      'Streamline material movement with digital gate passes, approval workflows, and complete audit trails for compliance.',
+      'Digital gate passes with full approval workflows for material movement in and out of your facility. Complete audit trail for compliance, with nothing slipping through undocumented.',
     features: [
-      'Digital gate passes',
-      'Approval workflows',
-      'Material tracking',
-      'Compliance reporting',
+      'Digital gate pass generation',
+      'Role-based approval workflows',
+      'Material movement tracking',
+      'Compliance reporting — 98% accuracy',
     ],
     color: 'from-red-500/10 to-rose-500/10',
     borderColor: 'group-hover:border-red-500/30',
     iconBg: 'group-hover:bg-red-500',
+  },
+  {
+    icon: Key,
+    title: 'Access Control Integration',
+    description:
+      'Connect Visitorz with physical security turnstiles and smart doors. Automatically grant digital keys to checked-in visitors and revoke permissions instantly upon departure.',
+    features: [
+      'Seamless turnstile and door gate integration',
+      'Temporary digital credentials (QR / Mobile)',
+      'Instant lock & unlock activity monitoring',
+      'Automatic key revocation on check-out',
+    ],
+    color: 'from-indigo-500/10 to-blue-500/10',
+    borderColor: 'group-hover:border-indigo-500/30',
+    iconBg: 'group-hover:bg-indigo-500',
   },
 ]
 
 const benefits = [
   {
     metric: '80%',
-    label: 'Faster Check-In',
+    label: 'Faster check-in vs paper',
   },
   {
     metric: '100%',
-    label: 'Contactless',
+    label: 'Contactless & touchless',
   },
   {
     metric: '24/7',
-    label: 'Monitoring',
+    label: 'Live monitoring & alerts',
+  },
+]
+
+const facilityTypes = [
+  {
+    icon: Building2,
+    title: 'Corporate Offices',
+    description: 'Professional reception experience for clients, partners, and interviews. Full compliance documentation.',
+    iconColor: 'text-[#f1592a]',
+    iconBg: 'bg-[#f1592a]/5 border-[#f1592a]/10',
+  },
+  {
+    icon: Factory,
+    title: 'Manufacturing Plants',
+    description: 'Vendor check-in, contractor management, material gate passes, and safety compliance — all in one system.',
+    iconColor: 'text-amber-600',
+    iconBg: 'bg-amber-500/5 border-amber-500/10',
+  },
+  {
+    icon: Home,
+    title: 'Residential Complexes',
+    description: 'Secure visitor entry for residents, delivery tracking, and 24/7 gate monitoring for housing societies.',
+    iconColor: 'text-emerald-600',
+    iconBg: 'bg-emerald-500/5 border-emerald-500/10',
+  },
+  {
+    icon: School,
+    title: 'Educational Institutions',
+    description: 'Parent and visitor check-in, blacklist screening, event management, and staff entry logging.',
+    iconColor: 'text-indigo-600',
+    iconBg: 'bg-indigo-500/5 border-indigo-500/10',
+  },
+]
+
+const processSteps = [
+  {
+    icon: ClipboardCheck,
+    title: 'Pre-Register',
+    description: 'Visitor receives invite link and registers online before arrival',
+  },
+  {
+    icon: Smartphone,
+    title: 'Arrive & Scan',
+    description: 'Visitor scans QR code at reception — no forms, no queues',
+  },
+  {
+    icon: Printer,
+    title: 'Badge Prints',
+    description: 'Photo badge auto-prints with name, host, and access level',
+  },
+  {
+    icon: Bell,
+    title: 'Host Notified',
+    description: "Instant alert sent to host — they come down, visitor doesn't wait",
+  },
+  {
+    icon: CheckCircle,
+    title: 'Logged & Done',
+    description: 'Visit recorded — time in, time out, host, purpose. Always auditable',
   },
 ]
 
@@ -225,7 +327,7 @@ function VisitorManagementPage() {
                 >
                   <Shield className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" strokeWidth={1.5} />
                   <span className="text-xs md:text-sm font-semibold text-gray-700">
-                    Enterprise-Grade Security
+                    Visitorz — Visitor Management System
                   </span>
                 </motion.div>
                 <AnimatedH1
@@ -242,9 +344,9 @@ function VisitorManagementPage() {
                   }}
                   className="text-4xl lg:text-5xl font-bold mb-6 leading-tight"
                 >
-                  Visitor Management{' '}
+                  Your Reception, Finally{' '}
                   <span className="block bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                    Built for Safety & Speed
+                    Under Control.
                   </span>
                 </AnimatedH1>
                 <motion.p
@@ -261,8 +363,7 @@ function VisitorManagementPage() {
                   }}
                   className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8"
                 >
-                  Transform your reception area with a modern, touchless visitor management system
-                  that prioritizes security without compromising user experience.
+                  Paper registers. Manual badges. Security gaps nobody talks about. Visitorz replaces all of it — with a smart, touchless visitor management system that makes your reception faster, your facility safer, and your team's day significantly simpler.
                 </motion.p>
                 <motion.div
                   initial={{
@@ -276,29 +377,7 @@ function VisitorManagementPage() {
                   transition={{
                     delay: 0.5,
                   }}
-                  className="flex justify-center lg:justify-start flex-wrap gap-6 mb-8"
-                >
-                  {benefits.map((benefit, index) => (
-                    <div className="flex items-center space-x-2" key={index}>
-                      <div className="w-2 h-2 bg-[#f1592a] rounded-full" />
-                      <span className="font-bold text-2xl text-[#f1592a]">{benefit.metric}</span>
-                      <span className="text-gray-600">{benefit.label}</span>
-                    </div>
-                  ))}
-                </motion.div>
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    y: 20,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    delay: 0.6,
-                  }}
-                  className="flex flex-col items-center sm:items-start sm:flex-row gap-4"
+                  className="flex flex-col items-center sm:items-start sm:flex-row gap-4 mb-8"
                 >
                   <Link href="/contact" className="w-[80%] sm:w-auto">
                     <motion.button
@@ -310,7 +389,7 @@ function VisitorManagementPage() {
                       }}
                       className="w-full sm:w-auto group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                     >
-                      <span className="text-sm md:text-md font-semibold">Request Demo</span>
+                      <span className="text-sm md:text-base font-semibold">Schedule a Demo</span>
                       <Zap
                         className="group-hover:scale-110 transition-transform w-4 h-4 md:w-5 md:h-5"
                         strokeWidth={1.5}
@@ -324,10 +403,35 @@ function VisitorManagementPage() {
                     whileTap={{
                       scale: 0.95,
                     }}
-                    className="w-[80%] sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg"
+                    className="w-[80%] sm:w-auto group px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center space-x-2"
                   >
-                    <span className="text-sm md:text-md font-semibold">View Pricing</span>
+                    <span className="text-sm md:text-base font-semibold">See All Features</span>
+                    <ArrowRight
+                      className="group-hover:translate-x-1 transition-transform w-4 h-4 md:w-5 md:h-5 text-gray-800"
+                      strokeWidth={1.5}
+                    />
                   </motion.button>
+                </motion.div>
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    delay: 0.6,
+                  }}
+                  className="grid grid-cols-3 gap-4 sm:gap-6 w-full pt-8 border-t border-gray-200"
+                >
+                  {benefits.map((benefit, index) => (
+                    <div className="flex flex-col items-center lg:items-start text-center lg:text-left" key={index}>
+                      <span className="font-bold text-2xl md:text-3xl text-[#f1592a] leading-none">{benefit.metric}</span>
+                      <span className="text-gray-600 text-[10px] sm:text-xs md:text-sm mt-2 font-medium">{benefit.label}</span>
+                    </div>
+                  ))}
                 </motion.div>
               </motion.div>
               <motion.div
@@ -507,15 +611,27 @@ function VisitorManagementPage() {
               }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-                Comprehensive Features for{' '}
-                <span className="block bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Modern Reception Areas
-                </span>
+              <motion.span
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
+              >
+                Core Features
+              </motion.span>
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
+                Everything Your Reception Needs to Run Right
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Everything you need to manage visitors efficiently while maintaining the highest
-                security standards.
+                Nine features. One platform. No paper, no gaps, no security surprises.
               </p>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -542,16 +658,16 @@ function VisitorManagementPage() {
                   key={feature.title}
                 >
                   <div className="h-full bg-gradient-to-br from-white to-gray-50 rounded-3xl p-4 lg:p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:border-[#f1592a]/20 transition-all">
-                    <div className="relative w-12 h-12 md:w-14 md:h-14 mb-6">
-                      <div className="w-full h-full bg-gray-100 rounded-2xl flex items-center justify-center group-hover:bg-white transition-all">
-                        <feature.icon className="text-gray-700" size={28} strokeWidth={1.5} />
+                    <div className="relative w-12 h-12 group-hover:scale-110 transition-transform shrink-0 mb-6">
+                      <div className="w-full h-full bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-white transition-all border border-gray-100 group-hover:border-[#f1592a]/10">
+                        <feature.icon className="text-gray-700 w-5 h-5" strokeWidth={1.5} />
                       </div>
-                      <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#f1592a] rounded-full border-2 border-white" />
+                      <div className={`absolute -bottom-1 -right-1 w-2.5 h-2.5 rounded-full border-2 border-white ${feature.dotBg}`} />
                     </div>
                     <h3 className="text-lg md:text-xl font-bold mb-3 text-gray-900">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-600 text-md md:text-lg leading-relaxed">
+                    <p className="text-gray-600 text-sm md:text-md leading-relaxed">
                       {feature.description}
                     </p>
                     <div className="absolute inset-0 bg-gradient-to-br from-[#f1592a]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl" />
@@ -578,14 +694,13 @@ function VisitorManagementPage() {
               className="text-center mb-20"
             >
               <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-                Inbuilt Products for{' '}
+                Visitor Management Is Just the{' '}
                 <span className="block bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Complete Facility Management
+                  Beginning
                 </span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Discover a suite of integrated solutions designed to streamline your operations and
-                ensure the safety of your premises.
+                Visitorz comes with six integrated modules — each solving a specific facility management challenge, all working together from a single platform.
               </p>
             </motion.div>
             {inbuiltProducts.map((product, index) => (
@@ -621,6 +736,7 @@ function VisitorManagementPage() {
                       {product.title === 'Parcel Management' && 'Delivery Tracking'}
                       {product.title === 'Parking Management' && 'Smart Parking'}
                       {product.title === 'Material Gate Pass' && 'Material Control'}
+                      {product.title === 'Access Control Integration' && 'Security Access'}
                     </span>
                   </div>
                   <h3 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
@@ -724,11 +840,10 @@ function VisitorManagementPage() {
                                   <p className="text-xs text-gray-500">{room.time}</p>
                                 </div>
                                 <div
-                                  className={`self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${
-                                    room.status === 'Available'
-                                      ? 'bg-[#f1592a]/10 text-[#f1592a]'
-                                      : 'bg-gray-200 text-gray-700'
-                                  }`}
+                                  className={`self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${room.status === 'Available'
+                                    ? 'bg-[#f1592a]/10 text-[#f1592a]'
+                                    : 'bg-gray-200 text-gray-700'
+                                    }`}
                                 >
                                   {room.status}
                                 </div>
@@ -816,13 +931,12 @@ function VisitorManagementPage() {
                                   </p>
                                 </div>
                                 <div
-                                  className={`self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${
-                                    parcel.status === 'Delivered'
-                                      ? 'bg-[#f1592a]/10 text-[#f1592a]'
-                                      : parcel.status === 'In Transit'
-                                        ? 'bg-gray-300 text-gray-700'
-                                        : 'bg-gray-200 text-gray-600'
-                                  }`}
+                                  className={`self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${parcel.status === 'Delivered'
+                                    ? 'bg-[#f1592a]/10 text-[#f1592a]'
+                                    : parcel.status === 'In Transit'
+                                      ? 'bg-gray-300 text-gray-700'
+                                      : 'bg-gray-200 text-gray-600'
+                                    }`}
                                 >
                                   {parcel.status}
                                 </div>
@@ -914,13 +1028,12 @@ function VisitorManagementPage() {
                                   <p className="text-sm text-gray-600">{pass.material}</p>
                                 </div>
                                 <div
-                                  className={`self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${
-                                    pass.status === 'Approved'
-                                      ? 'bg-[#f1592a]/10 text-[#f1592a]'
-                                      : pass.status === 'Pending'
-                                        ? 'bg-gray-300 text-gray-700'
-                                        : 'bg-gray-200 text-gray-600'
-                                  }`}
+                                  className={`self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${pass.status === 'Approved'
+                                    ? 'bg-[#f1592a]/10 text-[#f1592a]'
+                                    : pass.status === 'Pending'
+                                      ? 'bg-gray-300 text-gray-700'
+                                      : 'bg-gray-200 text-gray-600'
+                                    }`}
                                 >
                                   {pass.status}
                                 </div>
@@ -935,110 +1048,291 @@ function VisitorManagementPage() {
                           ))}
                         </div>
                       )}
+                      {product.title === 'Access Control Integration' && (
+                        <div className="space-y-4">
+                          {[
+                            {
+                              name: 'Main Turnstile A',
+                              status: 'Active',
+                              activity: 'Last entry 2 mins ago',
+                            },
+                            {
+                              name: 'Server Room Door',
+                              status: 'Restricted',
+                              activity: 'Authorized personnel only',
+                            },
+                            {
+                              name: 'Executive Elevator',
+                              status: 'Active',
+                              activity: 'VIP access active',
+                            },
+                          ].map((door, i) => (
+                            <motion.div
+                              key={i}
+                              initial={{ opacity: 0, x: -20 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: i * 0.1 }}
+                              className="p-4 bg-gray-50 rounded-xl border border-gray-100"
+                            >
+                              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
+                                <div>
+                                  <h5 className="font-semibold text-gray-900">{door.name}</h5>
+                                  <p className="text-sm text-gray-600">{door.activity}</p>
+                                </div>
+                                <div
+                                  className={`self-start sm:self-auto px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${door.status === 'Active'
+                                    ? 'bg-[#f1592a]/10 text-[#f1592a]'
+                                    : 'bg-gray-200 text-gray-700'
+                                    }`}
+                                >
+                                  {door.status}
+                                </div>
+                              </div>
+                              <div className="flex items-center space-x-2">
+                                <div className="w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center border border-gray-200">
+                                  <Key className="text-gray-600" size={12} />
+                                </div>
+                                <span className="text-xs text-gray-500">Security Gate</span>
+                              </div>
+                            </motion.div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                     {product.title === 'Meeting Room Management' && (
-                    <motion.div
-                      animate={{
-                        y: [0, -10, 0],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                      }}
-                      className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-gray-100"
-                    >
-                      <div className="text-center">
-                        <div className="text-3xl font-bold text-[#f1592a]">95%</div>
-                        <div className="text-xs text-gray-600">Utilization</div>
-                      </div>
-                    </motion.div>
-                  )}
-                  {product.title === 'Event Management' && (
-                    <motion.div
-                      animate={{
-                        y: [0, -10, 0],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        delay: 0.5,
-                      }}
-                      className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 border border-gray-100"
-                    >
-                      <div className="flex items-center space-x-3">
-                        <Bell className="text-[#f1592a]" size={20} />
-                        <div>
-                          <p className="text-xs font-bold text-gray-900">New Check-in</p>
-                          <p className="text-xs text-gray-600">John Doe</p>
+                      <motion.div
+                        animate={{
+                          y: [0, -10, 0],
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                        }}
+                        className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-gray-100"
+                      >
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-[#f1592a]">95%</div>
+                          <div className="text-xs text-gray-600">Utilization</div>
                         </div>
-                      </div>
-                    </motion.div>
-                  )}
-                  {product.title === 'Parcel Management' && (
-                    <motion.div
-                      animate={{
-                        y: [0, -10, 0],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        delay: 0.5,
-                      }}
-                      className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-gray-100"
-                    >
-                      <div className="text-center">
-                        <div className="text-3xl font-bold text-[#f1592a]">127</div>
-                        <div className="text-xs text-gray-600">This Month</div>
-                      </div>
-                    </motion.div>
-                  )}
-                  {product.title === 'Parking Management' && (
-                    <motion.div
-                      animate={{
-                        y: [0, -10, 0],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        delay: 0.5,
-                      }}
-                      className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 border border-gray-100"
-                    >
-                      <div className="flex items-center space-x-3">
-                        <Car className="text-[#f1592a]" size={20} />
-                        <div>
-                          <p className="text-xs font-bold text-gray-900">Slot A-12</p>
-                          <p className="text-xs text-gray-600">Just Freed</p>
+                      </motion.div>
+                    )}
+                    {product.title === 'Event Management' && (
+                      <motion.div
+                        animate={{
+                          y: [0, -10, 0],
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          delay: 0.5,
+                        }}
+                        className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 border border-gray-100"
+                      >
+                        <div className="flex items-center space-x-3">
+                          <Bell className="text-[#f1592a]" size={20} />
+                          <div>
+                            <p className="text-xs font-bold text-gray-900">New Check-in</p>
+                            <p className="text-xs text-gray-600">John Doe</p>
+                          </div>
                         </div>
-                      </div>
-                    </motion.div>
-                  )}
-                  {product.title === 'Material Gate Pass' && (
-                    <motion.div
-                      animate={{
-                        y: [0, -10, 0],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        delay: 0.5,
-                      }}
-                      className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-gray-100"
-                    >
-                      <div className="text-center">
-                        <div className="text-3xl font-bold text-[#f1592a]">98%</div>
-                        <div className="text-xs text-gray-600">Compliance</div>
-                      </div>
-                    </motion.div>
-                  )}
+                      </motion.div>
+                    )}
+                    {product.title === 'Parcel Management' && (
+                      <motion.div
+                        animate={{
+                          y: [0, -10, 0],
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          delay: 0.5,
+                        }}
+                        className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-gray-100"
+                      >
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-[#f1592a]">127</div>
+                          <div className="text-xs text-gray-600">This Month</div>
+                        </div>
+                      </motion.div>
+                    )}
+                    {product.title === 'Parking Management' && (
+                      <motion.div
+                        animate={{
+                          y: [0, -10, 0],
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          delay: 0.5,
+                        }}
+                        className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 border border-gray-100"
+                      >
+                        <div className="flex items-center space-x-3">
+                          <Car className="text-[#f1592a]" size={20} />
+                          <div>
+                            <p className="text-xs font-bold text-gray-900">Slot A-12</p>
+                            <p className="text-xs text-gray-600">Just Freed</p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                    {product.title === 'Material Gate Pass' && (
+                      <motion.div
+                        animate={{
+                          y: [0, -10, 0],
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          delay: 0.5,
+                        }}
+                        className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-gray-100"
+                      >
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-[#f1592a]">98%</div>
+                          <div className="text-xs text-gray-600">Compliance</div>
+                        </div>
+                      </motion.div>
+                    )}
+                    {product.title === 'Access Control Integration' && (
+                      <motion.div
+                        animate={{
+                          y: [0, -10, 0],
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          delay: 0.5,
+                        }}
+                        className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-gray-100"
+                      >
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-[#f1592a]">99.9%</div>
+                          <div className="text-xs text-gray-600">Uptime</div>
+                        </div>
+                      </motion.div>
+                    )}
                   </div>
                   {/* Floating stat badges */}
-                  
+
                 </div>
               </motion.div>
             ))}
           </div>
         </section>
+
+        {/* Built for Any Facility Section */}
+        <section className="py-16 md:py-24 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
+              >
+                Who It's For
+              </motion.span>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-4 text-center">
+                Built for Any Facility That Manages People
+              </h2>
+              <p className="text-md md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed text-center">
+                If people enter and exit your premises, Visitorz makes that process safer, faster, and fully documented.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              {facilityTypes.map((facility, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -6 }}
+                  className="bg-white rounded-3xl p-6 shadow-md hover:shadow-xl border border-gray-100/80 transition-all duration-300 flex flex-col items-center text-center h-full justify-start"
+                >
+                  <div className="relative w-12 h-12 group-hover:scale-110 transition-transform shrink-0 mb-6">
+                    <div className="w-full h-full bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-white transition-all border border-gray-100 group-hover:border-[#f1592a]/10">
+                      <facility.icon className="text-gray-700 w-5 h-5" strokeWidth={1.5} />
+                    </div>
+                    <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-[#f1592a] rounded-full border-2 border-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">{facility.title}</h3>
+                  <p className="text-gray-500 text-xs md:text-sm leading-relaxed">{facility.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* How It Works Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-20 right-0 w-96 h-96 bg-[#f1592a]/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#f1592a]/5 rounded-full blur-3xl" />
+          </div>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16 md:mb-24"
+            >
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
+              >
+                How It Works
+              </motion.span>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight text-center">
+                A Complete Visit in Under 30 Seconds
+              </h2>
+              <p className="text-md md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed text-center">
+                From the moment a visitor arrives to the moment they're cleared to enter — Visitorz handles everything.
+              </p>
+            </motion.div>
+
+            {/* Steps Row */}
+            <div className="relative max-w-6xl mx-auto">
+              {/* Connecting line for desktop */}
+              <div className="hidden lg:block absolute top-[28px] left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-[#f1592a]/20 via-indigo-500/20 to-[#f1592a]/20 pointer-events-none z-0" />
+
+              <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-4 relative z-10">
+                {processSteps.map((step, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="flex flex-col items-center text-center group"
+                  >
+                    {/* Circle Container */}
+                    <div className="w-14 h-14 rounded-full bg-white-600/20 border border-white-500/30 flex items-center justify-center mb-6 relative z-10 group-hover:scale-110 group-hover:bg-[#f1592a]/20 group-hover:border-[#f1592a]/40 transition-all duration-300 shadow-lg shadow-indigo-500/5">
+                      <step.icon className="text-white group-hover:text-[#f1592a] w-6 h-6 transition-colors" strokeWidth={1.5} />
+                    </div>
+                    {/* Title */}
+                    <h3 className="text-base md:text-lg font-bold text-white mb-2">{step.title}</h3>
+                    {/* Description */}
+                    <p className="text-xs md:text-sm text-slate-400 leading-relaxed max-w-[200px] lg:max-w-none">
+                      {step.description}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="relative py-12 md:py-16 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-[#f1592a] via-[#ff7a45] to-[#f1592a]">
             <div className="absolute inset-0 opacity-20">
@@ -1074,13 +1368,14 @@ function VisitorManagementPage() {
                   }}
                   className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-white/20 backdrop-blur-sm rounded-2xl mb-6 border border-white/40"
                 >
-                  <Shield className="text-white w-8 h-8 md:w-10 md:h-10"  strokeWidth={1.5} />
+                  <Shield className="text-white w-8 h-8 md:w-10 md:h-10" strokeWidth={1.5} />
                 </motion.div>
                 <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                  Ready to Modernize Your Reception?
+                  See What Your Reception
+                  Should Actually Look Like
                 </h2>
                 <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
-                  Join hundreds of companies that trust our visitor management system for safety, speed, and seamless operations.
+                  Book a 30-minute demo. We'll walk you through the full platform, show you how it works for your facility type, and answer every question you have — no commitment required.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link href="/contact" className="w-full sm:w-auto flex justify-center">
@@ -1096,17 +1391,19 @@ function VisitorManagementPage() {
                       <span className="text-sm md:text-md">Schedule a Demo</span>
                     </motion.button>
                   </Link>
-                  <motion.button
-                    whileHover={{
-                      scale: 1.05,
-                    }}
-                    whileTap={{
-                      scale: 0.95,
-                    }}
-                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-transparent text-white rounded-full border-2 border-white hover:bg-white hover:text-[#f1592a] transition-all font-semibold flex items-center justify-center space-x-2"
-                  >
-                    <span className="text-sm md:text-md">Download Brochure</span>
-                  </motion.button>
+                  <a href="/assets/Visitorz-brochure.pdf" download="Visitorz-brochure.pdf" className="w-full sm:w-auto">
+                    <motion.button
+                      whileHover={{
+                        scale: 1.05,
+                      }}
+                      whileTap={{
+                        scale: 0.95,
+                      }}
+                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-transparent text-white rounded-full border-2 border-white hover:bg-white hover:text-[#f1592a] transition-all font-semibold flex items-center justify-center space-x-2"
+                    >
+                      <span className="text-sm md:text-md">Download Brochure</span>
+                    </motion.button>
+                  </a>
                 </div>
               </div>
             </motion.div>

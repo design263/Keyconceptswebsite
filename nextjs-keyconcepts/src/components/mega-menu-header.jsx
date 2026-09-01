@@ -40,12 +40,6 @@ const products = [
     icon: Building2,
     link: '/younited-communities',
   },
-  {
-    name: 'Election Mobilization APP',
-    description: 'Digital campaign + voter outreach platform',
-    icon: Vote,
-    link: '/election-mobilization',
-  },
 ]
 const services = [
   {

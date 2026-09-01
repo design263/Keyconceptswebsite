@@ -28,7 +28,7 @@ const mobileNavMenus = [
     items: [
       { href: '/visitor-management', label: 'Visitorz Management System', description: 'Visitors & gate management system', icon: Users },
       { href: '/younited-communities', label: 'Younited Communities', description: 'Community & association management', icon: Building2 },
-      { href: '/election-mobilization', label: 'Election Mobilization APP', description: 'Digital campaign + voter outreach platform', icon: Vote },
+      { href: '/claim-genie', label: 'Claim Genie', description: 'AI-powered claims automation platform', icon: Sparkles },
     ],
     cta: { href: '/contact', label: 'Get Started' },
   },
@@ -366,7 +366,7 @@ function MegaMenuHeader() {
                       duration: 0.3,
                       ease: 'easeOut',
                     }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[800px] bg-white backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-100 overflow-hidden"
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[960px] bg-white backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-100 overflow-hidden"
                   >
                     <div className="p-8">
                       <div className="grid grid-cols-3 gap-6">
@@ -446,20 +446,20 @@ function MegaMenuHeader() {
                           className="group/item"
                         >
                           <Link
-                            href="/election-mobilization"
+                            href="/claim-genie"
                             className="block h-full p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
                           >
                             <div className="relative w-12 h-12 mb-4">
                               <div className="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center group-hover/item:bg-white transition-all">
-                                <Vote className="text-gray-700" size={24} strokeWidth={1.5} />
+                                <Sparkles className="text-gray-700" size={24} strokeWidth={1.5} />
                               </div>
                               <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-[#f1592a] rounded-full border-2 border-white" />
                             </div>
                             <h3 className="font-bold text-gray-900 mb-2 group-hover/item:text-[#f1592a] transition-colors">
-                              Election Mobilization APP
+                              Claim Genie
                             </h3>
                             <p className="text-sm text-gray-600 leading-relaxed">
-                              Digital campaign + voter outreach platform
+                              AI-powered claims automation platform
                             </p>
                           </Link>
                         </motion.div>

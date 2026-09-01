@@ -32,7 +32,7 @@ const industries = [
   {
     icon: Rocket,
     name: 'SaaS & Tech',
-    description: 'Speed to market matters when you are building a SaaS product. We help you validate quickly with an MVP, then scale with the right architecture — without costly rewrites later.',
+    description: 'Speed to market matters when you are building a SaaS product. We help you validate quickly with an MVP, then scale with the right architecture - without costly rewrites later.',
   },
   {
     icon: TrendingUp,
@@ -69,7 +69,7 @@ function IndustriesSection() {
           <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4">
             Industries We Serve
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">We've Worked In Your <span className="text-[#f1592a]">World Before</span></h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">We've Worked In Your <br></br><span className="text-[#f1592a]">World Before</span></h2>
           <p className="text-md md:text-lg text-gray-600 max-w-2xl mx-auto">
             We don't reinvent the wheel for every client. We bring 16 years of domain knowledge and deliver solutions that speak your industry's language from day one.
           </p>

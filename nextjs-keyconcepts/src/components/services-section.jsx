@@ -13,7 +13,7 @@ const services = [
     icon: Code,
     title: 'Product Development',
     description:
-      'You have a vision. We have the team and process to bring it to life — from wireframes and architecture to a product your customers will actually love using. We stay involved long after launch.',
+      'You have a vision. We have the team and process to bring it to life - from wireframes and architecture to a product your customers will actually love using. We stay involved long after launch.',
     image: '/images/support/product_development.jpg',
     color: 'from-gray-600 to-gray-800',
     span: 'lg:row-span-2',
@@ -67,7 +67,7 @@ const trendingServices = [
     icon: Layers,
     title: 'We Listen Before We Build',
     description:
-      'Most companies jump straight to solutions. We spend real time understanding your business, your team, and your customers — because the right technology starts with the right understanding.',
+      'Most companies jump straight to solutions. We spend real time understanding your business, your team, and your customers - because the right technology starts with the right understanding.',
     image: '/assets/Complete Product Lifecycle Ownership.png',
   },
   {
@@ -131,9 +131,9 @@ function ServicesSection() {
             >
               What Sets Us Apart
             </motion.span>{' '}
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">We Treat Your Business <span className="text-[#f1592a]">{"Like It's Our Own"}</span></h2>{' '}
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">We Treat Your Business <br></br><span className="text-[#f1592a]">{"Like It's Our Own"}</span></h2>{' '}
             <p className="text-md lg:text-lg text-gray-600 max-w-2xl mx-auto">
-              Every client we work with gets one thing we never compromise on — our complete attention and genuine care. {"Here's"} what that looks like in practice.
+              Every client we work with gets one thing we never compromise on - our complete attention and genuine care. {"Here's"} what that looks like in practice.
             </p>
           </div>{' '}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mx-auto">
@@ -214,11 +214,11 @@ function ServicesSection() {
             >
               What We Do
             </motion.span>{' '}
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Everything You Need. <span className="text-[#f1592a]">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">Everything You Need. <br></br><span className="text-[#f1592a]">
               Nothing You Don't.
             </span></h2>{' '}
             <p className="text-md lg:text-lg text-gray-600 max-w-2xl mx-auto">
-              We work across the full technology stack — from building your first product to scaling your existing systems. Pick what you need, or let's figure it out together.
+              We work across the full technology stack - from building your first product to scaling your existing systems. Pick what you need, or let's figure it out together.
             </p>
           </div>{' '}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
