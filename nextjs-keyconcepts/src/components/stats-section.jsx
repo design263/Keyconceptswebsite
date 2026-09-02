@@ -18,7 +18,7 @@ const stats = [
   {
     value: 1,
     suffix: 'Mn+',
-    label: ' Hours Delivered',
+    label: 'Hours of Development',
     color: 'from-[#f1592a] to-[#ff7a45]',
   },
   {

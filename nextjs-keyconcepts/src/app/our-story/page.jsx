@@ -775,7 +775,7 @@ function OurStoryPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="inline-block px-4 py-2 bg-[#f1592a]/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
               >
                 The Journey
               </motion.span>
@@ -884,18 +884,26 @@ function OurStoryPage() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="relative group p-8 bg-white rounded-3xl border border-gray-100/80 shadow-sm hover:border-[#f1592a]/20 hover:shadow-lg transition-all duration-300 flex flex-col items-start"
+                whileHover={{ y: -5 }}
+                className="group relative"
               >
-                <div className="relative w-12 h-12 flex-shrink-0 group-hover:scale-110 transition-transform mb-6 bg-white">
-                  <div className="w-full h-full bg-[#f1592a]/5 rounded-xl flex items-center justify-center border border-[#f1592a]/10">
-                    <Target className="text-[#f1592a]" size={24} strokeWidth={1.5} />
+                <div className="relative h-full bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 flex flex-col items-start text-left">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="relative w-12 h-12 group-hover:scale-110 transition-transform shrink-0">
+                      <div className="w-full h-full bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-white transition-all border border-gray-100 group-hover:border-[#f1592a]/10">
+                        <Target className="text-gray-700 w-5 h-5" strokeWidth={1.5} />
+                      </div>
+                      <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#f1592a] rounded-full border-2 border-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 leading-snug">Mission</h3>
+                      <h4 className="text-sm font-semibold text-[#f1592a]">Build Technology That Solves Real Business Problems</h4>
+                    </div>
                   </div>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    We exist to help businesses turn ideas and requirements into digital products that actually work - and to keep improving those products as the business grows. Not just the first version. Every version. We measure our success by the results our clients see, not by the features we shipped.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Mission</h3>
-                <h4 className="text-lg font-semibold text-[#f1592a] mb-4">Build Technology That Solves Real Business Problems</h4>
-                <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
-                  We exist to help businesses turn ideas and requirements into digital products that actually work - and to keep improving those products as the business grows. Not just the first version. Every version. We measure our success by the results our clients see, not by the features we shipped.
-                </p>
               </motion.div>
 
               {/* Vision Card */}
@@ -903,20 +911,26 @@ function OurStoryPage() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="relative group p-8 bg-white rounded-3xl border border-gray-100/80 shadow-sm hover:border-[#f1592a]/20 hover:shadow-lg transition-all duration-300 flex flex-col items-start"
+                whileHover={{ y: -5 }}
+                className="group relative"
               >
-
-                <div className="relative w-12 h-12 flex-shrink-0 group-hover:scale-110 transition-transform mb-6 bg-white">
-                  <div className="w-full h-full bg-[#f1592a]/5 rounded-xl flex items-center justify-center border border-[#f1592a]/10">
-                    <Lightbulb className="text-[#f1592a]" size={24} strokeWidth={1.5} />
+                <div className="relative h-full bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 flex flex-col items-start text-left">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="relative w-12 h-12 group-hover:scale-110 transition-transform shrink-0">
+                      <div className="w-full h-full bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-white transition-all border border-gray-100 group-hover:border-[#f1592a]/10">
+                        <Lightbulb className="text-gray-700 w-5 h-5" strokeWidth={1.5} />
+                      </div>
+                      <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#f1592a] rounded-full border-2 border-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 leading-snug">Vision</h3>
+                      <h4 className="text-sm font-semibold text-[#f1592a]">To Be the Technology Partner Businesses Never Have to Leave</h4>
+                    </div>
                   </div>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    We want to be the partner businesses come to for their first product - and stay with for their tenth. As products grow, markets expand, and requirements evolve, we want to be the team that grows alongside them. Technology is a long game. We're here for all of it.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Vision</h3>
-                <h4 className="text-lg font-semibold text-[#f1592a] mb-4">To Be the Technology Partner Businesses Never Have to Leave</h4>
-                <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
-                  We want to be the partner businesses come to for their first product - and stay with for their tenth. As products grow, markets expand, and requirements evolve, we want to be the team that grows alongside them. Technology is a long game. We're here for all of it.
-                </p>
-
               </motion.div>
             </div>
           </div>
@@ -931,7 +945,7 @@ function OurStoryPage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="inline-block px-4 py-2 bg-[#f1592a]/10 border border-[#f1592a]/20 rounded-full text-xs md:text-sm font-semibold text-[#f1592a]"
+                  className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a]"
                 >
                   Core Values
                 </motion.span>
@@ -953,7 +967,7 @@ function OurStoryPage() {
             </div>
 
             {/* Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {coreValues.map((value, index) => (
                 <motion.div
                   key={value.title}
@@ -961,27 +975,24 @@ function OurStoryPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative bg-white rounded-3xl border border-gray-100/80 shadow-sm hover:border-[#f1592a]/20 hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col justify-between"
+                  whileHover={{ y: -5 }}
+                  className="group relative"
                 >
-                  {/* Top highlight bar */}
-                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#f1592a] to-[#ff7a45]" />
-
-                  <div className="p-8 pt-10 flex flex-col justify-between h-full flex-1">
+                  <div className="relative h-full bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 flex flex-col justify-between items-start text-left">
                     <div>
-                      {/* Icon */}
-                      <div className="relative w-12 h-12 flex-shrink-0 mb-6 bg-white">
-                        <div className="w-full h-full bg-[#f1592a]/5 rounded-xl flex items-center justify-center border border-[#f1592a]/10">
-                          <value.icon className="text-[#f1592a]" size={24} strokeWidth={1.5} />
+                      <div className="flex items-center space-x-4 mb-4">
+                        <div className="relative w-12 h-12 group-hover:scale-110 transition-transform shrink-0">
+                          <div className="w-full h-full bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-white transition-all border border-gray-100 group-hover:border-[#f1592a]/10">
+                            <value.icon className="text-gray-700 w-5 h-5" strokeWidth={1.5} />
+                          </div>
+                          <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#f1592a] rounded-full border-2 border-white" />
                         </div>
+                        <h3 className="text-lg font-bold text-gray-900 leading-snug">{value.title}</h3>
                       </div>
-
-                      {/* Title & Body */}
-                      <h3 className="text-2xl font-bold text-gray-900 mb-4">{value.title}</h3>
                       <p className="text-gray-600 text-sm leading-relaxed mb-6">{value.description}</p>
                     </div>
 
-                    {/* Footnote */}
-                    <div className="pt-6 border-t border-gray-100 mt-auto">
+                    <div className="pt-4 border-t border-gray-100 mt-auto w-full">
                       <p className="text-xs text-gray-500 leading-relaxed">
                         <span className="text-[#f1592a] mr-1">{"→"}</span> {value.footnote}
                       </p>
@@ -1035,17 +1046,25 @@ function OurStoryPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white/10 border border-white/20 backdrop-blur-sm rounded-3xl p-8 hover:border-white/40 hover:bg-white/15 hover:shadow-2xl transition-all duration-300 flex flex-col items-start"
+                  whileHover={{ y: -5 }}
+                  className="group"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center border border-white/30 mb-6 shrink-0">
-                    <promise.icon className="text-white" size={22} strokeWidth={1.5} />
+                  <div className="relative h-full bg-white/10 border border-white/20 backdrop-blur-sm rounded-2xl p-6 hover:border-white/40 hover:bg-white/15 hover:shadow-2xl transition-all duration-300 flex flex-col items-start text-left">
+                    <div className="flex items-center space-x-4 mb-4">
+                      <div className="relative w-12 h-12 group-hover:scale-110 transition-transform shrink-0">
+                        <div className="w-full h-full bg-white/20 rounded-xl flex items-center justify-center border border-white/30 transition-all">
+                          <promise.icon className="text-white w-5 h-5" strokeWidth={1.5} />
+                        </div>
+                        <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-white rounded-full border-2 border-[#f1592a]" />
+                      </div>
+                      <h3 className="text-base sm:text-lg font-bold text-white leading-snug">
+                        {promise.title}
+                      </h3>
+                    </div>
+                    <p className="text-white/90 text-sm leading-relaxed">
+                      {promise.description}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-3">
-                    {promise.title}
-                  </h3>
-                  <p className="text-white/90 text-sm leading-relaxed">
-                    {promise.description}
-                  </p>
                 </motion.div>
               ))}
             </div>
@@ -1115,7 +1134,7 @@ function OurStoryPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="inline-block px-4 py-2 bg-[#f1592a]/10 border border-[#f1592a]/20 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
               >
                 Global Presence
               </motion.span>
@@ -1167,7 +1186,7 @@ function OurStoryPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="inline-block px-4 py-2 bg-[#f1592a]/10 border border-[#f1592a]/20 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
               >
                 Associations & Partnerships
               </motion.span>

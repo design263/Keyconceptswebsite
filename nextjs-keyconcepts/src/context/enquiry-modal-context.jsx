@@ -7,18 +7,27 @@ const EnquiryModalContext = createContext(void 0)
 
 function EnquiryModalProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false)
-  const openModal = () => setIsOpen(true)
-  const closeModal = () => setIsOpen(false)
+  const [initialProduct, setInitialProduct] = useState('')
+
+  const openModal = (product = '') => {
+    setInitialProduct(product)
+    setIsOpen(true)
+  }
+  const closeModal = () => {
+    setIsOpen(false)
+    setInitialProduct('')
+  }
   return (
     <EnquiryModalContext.Provider
       value={{
         isOpen,
         openModal,
         closeModal,
+        initialProduct,
       }}
     >
       {children}
-      <EnquiryModal isOpen={isOpen} onClose={closeModal} />
+      <EnquiryModal isOpen={isOpen} onClose={closeModal} initialProduct={initialProduct} />
     </EnquiryModalContext.Provider>
   )
 }

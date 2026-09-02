@@ -344,9 +344,9 @@ function ProcessPage() {
                   duration: 0.6,
                 }}
               >
-                <div className="inline-flex items-center space-x-2   md:px-4 md:py-2 px-3 py-2 bg-[#f1592a]/10 rounded-full mb-6">
+                <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4">
                   <Award className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" strokeWidth={2} />
-                  <span className="text-[#f1592a] text-xs md:text-sm font-semibold">Our Proven Process</span>
+                  <span className="text-xs md:text-sm font-semibold text-[#f1592a]">Our Proven Process</span>
                 </div>
                 <h1 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
                   Building Trust Through <br />
@@ -383,9 +383,9 @@ function ProcessPage() {
               }}
               className="text-center mb-20"
             >
-              <div className="inline-flex items-center space-x-2 px-4 py-2 bg-[#f1592a]/10 rounded-full mb-4">
+              <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4">
                 <Target className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" strokeWidth={2} />
-                <span className="text-[#f1592a] text-xs md:text-sm font-semibold">HOW WE WORK</span>
+                <span className="text-xs md:text-sm font-semibold text-[#f1592a]">HOW WE WORK</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 Get Started in <span className="text-[#f1592a]">Six Simple Steps</span>
@@ -549,9 +549,9 @@ function ProcessPage() {
               }}
               className="text-center mb-16"
             >
-              <div className="inline-flex items-center space-x-2 px-4 py-2 bg-[#f1592a]/10 rounded-full mb-4">
+              <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4">
                 <Zap className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" strokeWidth={2} />
-                <span className="text-[#f1592a] text-xs md:text-sm font-semibold">COMMUNICATION & DELIVERY</span>
+                <span className="text-xs md:text-sm font-semibold text-[#f1592a]">COMMUNICATION & DELIVERY</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 Your Trusted Partner In <br />
@@ -891,6 +891,14 @@ function ProcessPage() {
               }}
               className="text-center mb-16"
             >
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
+              >
+                Tech Stack
+              </motion.span>
               <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 Industry-Leading <span className="text-[#f1592a]">Technologies</span>
               </h2>
@@ -1046,25 +1054,41 @@ function ProcessPage() {
                     }}
                     className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all font-semibold flex items-center justify-center space-x-2 group"
                   >
-                    <span className="text-sm md:text-md">Start Your Project</span>
-                    <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-                  </motion.button>
-                </a>
-                <a href="/our-story" className="w-full sm:w-auto">
-                  <motion.button
-                    whileHover={{
-                      scale: 1.05,
-                    }}
-                    whileTap={{
-                      scale: 0.95,
-                    }}
-                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-transparent text-white rounded-full border-2 border-white hover:bg-white hover:text-[#f1592a] transition-all font-semibold flex items-center justify-center space-x-2 group"
-                  >
-                    <span className="text-sm md:text-md">Learn About Us</span>
+                    <span className="text-sm md:text-md">Start a Conversation</span>
                     <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                   </motion.button>
                 </a>
               </div>
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  delay: 0.3,
+                }}
+                className="mt-10 flex flex-wrap items-center justify-center gap-8 text-white/80"
+              >
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />{' '}
+                  <span className="text-sm md:text-md">End-to-End Product Development</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />{' '}
+                  <span className="text-sm md:text-md">Built Around You</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />{' '}
+                  <span className="text-sm md:text-md">Support Beyond Launch</span>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </section>

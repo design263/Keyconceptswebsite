@@ -6,10 +6,7 @@ import { useEffect, useState, useRef } from 'react'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEnquiryModal } from '@/context/enquiry-modal-context'
-
 function HeroSection() {
-  const { openModal } = useEnquiryModal()
   const [displayedText, setDisplayedText] = useState('')
   const fullText = 'Transform Your Business with Next-Gen Technology'
   const { scrollYProgress } = useScroll()
@@ -265,7 +262,7 @@ function HeroSection() {
               transition={{ delay: 0.9 }}
               className="flex flex-col items-center sm:items-start sm:flex-row gap-4 w-full sm:w-auto"
             >
-              <div onClick={openModal} className="w-[80%] sm:w-auto cursor-pointer">
+              <Link href="/contact" className="w-[80%] sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -277,14 +274,14 @@ function HeroSection() {
                     size={20}
                   />
                 </motion.button>
-              </div>
+              </Link>
               <Link href="/our-story" className="w-[80%] sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-full shadow-2xl border border-gray-200 rounded-full text-gray-800 hover:border-[#f1592a] hover:text-[#f1592a] transition-all flex items-center justify-center space-x-2"
+                  className="bg-white group w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-full shadow-2xl border border-gray-200 rounded-full text-gray-800 hover:border-[#f1592a] hover:text-[#f1592a] transition-all flex items-center justify-center space-x-2"
                 >
-                  <span className="text-sm md:text-base font-semibold bg-white">Our Story</span>
+                  <span className="text-sm md:text-base font-semibold">Our Story</span>
                   <ArrowRight
                     className="group-hover:translate-x-1 transition-transform"
                     size={20}

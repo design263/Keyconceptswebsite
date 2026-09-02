@@ -16,7 +16,7 @@ const clientLogos = [
   { name: 'Solex', src: '/assets/clientLogo/solex.png' },
 ]
 
-function EnquiryModal({ isOpen, onClose }) {
+function EnquiryModal({ isOpen, onClose, initialProduct = '' }) {
   const [step, setStep] = useState(1)
   const [currentDate, setCurrentDate] = useState(new Date())
   const [selectedDate, setSelectedDate] = useState(null)
@@ -25,14 +25,14 @@ function EnquiryModal({ isOpen, onClose }) {
     name: '',
     phone: '',
     company: '',
-    service: '',
+    product: '',
     message: '',
   })
 
   const [errors, setErrors] = useState({
     name: '',
     phone: '',
-    service: '',
+    product: '',
   })
 
   const [countryCode, setCountryCode] = useState('+91')
@@ -47,17 +47,17 @@ function EnquiryModal({ isOpen, onClose }) {
         name: '',
         phone: '',
         company: '',
-        service: '',
+        product: initialProduct || '',
         message: '',
       })
       setErrors({
         name: '',
         phone: '',
-        service: '',
+        product: '',
       })
       setCountryCode('+91')
     }
-  }, [isOpen])
+  }, [isOpen, initialProduct])
 
   // Calendar logic
   const year = currentDate.getFullYear()
@@ -112,9 +112,9 @@ function EnquiryModal({ isOpen, onClose }) {
       } else if (value.length < 10 || value.length > 15) {
         errorMsg = 'Phone number must be between 10 and 15 digits'
       }
-    } else if (name === 'service') {
+    } else if (name === 'product') {
       if (!value) {
-        errorMsg = 'Required Service is required'
+        errorMsg = 'Required Product is required'
       }
     }
     setErrors((prev) => ({ ...prev, [name]: errorMsg }))
@@ -126,10 +126,10 @@ function EnquiryModal({ isOpen, onClose }) {
     validateField(name, value)
   }
 
-  const handleServiceChange = (e) => {
+  const handleProductChange = (e) => {
     const { value } = e.target
-    setFormData((prev) => ({ ...prev, service: value }))
-    validateField('service', value)
+    setFormData((prev) => ({ ...prev, product: value }))
+    validateField('product', value)
   }
 
   const isFormValid =
@@ -137,10 +137,10 @@ function EnquiryModal({ isOpen, onClose }) {
     /^\d+$/.test(formData.phone) &&
     formData.phone.length >= 10 &&
     formData.phone.length <= 15 &&
-    formData.service !== '' &&
+    formData.product !== '' &&
     !errors.name &&
     !errors.phone &&
-    !errors.service
+    !errors.product
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -199,13 +199,13 @@ function EnquiryModal({ isOpen, onClose }) {
                 <div>
                   <div className="inline-flex items-center space-x-2 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold text-white border border-white/30 mb-6">
                     <Calendar size={13} />
-                    <span>Discovery Session</span>
+                    <span>Schedule a Demo</span>
                   </div>
                   <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">
-                    Book a Discovery Call
+                    Schedule a Demo
                   </h2>
                   <p className="text-white/90 text-sm leading-relaxed mb-6">
-                    Schedule a 15-minute consultation with our product managers to map your development strategy.
+                    Schedule a free 30-minute demo with our product managers to map your development strategy.
                   </p>
 
                   {/* Trust Badges */}
@@ -216,7 +216,7 @@ function EnquiryModal({ isOpen, onClose }) {
                     </div>
                     <div className="flex items-center space-x-2 text-sm text-white/95">
                       <Check size={16} className="text-white" />
-                      <span>Free Consultation</span>
+                      <span>Free Demo</span>
                     </div>
                     <div className="flex items-center space-x-2 text-sm text-white/95">
                       <Check size={16} className="text-white" />
@@ -434,27 +434,28 @@ function EnquiryModal({ isOpen, onClose }) {
                       </div>
                     </div>
 
-                    {/* Required Service Dropdown */}
+                    {/* Service Interested In Dropdown */}
                     <div>
                       <label className="block text-xs font-semibold text-gray-700 mb-1">
-                        Required Service *
+                        Service Interested In *
                       </label>
                       <select
-                        name="service"
-                        value={formData.service}
-                        onChange={handleServiceChange}
-                        className={`block w-full px-3 py-2 text-sm border rounded-xl focus:ring-1 focus:ring-[#f1592a] focus:border-[#f1592a] transition-all outline-none bg-white ${errors.service ? 'border-red-500' : 'border-gray-200'
+                        name="product"
+                        value={formData.product}
+                        onChange={handleProductChange}
+                        className={`block w-full px-3 py-2 text-sm border rounded-xl focus:ring-1 focus:ring-[#f1592a] focus:border-[#f1592a] transition-all outline-none bg-white ${errors.product ? 'border-red-500' : 'border-gray-200'
                           }`}
                       >
                         <option value="">-- Select Service --</option>
+                        <option value="Visitorz Management System">Visitorz Management System</option>
+                        <option value="Younited Communities">Younited Communities</option>
+                        <option value="Claim Genie">Claim Genie</option>
                         <option value="Product Development">Product Development</option>
                         <option value="MVP Development">MVP Development</option>
-                        <option value="Odoo ERP Development">Odoo ERP Development</option>
-                        <option value="Support & Maintenance">Support & Maintenance</option>
-                        <option value="Other">Other Solutions</option>
+                        <option value="Custom ERP Solutions">Custom ERP Solutions</option>
                       </select>
-                      {errors.service && (
-                        <p className="text-xs text-red-500 mt-1">{errors.service}</p>
+                      {errors.product && (
+                        <p className="text-xs text-red-500 mt-1">{errors.product}</p>
                       )}
                     </div>
 
@@ -492,7 +493,7 @@ function EnquiryModal({ isOpen, onClose }) {
                     </div>
                     <div className="space-y-2">
                       <h3 className="text-2xl font-bold text-gray-900">
-                        ✅ Booking Request Submitted Successfully!
+                        ✅ Demo Request Submitted Successfully!
                       </h3>
                       <p className="text-gray-500 text-sm">
                         Our team will contact you soon.
@@ -520,7 +521,7 @@ function EnquiryModal({ isOpen, onClose }) {
 
                     <button
                       onClick={onClose}
-                      className="px-8 py-3 bg-gray-900 text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center"
+                      className="px-8 py-3 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center"
                     >
                       Close
                     </button>

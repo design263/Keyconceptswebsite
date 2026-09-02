@@ -92,7 +92,7 @@ function ContactPage() {
       ...prev,
       phone: val,
     }))
-    
+
     if (val === '') {
       setPhoneError('')
       return
@@ -210,7 +210,7 @@ function ContactPage() {
                 }}
               >
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-200">
-                  <h2 className="text-3xl font-bold mb-2">Send us a Message</h2>
+                  <h2 className="text-3xl font-bold mb-2">Send us a Request</h2>
                   <p className="text-gray-600 mb-8">
                     Fill out the form below and we'll get back to you shortly.
                   </p>
@@ -313,7 +313,7 @@ function ContactPage() {
                         htmlFor="service"
                         className="block text-sm font-medium text-gray-700 mb-2"
                       >
-                        Service Interested In <span className="text-red-500">*</span>
+                        Product/Service Interested In <span className="text-red-500">*</span>
                       </label>
                       <select
                         id="service"
@@ -323,16 +323,13 @@ function ContactPage() {
                         required
                         className="appearance-none w-full px-4 py-3.5 pr-12 rounded-lg border border-gray-200 focus:border-[#f1592a] focus:outline-none transition-colors"
                       >
-                        <option value="">Select a service</option>
-                        <option value="custom-erp-solutions">Custom ERP Solutions</option>
-                        <option value="custom-development">Custom Product Development</option>
-                        <option value="mvp-studio">MVP Studio</option>
-                        <option value="web-mobile">Web & Mobile Development</option>
-                        <option value="api-integration">API Integration</option>
-                        <option value="digital-marketing">Digital Marketing</option>
-                        <option value="seo-smo">SEO/SMO Services</option>
-                        <option value="support-maintenance">Support & Maintenance</option>
-                        <option value="other">Other</option>
+                        <option value="">Select</option>
+                        <option value="Visitorz Management System">Visitorz Management System</option>
+                        <option value="Younited Communities">Younited Communities</option>
+                        <option value="Claim Genie">Claim Genie</option>
+                        <option value="Product Development">Product Development</option>
+                        <option value="MVP Development">MVP Development</option>
+                        <option value="Custom ERP Solutions">Custom ERP Solutions</option>
                       </select>
                       <ChevronDown
                         size={18}
@@ -395,7 +392,7 @@ function ContactPage() {
                           </>
                         ) : (
                           <>
-                            <span>Book a <span className='hidden sm:inline'>Discovery</span> Call</span>
+                            <span>Submit <span className='hidden sm:inline'>Your Request</span></span>
                             <Send
                               className="group-hover:translate-x-1 transition-transform"
                               size={20}

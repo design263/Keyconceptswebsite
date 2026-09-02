@@ -64,6 +64,8 @@ export const metadata = {
   },
 };
 
+import { Providers } from "@/components/providers";
+
 export default function RootLayout({
   children,
 }) {
@@ -71,7 +73,9 @@ export default function RootLayout({
     <html lang="en" className={`h-full ${inter.variable}`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col antialiased font-sans" suppressHydrationWarning>
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

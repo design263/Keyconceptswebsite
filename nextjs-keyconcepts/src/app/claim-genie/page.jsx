@@ -3,6 +3,7 @@
 import LayoutWrapper from '@/components/layout-wrapper'
 import { AnimatedH1 } from '@/components/animated-h1'
 import { motion } from 'motion/react'
+import { useEnquiryModal } from '@/context/enquiry-modal-context'
 import {
   Shield,
   Zap,
@@ -392,6 +393,7 @@ const previewTasks = [
 ]
 
 export default function ClaimGeniePage() {
+  const { openModal } = useEnquiryModal()
   return (
     <LayoutWrapper>
       <div className="min-h-screen bg-gradient-to-br from-white via-slate-50/50 to-gray-100">
@@ -456,16 +458,16 @@ export default function ClaimGeniePage() {
                   transition={{ delay: 0.5 }}
                   className="flex flex-col items-center sm:items-start sm:flex-row gap-4 mb-8"
                 >
-                  <Link href="/contact" className="w-[80%] sm:w-auto">
+                  <div onClick={() => openModal('Claim Genie')} className="w-[80%] sm:w-auto cursor-pointer">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       className="w-full sm:w-auto group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/40 transition-all flex items-center justify-center space-x-2"
                     >
-                      <span className="text-sm md:text-base font-semibold">Request a Demo</span>
+                      <span className="text-sm md:text-base font-semibold">Schedule a Demo</span>
                       <Zap className="group-hover:scale-110 transition-transform w-4 h-4 md:w-5 md:h-5" strokeWidth={1.5} />
                     </motion.button>
-                  </Link>
+                  </div>
                   <Link
                     href="#core-capabilities"
                     onClick={(e) => {
@@ -479,7 +481,7 @@ export default function ClaimGeniePage() {
                       whileTap={{ scale: 0.95 }}
                       className="w-full group px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center space-x-2"
                     >
-                      <span className="text-sm md:text-base font-semibold">Explore Capabilities</span>
+                      <span className="text-sm md:text-base font-semibold">Explore Features</span>
                       <ArrowRight className="group-hover:translate-x-1 transition-transform w-4 h-4 md:w-5 md:h-5 text-gray-800" strokeWidth={1.5} />
                     </motion.button>
                   </Link>
@@ -647,28 +649,32 @@ export default function ClaimGeniePage() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {coreFeatures.map((feature, index) => (
                 <motion.div
                   key={feature.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -8 }}
-                  className="group relative h-full"
+                  transition={{ delay: index * 0.05 }}
+                  whileHover={{ y: -5 }}
+                  className="group"
                 >
-                  <div className="h-full bg-gradient-to-br from-white to-gray-50 rounded-3xl p-6 lg:p-8 shadow-md hover:shadow-2xl border border-gray-100 hover:border-[#f1592a]/20 transition-all flex flex-col justify-start">
-                    <div className="relative w-12 h-12 transition-transform shrink-0 mb-6 group-hover:scale-110">
-                      <div className="w-full h-full bg-gray-50 rounded-xl flex items-center justify-center border border-gray-100 transition-all group-hover:bg-white group-hover:border-[#f1592a]/10">
-                        <feature.icon className="text-gray-700 w-5 h-5" strokeWidth={1.5} />
+                  <div className="relative h-full bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 flex flex-col items-start text-left">
+                    <div className="flex items-center space-x-4 mb-4">
+                      <div className="relative w-12 h-12 group-hover:scale-110 transition-transform shrink-0">
+                        <div className="w-full h-full bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-white transition-all border border-gray-100 group-hover:border-[#f1592a]/10">
+                          <feature.icon className="text-gray-700 w-5 h-5" strokeWidth={1.5} />
+                        </div>
+                        <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#f1592a] rounded-full border-2 border-white" />
                       </div>
-                      <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-[#f1592a] rounded-full border-2 border-white" />
+                      <h3 className="text-base sm:text-lg font-bold text-gray-900 leading-snug">
+                        {feature.title}
+                      </h3>
                     </div>
-                    <h3 className="text-lg font-bold mb-3 text-gray-900 flex items-center flex-wrap gap-2 leading-snug">
-                      <span>{feature.title}</span>
-                    </h3>
-                    <p className="text-gray-500 text-xs md:text-sm leading-relaxed mt-2">{feature.description}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {feature.description}
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -715,7 +721,7 @@ export default function ClaimGeniePage() {
                     <div className="w-full h-full bg-slate-900 rounded-xl flex items-center justify-center border border-white/10 transition-all group-hover:bg-slate-800 group-hover:border-[#f1592a]/20">
                       <bot.icon className="text-white w-5 h-5" strokeWidth={1.5} />
                     </div>
-                    <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-[#f1592a] rounded-full border-2 border-slate-950" />
+                    <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#f1592a] rounded-full border-2 border-slate-950" />
                   </div>
                   <h3 className="text-lg font-bold text-white mb-3 flex items-center flex-wrap gap-2">
                     <span>{bot.title}</span>
@@ -960,7 +966,7 @@ export default function ClaimGeniePage() {
                     <div className="w-full h-full bg-gray-50 rounded-xl flex items-center justify-center border border-gray-100 transition-all group-hover:bg-white group-hover:border-[#f1592a]/10">
                       <item.icon className="text-gray-700 w-5 h-5" strokeWidth={1.5} />
                     </div>
-                    <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-[#f1592a] rounded-full border-2 border-white" />
+                    <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#f1592a] rounded-full border-2 border-white" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-3">{item.title}</h3>
                   <p className="text-gray-500 text-xs md:text-sm leading-relaxed">{item.description}</p>
@@ -1001,7 +1007,7 @@ export default function ClaimGeniePage() {
                   Book a 30-minute demo. We'll walk you through the full platform, show you how it works for your claims team, and answer every question you have - no commitment required.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/contact" className="w-full sm:w-auto flex justify-center">
+                  <div onClick={() => openModal('Claim Genie')} className="w-full sm:w-auto flex justify-center cursor-pointer">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -1009,7 +1015,7 @@ export default function ClaimGeniePage() {
                     >
                       <span className="text-sm md:text-md">Schedule a Demo</span>
                     </motion.button>
-                  </Link>
+                  </div>
                   <Link href="/contact" className="w-full sm:w-auto flex justify-center">
                     <motion.button
                       whileHover={{ scale: 1.05 }}

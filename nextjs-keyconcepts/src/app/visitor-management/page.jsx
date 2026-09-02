@@ -33,6 +33,7 @@ import {
   Printer,
 } from 'lucide-react'
 import Link from 'next/link'
+import { useEnquiryModal } from '@/context/enquiry-modal-context'
 
 const features = [
   {
@@ -277,6 +278,7 @@ const processSteps = [
 ]
 
 function VisitorManagementPage() {
+  const { openModal } = useEnquiryModal()
   return (
     <LayoutWrapper>
       <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
@@ -379,7 +381,7 @@ function VisitorManagementPage() {
                   }}
                   className="flex flex-col sm:flex-row items-center justify-center lg:justify-start lg:items-start gap-4 mb-8"
                 >
-                  <Link href="/contact" className="w-[80%] sm:w-auto">
+                  <div onClick={() => openModal('Visitorz Management System')} className="w-[80%] sm:w-auto cursor-pointer">
                     <motion.button
                       whileHover={{
                         scale: 1.05,
@@ -395,7 +397,7 @@ function VisitorManagementPage() {
                         strokeWidth={1.5}
                       />
                     </motion.button>
-                  </Link>
+                  </div>
                   <Link
                     href="#core-features"
                     onClick={(e) => {
@@ -666,20 +668,21 @@ function VisitorManagementPage() {
                   className="group relative"
                   key={feature.title}
                 >
-                  <div className="h-full bg-gradient-to-br from-white to-gray-50 rounded-3xl p-4 lg:p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:border-[#f1592a]/20 transition-all">
-                    <div className="relative w-12 h-12 group-hover:scale-110 transition-transform shrink-0 mb-6">
-                      <div className="w-full h-full bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-white transition-all border border-gray-100 group-hover:border-[#f1592a]/10">
-                        <feature.icon className="text-gray-700 w-5 h-5" strokeWidth={1.5} />
+                  <div className="relative h-full bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-white/60 hover:bg-white hover:border-[#f1592a] hover:shadow-2xl transition-all duration-300 flex flex-col items-start text-left">
+                    <div className="flex items-center space-x-4 mb-4">
+                      <div className="relative w-12 h-12 group-hover:scale-110 transition-transform shrink-0">
+                        <div className="w-full h-full bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-white transition-all border border-gray-100 group-hover:border-[#f1592a]/10">
+                          <feature.icon className="text-gray-700 w-5 h-5" strokeWidth={1.5} />
+                        </div>
+                        <div className={`absolute -bottom-1 -right-1 w-3 h-3 rounded-full border-2 border-white ${feature.dotBg}`} />
                       </div>
-                      <div className={`absolute -bottom-1 -right-1 w-2.5 h-2.5 rounded-full border-2 border-white ${feature.dotBg}`} />
+                      <h3 className="text-base sm:text-lg font-bold text-gray-900 leading-snug">
+                        {feature.title}
+                      </h3>
                     </div>
-                    <h3 className="text-lg md:text-xl font-bold mb-3 text-gray-900">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm md:text-md leading-relaxed">
+                    <p className="text-gray-600 text-sm leading-relaxed">
                       {feature.description}
                     </p>
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#f1592a]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl" />
                   </div>
                 </motion.div>
               ))}
@@ -1255,7 +1258,7 @@ function VisitorManagementPage() {
                     <div className="w-full h-full bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-white transition-all border border-gray-100 group-hover:border-[#f1592a]/10">
                       <facility.icon className="text-gray-700 w-5 h-5" strokeWidth={1.5} />
                     </div>
-                    <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-[#f1592a] rounded-full border-2 border-white" />
+                    <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#f1592a] rounded-full border-2 border-white" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-3">{facility.title}</h3>
                   <p className="text-gray-500 text-xs md:text-sm leading-relaxed">{facility.description}</p>
@@ -1371,7 +1374,7 @@ function VisitorManagementPage() {
                   Book a 30-minute demo. We'll walk you through the full platform, show you how it works for your facility type, and answer every question you have - no commitment required.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/contact" className="w-full sm:w-auto flex justify-center">
+                  <div onClick={() => openModal('Visitorz Management System')} className="w-full sm:w-auto flex justify-center cursor-pointer">
                     <motion.button
                       whileHover={{
                         scale: 1.05,
@@ -1383,7 +1386,7 @@ function VisitorManagementPage() {
                     >
                       <span className="text-sm md:text-md">Schedule a Demo</span>
                     </motion.button>
-                  </Link>
+                  </div>
                   <a href="/assets/Visitorz-brochure.pdf" download="Visitorz-brochure.pdf" className="w-full sm:w-auto">
                     <motion.button
                       whileHover={{
@@ -1398,6 +1401,36 @@ function VisitorManagementPage() {
                     </motion.button>
                   </a>
                 </div>
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    delay: 0.3,
+                  }}
+                  className="mt-10 flex flex-wrap items-center justify-center gap-8 text-white/80"
+                >
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />{' '}
+                    <span className="text-sm md:text-md">Audit Ready</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />{' '}
+                    <span className="text-sm md:text-md">Works without Internet</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />{' '}
+                    <span className="text-sm md:text-md">Live in 7 days</span>
+                  </div>
+                </motion.div>
               </div>
             </motion.div>
           </div>
