@@ -2,9 +2,10 @@
 
 import LayoutWrapper from '@/components/layout-wrapper'
 import { AnimatedH1 } from '@/components/animated-h1'
-import { motion } from 'motion/react'
-import { Mail, Phone, MapPin, Send, MessageSquare, Map, ChevronDown } from 'lucide-react'
-import { useState } from 'react'
+import { motion, useInView, useMotionValue, useSpring } from 'motion/react'
+import { Mail, Phone, PhoneCall, MapPin, Send, MessageSquare, Map, ChevronDown, Clock, ArrowRight } from 'lucide-react'
+import Link from 'next/link'
+import { useState, useEffect, useRef } from 'react'
 import { api, endpoints } from '@/lib/api'
 
 const countries = [
@@ -15,6 +16,72 @@ const countries = [
   { code: '+971', flag: '🇦🇪', label: 'UAE', placeholder: '50 123 4567', pattern: /^5\d{8}$/, error: 'Please enter a valid UAE mobile number' },
 ]
 
+function AnimatedCounter({
+  value,
+  suffix = '',
+  prefix = '',
+  duration = 2,
+}) {
+  const ref = useRef(null)
+  const motionValue = useMotionValue(0)
+  const springValue = useSpring(motionValue, {
+    damping: 30,
+    stiffness: 100,
+    duration: duration * 1000,
+  })
+  const isInView = useInView(ref, {
+    once: true,
+    margin: '-50px',
+  })
+
+  useEffect(() => {
+    if (isInView) {
+      motionValue.set(value)
+    }
+  }, [motionValue, isInView, value])
+
+  useEffect(() => {
+    const unsubscribe = springValue.on('change', (latest) => {
+      if (ref.current) {
+        ref.current.textContent = `${prefix}${Math.floor(latest)}${suffix}`
+      }
+    })
+    return () => unsubscribe()
+  }, [springValue, prefix, suffix])
+
+  return (
+    <span ref={ref}>
+      {prefix}0{suffix}
+    </span>
+  )
+}
+
+const contactStats = [
+  {
+    numericValue: 24,
+    suffix: ' hrs',
+    displayText: '24 hrs',
+    label: 'Guaranteed response time',
+  },
+  {
+    numericValue: 400,
+    suffix: '+',
+    displayText: '400+',
+    label: 'Clients who trusted us',
+  },
+  {
+    numericValue: 16,
+    suffix: ' yrs',
+    displayText: '16 yrs',
+    label: 'Building in Surat',
+  },
+  {
+    isText: true,
+    displayText: 'Free',
+    label: 'Initial consultation - always',
+  },
+]
+
 function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
@@ -22,6 +89,7 @@ function ContactPage() {
     company: '',
     phone: '',
     service: '',
+    approximateBudget: 'Prefer not to say / Not sure yet',
     message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -41,19 +109,23 @@ function ContactPage() {
     setIsSubmitting(true)
     try {
       const fullPhone = `${selectedCountry.code} ${formData.phone}`
+      const budgetVal = formData.approximateBudget || 'Prefer not to say / Not sure yet'
+
       // Send form data to API using contact-leads endpoint like React version
       console.log('Sending data:', {
         name: formData.name,
         email: formData.email,
         subject: formData.service || 'General Inquiry',
-        message: `${formData.message}${formData.company ? `\nCompany: ${formData.company}` : ''}${formData.phone ? `\nPhone: ${fullPhone}` : ''}`,
+        approximateBudget: budgetVal,
+        message: `${formData.message}${formData.company ? `\nCompany: ${formData.company}` : ''}${formData.phone ? `\nPhone: ${fullPhone}` : ''}${budgetVal ? `\nApproximate Budget: ${budgetVal}` : ''}`,
       })
 
       const res = await api.post('/contact-leads', {
         name: formData.name,
         email: formData.email,
         subject: formData.service || 'General Inquiry',
-        message: `${formData.message}${formData.company ? `\nCompany: ${formData.company}` : ''}${formData.phone ? `\nPhone: ${fullPhone}` : ''}`,
+        approximateBudget: budgetVal,
+        message: `${formData.message}${formData.company ? `\nCompany: ${formData.company}` : ''}${formData.phone ? `\nPhone: ${fullPhone}` : ''}${budgetVal ? `\nApproximate Budget: ${budgetVal}` : ''}`,
       })
 
       console.log('API response:', res) // Debug log
@@ -65,6 +137,7 @@ function ContactPage() {
         company: '',
         phone: '',
         service: '',
+        approximateBudget: 'Prefer not to say / Not sure yet',
         message: '',
       })
       setPhoneError('')
@@ -134,7 +207,7 @@ function ContactPage() {
             <div className="absolute top-20 -right-32 w-96 h-96 bg-[#f1592a]/5 rounded-full blur-3xl" />
             <div className="absolute bottom-0 -left-32 w-96 h-96 bg-[#f1592a]/5 rounded-full blur-3xl" />
           </div>
-          <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-5xl mx-auto text-center">
               <motion.span
                 initial={{
@@ -151,7 +224,7 @@ function ContactPage() {
                 className="inline-flex items-center space-x-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-[#f1592a]/20 shadow-lg mb-6"
               >
                 <MessageSquare className="text-[#f1592a]" size={18} />
-                <span className="text-sm font-medium text-gray-700">Get in Touch</span>
+                <span className="text-sm font-medium text-gray-700">We Respond Within 24 Hours</span>
               </motion.span>
               <AnimatedH1
                 initial={{
@@ -167,9 +240,9 @@ function ContactPage() {
                 }}
                 className="text-4xl md:text-6xl font-bold mb-6"
               >
-                Let's Start{' '}
+                Let's Just <br></br>{' '}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Building Together
+                  Talk First.
                 </span>
               </AnimatedH1>
               <motion.p
@@ -184,22 +257,21 @@ function ContactPage() {
                 transition={{
                   delay: 0.4,
                 }}
-                className="text-xl text-gray-600  leading-relaxed max-w-3xl mx-auto"
+                className="text-md lg:text-lg text-gray-600 leading-relaxed font-medium"
               >
-                We're here to help transform your business with cutting-edge ERP solutions, custom
-                development, and intelligent technology services.
+                No commitment, no pitch deck, no pressure. Just an honest conversation about what you're building and whether we're the right team to help. We'll respond within 24 hours.
               </motion.p>
             </div>
           </div>
         </section>
 
         <section className="py-12 md:py-16 bg-white">
-          <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 items-start">
               <motion.div
                 initial={{
                   opacity: 0,
-                  x: -50,
+                  x: -40,
                 }}
                 animate={{
                   opacity: 1,
@@ -208,11 +280,12 @@ function ContactPage() {
                 transition={{
                   delay: 0.3,
                 }}
+                className="lg:col-span-2"
               >
-                <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-200">
-                  <h2 className="text-3xl font-bold mb-2">Send us a Request</h2>
+                <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-6 md:p-8 shadow-xl border border-gray-200">
+                  <h2 className="text-2xl font-bold mb-2">Send Us a Message</h2>
                   <p className="text-gray-600 mb-8">
-                    Fill out the form below and we'll get back to you shortly.
+                    Tell us about your project — we'll read every message and reply within 24 hours.
                   </p>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className=" grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -230,7 +303,7 @@ function ContactPage() {
                           value={formData.name}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#f1592a] focus:outline-none transition-colors"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#f1592a] focus:outline-none transition-colors text-base text-gray-800"
                           placeholder="John Doe"
                         />
                       </div>
@@ -248,7 +321,7 @@ function ContactPage() {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#f1592a] focus:outline-none transition-colors"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#f1592a] focus:outline-none transition-colors text-base text-gray-800"
                           placeholder="john@example.com"
                         />
                       </div>
@@ -267,7 +340,7 @@ function ContactPage() {
                           name="company"
                           value={formData.company}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#f1592a] focus:outline-none transition-colors"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#f1592a] focus:outline-none transition-colors text-base text-gray-800"
                           placeholder="Your Company"
                         />
                       </div>
@@ -283,10 +356,10 @@ function ContactPage() {
                             <select
                               value={selectedCountry.code}
                               onChange={handleCountryChange}
-                              className="bg-transparent text-sm text-gray-800 focus:outline-none cursor-pointer pr-4 appearance-none outline-none"
+                              className="bg-transparent text-base text-gray-800 focus:outline-none cursor-pointer pr-4 appearance-none outline-none"
                             >
                               {countries.map((c) => (
-                                <option key={c.label} value={c.code}>
+                                <option key={c.label} value={c.code} className="text-base">
                                   {c.flag} {c.code}
                                 </option>
                               ))}
@@ -299,7 +372,7 @@ function ContactPage() {
                             name="phone"
                             value={formData.phone}
                             onChange={handlePhoneChange}
-                            className={`w-full pl-24 pr-4 py-3 rounded-lg border focus:outline-none transition-colors ${phoneError ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-[#f1592a]'}`}
+                            className={`w-full pl-24 pr-4 py-3 rounded-lg border focus:outline-none transition-colors text-base text-gray-800 ${phoneError ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-[#f1592a]'}`}
                             placeholder={selectedCountry.placeholder}
                           />
                         </div>
@@ -313,7 +386,7 @@ function ContactPage() {
                         htmlFor="service"
                         className="block text-sm font-medium text-gray-700 mb-2"
                       >
-                        Product/Service Interested In <span className="text-red-500">*</span>
+                        What Can We Help With? <span className="text-red-500">*</span>
                       </label>
                       <select
                         id="service"
@@ -321,15 +394,41 @@ function ContactPage() {
                         value={formData.service}
                         onChange={handleChange}
                         required
-                        className="appearance-none w-full px-4 py-3.5 pr-12 rounded-lg border border-gray-200 focus:border-[#f1592a] focus:outline-none transition-colors"
+                        className="appearance-none w-full px-4 py-3.5 pr-12 rounded-lg border border-gray-200 focus:border-[#f1592a] focus:outline-none transition-colors text-base text-gray-800"
                       >
-                        <option value="">Select</option>
-                        <option value="Visitorz Management System">Visitorz Management System</option>
-                        <option value="Younited Communities">Younited Communities</option>
-                        <option value="Claim Genie">Claim Genie</option>
-                        <option value="Product Development">Product Development</option>
-                        <option value="MVP Development">MVP Development</option>
-                        <option value="Custom ERP Solutions">Custom ERP Solutions</option>
+                        <option value="" className="text-base">Select a service..</option>
+                        <option value="Visitorz Management System" className="text-base">Visitorz Management System</option>
+                        <option value="Younited Communities" className="text-base">Younited Communities</option>
+                        <option value="Claim Genie" className="text-base">Claim Genie</option>
+                        <option value="Product Development" className="text-base">Product Development</option>
+                        <option value="MVP Development" className="text-base">MVP Development</option>
+                        <option value="Custom ERP Solutions" className="text-base">Custom ERP Solutions</option>
+                      </select>
+                      <ChevronDown
+                        size={18}
+                        className="absolute right-4 top-2/3 -translate-y-1/2 text-gray-500 pointer-events-none"
+                      />
+                    </div>
+                    <div className="relative">
+                      <label
+                        htmlFor="approximateBudget"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
+                        Approximate Budget
+                      </label>
+                      <select
+                        id="approximateBudget"
+                        name="approximateBudget"
+                        value={formData.approximateBudget}
+                        onChange={handleChange}
+                        className="appearance-none w-full px-4 py-3.5 pr-12 rounded-lg border border-gray-200 focus:border-[#f1592a] focus:outline-none transition-colors text-gray-800 text-base"
+                      >
+                        <option value="Prefer not to say / Not sure yet" className="text-base">Prefer not to say / Not sure yet</option>
+                        <option value="Under ₹5 Lakhs" className="text-base">Under ₹5 Lakhs</option>
+                        <option value="₹5 – ₹15 Lakhs" className="text-base">₹5 – ₹15 Lakhs</option>
+                        <option value="₹15 – ₹50 Lakhs" className="text-base">₹15 – ₹50 Lakhs</option>
+                        <option value="₹50 Lakhs +" className="text-base">₹50 Lakhs +</option>
+                        <option value="Open to discussion" className="text-base">Open to discussion</option>
                       </select>
                       <ChevronDown
                         size={18}
@@ -350,8 +449,8 @@ function ContactPage() {
                         onChange={handleChange}
                         required
                         rows={3}
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#f1592a] focus:outline-none transition-colors resize-none"
-                        placeholder="Tell us about your project..."
+                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#f1592a] focus:outline-none transition-colors resize-none text-base text-gray-800 placeholder:text-[12px] placeholder:text-gray-400"
+                        placeholder="Describe your project, what you're trying to solve, your timeline, and any specific requirements you have. The more detail, the better we can help..."
                       />
                     </div>
                     <div className="flex justify-center">
@@ -392,7 +491,7 @@ function ContactPage() {
                           </>
                         ) : (
                           <>
-                            <span>Submit <span className='hidden sm:inline'>Your Request</span></span>
+                            <span>Send <span className='hidden sm:inline'>Message</span></span>
                             <Send
                               className="group-hover:translate-x-1 transition-transform"
                               size={20}
@@ -408,7 +507,7 @@ function ContactPage() {
               <motion.div
                 initial={{
                   opacity: 0,
-                  x: 50,
+                  x: 40,
                 }}
                 animate={{
                   opacity: 1,
@@ -417,127 +516,232 @@ function ContactPage() {
                 transition={{
                   delay: 0.4,
                 }}
-                className="space-y-8"
+                className="lg:col-span-1 space-y-4"
               >
-                <div>
-                  <h2 className="text-3xl font-bold mb-4">Contact Information</h2>
-                  <p className="text-md md:text-lg text-gray-600 leading-relaxed">
-                    Have questions? We're here to help. Reach out to us through any of these
-                    channels.
-                  </p>
-                </div>
-                <div className="space-y-6">
-                  <motion.div
-                    whileHover={{
-                      x: 10,
-                    }}
-                    className="group flex items-start space-x-4 p-6 bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-lg hover:shadow-xl transition-all border border-gray-200"
-                  >
-                    <div className="relative w-12 h-12 flex-shrink-0">
-                      <div className="w-full h-full bg-[#f1592a] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <MapPin className="text-white" size={24} strokeWidth={1.5} />
-                      </div>
-                      <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-white rounded-full border-2 border-[#f1592a]" />
+                {/* Card 1: Our Offices */}
+                <motion.div
+                  whileHover={{ y: -3 }}
+                  className="bg-gradient-to-br from-gray-50 via-white to-gray-50/50 rounded-3xl p-5 shadow-lg hover:shadow-xl transition-all border border-gray-200/80"
+                >
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-9 h-9 rounded-xl bg-[#f1592a]/10 flex items-center justify-center shrink-0">
+                      <MapPin className="text-[#f1592a] w-5 h-5" strokeWidth={2} />
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-2">Head Office</h3>
+                    <h3 className="text-gray-900 text-lg font-bold">Our Offices</h3>
+                  </div>
 
-                      <div className="flex items-start justify-between gap-3">
-                        <p className="text-gray-600 leading-relaxed">
-                          301, Highfield Ascot, Opp. Palm Avenue, VIP Road, <br />
-                          Vesu, Surat - 395007. Gujarat, India
-                          <button
-                            onClick={() =>
-                              document
-                                .getElementById('office-map')
-                                ?.scrollIntoView({ behavior: 'smooth' })
-                            }
-                            className="relative top-[3px] ml-1 rounded-lg text-[#f1592a]  hover:scale-110 transition-all"
-                            title="View on Map"
-                          >
-                            <Map size={17} className="text-[#f1592a] " />
-                          </button>
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    whileHover={{
-                      x: 10,
-                    }}
-                    className="group flex items-start space-x-4 p-6 bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-lg hover:shadow-xl transition-all border border-gray-200"
-                  >
-                    <div className="relative w-12 h-12 flex-shrink-0">
-                      <div className="w-full h-full bg-[#f1592a] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Mail className="text-white" size={24} strokeWidth={1.5} />
-                      </div>
-                      <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-white rounded-full border-2 border-[#f1592a]" />
-                    </div>
+                  <div className="space-y-3.5 text-xs">
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Reach Us</h3>
+                      <span className="block font-bold text-[#f1592a] uppercase tracking-wider text-[11px] mb-1">
+                        HEAD OFFICE — INDIA
+                      </span>
+                      <p className="text-gray-600 leading-relaxed font-medium">
+                        301, Highfield Ascot, VIP Road, Vesu, Surat – 395007, Gujarat, India
+                        <button
+                          type="button"
+                          onClick={() =>
+                            document.getElementById('office-map')?.scrollIntoView({ behavior: 'smooth' })
+                          }
+                          className="ml-1.5 inline-flex items-center font-semibold text-[#f1592a] hover:underline"
+                        >
+                          <Map size={13} className="mr-0.5" /> Map
+                        </button>
+                      </p>
+                    </div>
+
+                    <div className="border-t border-gray-100 pt-3 flex items-center justify-between">
+                      <span className="font-semibold text-gray-400 uppercase tracking-wider text-[10px]">
+                        BRANCH OFFICES
+                      </span>
+                      <span className="text-gray-700 font-semibold">London, UK • New York, USA</span>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Card 2: Reach Us */}
+                <motion.div
+                  whileHover={{ y: -3 }}
+                  className="bg-gradient-to-br from-gray-50 via-white to-gray-50/50 rounded-3xl p-5 shadow-lg hover:shadow-xl transition-all border border-gray-200/80"
+                >
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-9 h-9 rounded-xl bg-[#f1592a]/10 flex items-center justify-center shrink-0">
+                      <PhoneCall className="text-[#f1592a] w-5 h-5" strokeWidth={2} />
+                    </div>
+                    <h3 className="text-gray-900 text-lg font-bold">Reach Us</h3>
+                  </div>
+
+                  <div className="space-y-3 text-xs">
+                    <div className="flex items-center justify-between">
                       <div>
+                        <span className="block font-semibold text-gray-400 uppercase tracking-wider text-[10px] mb-0.5">
+                          SALES & PROJECTS
+                        </span>
                         <a
                           href="https://wa.me/919374356357?text=Hello%20Sir%2FMam%20I%20would%20like%20to%20enquire%20about%20your%20products%20and%20services"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-600 hover:text-[#f1592a] transition-colors"
+                          className="font-bold text-gray-900 hover:text-[#f1592a] transition-colors text-sm"
                         >
                           +91 9374 356 357
                         </a>
                       </div>
-                      <div>
-                        <a
-                          href="mailto:info@keyconcepts.co.in"
-                          className="text-gray-600 hover:text-[#f1592a] transition-colors"
-                        >
-                          info@keyconcepts.co.in
-                        </a>
-                      </div>
+                      <a
+                        href="mailto:info@keyconcepts.co.in"
+                        className="text-gray-600 hover:text-[#f1592a] transition-colors font-medium text-xs"
+                      >
+                        info@keyconcepts.co.in
+                      </a>
                     </div>
-                  </motion.div>
 
-                  <motion.div
-                    whileHover={{
-                      x: 10,
-                    }}
-                    className="group flex items-start space-x-4 p-6 bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-lg hover:shadow-xl transition-all border border-gray-200"
-                  >
-                    <div className="relative w-12 h-12 flex-shrink-0">
-                      <div className="w-full h-full bg-gray-700 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Phone className="text-white" size={24} strokeWidth={1.5} />
-                      </div>
-                      <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-white rounded-full border-2 border-gray-700" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">For Career Enquire</h3>
+                    <div className="border-t border-gray-100 pt-3 flex items-center justify-between">
                       <div>
+                        <span className="block font-semibold text-gray-400 uppercase tracking-wider text-[10px] mb-0.5">
+                          HR & CAREERS
+                        </span>
                         <a
                           href="https://wa.me/919376356357?text=Hello%20Sir%2FMam%20I%20would%20like%20to%20enquire%20about%20career%20opportunities"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-600 hover:text-[#f1592a] transition-colors"
+                          className="font-bold text-gray-900 hover:text-[#f1592a] transition-colors text-sm"
                         >
                           +91 9376 356 357
                         </a>
                       </div>
-                      <div>
-                        <a
-                          href="mailto:hr@keyconcepts.co.in"
-                          className="text-gray-600 hover:text-[#f1592a] transition-colors"
-                        >
-                          hr@keyconcepts.co.in
-                        </a>
-                      </div>
+                      <a
+                        href="mailto:hr@keyconcepts.co.in"
+                        className="text-gray-600 hover:text-[#f1592a] transition-colors font-medium text-xs"
+                      >
+                        hr@keyconcepts.co.in
+                      </a>
                     </div>
-                  </motion.div>
-                </div>
+                  </div>
+                </motion.div>
+
+                {/* Card 3: Business Hours */}
+                <motion.div
+                  whileHover={{ y: -3 }}
+                  className="bg-gradient-to-br from-gray-50 via-white to-gray-50/50 rounded-3xl p-5 shadow-lg hover:shadow-xl transition-all border border-gray-200/80"
+                >
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-9 h-9 rounded-xl bg-[#f1592a]/10 flex items-center justify-center shrink-0">
+                      <Clock className="text-[#f1592a] w-5 h-5" strokeWidth={2} />
+                    </div>
+                    <h3 className="text-gray-900 text-lg font-bold">Business Hours</h3>
+                  </div>
+
+                  <div className="space-y-2 text-xs">
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-600 font-medium">Monday – Saturday</span>
+                      <span className="font-bold text-gray-900">9:00 AM – 6:30 PM IST</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-600 font-medium">Sunday</span>
+                      <span className="font-medium text-gray-400">Closed</span>
+                    </div>
+
+                    <div className="border-t border-gray-100 pt-3 mt-3 flex items-center space-x-2 text-[11px] font-medium text-gray-500">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                      <span>We reply to all enquiries within 24 hours</span>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Card 4: Looking for something specific? */}
+                <motion.div
+                  whileHover={{ y: -3 }}
+                  className="bg-gradient-to-br from-[#f1592a]/10 via-[#f1592a]/5 to-white border border-[#f1592a]/20 rounded-3xl p-5 shadow-lg transition-all"
+                >
+                  <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-3">
+                    Looking for something specific?
+                  </h3>
+                  <div className="space-y-2.5">
+                    <Link
+                      href="/careers"
+                      className="group flex items-center justify-between p-3 rounded-2xl bg-white/90 hover:bg-white border border-gray-100 hover:border-[#f1592a]/40 shadow-sm hover:shadow transition-all"
+                    >
+                      <div className="flex items-center space-x-3">
+                        <span className="text-base">💼</span>
+                        <span className="text-xs sm:text-sm font-semibold text-gray-800 group-hover:text-[#f1592a] transition-colors">
+                          Join our team
+                        </span>
+                      </div>
+                      <ArrowRight size={15} className="text-gray-400 group-hover:text-[#f1592a] group-hover:translate-x-1 transition-all" />
+                    </Link>
+
+                    <Link
+                      href="/custom-erp-solutions"
+                      className="group flex items-center justify-between p-3 rounded-2xl bg-white/90 hover:bg-white border border-gray-100 hover:border-[#f1592a]/40 shadow-sm hover:shadow transition-all"
+                    >
+                      <div className="flex items-center space-x-3">
+                        <span className="text-base">📊</span>
+                        <span className="text-xs sm:text-sm font-semibold text-gray-800 group-hover:text-[#f1592a] transition-colors">
+                          See our work
+                        </span>
+                      </div>
+                      <ArrowRight size={15} className="text-gray-400 group-hover:text-[#f1592a] group-hover:translate-x-1 transition-all" />
+                    </Link>
+
+                    <Link
+                      href="/visitor-management"
+                      className="group flex items-center justify-between p-3 rounded-2xl bg-white/90 hover:bg-white border border-gray-100 hover:border-[#f1592a]/40 shadow-sm hover:shadow transition-all"
+                    >
+                      <div className="flex items-center space-x-3">
+                        <span className="text-base">🛒</span>
+                        <span className="text-xs sm:text-sm font-semibold text-gray-800 group-hover:text-[#f1592a] transition-colors">
+                          Explore our products
+                        </span>
+                      </div>
+                      <ArrowRight size={15} className="text-gray-400 group-hover:text-[#f1592a] group-hover:translate-x-1 transition-all" />
+                    </Link>
+                  </div>
+                </motion.div>
               </motion.div>
             </div>
           </div>
         </section>
 
-        <section id="office-map" className="pt-12 bg-white">
+        <section className="py-10 md:py-12 bg-white border-t border-gray-100">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
+              {contactStats.map((stat, index) => (
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                    scale: 0.95,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.1,
+                  }}
+                  key={stat.label}
+                  className="flex flex-col items-center group cursor-default"
+                >
+                  <span className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#f1592a] mb-2 leading-none group-hover:scale-105 transition-transform">
+                    {stat.isText ? (
+                      stat.displayText
+                    ) : (
+                      <AnimatedCounter value={stat.numericValue} suffix={stat.suffix} />
+                    )}
+                  </span>
+                  <span className="text-xs sm:text-sm text-gray-500 font-medium max-w-[200px] leading-snug">
+                    {stat.label}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="office-map" className="bg-white">
           <div className="max-w-full">
             <motion.div
               initial={{

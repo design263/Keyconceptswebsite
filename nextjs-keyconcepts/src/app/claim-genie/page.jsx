@@ -271,7 +271,7 @@ const integrations = [
     logo: '/assets/techLogo/microsoft_azure_logo_icon.svg',
   },
   {
-    name: 'Azure OpenAI',
+    name: 'OpenAI',
     subName: 'AI & LLM',
     logo: '/assets/techLogo/openai-logo-icon.svg',
   },
@@ -427,7 +427,7 @@ export default function ClaimGeniePage() {
                   transition={{ delay: 0.2 }}
                   className="inline-flex items-center space-x-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-[#f1592a]/20 shadow-lg mb-8"
                 >
-                  <Sparkles className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" strokeWidth={1.5} />
+                  <Sparkles className="text-[#f1592a] w-3 h-3 md:w-5 md:h-5" strokeWidth={1.5} />
                   <span className="text-xs md:text-sm font-semibold text-gray-700">
                     Claim Genie - Insurtech Product
                   </span>
@@ -465,7 +465,7 @@ export default function ClaimGeniePage() {
                       className="w-full sm:w-auto group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/40 transition-all flex items-center justify-center space-x-2"
                     >
                       <span className="text-sm md:text-base font-semibold">Schedule a Demo</span>
-                      <Zap className="group-hover:scale-110 transition-transform w-4 h-4 md:w-5 md:h-5" strokeWidth={1.5} />
+                      <Zap className="group-hover:scale-110 transition-transform w-3 h-3 md:w-5 md:h-5" strokeWidth={1.5} />
                     </motion.button>
                   </div>
                   <Link
@@ -482,7 +482,7 @@ export default function ClaimGeniePage() {
                       className="w-full group px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center space-x-2"
                     >
                       <span className="text-sm md:text-base font-semibold">Explore Features</span>
-                      <ArrowRight className="group-hover:translate-x-1 transition-transform w-4 h-4 md:w-5 md:h-5 text-gray-800" strokeWidth={1.5} />
+                      <ArrowRight className="group-hover:translate-x-1 transition-transform w-3 h-3 md:w-5 md:h-5 text-gray-800" strokeWidth={1.5} />
                     </motion.button>
                   </Link>
                 </motion.div>
@@ -1022,7 +1022,7 @@ export default function ClaimGeniePage() {
                       whileTap={{ scale: 0.95 }}
                       className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-transparent text-white rounded-full border-2 border-white hover:bg-white hover:text-[#f1592a] transition-all font-semibold flex items-center justify-center space-x-2"
                     >
-                      <span className="text-sm md:text-md">Contact Sales</span>
+                      <span className="text-sm md:text-md">Talk to Our Team</span>
                     </motion.button>
                   </Link>
                 </div>

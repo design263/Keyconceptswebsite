@@ -27,12 +27,12 @@ import {
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
 import { useState, useEffect, useRef } from 'react'
 
-function AnimatedCounter({ 
-  value, 
-  suffix = '', 
-  prefix = '', 
-  duration = 2, 
-  decimals = 0 
+function AnimatedCounter({
+  value,
+  suffix = '',
+  prefix = '',
+  duration = 2,
+  decimals = 0
 }) {
   const ref = useRef(null)
   const motionValue = useMotionValue(0)
@@ -336,7 +336,7 @@ function ElectionMobilizationPage() {
                 }}
                 className="inline-flex items-center space-x-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-[#f1592a]/20 shadow-lg mb-8"
               >
-                <Vote className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5"  strokeWidth={2} />
+                <Vote className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" strokeWidth={2} />
                 <span className="md:text-sm text-xs font-medium text-gray-700">Election Campaign Platform</span>
               </motion.span>
               <AnimatedH1
@@ -732,7 +732,7 @@ function ElectionMobilizationPage() {
                       }}
                       className="inline-flex items-center space-x-2   md:px-4 md:py-2 px-3 py-2 bg-[#f1592a]/10 rounded-full mb-6"
                     >
-                      <campaign.icon className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5"  strokeWidth={2} />
+                      <campaign.icon className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" strokeWidth={2} />
                       <span className="md:text-sm text-xs font-medium text-[#f1592a] uppercase tracking-wide">
                         {campaign.type}
                       </span>
@@ -970,7 +970,7 @@ function ElectionMobilizationPage() {
               className="text-center max-w-4xl mx-auto"
             >
               <div className="inline-flex items-center space-x-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/40 mb-8">
-                <Sparkles className="text-white w-4 h-4 md:w-5 md:h-5"  strokeWidth={2} />
+                <Sparkles className="text-white w-4 h-4 md:w-5 md:h-5" strokeWidth={2} />
                 <span className="text-xs md:text-sm font-medium text-white">
                   Ready to Win Your Next Election?
                 </span>
@@ -1005,7 +1005,7 @@ function ElectionMobilizationPage() {
                   }}
                   className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-transparent text-white rounded-full border-2 border-white hover:bg-white hover:text-[#f1592a] transition-all font-semibold flex items-center justify-center space-x-2 group"
                 >
-                  <span className="text-sm md:text-md font-semibold">Contact Sales</span>
+                  <span className="text-sm md:text-md font-semibold">Talk to Our Team</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                 </motion.a>
               </div>

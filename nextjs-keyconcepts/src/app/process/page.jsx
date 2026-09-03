@@ -324,7 +324,7 @@ function ProcessPage() {
   return (
     <LayoutWrapper>
       <div className="min-h-screen bg-white">
-        <section className="relative pt-32 md:pb-20 pb-10 overflow-hidden">
+        <section className="relative mt-5 py-20 md:py-32 md:pb-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
           <div className="absolute inset-0 -z-10">
             <div className="absolute top-20 right-10 w-72 h-72 bg-[#f1592a]/5 rounded-full blur-3xl" />
             <div className="absolute bottom-20 left-10 w-96 h-96 bg-[#f1592a]/5 rounded-full blur-3xl" />
@@ -385,7 +385,7 @@ function ProcessPage() {
             >
               <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4">
                 <Target className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" strokeWidth={2} />
-                <span className="text-xs md:text-sm font-semibold text-[#f1592a]">HOW WE WORK</span>
+                <span className="text-xs md:text-sm font-semibold text-[#f1592a]">How We Work</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 Get Started in <span className="text-[#f1592a]">Six Simple Steps</span>

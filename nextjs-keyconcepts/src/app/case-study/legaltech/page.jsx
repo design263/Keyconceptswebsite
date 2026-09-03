@@ -209,7 +209,7 @@ export default function LegalTechCaseStudyPage() {
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-lg md:text-xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed"
+                className="text-lg text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed"
               >
                 In India, legal documentation was still entirely manual — prone to forgery, slow to process, and impossible to do remotely. A founder saw this gap and had a clear vision: make it secure, digital, and accessible to anyone, anywhere. Key Concepts built the platform that turned that vision into reality.
               </motion.p>

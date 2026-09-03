@@ -24,6 +24,10 @@ import {
   Briefcase,
   Heart,
   Clock,
+  Landmark,
+  GraduationCap,
+  Handshake,
+  Check,
 } from 'lucide-react'
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
 import { useState, useEffect, useRef } from 'react'
@@ -79,7 +83,7 @@ const heroStats = [
   {
     value: 500,
     suffix: '+',
-    label: 'Events Managed',
+    label: 'Events Coordinated',
     prefix: '',
     icon: Calendar,
     decimals: 0,
@@ -87,7 +91,7 @@ const heroStats = [
   {
     value: 95,
     suffix: '%',
-    label: 'Approval Speed',
+    label: 'Faster Approvals',
     prefix: '',
     icon: CheckCircle,
     decimals: 0,
@@ -102,75 +106,153 @@ const heroStats = [
   },
 ]
 
+const solutionsByCommunityType = [
+  {
+    icon: Landmark,
+    title: 'Trade & Industry Associations',
+    subtitle: 'For Chambers, Guilds & Industry Bodies',
+    subtitleColor: 'text-[#f1592a]',
+    topBorder: 'border-t-4 border-[#f1592a]',
+    description:
+      'Run your chamber or trade body with the structure and transparency your members expect - from member onboarding and renewal to AGMs, circulars, and committee governance. Trusted by associations across Gujarat.',
+    features: [
+      'Member directory with company and category profiles',
+      'Committee and board management',
+      'AGM, meeting and event coordination',
+      'Circular and policy communication',
+      'Member renewal and fee tracking',
+      'Grievance and approval workflows',
+    ],
+  },
+  {
+    icon: GraduationCap,
+    title: 'Professional Associations',
+    subtitle: 'For Professional Bodies & Industry Networks',
+    subtitleColor: 'text-[#f1592a]',
+    topBorder: 'border-t-4 border-[#f1592a]',
+    description:
+      "Manage your professional association's full operations - from membership management and certification tracking to CPD events, conferences, and resource libraries. Built for bodies where compliance and credentials matter.",
+    features: [
+      'Member directory and networking',
+      'Certification and CPD credit tracking',
+      'Event registration and conference planning',
+      'Annual conference planning and coordination',
+      'Committee and board management',
+      'Professional resource library',
+    ],
+  },
+  {
+    icon: Handshake,
+    title: 'Social Communities & Samaj',
+    subtitle: 'For Samaj, Cultural & Non-Profit Organizations',
+    subtitleColor: 'text-[#f1592a]',
+    topBorder: 'border-t-4 border-[#f1592a]',
+    description:
+      'Strengthen community bonds with tools built for cultural organizations - member and family network management, event coordination, welfare programmes, matrimonial networking, and donation tracking for community causes.',
+    features: [
+      'Member directory and family networks',
+      'Cultural event and festival management',
+      'Matrimonial and business networking',
+      'Community welfare programme management',
+      'Donation and fundraising tracking',
+      'Volunteer coordination and scheduling',
+    ],
+  },
+]
+
 const coreFeatures = [
   {
     icon: Users,
     dotBg: 'bg-[#f1592a]',
     title: 'Member Management',
     description:
-      'Manage detailed member profiles, roles, permissions, and membership status in one centralised platform. Search and organise member records by area, location, and business details, while tracking member activity.',
+      'A complete member registry with detailed profiles, role assignments, membership status tracking, and activity history. From new application to renewal — fully managed in one place.',
+    points: [
+      'Detailed member profiles with custom fields',
+      'Role-based access - Admin, Member, Guest',
+      'Membership status tracking - Active, Pending, Expired',
+      'Bulk import and export capabilities',
+      'Advanced search and filtering',
+      'Member activity tracking and analytics',
+    ],
   },
-  {
-    icon: Briefcase,
-    dotBg: 'bg-[#f1592a]',
-    title: 'Business Network',
-    description:
-      'Help members promote their businesses, discover relevant services, and build stronger B2B connections within the community. Search businesses by name, category, or location, and access recommendations and ratings.',
-  },
-  {
-    icon: Shield,
-    dotBg: 'bg-[#f1592a]',
-    title: 'Committee',
-    description:
-      'Manage committees, members, roles, and responsibilities in one place. Maintain a clear hierarchy and keep office bearer information organized for smoother decision-making.',
-  },
+  // {
+  //   icon: Briefcase,
+  //   dotBg: 'bg-[#f1592a]',
+  //   title: 'Business Network',
+  //   description:
+  //     'Help members promote their businesses, discover relevant services, and build stronger B2B connections within the community. Search businesses by name, category, or location, and access recommendations and ratings.',
+  // },
+  // {
+  //   icon: Shield,
+  //   dotBg: 'bg-[#f1592a]',
+  //   title: 'Committee',
+  //   description:
+  //     'Manage committees, members, roles, and responsibilities in one place. Maintain a clear hierarchy and keep office bearer information organized for smoother decision-making.',
+  // },
   {
     icon: Calendar,
     dotBg: 'bg-[#f1592a]',
     title: 'Event Management',
     description:
-      'Create and manage community events, from publishing event details to registrations and attendance. Send reminders, track participation, manage recurring events, and collect post-event feedback.',
+      'Plan, promote, and manage events of any size - from monthly committee meetings to annual conferences. RSVP tracking, attendance management, and post-event reporting built in.',
+    points: [
+      'Event creation with registration and ticketing',
+      'RSVP tracking and attendance management',
+      'Batch invitations to member segments',
+      'QR-based check-in on the day',
+      'Post-event reports and analytics',
+      'Recurring and annual event scheduling',
+    ],
   },
-  {
-    icon: BarChart3,
-    dotBg: 'bg-[#f1592a]',
-    title: 'Polls and Surveys',
-    description:
-      'Collect opinions and feedback directly from community members. Create polls, share options, track responses, and understand member preferences.',
-  },
+  // {
+  //   icon: BarChart3,
+  //   dotBg: 'bg-[#f1592a]',
+  //   title: 'Polls and Surveys',
+  //   description:
+  //     'Collect opinions and feedback directly from community members. Create polls, share options, track responses, and understand member preferences.',
+  // },
   {
     icon: Clock,
     dotBg: 'bg-[#f1592a]',
-    title: 'Meeting Management',
+    title: 'Approval Workflows',
     description:
-      'Organize meetings without relying on manual calls or attendance registers. Send invitations, track responses and attendance, and maintain complete meeting records.',
+      'Multi-level approval chains for new memberships, event proposals, committee decisions, and communications - with real-time status tracking and full audit trail for every decision.',
+    points: [
+      'Configurable multi-level approval chains',
+      'Real-time status tracking for every request',
+      'Automated notifications at each approval stage',
+      'Maker-Checker controls for governance',
+      'Complete audit log for every decision',
+      'Role-based approval authority assignment',
+    ],
   },
 ]
 
 const keyBenefits = [
   {
     icon: Database,
-    title: 'Centralized Control',
+    title: 'Centralised Control',
     description:
-      'Manage everything from a single, unified dashboard with complete visibility across all community operations.',
+      'Manage every member, event, approval, and communication from a single unified dashboard - with complete visibility across all association operations. No more chasing information across multiple tools.',
   },
   {
     icon: Zap,
     title: 'Reduced Manual Work',
     description:
-      'Automate repetitive tasks, workflows, and notifications to save time and eliminate human errors.',
+      'Automate repetitive tasks - renewal reminders, event invitations, approval notifications, membership status updates. Your committee focuses on decisions, not administration.',
   },
   {
     icon: Eye,
     title: 'Transparent Processes',
     description:
-      'Full visibility into member activities, event participation, and approval statuses with detailed audit logs.',
+      'Full visibility into member activities, event participation, approval statuses, and financial records - with detailed audit logs. Every action traceable. Every decision accountable.',
   },
   {
     icon: TrendingUp,
-    title: 'Scalable for Growth',
+    title: 'Scalable as You Grow',
     description:
-      'Built to scale seamlessly as your community grows - from hundreds to thousands of members without performance loss.',
+      'Built to handle hundreds or thousands of members without performance loss. As your association grows in membership, chapters, or events - Younited scales seamlessly with you.',
   },
 ]
 
@@ -179,97 +261,40 @@ const additionalCapabilities = [
     icon: Bell,
     title: 'Smart Notifications',
     description:
-      'Multi-channel notifications (email, SMS, in-app) for events, approvals, and announcements.',
+      'Multi-channel notifications - email, SMS, and in-app - for events, approvals, renewals, and announcements. Right message, right channel, right time.',
   },
   {
     icon: MessageSquare,
     title: 'Communication Hub',
     description:
-      'Internal messaging, discussion forums, and announcement boards for seamless community interaction.',
+      'Internal messaging, discussion forums, circulars, and announcement boards. Keep every member informed without fragmented WhatsApp groups.',
   },
   {
     icon: BarChart3,
     title: 'Analytics & Reporting',
     description:
-      'Comprehensive insights into member engagement, event participation, and community health metrics.',
+      'Insights into member engagement, event participation, renewal rates, and community health. Data for better committee decisions.',
   },
   {
     icon: Shield,
     title: 'Security & Privacy',
     description:
-      'Enterprise-grade security with role-based permissions, data encryption, and GDPR compliance.',
+      'Enterprise-grade security with role-based permissions, data encryption, and GDPR compliance. Member data protected at every level.',
   },
   {
     icon: Settings,
     title: 'Custom Branding',
-    description: 'White-label solution with custom branding, colors, logos, and domain mapping.',
+    description: 'White-label solution with your association\'s branding - logo, colours, domain. Looks like your platform, powered by Younited.',
   },
   {
     icon: GitBranch,
-    title: 'Integration Ready',
+    title: 'API & System Integrations',
     description:
-      'RESTful APIs and webhooks for seamless integration with payment gateways, CRMs, and third-party tools.',
+      'RESTful APIs and webhooks for payment gateways, CRMs, and third-party tools. Connects with the systems your association already uses.',
   },
 ]
 
-const useCases = [
-  {
-    type: 'Professional Associations',
-    icon: Briefcase,
-    title: 'Business Network Management',
-    description:
-      'Connect members, businesses, and professional opportunities through one platform built for stronger association networks. ',
-    highlightedFeature: {
-      icon: FileCheck,
-      title: 'Certification Management',
-      description:
-        'Track member certifications, CPD credits, and professional development milestones',
-    },
-    features: [
-      'Business Directory',
-      'Map & Discovery',
-      'Business Ratings & Recommendations',
-      'Events, Exhibitions & CPD Trackings',
-      'Member, Membership & Committee Management',
-      'Meetings & Approvals',
-      'AI-Powered Assistance',
-      'Committee & board management',
-      'Certification management',
-      'Professional resource library',
-      'Birthday Wishes',
-    ],
-    image:
-      'https://images.unsplash.com/photo-1712971404080-87271ce2e473?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMGFzc29jaWF0aW9uJTIwY29uZmVyZW5jZSUyMG5ldHdvcmtpbmd8ZW58MXx8fHwxNzcxOTEzMjMwfDA&ixlib=rb-4.1.0&q=80&w=1080',
-    contentAlign: 'left',
-  },
-  {
-    type: 'Social Communities (Samaj)',
-    icon: Users,
-    title: 'Connect & Celebrate Together',
-    description:
-      'Build stronger bonds within your community with comprehensive member management, cultural event coordination, and networking tools designed specifically for Samaj organizations.',
-    highlightedFeature: {
-      icon: Users,
-      title: 'Member Directory',
-      description:
-        'Maintain detailed family networks with searchable member profiles and relationship mapping',
-    },
-    features: [
-      'Member directory & family networks',
-      'Cultural event management',
-      'Matrimonial',
-      'Business networking',
-      'Community welfare programs',
-      'Festival & celebration planning',
-      'Donation & fundraising tracking',
-      'Community Announcements',
-      'Smart Notifications & Birthday Wishes',
-    ],
-    image:
-      'https://images.unsplash.com/photo-1759738102510-ec524f666274?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBzYW1haiUyMGNvbW11bml0eSUyMGdhdGhlcmluZyUyMGN1bHR1cmFsJTIwZXZlbnR8ZW58MXx8fHwxNzcxOTEzMjMwfDA&ixlib=rb-4.1.0&q=80&w=1080',
-    contentAlign: 'right',
-  },
-]
+
 
 function YounitedCommunitiesPage() {
   const { openModal } = useEnquiryModal()
@@ -325,7 +350,7 @@ function YounitedCommunitiesPage() {
                 >
                   <Building2 className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" />
                   <span className="text-xs md:text-sm font-semibold text-gray-700">
-                    Community Management Platform
+                    Association & Community Management Platform
                   </span>
                 </motion.div>
                 <AnimatedH1
@@ -342,9 +367,9 @@ function YounitedCommunitiesPage() {
                   }}
                   className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6"
                 >
-                  Younited Communities{' '}
+                  Your Community.{' '}
                   <span className="block bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                    Simplify. Engage. Scale.
+                    Finally Organised.
                   </span>
                 </AnimatedH1>
                 <motion.p
@@ -361,9 +386,7 @@ function YounitedCommunitiesPage() {
                   }}
                   className="text-md lg:text-lg text-gray-600 leading-relaxed font-medium mb-8"
                 >
-                  A complete community and association management platform designed to streamline member
-                  management, event coordination, and approval workflows - so you can focus on building
-                  stronger, more engaged communities.
+                  Younited Communities is a complete management platform for trade associations, industry chambers, professional bodies, and community organizations. Member management, event coordination, approval workflows, and communications - all in one place, built for India.
                 </motion.p>
                 <motion.div
                   initial={{
@@ -543,6 +566,101 @@ function YounitedCommunitiesPage() {
             </div>
           </div>
         </section>
+        <section className="py-12 md:py-16 bg-white border-b border-gray-100">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              className="text-center mb-16"
+            >
+              <motion.span
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
+              >
+                Solutions By Community Type
+              </motion.span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 leading-tight">
+                Built for Trade, Commerce<br className="hidden sm:inline" />{' '}
+                <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
+                  & Industry Associations
+                </span>
+              </h2>
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Younited Communities adapts to the specific structure and needs of each community type - from chambers of commerce to professional bodies to Samaj organizations.
+              </p>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {solutionsByCommunityType.map((solution, index) => (
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    y: 30,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    delay: index * 0.1,
+                  }}
+                  whileHover={{
+                    y: -8,
+                  }}
+                  className="group relative h-full"
+                  key={solution.title}
+                >
+                  <div className={`relative h-full bg-white/60 backdrop-blur-lg rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100 ${solution.topBorder} hover:shadow-2xl hover:border-gray-200 transition-all duration-300 flex flex-col justify-between`}>
+                    <div>
+                      <div className="w-12 h-12 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <solution.icon className="w-6 h-6 text-gray-800" strokeWidth={1} />
+                      </div>
+                      <h3 className="text-base sm:text-lg font-bold text-gray-900 leading-snug">
+                        {solution.title}
+                      </h3>
+                      <p className={`text-xs sm:text-sm font-semibold ${solution.subtitleColor} mb-4`}>
+                        {solution.subtitle}
+                      </p>
+                      <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                        {solution.description}
+                      </p>
+                    </div>
+
+                    <div className="pt-4 border-t border-gray-100 space-y-3">
+                      {solution.features.map((feature, idx) => (
+                        <div className="flex items-start space-x-2.5" key={idx}>
+                          <Check className="w-4 h-4 text-[#f1592a] shrink-0 mt-0.5" strokeWidth={2.5} />
+                          <span className="text-xs sm:text-sm text-gray-600 leading-snug">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
         <section id="features" className="py-12 md:py-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -576,13 +694,13 @@ function YounitedCommunitiesPage() {
                 Core Features
               </motion.span>
               <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
-                Core{' '}
+                Everything Your Association<br></br>{' '}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Features
+                  Needs to Run Properly
                 </span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Everything you need to manage your community efficiently, from member profiles to event coordination and meeting management.
+              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Three core modules that handle the full operational cycle of any association - members, events, and approvals.
               </p>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -623,225 +741,23 @@ function YounitedCommunitiesPage() {
                     <p className="text-gray-600 text-sm leading-relaxed">
                       {feature.description}
                     </p>
+                    {feature.points && feature.points.length > 0 && (
+                      <div className="mt-4 pt-4 border-t border-gray-100 space-y-2.5 w-full">
+                        {feature.points.map((point, idx) => (
+                          <div className="flex items-start space-x-2.5" key={idx}>
+                            <Check className="w-4 h-4 text-[#f1592a] shrink-0 mt-0.5" strokeWidth={2.5} />
+                            <span className="text-xs sm:text-sm text-gray-600 leading-snug">{point}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
-        <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 30,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              className="text-center mb-20"
-            >
-              <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                Perfect For{' '}
-                <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Every Community
-                </span>
-              </h2>
-              <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
-                Whether you're managing a Samaj, professional association, or non-profit
-                organization - Younited Communities adapts to your unique needs.
-              </p>
-            </motion.div>
-            <div className="space-y-32">
-              {useCases.map((useCase, index) => (
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    y: 40,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                    margin: '-100px',
-                  }}
-                  transition={{
-                    duration: 0.6,
-                    delay: index * 0.2,
-                  }}
-                  className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center ${useCase.contentAlign === 'right' ? 'lg:grid-flow-dense' : ''}`}
-                  key={useCase.type}
-                >
-                  <div className={useCase.contentAlign === 'right' ? 'lg:col-start-2' : ''}>
-                    <motion.div
-                      initial={{
-                        opacity: 0,
-                        x: -20,
-                      }}
-                      whileInView={{
-                        opacity: 1,
-                        x: 0,
-                      }}
-                      viewport={{
-                        once: true,
-                      }}
-                      transition={{
-                        delay: 0.2,
-                      }}
-                      className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
-                    >
-                      <useCase.icon className="text-[#f1592a] w-4 h-4 md:w-5 md:h-5" strokeWidth={2} />
-                      <span className="text-xs md:text-sm font-semibold text-[#f1592a]">
-                        {useCase.type}
-                      </span>
-                    </motion.div>
-                    <motion.h3
-                      initial={{
-                        opacity: 0,
-                        x: -20,
-                      }}
-                      whileInView={{
-                        opacity: 1,
-                        x: 0,
-                      }}
-                      viewport={{
-                        once: true,
-                      }}
-                      transition={{
-                        delay: 0.3,
-                      }}
-                      className="text-3xl md:text-4xl font-bold text-gray-900 mb-6"
-                    >
-                      {useCase.title}
-                    </motion.h3>
-                    <motion.p
-                      initial={{
-                        opacity: 0,
-                        x: -20,
-                      }}
-                      whileInView={{
-                        opacity: 1,
-                        x: 0,
-                      }}
-                      viewport={{
-                        once: true,
-                      }}
-                      transition={{
-                        delay: 0.4,
-                      }}
-                      className="text-gray-600 leading-relaxed mb-8"
-                    >
-                      {useCase.description}
-                    </motion.p>
-                    <motion.div
-                      initial={{
-                        opacity: 0,
-                        y: 20,
-                      }}
-                      whileInView={{
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      viewport={{
-                        once: true,
-                      }}
-                      transition={{
-                        delay: 0.5,
-                      }}
-                      className="bg-gradient-to-br from-[#f1592a]/10 to-[#ff7a45]/10 rounded-2xl p-4 lg:p-6 mb-8 border border-[#f1592a]/20"
-                    >
-                      <div className="flex items-start space-x-4">
-                        <div className="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-[#f1592a]/30 shadow-sm">
-                          <useCase.highlightedFeature.icon
-                            className="text-[#f1592a]"
-                            size={22}
-                            strokeWidth={2}
-                          />
-                        </div>
-                        <div>
-                          <h4 className="font-bold text-gray-900 mb-2">
-                            {useCase.highlightedFeature.title}
-                          </h4>
-                          <p className="text-sm text-gray-600 leading-relaxed">
-                            {useCase.highlightedFeature.description}
-                          </p>
-                        </div>
-                      </div>
-                    </motion.div>
-                    <motion.div
-                      initial={{
-                        opacity: 0,
-                        y: 20,
-                      }}
-                      whileInView={{
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      viewport={{
-                        once: true,
-                      }}
-                      transition={{
-                        delay: 0.6,
-                      }}
-                      className="grid sm:grid-cols-2 gap-x-6 gap-y-3"
-                    >
-                      {useCase.features.map((feature, idx) => (
-                        <div className="flex items-center space-x-3" key={idx}>
-                          <CheckCircle
-                            className="text-[#f1592a] flex-shrink-0"
-                            size={16}
-                            strokeWidth={2}
-                          />
-                          <span className="text-sm text-gray-700">{feature}</span>
-                        </div>
-                      ))}
-                    </motion.div>
-                  </div>
-                  <div
-                    className={
-                      useCase.contentAlign === 'right' ? 'lg:col-start-1 lg:row-start-1' : ''
-                    }
-                  >
-                    <motion.div
-                      initial={{
-                        opacity: 0,
-                        scale: 0.95,
-                      }}
-                      whileInView={{
-                        opacity: 1,
-                        scale: 1,
-                      }}
-                      viewport={{
-                        once: true,
-                      }}
-                      transition={{
-                        duration: 0.6,
-                        delay: 0.3,
-                      }}
-                      className="relative"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#f1592a]/10 to-[#ff7a45]/5 rounded-[3rem] blur-3xl scale-105 -z-10" />
-                      <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
-                        <ImageWithFallback
-                          src={useCase.image}
-                          alt={useCase.type}
-                          className="w-full h-auto"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
-                      </div>
-                    </motion.div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+
         <section className="py-12 md:py-16">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -858,14 +774,30 @@ function YounitedCommunitiesPage() {
               }}
               className="text-center mb-16"
             >
+              <motion.span
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
+              >
+                Why Younited Communities
+              </motion.span>
               <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                Why Choose{' '}
+                Built for Associations That<br></br>{' '}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Younited Communities
+                  Demand More Than a Spreadsheet
                 </span>
               </h2>
               <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
-                Built for modern communities that demand efficiency, transparency, and scalability.
+                Most associations are managed on WhatsApp groups, Excel sheets, and scattered emails. Younited brings everything into one transparent, searchable, accountable platform.
               </p>
             </motion.div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -888,17 +820,17 @@ function YounitedCommunitiesPage() {
                   className="group p-4 lg:p-6 bg-white rounded-2xl border border-gray-200 hover:border-[#f1592a]/30 hover:shadow-xl transition-all"
                   key={benefit.title}
                 >
-                  <div className="relative w-12 h-12 md:w-14 md:h-14 mb-6">
-                    <div className="w-full h-full bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-[#f1592a]/10 transition-all">
+                  <div className="relative w-12 h-12 md:w-12 md:h-12 mb-6">
+                    <div className="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-gray-200 group-hover:border-[#f1592a]/30 transition-all">
                       <benefit.icon
                         className="text-gray-700 group-hover:text-[#f1592a] transition-colors"
                         size={28}
                         strokeWidth={1.5}
                       />
                     </div>
-                    <div className="absolute -bottom-1.5 -right-1.5 w-4 h-4 bg-[#f1592a] rounded-full border-2 border-white" />
+                    <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[#f1592a] rounded-full border-2 border-white" />
                   </div>
-                  <h3 className="text-lg md:text-lg md:text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
                   <p className="text-gray-600 text-sm md:text-md leading-relaxed">{benefit.description}</p>
                 </motion.div>
               ))}
@@ -921,14 +853,30 @@ function YounitedCommunitiesPage() {
               }}
               className="text-center mb-16"
             >
+              <motion.span
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                className="inline-block px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 rounded-full text-xs md:text-sm font-semibold text-[#f1592a] mb-4"
+              >
+                Additional Capabilities
+              </motion.span>
               <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                Additional{' '}
+                A Complete Toolkit for<br></br>{' '}
                 <span className="bg-gradient-to-r from-[#f1592a] to-[#ff7a45] bg-clip-text text-transparent">
-                  Capabilities
+                  Modern Association Management
                 </span>
               </h2>
               <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto">
-                A comprehensive toolkit designed to address every aspect of community management.
+                Beyond the core modules - six additional capabilities that make Younited a complete platform, not just a member directory.
               </p>
             </motion.div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -993,19 +941,15 @@ function YounitedCommunitiesPage() {
               viewport={{
                 once: true,
               }}
-              className="text-center max-w-4xl mx-auto"
+              className="text-center max-w-6xl mx-auto"
             >
-              <div className="inline-flex items-center space-x-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/40 mb-8">
-                <Sparkles className="text-white w-4 h-4 md:w-5 md:h-5" />
-                <span className="text-xs md:text-sm font-medium text-white">
-                  Ready to Transform Your Community?
-                </span>
-              </div>
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                Start Your Free Demo Today
+
+              <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6">
+                Ready to Bring Your<br></br>
+                Association into One Platform?
               </h2>
-              <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto">
-                See how Younited Communities can streamline your operations, boost engagement, and help your community thrive. Schedule a personalized demo with our team.
+              <p className="text-md md:text-lg text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Book a 30-minute demo. We'll walk through how Younited Communities works for your specific association type - trade body, professional association, or Samaj - and show you exactly what changes.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <motion.button
@@ -1031,7 +975,7 @@ function YounitedCommunitiesPage() {
                   }}
                   className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-transparent text-white rounded-full border-2 border-white hover:bg-white hover:text-[#f1592a] transition-all font-semibold flex items-center justify-center space-x-2 group"
                 >
-                  <span className="text-sm md:text-md">Contact Sales</span>
+                  <span className="text-sm md:text-md">Talk to Our Team</span>
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                 </motion.a>
               </div>
@@ -1054,15 +998,19 @@ function YounitedCommunitiesPage() {
               >
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />{' '}
-                  <span className="text-sm md:text-md">Centralized Member Management</span>
+                  <span className="text-sm md:text-md">Free personalised demo</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />{' '}
-                  <span className="text-sm md:text-md">Simplified Community Operations</span>
+                  <span className="text-sm md:text-md">Custom-configured for your association type</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />{' '}
-                  <span className="text-sm md:text-md">Stronger Member Connections</span>
+                  <span className="text-sm md:text-md">White-label branding available</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />{' '}
+                  <span className="text-sm md:text-md">Built in Surat, serving India</span>
                 </div>
               </motion.div>
             </motion.div>

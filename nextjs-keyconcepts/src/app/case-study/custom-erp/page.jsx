@@ -225,7 +225,7 @@ export default function CustomERPCaseStudyPage() {
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-lg md:text-xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed"
+                className="text-lg text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed"
               >
                 For a medium-sized chemical manufacturer in Gujarat, operational growth brought operational pain. Four departments were operating as four separate islands. We listened first, then built a custom Odoo ERP that connected Purchase, Sales, Production, and Exports into one real-time workflow.
               </motion.p>

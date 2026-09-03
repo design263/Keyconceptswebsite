@@ -219,7 +219,7 @@ export default function BrandCentralCaseStudyPage() {
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-lg text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed"
+                className="text-md lg:text-lg mb-10 max-w-3xl mx-auto leading-relaxed font-medium"
               >
                 Brand Central helps brands sell on Amazon, Myntra, and Ajio - but everything was managed manually. Listings took days to update. Prices were out of sync across platforms. Inventory was overselling because a sale on one platform wasn't reflected on others. Key Concepts built the platform that turned that vision into reality.
               </motion.p>

@@ -564,9 +564,9 @@ function CareersPage() {
                     whileTap={{
                       scale: 0.95,
                     }}
-                    className="w-[80%] sm:w-auto mx-auto sm:mx-0 group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                    className="group w-[80%] sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
                   >
-                    <span className="font-semibold">View Open Roles</span>
+                    <span className="text-sm md:text-md font-semibold">View Open Roles</span>
                     <ArrowRight
                       className="group-hover:translate-x-1 transition-transform"
                       size={20}
@@ -580,9 +580,9 @@ function CareersPage() {
                     whileTap={{
                       scale: 0.95,
                     }}
-                    className="px-8 py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center space-x-2 group"
+                    className="bg-white group w-[80%] sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-full shadow-2xl border border-gray-200 rounded-full text-gray-800 hover:border-[#f1592a] hover:text-[#f1592a] transition-all flex items-center justify-center space-x-2"
                   >
-                    <span className="font-semibold">Learn More</span>
+                    <span className="text-sm md:text-md font-semibold">Learn More</span>
                     <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                   </motion.a>
                 </motion.div>

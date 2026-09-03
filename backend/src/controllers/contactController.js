@@ -63,6 +63,10 @@ export const createContactLead = async (req, res) => {
                       <td style="padding: 5px 0; color: #111827;">${subject}</td>
                     </tr>
                     <tr>
+                      <td style="padding: 5px 0; color: #6b7280;"><strong>Approximate Budget:</strong></td>
+                      <td style="padding: 5px 0; color: #111827;">${lead.approximateBudget || '—'}</td>
+                    </tr>
+                    <tr>
                       <td style="padding: 5px 0; color: #6b7280;"><strong>Submitted On:</strong></td>
                       <td style="padding: 5px 0; color: #111827;">${new Date(lead.createdAt).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</td>
                     </tr>
@@ -158,6 +162,7 @@ export const listContactLeads = async (req, res) => {
       { name: { $regex: q, $options: "i" } },
       { email: { $regex: q, $options: "i" } },
       { subject: { $regex: q, $options: "i" } },
+      { approximateBudget: { $regex: q, $options: "i" } },
     ];
   }
 

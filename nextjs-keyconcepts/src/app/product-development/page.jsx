@@ -819,7 +819,7 @@ function ProductDevelopmentPage() {
                           key={tech.name}
                           className="flex flex-col items-center justify-center p-3 rounded-2xl bg-gray-50/80 hover:bg-white border border-gray-100/80 hover:border-[#f1592a]/30 hover:shadow-md transition-all duration-300 group/tech text-center"
                         >
-                          <div className="w-10 h-10 mb-2 flex items-center justify-center rounded-xl p-1 bg-white border border-gray-100 shadow-xs group-hover/tech:scale-110 transition-transform">
+                          <div className="w-12 h-12 mb-2 flex items-center justify-center rounded-xl p-1 bg-white border border-gray-100 shadow-xs group-hover/tech:scale-110 transition-transform">
                             <img
                               src={tech.logo}
                               alt={tech.name}

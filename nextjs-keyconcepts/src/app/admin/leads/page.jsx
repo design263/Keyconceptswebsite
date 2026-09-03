@@ -46,20 +46,26 @@ export default function AdminLeadsPage() {
   const getLeadDetails = (lead) => {
     const lines = lead?.message?.split('\n') || []
   
-    const message = lines.find(
-      (line) => !line.startsWith('Company:') && !line.startsWith('Phone:')
-    )
+    const message = lines
+      .filter((line) => !line.startsWith('Company:') && !line.startsWith('Phone:') && !line.startsWith('Approximate Budget:'))
+      .join('\n')
   
     const company =
       lines.find((line) => line.startsWith('Company:'))?.replace('Company:', '').trim() || '-'
   
     const phone =
       lines.find((line) => line.startsWith('Phone:'))?.replace('Phone:', '').trim() || '-'
+
+    const budget =
+      lead?.approximateBudget ||
+      lines.find((line) => line.startsWith('Approximate Budget:'))?.replace('Approximate Budget:', '').trim() ||
+      '—'
   
     return {
       message: message || '-',
       company,
       phone,
+      budget,
     }
   }
   return (
@@ -182,6 +188,10 @@ export default function AdminLeadsPage() {
                   <div>
                     <label className="text-sm font-semibold text-foreground">Subject</label>
                     <p className="text-muted-foreground">{selectedLeadMessage.subject}</p>
+                  </div>
+                  <div>
+                    <label className="text-sm font-semibold text-foreground">Approximate Budget</label>
+                    <p className="text-muted-foreground">{getLeadDetails(selectedLeadMessage).budget}</p>
                   </div>
                   <div>
                     <label className="text-sm font-semibold text-foreground">Date</label>
