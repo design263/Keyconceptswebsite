@@ -295,7 +295,7 @@ function ProductDevelopmentPage() {
                 </motion.button>
 
                 <motion.a
-                  href="#who-its-for"
+                  href="#What-We-Build"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="w-[80%] sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center space-x-2 group"
@@ -383,7 +383,7 @@ function ProductDevelopmentPage() {
             </div>
           </div>
         </section>
-        <section className=" py-12 md:py-16 bg-gradient-to-b from-white to-gray-50">
+        <section id="What-We-Build" className=" py-12 md:py-16 bg-gradient-to-b from-white to-gray-50 scroll-mt-[80px]">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{

@@ -189,7 +189,7 @@ export default function BrandCentralCaseStudyPage() {
       <div className="min-h-screen bg-white">
 
         {/* Hero Section */}
-        <section className="relative pt-32 pb-24 md:pt-40 md:pb-36 bg-gradient-to-br from-gray-950 via-slate-900 to-gray-950 text-white overflow-hidden">
+        <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-gradient-to-br from-gray-950 via-slate-900 to-gray-950 text-white overflow-hidden">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-20 right-0 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
@@ -239,6 +239,20 @@ export default function BrandCentralCaseStudyPage() {
                   </div>
                 ))}
               </motion.div>
+
+              {/* Showcase Image Banner */}
+              {/* <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.5 }}
+                className="mt-12 max-w-5xl mx-auto rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
+              >
+                <img
+                  src="/assets/brand-central.png"
+                  alt="Brand Central Case Study Showcase"
+                  className="w-full h-auto object-cover"
+                />
+              </motion.div> */}
             </div>
           </div>
         </section>
@@ -416,7 +430,7 @@ export default function BrandCentralCaseStudyPage() {
                 What We Built
               </span>
               <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gray-900 tracking-tight text-center">
-                What We Built — Feature by Feature
+                What We Built - Feature by Feature
               </h2>
               <p className="text-md md:text-lg text-gray-600 text-center">
                 A high-speed SaaS retail middleware connecting stock levels, order allocations, and catalogs under one dynamic hub.
@@ -439,7 +453,7 @@ export default function BrandCentralCaseStudyPage() {
                       <div className="w-full h-full bg-gray-50 rounded-xl flex items-center justify-center border border-gray-100 transition-all group-hover:bg-white group-hover:border-[#f1592a]/10">
                         <feat.icon className="text-gray-700 w-5 h-5" strokeWidth={1.5} />
                       </div>
-                      <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-[#f1592a] rounded-full border-2 border-white" />
+                      <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-[#f1592a] rounded-full border-2 border-white" />
                     </div>
                     <h3 className="text-lg font-bold mb-3 text-gray-900 leading-snug">{feat.title}</h3>
                     <p className="text-gray-500 text-xs md:text-sm leading-relaxed mt-1">{feat.description}</p>

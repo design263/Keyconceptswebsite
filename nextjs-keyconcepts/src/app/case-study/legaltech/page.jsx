@@ -179,7 +179,7 @@ export default function LegalTechCaseStudyPage() {
       <div className="min-h-screen bg-white">
 
         {/* Hero Section */}
-        <section className="relative pt-32 pb-24 md:pt-40 md:pb-36 bg-gradient-to-br from-gray-950 via-slate-900 to-gray-950 text-white overflow-hidden">
+        <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-gradient-to-br from-gray-950 via-slate-900 to-gray-950 text-white overflow-hidden">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-20 right-0 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
@@ -211,7 +211,7 @@ export default function LegalTechCaseStudyPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-lg text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed"
               >
-                In India, legal documentation was still entirely manual — prone to forgery, slow to process, and impossible to do remotely. A founder saw this gap and had a clear vision: make it secure, digital, and accessible to anyone, anywhere. Key Concepts built the platform that turned that vision into reality.
+                In India, legal documentation was still entirely manual - prone to forgery, slow to process, and impossible to do remotely. A founder saw this gap and had a clear vision: make it secure, digital, and accessible to anyone, anywhere. Key Concepts built the platform that turned that vision into reality.
               </motion.p>
 
               <motion.div
@@ -241,6 +241,20 @@ export default function LegalTechCaseStudyPage() {
                   </div>
                 ))}
               </motion.div>
+
+              {/* Showcase Image Banner */}
+              {/* <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.5 }}
+                className="mt-12 max-w-5xl mx-auto rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
+              >
+                <img
+                  src="/assets/legal-tech.png"
+                  alt="LegalTech Case Study Showcase"
+                  className="w-full h-auto object-cover"
+                />
+              </motion.div> */}
             </div>
           </div>
         </section>
@@ -355,7 +369,7 @@ export default function LegalTechCaseStudyPage() {
                 Before & After
               </span>
               <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gray-900 tracking-tight text-center">
-                India's Legal Documentation — Old Way vs. What We Built
+                India's Legal Documentation - Old Way vs. What We Built
               </h2>
             </motion.div>
 

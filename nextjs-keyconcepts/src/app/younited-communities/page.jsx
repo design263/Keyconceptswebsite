@@ -661,7 +661,7 @@ function YounitedCommunitiesPage() {
             </div>
           </div>
         </section>
-        <section id="features" className="py-12 md:py-16 bg-white">
+        <section id="features" className="py-12 md:py-16 bg-white scroll-mt-[80px]">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{

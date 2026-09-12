@@ -630,7 +630,7 @@ export default function ClaimGeniePage() {
         </section>
 
         {/* Core Features section */}
-        <section id="core-capabilities" className="py-16 md:py-24 bg-white">
+        <section id="core-capabilities" className="py-16 md:py-24 bg-white scroll-mt-[80px]">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}

@@ -311,7 +311,8 @@ function MVPStudioPage() {
                   whileTap={{ scale: 0.95 }}
                   className="w-[80%] sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center"
                 >
-                  <span className="text-sm md:text-md font-semibold">Explore Services</span>
+                  <span className="text-sm md:text-md font-semibold mr-2">Explore Services</span>
+                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                 </motion.a>
               </motion.div>
             </motion.div>

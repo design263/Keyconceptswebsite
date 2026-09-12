@@ -195,7 +195,7 @@ export default function CustomERPCaseStudyPage() {
       <div className="min-h-screen bg-white">
 
         {/* Hero Section */}
-        <section className="relative pt-32 pb-24 md:pt-40 md:pb-36 bg-gradient-to-br from-gray-950 via-slate-900 to-gray-950 text-white overflow-hidden">
+        <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-gradient-to-br from-gray-950 via-slate-900 to-gray-950 text-white overflow-hidden">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-20 right-0 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#f1592a]/10 rounded-full blur-3xl" />
@@ -257,6 +257,20 @@ export default function CustomERPCaseStudyPage() {
                   </div>
                 ))}
               </motion.div>
+
+              {/* Showcase Image Banner */}
+              {/* <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.5 }}
+                className="mt-12 max-w-5xl mx-auto rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
+              >
+                <img
+                  src="/assets/custom-erp.png"
+                  alt="Custom ERP Case Study Showcase"
+                  className="w-full h-auto object-cover"
+                />
+              </motion.div> */}
             </div>
           </div>
         </section>

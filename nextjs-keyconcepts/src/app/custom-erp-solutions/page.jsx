@@ -273,7 +273,7 @@ function CustomERPPage() {
             </motion.div>
           </div>
         </section>
-        <section id="services" className="py-12 md:py-16 bg-gradient-to-b from-white to-gray-50">
+        <section id="services" className="py-12 md:py-16 bg-gradient-to-b from-white to-gray-50 scroll-mt-[80px]">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{

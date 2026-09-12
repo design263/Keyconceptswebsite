@@ -415,7 +415,7 @@ function VisitorManagementPage() {
                       }}
                       className="w-full group px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center space-x-2"
                     >
-                      <span className="text-sm md:text-base font-semibold">See All Features</span>
+                      <span className="text-sm md:text-base font-semibold">Explore Features</span>
                       <ArrowRight
                         className="group-hover:translate-x-1 transition-transform w-4 h-4 md:w-5 md:h-5 text-gray-800"
                         strokeWidth={1.5}
@@ -606,7 +606,7 @@ function VisitorManagementPage() {
             </div>
           </div>
         </section>
-        <section id="core-features" className="py-12 md:py-16 bg-white">
+        <section id="core-features" className="py-12 md:py-16 bg-white scroll-mt-[80px]" >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{

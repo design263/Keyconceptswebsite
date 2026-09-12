@@ -10,8 +10,7 @@ export const caseStudies = [
       '4 years in business, growing fast - but Purchase, Sales, Production, and Exports were all working from a single shared email inbox and Excel files. Purchase was buying excess stock. Sales was committing orders that weren\'t in inventory. Production had no planning visibility. Exports was drowning in manual paperwork. Two previous software systems had already failed them. We listened first, then built a custom Odoo ERP that finally connected everything.',
     result:
       'We built an integrated Odoo system covering their core operations: intelligent Purchase management that cut overstocking by 35%; real-time Inventory tracking that stopped sales committing unavailable items; Production planning that aligned orders with actual capacity; and automated Export documentation that cut processing time from 4 hours to 25 minutes. Within 6 months, they went from daily chaos and missed deadlines to having one connected system that actually works the way their business runs.',
-    image:
-      'https://images.unsplash.com/photo-1647427060118-4911c9821b82?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYW51ZmFjdHVyaW5nJTIwaW5kdXN0cnl8ZW58MXx8fHwxNzcyNDI4NDY5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    image: '/assets/custom-erp.png',
     metrics: [
       {
         label: 'Efficiency Increase',
@@ -39,8 +38,7 @@ export const caseStudies = [
       'Brand Central helps brands sell on Amazon, Myntra, and Ajio - but everything was managed manually. Listings took days to update. Prices were out of sync across platforms. Inventory was overselling because a sale on one platform wasn\'t reflected on others.The same work was being done three times, and still getting it wrong.We built them a single unified dashboard to manage all three platforms - one update, everywhere, instantly.',
     result:
       'Built a scalable web and mobile platform with integrated inventory management and seamless checkout experience.',
-    image:
-      'https://images.unsplash.com/photo-1764795850248-97a5e986b242?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXRhaWwlMjBzdG9yZSUyMHRlY2hub2xvZ3l8ZW58MXx8fHwxNzcyMzQxODMzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    image: '/assets/brand-central.png',
     metrics: [
       {
         label: 'Sales Growth',
@@ -67,8 +65,7 @@ export const caseStudies = [
       'A founder saw a massive gap - India\'s entire legal documentation process was manual, paper-based, and wide open to forgery. No one had truly digitised it. We built a complete platform: identity validation, video recording, auto-transcript, eSign, consent capture, third-party integration, and scheduling - all in one secure session. What once required physical presence and paperwork is now done remotely, from anywhere in India, with zero forgery risk.',
     result:
       'Delivered a feature-rich MVP in 12 weeks that secured seed funding and acquired first 1000 users.',
-    image:
-      'https://images.unsplash.com/photo-1642406415849-a410b5d01a94?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHN1Y2Nlc3MlMjB0ZWFtfGVufDF8fHx8MTc3MjQyODQ2OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    image: '/assets/legal-tech.png',
     metrics: [
       {
         label: 'Process Digitised',
