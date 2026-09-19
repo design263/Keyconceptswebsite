@@ -65,7 +65,7 @@ function CTASection() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group w-[80%] sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all flex items-center justify-center space-x-2 font-semibold"
+                className="group w-[80%] sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all flex items-center justify-center space-x-2 font-semibold cursor-pointer"
               >
                 <span>Start a Conversation</span>
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />

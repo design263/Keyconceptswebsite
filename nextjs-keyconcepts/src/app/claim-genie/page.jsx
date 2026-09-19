@@ -462,7 +462,7 @@ export default function ClaimGeniePage() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-full sm:w-auto group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/40 transition-all flex items-center justify-center space-x-2"
+                      className="w-full sm:w-auto group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/40 transition-all flex items-center justify-center space-x-2 cursor-pointer"
                     >
                       <span className="text-sm md:text-base font-semibold">Schedule a Demo</span>
                       <Zap className="group-hover:scale-110 transition-transform w-3 h-3 md:w-5 md:h-5" strokeWidth={1.5} />
@@ -474,12 +474,12 @@ export default function ClaimGeniePage() {
                       e.preventDefault()
                       document.getElementById('core-capabilities')?.scrollIntoView({ behavior: 'smooth' })
                     }}
-                    className="w-[80%] sm:w-auto"
+                    className="w-[80%] sm:w-auto cursor-pointer"
                   >
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-full group px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center space-x-2"
+                      className="w-full group px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center space-x-2 cursor-pointer"
                     >
                       <span className="text-sm md:text-base font-semibold">Explore Features</span>
                       <ArrowRight className="group-hover:translate-x-1 transition-transform w-3 h-3 md:w-5 md:h-5 text-gray-800" strokeWidth={1.5} />
@@ -1011,16 +1011,16 @@ export default function ClaimGeniePage() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all font-semibold flex items-center justify-center space-x-2"
+                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all font-semibold flex items-center justify-center space-x-2 cursor-pointer"
                     >
                       <span className="text-sm md:text-md">Schedule a Demo</span>
                     </motion.button>
                   </div>
-                  <Link href="/contact" className="w-full sm:w-auto flex justify-center">
+                  <Link href="/contact" className="w-full sm:w-auto flex justify-center cursor-pointer">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-transparent text-white rounded-full border-2 border-white hover:bg-white hover:text-[#f1592a] transition-all font-semibold flex items-center justify-center space-x-2"
+                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-transparent text-white rounded-full border-2 border-white hover:bg-white hover:text-[#f1592a] transition-all font-semibold flex items-center justify-center space-x-2 cursor-pointer"
                     >
                       <span className="text-sm md:text-md">Talk to Our Team</span>
                     </motion.button>

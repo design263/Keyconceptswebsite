@@ -1,7 +1,20 @@
 import { createPageMetadata } from '@/lib/seo'
+import { JsonLd } from '@/components/json-ld'
+import { breadcrumbSchema } from '@/lib/structured-data'
 
 export const metadata = createPageMetadata('careers')
 
 export default function CareersLayout({ children }) {
-  return children
+  return (
+    <>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'Careers', url: '/careers' },
+        ])}
+      />
+      {children}
+    </>
+  )
 }
+

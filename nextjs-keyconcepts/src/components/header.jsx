@@ -20,14 +20,6 @@ function Header() {
       path: '/',
     },
     {
-      name: 'Services',
-      path: '/services',
-    },
-    {
-      name: 'About',
-      path: '/about',
-    },
-    {
       name: 'Knowledge Hub',
       path: '/blog',
     },

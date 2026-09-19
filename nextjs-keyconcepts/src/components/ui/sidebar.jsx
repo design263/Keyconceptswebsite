@@ -488,9 +488,7 @@ function SidebarMenuBadge({ className, ...props }) {
   )
 }
 function SidebarMenuSkeleton({ className, showIcon = false, ...props }) {
-  const width = React.useMemo(() => {
-    return `${Math.floor(Math.random() * 40) + 50}%`
-  }, [])
+  const width = '70%'
   return (
     <div
       data-slot="sidebar-menu-skeleton"

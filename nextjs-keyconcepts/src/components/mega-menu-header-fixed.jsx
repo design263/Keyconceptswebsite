@@ -68,7 +68,7 @@ const company = [
     name: 'Our Story',
     description: 'Learn about our journey',
     icon: 'Heart',
-    link: '/our-story',
+    link: '/keyconcepts-story',
   },
   {
     name: 'Process',

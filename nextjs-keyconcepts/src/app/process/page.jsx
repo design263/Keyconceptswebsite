@@ -1052,7 +1052,7 @@ function ProcessPage() {
                     whileTap={{
                       scale: 0.95,
                     }}
-                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all font-semibold flex items-center justify-center space-x-2 group"
+                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all font-semibold flex items-center justify-center space-x-2 group cursor-pointer"
                   >
                     <span className="text-sm md:text-md">Start a Conversation</span>
                     <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />

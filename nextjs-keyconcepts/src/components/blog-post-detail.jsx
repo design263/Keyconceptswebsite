@@ -13,18 +13,18 @@ export function BlogPostDetail({ post }) {
       <div className="min-h-screen bg-white">
         <section className="pt-32 pb-12 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            
 
-            <div className="max-w-4xl mx-auto">
-            <Link href="/insights/trends">
-              <motion.button
-                whileHover={{ x: -5 }}
-                className="flex items-center space-x-2 text-gray-600 hover:text-[#f1592a] transition-colors mb-8"
-              >
-                <ArrowLeft size={20} />
-                <span>Back to Industry Trends</span>
-              </motion.button>
-            </Link>
+
+            <div className="max-w-6xl mx-auto">
+              <Link href="/insights/trends">
+                <motion.button
+                  whileHover={{ x: -5 }}
+                  className="flex items-center space-x-2 text-gray-600 hover:text-[#f1592a] transition-colors mb-8"
+                >
+                  <ArrowLeft size={20} />
+                  <span>Back to Industry Trends</span>
+                </motion.button>
+              </Link>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -37,30 +37,30 @@ export function BlogPostDetail({ post }) {
                 <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">{post.title}</h1>
                 <div className="flex flex-wrap items-center justify-between gap-6 text-gray-600 mb-8">
                   <div className="flex items-center space-x-2">
-                  <div className="flex items-center space-x-2">
-                    <User size={16} />
-                    <span>{post.author}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Calendar size={16} />
-                    <span>{post.date}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Clock size={16} />
-                    <span>{post.readTime}</span>
-                  </div>
+                    <div className="flex items-center space-x-2">
+                      <User size={16} />
+                      <span>{post.author}</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Calendar size={16} />
+                      <span>{post.date}</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Clock size={16} />
+                      <span>{post.readTime}</span>
+                    </div>
                   </div>
                   <div className="flex space-x-3">
-                        <button
-                          type="button"
-                          className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-white border-2 border-gray-200 rounded-xl hover:border-[#f1592a]  transition-all text-sm font-semibold"
-                          onClick={() => shareContent(post.title, post.excerpt, window.location.href)}
-                          >
-                          <Share2 size={18} />
-                          <span>Share</span>
-                        </button>
-                       
-                      </div>
+                    <button
+                      type="button"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-white border-2 border-gray-200 rounded-xl hover:border-[#f1592a]  transition-all text-sm font-semibold"
+                      onClick={() => shareContent(post.title, post.excerpt, window.location.href)}
+                    >
+                      <Share2 size={18} />
+                      <span>Share</span>
+                    </button>
+
+                  </div>
                 </div>
                 <div className="rounded-2xl overflow-hidden mb-10">
                   <ImageWithFallback
@@ -122,7 +122,7 @@ export function BlogPostDetail({ post }) {
                       </div>
                     )}
 
-                    
+
                   </motion.div>
                 </div>
               </div>

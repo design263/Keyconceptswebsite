@@ -40,7 +40,7 @@ const coreValues = [
     icon: Award,
     title: 'Integrity',
     description: "We say what we'll do, and we do what we say. No hidden costs, no scope that quietly grows, no timelines padded to make us look good. When something is delayed, we tell you before you have to ask. When something is harder than we thought, we say so - and then we solve it together.",
-    footnote: "In 16 years, our most common source of new clients is referrals from existing ones. That only happens when trust is real."
+    footnote: "In 17+ years, our most common source of new clients is referrals from existing ones. That only happens when trust is real."
   },
   {
     icon: Lightbulb,
@@ -186,6 +186,10 @@ const teamImages = [
   {
     src: '/assets/ourStory/goa-trip.JPG',
     caption: 'goa-trip',
+  },
+  {
+    src: '/assets/ourStory/Ganesh Utsav Celebration.jpeg',
+    caption: 'Ganesh Utsav Celebration',
   },
   {
     src: '/assets/ourStory/knowledge session.jpeg',
@@ -565,7 +569,7 @@ function OurStoryPage() {
                     }}
                     className="text-md md:text-md text-gray-600 leading-relaxed"
                   >
-                    Founded in 2008 by two engineers with a belief that technology should solve real problems - not create new ones. Sixteen years later, that belief still drives every decision we make, every product we build, and every client we serve.
+                    Founded in 2008 by two engineers with a belief that technology should solve real problems - not create new ones. Seventeen years later, that belief still drives every decision we make, every product we build, and every client we serve.
                   </motion.p>
                 </div>
 
@@ -577,8 +581,8 @@ function OurStoryPage() {
                   className="grid grid-cols-2 sm:grid-cols-4 gap-6 w-full pt-8 border-t border-gray-200"
                 >
                   {[
-                    { value: 2008, suffix: '', label: 'Year founded in Surat' },
-                    { value: 16, suffix: '+', label: 'Years of delivery' },
+                    // { value: 2008, suffix: '', label: 'Year founded in Surat' },
+                    { value: 17, suffix: '+', label: 'Years of delivery' },
                     { value: 500, suffix: '+', label: 'Projects completed' },
                     { value: 400, suffix: '+', label: 'Clients worldwide' },
                   ].map((stat, index) => (
@@ -679,7 +683,7 @@ function OurStoryPage() {
                 <div className="text-md md:text-md text-gray-600 leading-relaxed space-y-4">
                   <p>Key Concepts was founded in 2008 by <span className="text-[#f1592a] font-semibold">Punit Gajera</span> and <span className="text-[#f1592a] font-semibold">Rahul Prajapati</span> - two engineers in Surat who believed that businesses deserved technology partners who actually understood their problems, not just their project briefs.</p>
                   <p>We started as a small development studio. No investors, no shortcuts - just a small team, strong values, and a commitment to delivering work we were proud of. That approach earned us our first long-term clients. Their referrals earned us the next ones. And that's still how most of our business comes to us today.</p>
-                  <p>Over sixteen years we've grown into a full-service technology partner - delivering web platforms, mobile apps, ERP systems, AI automation, SaaS products, and product engineering for clients across India, the UK, the USA, Australia, the UAE, and Europe. <span className="text-[#f1592a] font-semibold">The size has changed. The way we work hasn't.</span></p>
+                  <p>Over seventeen years we've grown into a full-service technology partner - delivering web platforms, mobile apps, ERP systems, AI automation, SaaS products, and product engineering for clients across India, the UK, the USA, Australia, the UAE, and Europe. <span className="text-[#f1592a] font-semibold">The size has changed. The way we work hasn't.</span></p>
                 </div>
 
                 {/* Stats Grid */}
@@ -716,7 +720,7 @@ function OurStoryPage() {
                 className="bg-gradient-to-r from-[#f1592a]/10 to-gray-200/10 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-gray-100/50 flex flex-col justify-between space-y-6"
               >
                 <div>
-                  <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-6">
+                  <span className="text-xs font-bold text-[#ff7a45] uppercase tracking-widest block mb-6">
                     Co-Founders
                   </span>
 
@@ -780,7 +784,7 @@ function OurStoryPage() {
                 The Journey
               </motion.span>
               <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gray-900 tracking-tight text-center">
-                Sixteen Years of Showing Up
+                Seventeen Years of Showing Up
               </h2>
               <p className="text-md md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed text-center">
                 No overnight success. Just consistent delivery, one project at a time, building a reputation that still brings most of our clients to us through referrals.
@@ -1055,7 +1059,7 @@ function OurStoryPage() {
                         <div className="w-full h-full bg-white/20 rounded-xl flex items-center justify-center border border-white/30 transition-all">
                           <promise.icon className="text-white w-5 h-5" strokeWidth={1.5} />
                         </div>
-                        <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-white rounded-full border-2 border-[#f1592a]" />
+                        <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-white rounded-full border-2 border-[#ffffff]" />
                       </div>
                       <h3 className="text-base sm:text-lg font-bold text-white leading-snug">
                         {promise.title}
@@ -1264,7 +1268,7 @@ function OurStoryPage() {
                 Ready to Build Something That Lasts?
               </h2>
               <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto">
-                Sixteen years of delivery. Hundreds of clients who came back. A team that stays after launch. Let's see what we can build together.
+                Seventeen years of delivery. Hundreds of clients who came back. A team that stays after launch. Let's see what we can build together.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <motion.a

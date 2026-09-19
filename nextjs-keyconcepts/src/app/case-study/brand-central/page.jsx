@@ -2,6 +2,7 @@
 
 import LayoutWrapper from '@/components/layout-wrapper'
 import { motion } from 'motion/react'
+import { ScrollRevealTimeline } from '@/components/scroll-reveal-timeline'
 import {
   Shield,
   Zap,
@@ -52,7 +53,7 @@ const resultMetrics = [
   },
   {
     value: '3x',
-    label: 'More brand clients managed by the same team — no additional headcount',
+    label: 'More brand clients managed by the same team - no additional headcount',
   },
   {
     value: '60%',
@@ -64,7 +65,7 @@ const platformCards = [
   {
     name: 'AMAZON',
     color: 'bg-amber-500',
-    description: 'Listings updated manually per SKU. Price changes took hours to reflect. Inventory counts frequently lagged behind actual stock — leading to orders accepted for items already sold on Myntra.',
+    description: 'Listings updated manually per SKU. Price changes took hours to reflect. Inventory counts frequently lagged behind actual stock - leading to orders accepted for items already sold on Myntra.',
   },
   {
     name: 'MYNTRA',
@@ -74,7 +75,7 @@ const platformCards = [
   {
     name: 'AJIO',
     color: 'bg-purple-500',
-    description: 'Seasonal and trend-based listings required frequent rapid updates. Manual processes meant Brand Central was always a step behind — missing trend windows while competitors moved faster.',
+    description: 'Seasonal and trend-based listings required frequent rapid updates. Manual processes meant Brand Central was always a step behind - missing trend windows while competitors moved faster.',
   },
 ]
 
@@ -92,7 +93,7 @@ const problemCards = [
   {
     icon: Clock,
     title: 'Listings Too Slow',
-    description: 'What should have taken minutes was taking days. Every new product, every seasonal update, every price campaign — done manually across three platforms.',
+    description: 'What should have taken minutes was taking days. Every new product, every seasonal update, every price campaign - done manually across three platforms.',
   },
 ]
 
@@ -107,12 +108,12 @@ const features = [
   {
     icon: FileText,
     title: 'Unified Listing Management',
-    description: 'Create or update a product listing once. The platform automatically formats, adapts, and pushes it to Amazon, Myntra, and Ajio — each in the correct format and spec required by that marketplace.',
+    description: 'Create or update a product listing once. The platform automatically formats, adapts, and pushes it to Amazon, Myntra, and Ajio - each in the correct format and spec required by that marketplace.',
   },
   {
     icon: RefreshCw,
     title: 'Centralised Pricing Engine',
-    description: 'Set pricing rules and run campaigns from one place. Changes reflect across all platforms simultaneously — no more platforms out of sync, no more margin errors.',
+    description: 'Set pricing rules and run campaigns from one place. Changes reflect across all platforms simultaneously - no more platforms out of sync, no more margin errors.',
   },
   {
     icon: BarChart3,
@@ -122,7 +123,7 @@ const features = [
   {
     icon: ShoppingBag,
     title: 'Centralised Order Management',
-    description: 'Orders from Amazon, Myntra, and Ajio flowing into one queue. Prioritised, assigned, and tracked in one place — no jumping between three platform dashboards.',
+    description: 'Orders from Amazon, Myntra, and Ajio flowing into one queue. Prioritised, assigned, and tracked in one place - no jumping between three platform dashboards.',
   },
   {
     icon: Rocket,
@@ -132,26 +133,26 @@ const features = [
   {
     icon: TrendingUp,
     title: 'Performance Analytics Dashboard',
-    description: 'Brand-by-brand, platform-by-platform sales performance, inventory movement, and order fulfilment metrics — all in one report that Brand Central can share directly with clients.',
+    description: 'Brand-by-brand, platform-by-platform sales performance, inventory movement, and order fulfilment metrics - all in one report that Brand Central can share directly with clients.',
   },
 ]
 
 const beforeAfterData = {
   before: [
-    'Every listing updated manually — three times, platform by platform',
-    'Prices out of sync across platforms — margin errors going unnoticed',
-    'Inventory overselling — cancelled orders, penalty flags',
+    'Every listing updated manually - three times, platform by platform',
+    'Prices out of sync across platforms - margin errors going unnoticed',
+    'Inventory overselling - cancelled orders, penalty flags',
     'New brand onboarding took days of manual catalogue work',
-    "Team capacity limited by manual workload — couldn't grow client base",
+    "Team capacity limited by manual workload - couldn't grow client base",
     'No single view of performance across all platforms and clients',
   ],
   after: [
-    'One update pushes to all platforms instantly — correctly formatted',
-    'Centralised pricing engine — all platforms always in sync',
-    'Real-time inventory sync — zero overselling, zero penalty flags',
+    'One update pushes to all platforms instantly - correctly formatted',
+    'Centralised pricing engine - all platforms always in sync',
+    'Real-time inventory sync - zero overselling, zero penalty flags',
     'New brand live on all platforms in hours, not days',
-    'Same team handling 3× more clients — without adding headcount',
-    'Single analytics dashboard — shared directly with brand clients',
+    'Same team handling 3× more clients - without adding headcount',
+    'Single analytics dashboard - shared directly with brand clients',
   ],
 }
 
@@ -169,12 +170,12 @@ const timelineSteps = [
   {
     title: 'Build, Test, Refine',
     time: 'Weeks 5–14',
-    desc: 'Built feature by feature — inventory sync first (the highest pain), then pricing, then listings, then orders. Each feature tested with real Brand Central accounts before moving to the next.',
+    desc: 'Built feature by feature - inventory sync first (the highest pain), then pricing, then listings, then orders. Each feature tested with real Brand Central accounts before moving to the next.',
   },
   {
     title: 'Pilot with Live Clients',
     time: 'Weeks 15–16',
-    desc: "Ran the platform live with a small group of Brand Central's actual brand clients — real products, real orders, real inventory. Caught edge cases, refined the experience, confirmed it worked under real conditions.",
+    desc: "Ran the platform live with a small group of Brand Central's actual brand clients - real products, real orders, real inventory. Caught edge cases, refined the experience, confirmed it worked under real conditions.",
   },
   {
     title: 'All Clients Migrated',
@@ -277,10 +278,10 @@ export default function BrandCentralCaseStudyPage() {
                     The Challenge
                   </h2>
                   <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                    Brand Central had a great business idea and a real market need. Brands across India — many of them manufacturers and D2C labels — wanted to sell on Amazon, Myntra, and Ajio but didn't know how to manage those platforms effectively. Brand Central stepped in as their expert partner: handle the listings, manage the catalogues, run the operations.
+                    Brand Central had a great business idea and a real market need. Brands across India - many of them manufacturers and D2C labels - wanted to sell on Amazon, Myntra, and Ajio but didn't know how to manage those platforms effectively. Brand Central stepped in as their expert partner: handle the listings, manage the catalogues, run the operations.
                   </p>
                   <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                    The problem was how they were doing it. <strong className="text-gray-900 font-semibold">Everything was manual.</strong> Every listing update, every price change, every inventory adjustment — done platform by platform, account by account, by hand. As their client roster grew, the cracks became craters.
+                    The problem was how they were doing it. <strong className="text-gray-900 font-semibold">Everything was manual.</strong> Every listing update, every price change, every inventory adjustment - done platform by platform, account by account, by hand. As their client roster grew, the cracks became craters.
                   </p>
                 </motion.div>
 
@@ -292,7 +293,7 @@ export default function BrandCentralCaseStudyPage() {
                   className="pl-6 border-l-4 border-[#f1592a] bg-[#f1592a]/5 py-5 pr-4 rounded-r-2xl"
                 >
                   <blockquote className="text-gray-800 italic text-sm md:text-base font-semibold leading-relaxed">
-                    "We were managing three platforms for each client. Every change had to be made three times. And half the time, something was out of sync somewhere — and we wouldn't find out until a client called us angry."
+                    "We were managing three platforms for each client. Every change had to be made three times. And half the time, something was out of sync somewhere - and we wouldn't find out until a client called us angry."
                   </blockquote>
                   <p className="text-xs font-bold text-[#f1592a] uppercase mt-3 tracking-wider">— Brand Central, Operations Lead</p>
                 </motion.div>
@@ -308,7 +309,7 @@ export default function BrandCentralCaseStudyPage() {
                     Three Platforms. Three Separate Realities. Zero Sync.
                   </h3>
                   <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                    Each marketplace had its own interface, its own rules, and its own format. Managing them separately meant Brand Central's team was doing the same work three times — and still getting it wrong:
+                    Each marketplace had its own interface, its own rules, and its own format. Managing them separately meant Brand Central's team was doing the same work three times - and still getting it wrong:
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -365,7 +366,7 @@ export default function BrandCentralCaseStudyPage() {
                     THE REAL COST
                   </span>
                   <p className="text-gray-700 text-sm md:text-base leading-relaxed">
-                    Brand Central wasn't just losing efficiency — they were losing client trust. Every cancelled order due to overselling, every price error that a brand spotted, every trend missed because listings were slow — these were chips in the reputation of a company whose entire value was supposed to be making marketplace selling <strong className="text-gray-900 font-semibold">easier</strong> for their clients.
+                    Brand Central wasn't just losing efficiency - they were losing client trust. Every cancelled order due to overselling, every price error that a brand spotted, every trend missed because listings were slow - these were chips in the reputation of a company whose entire value was supposed to be making marketplace selling <strong className="text-gray-900 font-semibold">easier</strong> for their clients.
                   </p>
                 </motion.div>
               </div>
@@ -548,30 +549,7 @@ export default function BrandCentralCaseStudyPage() {
             </motion.div>
 
             {/* Vertical Timeline */}
-            <div className="max-w-4xl mx-auto relative pl-6 border-l border-gray-200 space-y-12">
-              {timelineSteps.map((step, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.05 }}
-                  className="relative group"
-                >
-                  <div className="absolute -left-[33px] top-1 w-4.5 h-4.5 rounded-full border-2 border-white bg-gray-300 group-hover:bg-[#f1592a] group-hover:scale-120 transition-all duration-300 shadow-sm" />
-
-                  <div className="bg-white border border-gray-100 hover:border-[#f1592a]/20 hover:shadow-lg transition-all rounded-3xl p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="space-y-2">
-                      <div className="flex items-center space-x-2">
-                        <span className="text-xs md:text-sm font-bold text-[#f1592a]">{step.time}</span>
-                      </div>
-                      <h3 className="text-lg font-bold text-gray-900 leading-snug">{step.title}</h3>
-                      <p className="text-gray-500 text-xs md:text-sm leading-relaxed">{step.desc}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <ScrollRevealTimeline steps={timelineSteps} />
           </div>
         </section>
 
@@ -618,7 +596,7 @@ export default function BrandCentralCaseStudyPage() {
                 className="text-gray-600 text-sm md:text-base leading-relaxed"
               >
                 <p>
-                  But the number we found most meaningful was quieter than any of these. Before the platform, Brand Central's team was spending the majority of their day doing repetitive manual work across three dashboards. After the platform, that same team was spending their time on strategy — helping brands grow, not just keeping up with the paperwork. <strong className="text-gray-900 font-bold">The platform didn't just make their work faster. It made their work matter more.</strong>
+                  But the number we found most meaningful was quieter than any of these. Before the platform, Brand Central's team was spending the majority of their day doing repetitive manual work across three dashboards. After the platform, that same team was spending their time on strategy - helping brands grow, not just keeping up with the paperwork. <strong className="text-gray-900 font-bold">The platform didn't just make their work faster. It made their work matter more.</strong>
                 </p>
               </motion.div>
 
@@ -630,7 +608,7 @@ export default function BrandCentralCaseStudyPage() {
                 className="pl-6 border-l-4 border-[#f1592a] bg-[#f1592a]/5 py-6 pr-6 rounded-r-3xl"
               >
                 <blockquote className="text-gray-800 italic text-sm md:text-base font-semibold leading-relaxed">
-                  "We used to dread onboarding a new brand — it meant days of catalogue work. Now we can take a brand live on all three platforms in a morning. We've taken on more clients in the last three months than in the entire previous year."
+                  "We used to dread onboarding a new brand - it meant days of catalogue work. Now we can take a brand live on all three platforms in a morning. We've taken on more clients in the last three months than in the entire previous year."
                 </blockquote>
                 <p className="text-xs font-bold text-[#f1592a] uppercase mt-3 tracking-wider">— Brand Central, Founder</p>
               </motion.div>

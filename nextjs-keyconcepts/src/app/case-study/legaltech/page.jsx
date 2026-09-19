@@ -2,6 +2,7 @@
 
 import LayoutWrapper from '@/components/layout-wrapper'
 import { motion } from 'motion/react'
+import { ScrollRevealTimeline } from '@/components/scroll-reveal-timeline'
 import {
   Shield,
   Zap,
@@ -48,24 +49,24 @@ const keyMetrics = [
 
 const beforeAfterData = {
   before: [
-    'Physical stamp paper required — visit to vendor or vendor delivery delay',
-    'Manual document drafting — high error rate and formatting inconsistencies',
-    'In-person signing — physically posting documents or flying executives to sign',
-    'State-by-state stamp duty confusion — risk of underpaid stamp duty',
+    'Physical stamp paper required - visit to vendor or vendor delivery delay',
+    'Manual document drafting - high error rate and formatting inconsistencies',
+    'In-person signing - physically posting documents or flying executives to sign',
+    'State-by-state stamp duty confusion - risk of underpaid stamp duty',
     'Days to complete a single contract or agreement execution',
-    'No tracking — hard to know where a contract was in the signing process',
-    'Storage problems — physical files lost in cabinets or damaged',
-    'High cost of execution — notary fees, travel fees, printing and courier costs',
+    'No tracking - hard to know where a contract was in the signing process',
+    'Storage problems - physical files lost in cabinets or damaged',
+    'High cost of execution - notary fees, travel fees, printing and courier costs',
   ],
   after: [
-    'Paperless execution — all digital from draft to final executed copy',
-    'Dynamic interview builder — error-free documents created in minutes',
-    'Aadhaar e-Sign — legally binding digital signatures executed anywhere in India',
-    'Automated stamp duty calculation — precise state stamp tariffs calculated instantly',
-    'Minutes to execute contract — processing time reduced by 90%+',
-    'Real-time document tracking — complete status visibility for every party',
-    'Encrypted digital vault — secure cloud storage with 24/7 instant retrieval',
-    'Fraction of the cost — zero travel, zero courier fees, zero paper printing costs',
+    'Paperless execution - all digital from draft to final executed copy',
+    'Dynamic interview builder - error-free documents created in minutes',
+    'Aadhaar e-Sign - legally binding digital signatures executed anywhere in India',
+    'Automated stamp duty calculation - precise state stamp tariffs calculated instantly',
+    'Minutes to execute contract - processing time reduced by 90%+',
+    'Real-time document tracking - complete status visibility for every party',
+    'Encrypted digital vault - secure cloud storage with 24/7 instant retrieval',
+    'Fraction of the cost - zero travel, zero courier fees, zero paper printing costs',
   ],
 }
 
@@ -279,10 +280,10 @@ export default function LegalTechCaseStudyPage() {
                     The Challenge
                   </h2>
                   <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                    In India, executing a simple legal document was a multi-day ordeal — paper-heavy, physically exhausting, and dependent on multiple visits to stamp vendors, lawyers, and notary public offices. It required buying physical stamp paper, printing, visiting a notary, and physically signing each page. Disjointed, expensive, and error-prone by default.
+                    In India, executing a simple legal document was a multi-day or deal - paper-heavy, physically exhausting, and dependent on multiple visits to stamp vendors, lawyers, and notary public offices. It required buying physical stamp paper, printing, visiting a notary, and physically signing each page. Disjointed, expensive, and error-prone by default.
                   </p>
                   <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                    The problem was how people were doing it. Every step was manual. A founder or individual needed a contract drafted, stamp paper procured, clauses customized, and signatures collected. For a startup or an enterprise executing hundreds of agreements a month, this was a massive operational bottleneck — taking days per agreement, adding legal overhead, and risking non-compliance at scale. The legal system was stuck in the 1990s.
+                    The problem was how people were doing it. Every step was manual. A founder or individual needed a contract drafted, stamp paper procured, clauses customized, and signatures collected. For a startup or an enterprise executing hundreds of agreements a month, this was a massive operational bottleneck - taking days per agreement, adding legal overhead, and risking non-compliance at scale. The legal system was stuck in the 1990s.
                   </p>
                 </motion.div>
 
@@ -305,7 +306,7 @@ export default function LegalTechCaseStudyPage() {
                   viewport={{ once: true }}
                   className="text-gray-600 text-sm md:text-base leading-relaxed"
                 >
-                  The team came to us with an ambitious vision: build India's first end-to-end digital legal platform that could handle everything from document creation and dynamic interview forms to instant stamp duty procurement and legally binding digital signatures. <strong className="text-gray-900 font-semibold">Digital legal documentation that reduced standard legal processing time from days to minutes — and created the category.</strong>
+                  The team came to us with an ambitious vision: build India's first end-to-end digital legal platform that could handle everything from document creation and dynamic interview forms to instant stamp duty procurement and legally binding digital signatures. <strong className="text-gray-900 font-semibold">Digital legal documentation that reduced standard legal processing time from days to minutes - and created the category.</strong>
                 </motion.p>
               </div>
 
@@ -356,7 +357,7 @@ export default function LegalTechCaseStudyPage() {
           </div>
         </section>
 
-        {/* Section 2: India's Legal Documentation — Old Way vs. What We Built */}
+        {/* Section 2: India's Legal Documentation - Old Way vs. What We Built */}
         <section className="py-16 md:py-24 bg-gray-50/50 border-t border-b border-gray-100">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -419,7 +420,7 @@ export default function LegalTechCaseStudyPage() {
           </div>
         </section>
 
-        {/* Section 3: What We Built — Every Feature, Every Reason */}
+        {/* Section 3: What We Built - Every Feature, Every Reason */}
         <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -432,10 +433,10 @@ export default function LegalTechCaseStudyPage() {
                 What We Built
               </span>
               <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gray-900 tracking-tight text-center">
-                What We Built — Every Feature, Every Reason
+                What We Built - Every Feature, Every Reason
               </h2>
               <p className="text-md md:text-lg text-gray-600 text-center leading-relaxed">
-                We built a custom LegalTech platform designed to digitize India's legal documentation process from start to finish — from document creation to dynamic interview forms, instant stamp duty calculation, escrow payment routing, Aadhaar e-Sign, and a vetted template vault.
+                We built a custom LegalTech platform designed to digitize India's legal documentation process from start to finish - from document creation to dynamic interview forms, instant stamp duty calculation, escrow payment routing, Aadhaar e-Sign, and a vetted template vault.
               </p>
             </motion.div>
 
@@ -477,10 +478,10 @@ export default function LegalTechCaseStudyPage() {
                   Enterprise Security Architecture
                 </span>
                 <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white">
-                  Built for Enterprise Security — Not Just Convenience
+                  Built for Enterprise Security - Not Just Convenience
                 </h3>
                 <p className="text-slate-300 text-sm md:text-base leading-relaxed max-w-3xl">
-                  Digital legal documentation handling sensitive contracts and financial agreements required enterprise-grade security architecture — not just standard Web App controls. We engineered bank-grade encryption, AES-256 storage, multi-party access control, and complete audit logging:
+                  Digital legal documentation handling sensitive contracts and financial agreements required enterprise-grade security architecture - not just standard Web App controls. We engineered bank-grade encryption, AES-256 storage, multi-party access control, and complete audit logging:
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
@@ -515,7 +516,7 @@ export default function LegalTechCaseStudyPage() {
                 How a Complete Legal Documentation Session Works
               </h2>
               <p className="text-md md:text-lg text-gray-600 text-center leading-relaxed">
-                From selecting a template to downloading a legally binding executed document — the entire process happens in minutes, completely online:
+                From selecting a template to downloading a legally binding executed document - the entire process happens in minutes, completely online:
               </p>
             </motion.div>
 
@@ -547,7 +548,7 @@ export default function LegalTechCaseStudyPage() {
               viewport={{ once: true }}
               className="text-gray-600 text-sm md:text-base leading-relaxed text-center max-w-4xl mx-auto"
             >
-              The entire flow — from draft to executed agreement — happens in one seamless session. The user selects a template, answers context-aware questions, previews the auto-populated document, procures digital stamp duty, signs via Aadhaar e-Sign, and downloads or shares the executed contract.
+              The entire flow - from draft to executed agreement - happens in one seamless session. The user selects a template, answers context-aware questions, previews the auto-populated document, procures digital stamp duty, signs via Aadhaar e-Sign, and downloads or shares the executed contract.
             </motion.p>
           </div>
         </section>
@@ -569,31 +570,8 @@ export default function LegalTechCaseStudyPage() {
               </h2>
             </motion.div>
 
-            {/* Vertical Timeline matching Brand Central style */}
-            <div className="max-w-4xl mx-auto relative pl-6 border-l border-gray-200 space-y-12">
-              {timelineSteps.map((step, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.05 }}
-                  className="relative group"
-                >
-                  <div className="absolute -left-[33px] top-1 w-4.5 h-4.5 rounded-full border-2 border-white bg-gray-300 group-hover:bg-[#f1592a] group-hover:scale-120 transition-all duration-300 shadow-sm" />
-
-                  <div className="bg-white border border-gray-100 hover:border-[#f1592a]/20 hover:shadow-lg transition-all rounded-3xl p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="space-y-2">
-                      <div className="flex items-center space-x-2">
-                        <span className="text-xs md:text-sm font-bold text-[#f1592a]">{step.time}</span>
-                      </div>
-                      <h3 className="text-lg font-bold text-gray-900 leading-snug">{step.title}</h3>
-                      <p className="text-gray-500 text-xs md:text-sm leading-relaxed">{step.desc}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            {/* Vertical Timeline */}
+            <ScrollRevealTimeline steps={timelineSteps} />
           </div>
         </section>
 
@@ -640,7 +618,7 @@ export default function LegalTechCaseStudyPage() {
                 className="space-y-4 text-gray-600 text-sm md:text-base leading-relaxed"
               >
                 <p>
-                  Document execution time was cut from days to minutes. A process that used to involve physical travel, manual paperwork, and multiple intermediaries was reduced to a single online session. <strong className="text-gray-900 font-semibold">The platform didn't just digitize legal documents — it created a whole new standard for how contracts are executed in India.</strong>
+                  Document execution time was cut from days to minutes. A process that used to involve physical travel, manual paperwork, and multiple intermediaries was reduced to a single online session. <strong className="text-gray-900 font-semibold">The platform didn't just digitize legal documents - it created a whole new standard for how contracts are executed in India.</strong>
                 </p>
                 <p>
                   From startups executing founder agreements to enterprises managing thousands of vendor contracts, the platform proved that legal documentation doesn't have to be slow, expensive, or paper-heavy.
@@ -677,10 +655,10 @@ export default function LegalTechCaseStudyPage() {
                   What This Means for Your Business
                 </h2>
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                  If your industry is still burdened by manual processes, physical paperwork, or fragmented legacy tools — there is an opportunity to build a digital platform that digitizes your entire workflow and creates a new standard for your market.
+                  If your industry is still burdened by manual processes, physical paperwork, or fragmented legacy tools - there is an opportunity to build a digital platform that digitizes your entire workflow and creates a new standard for your market.
                 </p>
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                  Building complex, regulated software requires more than standard Web development — it requires deep architectural planning, high security standards, complex API integrations, and intuitive User Experience design.
+                  Building complex, regulated software requires more than standard Web development - it requires deep architectural planning, high security standards, complex API integrations, and intuitive User Experience design.
                 </p>
               </motion.div>
             </div>

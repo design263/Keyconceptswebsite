@@ -172,7 +172,7 @@ async function CaseStudiesPage() {
           <div className="relative w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <span className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#f1592a]/10 to-gray-200/50 rounded-full text-sm font-semibold text-[#f1592a] mb-4">
-                <Award size={16} /> 
+                <Award size={16} />
                 <span className="text-xs md:text-sm">Success Stories</span>
               </span>
               <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold mb-6">Case Studies</h1>

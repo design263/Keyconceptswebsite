@@ -13,10 +13,10 @@ const SEO = ({
 }) => {
   const pathname = usePathname()
   const siteTitle = 'Key Concepts'
-  const baseUrl = 'https://v2.keyconcepts.co.in'
+  const baseUrl = 'https://keyconcepts.co.in'
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle
   const currentFullUrl = ogUrl || `${baseUrl}${pathname}`
-  const siteDescription = description || 'Key Concepts delivers innovative IT solutions including software development, UI/UX design, Odoo ERP consulting, and more.'
+  const siteDescription = description || 'Key Concepts is an AI-native product engineering and technology partner helping businesses build, automate, modernise and scale software, SaaS and enterprise systems.'
 
   return (
     <Helmet>
@@ -50,7 +50,7 @@ const SEO = ({
           "@context": "https://schema.org",
           "@type": "Organization",
           "name": "Key Concepts",
-          "url": "https://v2.keyconcepts.co.in/",
+          "url": "https://keyconcepts.co.in/",
           "logo": ogImage,
           "sameAs": [
             "https://www.facebook.com/KeyConceptsIT/",

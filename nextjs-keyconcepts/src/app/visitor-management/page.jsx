@@ -389,7 +389,7 @@ function VisitorManagementPage() {
                       whileTap={{
                         scale: 0.95,
                       }}
-                      className="w-full sm:w-auto group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                      className="w-full sm:w-auto group px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2 cursor-pointer"
                     >
                       <span className="text-sm md:text-base font-semibold">Schedule a Demo</span>
                       <Zap
@@ -413,7 +413,7 @@ function VisitorManagementPage() {
                       whileTap={{
                         scale: 0.95,
                       }}
-                      className="w-full group px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center space-x-2"
+                      className="w-full group px-6 md:px-8 py-3 md:py-4 bg-white/80 backdrop-blur-sm text-gray-800 rounded-full border-2 border-gray-200 hover:border-[#f1592a] transition-all shadow-lg flex items-center justify-center space-x-2 cursor-pointer"
                     >
                       <span className="text-sm md:text-base font-semibold">Explore Features</span>
                       <ArrowRight
@@ -1382,7 +1382,7 @@ function VisitorManagementPage() {
                       whileTap={{
                         scale: 0.95,
                       }}
-                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all font-semibold flex items-center justify-center space-x-2"
+                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all font-semibold flex items-center justify-center space-x-2 cursor-pointer"
                     >
                       <span className="text-sm md:text-md">Schedule a Demo</span>
                     </motion.button>
@@ -1395,7 +1395,7 @@ function VisitorManagementPage() {
                       whileTap={{
                         scale: 0.95,
                       }}
-                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-transparent text-white rounded-full border-2 border-white hover:bg-white hover:text-[#f1592a] transition-all font-semibold flex items-center justify-center space-x-2"
+                      className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-transparent text-white rounded-full border-2 border-white hover:bg-white hover:text-[#f1592a] transition-all font-semibold flex items-center justify-center space-x-2 cursor-pointer"
                     >
                       <span className="text-sm md:text-md">Download Brochure</span>
                     </motion.button>

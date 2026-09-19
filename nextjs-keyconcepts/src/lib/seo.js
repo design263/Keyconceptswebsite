@@ -1,8 +1,11 @@
 export const SITE_NAME = 'Key Concepts'
-export const SITE_URL =
-  process.env.NODE_ENV === 'development'
-    ? 'http://localhost:3000'
-    : (process.env.NEXT_PUBLIC_SITE_URL || 'https://v2.keyconcepts.co.in')
+export const PRODUCTION_SITE_URL = 'https://keyconcepts.co.in'
+export const SITE_URL = 'https://keyconcepts.co.in'
+// export const SITE_URL =
+//   process.env.NODE_ENV === 'development'
+//     ? 'http://localhost:3000'
+//     : (process.env.NEXT_PUBLIC_SITE_URL || PRODUCTION_SITE_URL)
+
 export const DEFAULT_OG_IMAGE = '/opengraph-image'
 export const OG_IMAGE_WIDTH = 1200
 export const OG_IMAGE_HEIGHT = 630
@@ -61,37 +64,27 @@ export function resolveFullTitle(title) {
 export const pageSeo = {
   home: {
     title: {
-      absolute: 'Custom Software Development Company in Surat | Key Concepts',
+      absolute: 'AI-Native Product Engineering & Software Development | Key Concepts',
     },
     description:
-      'Key Concepts is a top software development company in Surat. We build custom ERP, CRM, mobile apps, and Next.js web solutions that accelerate business growth.',
+      'Key Concepts is an AI-native product engineering and technology partner helping businesses build, automate, modernise and scale software, SaaS and enterprise systems.',
     keywords:
-      'Software Development Company, ERP Software Company, CRM Development, Mobile App Development, Web Development, Odoo ERP, software company Surat',
+      'AI-Native Product Engineering, Software Development, Custom Software Company, Enterprise Systems, SaaS Development, Surat, India',
     path: '/',
   },
-  about: {
+  'keyconcepts-story': {
     title: {
-      absolute: 'About Key Concepts | Software Development & IT Company',
+      absolute: 'About Key Concepts | Product Engineering Company Since 2008',
     },
     description:
-      'Key Concepts is a premier software development company and IT company since 2009. Discover our mission, values, and expert team building custom software and Odoo ERP solutions.',
+      'Discover the story of Key Concepts — built in Surat and trusted worldwide. 16+ years of engineering excellence in SaaS, custom ERP, AI automation, and web applications.',
     keywords:
-      'Software Company, Software Development Company, IT Company, Odoo ERP, custom software, developer team Surat, Key Concepts about',
-    path: '/about',
-  },
-  'our-story': {
-    title: {
-      absolute: 'Our Story | Key Concepts Software Company Journey',
-    },
-    description:
-      'How Key Concepts grew from a small team to a leading software company in Surat — engineering excellence in web, mobile, and product development.',
-    keywords:
-      'Key Concepts story, company history, software company Surat, web development journey',
-    path: '/our-story',
+      'Key Concepts story, company history, software company Surat, product engineering journey',
+    path: '/keyconcepts-story',
   },
   process: {
     title: {
-      absolute: '6-Step Agile Software Development Process',
+      absolute: '6-Step Agile Software Development Process | Key Concepts',
     },
     description:
       'Key Concepts follows Discovery, UI/UX Design, Agile Sprints, QA, Deployment, and Support — transparent milestones and regular client updates.',
@@ -101,67 +94,57 @@ export const pageSeo = {
   },
   contact: {
     title: {
-      absolute: 'Contact Key Concepts | Web & App Development',
+      absolute: 'Contact Key Concepts | Product Engineering & AI',
     },
     description:
-      'Contact Key Concepts for website design, mobile apps, custom software, Odoo ERP, and MVP builds. Office in Surat, Gujarat. Call or email today.',
+      'Contact Key Concepts for AI product engineering, custom software development, SaaS builds, and ERP solutions. Office in Surat, Gujarat.',
     keywords:
-      'contact Key Concepts, software company Surat, web development enquiry, app development quote',
+      'contact Key Concepts, software company Surat, AI product engineering quote, app development contact',
     path: '/contact',
   },
   careers: {
     title: {
-      absolute: 'Careers at Key Concepts | Developer Jobs in Surat',
+      absolute: 'Software & AI Careers in Surat | Key Concepts',
     },
     description:
-      'Join Key Concepts in Surat. Openings for developers, designers, and DevOps engineers. Apply now for software development careers.',
+      'Explore software engineering and tech careers at Key Concepts in Surat. Build modern SaaS products, AI automation tools, and enterprise applications.',
     keywords:
-      'Key Concepts careers, developer jobs Surat, designer jobs, software jobs Gujarat',
+      'Key Concepts careers, developer jobs Surat, software jobs Surat, AI careers Gujarat',
     path: '/careers',
-  },
-  services: {
-    title: {
-      absolute: 'IT Services | Web, Mobile, ERP & MVP Solutions',
-    },
-    description:
-      'Complete IT services: product development, web solutions, mobile apps, Odoo ERP, MVP studio, branding, support, and custom software platforms.',
-    keywords:
-      'Key Concepts services, web development, mobile apps, Odoo ERP, MVP development, branding, software support',
-    path: '/services',
   },
   'product-development': {
     title: {
-      absolute: 'Product Development | Custom Software & Web Apps',
+      absolute: 'Product Development & Product Engineering Services | Key Concepts',
     },
     description:
-      'End-to-end product development: web apps, mobile apps, backend systems, and AI integrations using agile sprints and scalable architecture.',
+      'End-to-end product engineering and custom software development. We help startups and enterprises design, build, test, and scale modern web apps, SaaS platforms, and mobile products.',
     keywords:
-      'product development, custom software, web app development, mobile app development, full stack development',
+      'product development, product engineering services, custom software, web app development, mobile app development',
     path: '/product-development',
   },
   'mvp-studio': {
     title: {
-      absolute: 'MVP Studio | Rapid App Development in 6-10 Weeks',
+      absolute: 'MVP Development Services for Startups | Key Concepts',
     },
     description:
-      'Launch your startup fast with Key Concepts MVP Studio. Discovery, design, development, testing, and launch support in 6-10 weeks.',
+      'Rapid MVP development services for startups. Turn your vision into a launch-ready SaaS or mobile product in weeks with Key Concepts.',
     keywords:
       'MVP development, startup product build, minimum viable product, rapid app development, MVP studio',
     path: '/mvp-studio',
   },
   'custom-erp-solutions': {
     title: {
-      absolute: 'Custom ERP Solutions for Businesses in India | Key Concepts',
+      absolute: 'Custom ERP Development & Enterprise Solutions | Key Concepts',
     },
     description:
-      'Streamline operations with custom ERP solutions tailored to your business. Automate workflows, manage resources, and improve productivity with Key Concepts.',
+      'Custom ERP development and enterprise software solutions tailored to your business workflows, supply chain, financial management, and operational automation.',
     keywords:
-      'custom ERP solutions, custom ERP software, ERP development company, ERP solutions, business ERP software, enterprise ERP solutions, custom ERP development',
+      'custom ERP development, custom ERP software, ERP enterprise solutions, business ERP software, Odoo ERP India',
     path: '/custom-erp-solutions',
   },
   'support-maintenance': {
     title: {
-      absolute: 'Support & Maintenance | 24/7 Application Services',
+      absolute: 'Support & Maintenance | 24/7 Application Services | Key Concepts',
     },
     description:
       'Reliable support for web and mobile apps. Monitoring, bug fixes, security updates, and performance tuning by the Key Concepts team.',
@@ -171,7 +154,7 @@ export const pageSeo = {
   },
   'web-solutions': {
     title: {
-      absolute: 'Web Development | Next.js, E-commerce & APIs',
+      absolute: 'Web Development | Next.js, E-commerce & APIs | Key Concepts',
     },
     description:
       'Professional web development: business websites, e-commerce, web apps, Chrome extensions, and APIs using Next.js and modern technologies.',
@@ -181,7 +164,7 @@ export const pageSeo = {
   },
   'mobile-development': {
     title: {
-      absolute: 'Mobile App Development | iOS & Android Apps',
+      absolute: 'Mobile App Development | iOS & Android Apps | Key Concepts',
     },
     description:
       'Native and cross-platform mobile apps by Key Concepts. UI/UX, development, testing, and App Store or Play Store deployment.',
@@ -189,25 +172,25 @@ export const pageSeo = {
       'mobile app development Surat, iOS app development, Android app development, cross platform apps',
     path: '/mobile-development',
   },
-  'branding-services': {
-    title: {
-      absolute: 'Branding & Identity Design | Logo & Visual ID',
-    },
-    description:
-      'Branding services by Key Concepts: brand strategy, logo design, visual identity, brand voice, and guidelines for web, app, and marketing.',
-    keywords:
-      'branding services, logo design Surat, brand identity, visual design, brand guidelines',
-    path: '/branding-services',
-  },
   'claim-genie': {
     title: {
-      absolute: 'AI Claims Processing Automation Software | Claim Genie',
+      absolute: 'AI-Powered Insurance Claims Management Platform | Key Concepts',
     },
     description:
-      'Automate your insurance claims lifecycle with Claim Genie. Features automated surveyor assignment, AI photo damage estimation, fraud detection, and offline mobile surveying.',
+      'Claim Genie is an AI-powered insurance claims management platform providing automated surveyor assignment, AI damage estimation, fraud detection, and mobile claim processing.',
     keywords:
       'claims processing software, insurance claims automation, surveyor app, damage estimation AI, fraud detection claims, Claim Genie India',
     path: '/claim-genie',
+  },
+  'case-study': {
+    title: {
+      absolute: 'Software & AI Product Engineering Case Studies | Key Concepts',
+    },
+    description:
+      'Explore Key Concepts software and AI product engineering case studies. Discover how we build custom ERPs, marketplace sync engines, and document automation platforms.',
+    keywords:
+      'software case studies, AI case studies, web development projects, mobile app projects, ERP case studies',
+    path: '/insights/case-studies',
   },
   'case-study-legaltech': {
     title: {
@@ -224,9 +207,9 @@ export const pageSeo = {
       absolute: 'E-commerce Multi-Channel Retail Case Study | Key Concepts',
     },
     description:
-      'Discover how we engineered a unified marketplace dashboard for Brand Central to synchronize inventory, automate product listings, and scale sales growth across Amazon, Myntra, Ajio.',
+      'Discover how we engineered a unified marketplace dashboard for Brand Central to synchronize inventory, automate product listings, and scale sales growth.',
     keywords:
-      'ecommerce case study, marketplace integration, inventory sync, product listing automation, multi-channel selling, Brand Central, Amazon Myntra Ajio sync',
+      'ecommerce case study, marketplace integration, inventory sync, product listing automation, multi-channel selling, Brand Central',
     path: '/case-study/brand-central',
   },
   'case-study-custom-erp': {
@@ -236,17 +219,17 @@ export const pageSeo = {
     description:
       'Read how we scaled operations for a chemical manufacturer using a custom-engineered Odoo ERP connecting sales, inventory, production, and exports.',
     keywords:
-      'erp case study, custom erp development, chemical manufacturing software, odoo customization Surat, export documentation automation, production planner',
+      'erp case study, custom erp development, chemical manufacturing software, odoo customization Surat, export documentation automation',
     path: '/case-study/custom-erp',
   },
   'visitor-management': {
     title: {
-      absolute: 'Visitor Management System & Gate Pass Software | Visitorz',
+      absolute: 'Visitor Management & Workplace Access Platform | Key Concepts',
     },
     description:
-      'Implement Visitorz, India\'s leading visitor management system for offices, corporate parks & schools. Features touchless QR check-in, host alerts & e-badges.',
+      'Visitorz by Key Concepts is an enterprise visitor management and workplace access platform with touchless QR check-in, host alerts, and visitor badge printing.',
     keywords:
-      'visitor management system, gate pass software, visitor check-in app, visitor tracking system, reception management, Visitorz India',
+      'visitor management system, workplace access platform, visitor check-in app, visitor tracking system, reception management, Visitorz India',
     path: '/visitor-management',
   },
   'younited-communities': {
@@ -271,7 +254,7 @@ export const pageSeo = {
   },
   'insights-trends': {
     title: {
-      absolute: 'Industry Trends & Insights | Software Blog',
+      absolute: 'Industry Trends & Insights | Software Blog | Key Concepts',
     },
     description:
       'Insights on software development, web and mobile technology, Odoo ERP, MVPs, UI/UX design, and practical topics from Key Concepts.',
@@ -281,23 +264,23 @@ export const pageSeo = {
   },
   'insights-case-studies': {
     title: {
-      absolute: 'Case Studies | Web, Mobile & ERP Projects',
+      absolute: 'Software & AI Product Engineering Case Studies | Key Concepts',
     },
     description:
-      'Real case studies: web apps, mobile applications, ERP systems, and custom software with client challenges, approach, and results.',
+      'Explore Key Concepts software and AI product engineering case studies. Discover how we build custom ERPs, marketplace sync engines, and document automation platforms.',
     keywords:
       'software case studies, web development projects, mobile app projects, ERP case studies',
     path: '/insights/case-studies',
   },
   blog: {
     title: {
-      absolute: 'Industry Trends & Insights | Software Blog',
+      absolute: 'Industry Trends & Insights | Software Blog | Key Concepts',
     },
     description:
       'Insights on software development, web and mobile technology, Odoo ERP, MVPs, UI/UX design, and practical topics from Key Concepts.',
     keywords:
       'Key Concepts blog, web development articles, mobile app articles, Odoo ERP blog, software development',
-    path: '/blog',
+    path: '/insights/trends',
   },
   'privacy-policy': {
     title: {
@@ -333,7 +316,10 @@ export const pageSeo = {
 
 export function createPageMetadata(pageKey, overrides = {}) {
   const aliases = {
+    'custom-erp': 'custom-erp-solutions',
+    'mvp-development': 'mvp-studio',
     'odoo-erp': 'custom-erp-solutions',
+    'our-story': 'keyconcepts-story',
   }
   const resolvedKey = aliases[pageKey] || pageKey
   const page = pageSeo[resolvedKey]
@@ -347,16 +333,36 @@ export function createPageMetadata(pageKey, overrides = {}) {
     overrides.description ?? page?.description,
   )
   const keywords = overrides.keywords ?? page?.keywords
-  const path = overrides.path ?? page?.path ?? '/'
-  const canonicalUrl = `${SITE_URL}${path}`
-  const ogImage = overrides.image ?? page?.image ?? DEFAULT_OG_IMAGE
+  const rawPath = overrides.path ?? page?.path ?? '/'
+  const path = rawPath.startsWith('/') ? rawPath : `/${rawPath}`
+
+  // Production canonical URL strictly uses HTTPS and production domain
+  const canonicalUrl = `${PRODUCTION_SITE_URL}${path}`
+
+  const rawOgImage = overrides.image ?? page?.image ?? DEFAULT_OG_IMAGE
+  const ogImageUrl = rawOgImage.startsWith('http')
+    ? rawOgImage
+    : `${PRODUCTION_SITE_URL}${rawOgImage.startsWith('/') ? rawOgImage : '/' + rawOgImage}`
 
   const fullTitle = resolveFullTitle(title)
+
+  const robots = overrides.robots ?? {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  }
 
   return {
     title: { absolute: fullTitle },
     description,
     ...(keywords ? { keywords } : {}),
+    robots,
     alternates: {
       canonical: canonicalUrl,
     },
@@ -372,7 +378,7 @@ export function createPageMetadata(pageKey, overrides = {}) {
         : {}),
       images: [
         {
-          url: ogImage,
+          url: ogImageUrl,
           width: OG_IMAGE_WIDTH,
           height: OG_IMAGE_HEIGHT,
           alt: fullTitle,
@@ -384,11 +390,16 @@ export function createPageMetadata(pageKey, overrides = {}) {
       site: TWITTER_HANDLE,
       title: fullTitle,
       description,
-      images: [ogImage],
+      images: [ogImageUrl],
     },
   }
 }
 
 export const adminMetadata = {
-  title: 'Admin',
+  title: { absolute: 'Admin | Key Concepts' },
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
+

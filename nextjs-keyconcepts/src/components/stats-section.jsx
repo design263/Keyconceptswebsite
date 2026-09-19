@@ -4,7 +4,7 @@ import { motion, useInView, useMotionValue, useSpring } from 'motion/react'
 import { useEffect, useRef } from 'react'
 const stats = [
   {
-    value: 16,
+    value: 17,
     suffix: '+',
     label: ' Years of Excellence',
     color: 'from-[#f1592a] to-[#ff7a45]',

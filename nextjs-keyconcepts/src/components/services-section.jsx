@@ -88,7 +88,7 @@ const trendingServices = [
     icon: Database,
     title: 'Innovation That Makes Sense',
     description:
-      'We dont chase tech trends for the sake of it.Every feature, every tool, every decision is driven by one question: does this actually help your business grow? If the answer is yes, we build it.',
+      'We dont chase tech trends for the sake of it. Every feature, every tool, every decision is driven by one question: does this actually help your business grow? If the answer is yes, we build it.',
     image: '/assets/Continuous Innovation.png',
   },
 ]

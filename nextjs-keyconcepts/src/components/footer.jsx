@@ -102,10 +102,10 @@ function Footer() {
               <li>
                 {' '}
                 <Link
-                  href="/our-story"
+                  href="/keyconcepts-story"
                   className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm"
                 >
-                  About Us
+                  Our Story
                 </Link>
               </li>{' '}
               <li>

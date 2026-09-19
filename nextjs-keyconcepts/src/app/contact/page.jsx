@@ -7,14 +7,9 @@ import { Mail, Phone, PhoneCall, MapPin, Send, MessageSquare, Map, ChevronDown, 
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
 import { api, endpoints } from '@/lib/api'
-
-const countries = [
-  { code: '+91', flag: '🇮🇳', label: 'India', placeholder: '98765 43210', pattern: /^[6-9]\d{9}$/, error: 'Please enter a valid 10-digit mobile number' },
-  { code: '+1', flag: '🇺🇸', label: 'USA', placeholder: '202 555 0111', pattern: /^\d{10}$/, error: 'Please enter a valid 10-digit number' },
-  { code: '+44', flag: '🇬🇧', label: 'UK', placeholder: '7123 456789', pattern: /^7\d{9}$/, error: 'Please enter a valid UK mobile number starting with 7' },
-  { code: '+61', flag: '🇦🇺', label: 'Australia', placeholder: '412 345 678', pattern: /^4\d{8}$/, error: 'Please enter a valid Australian mobile number' },
-  { code: '+971', flag: '🇦🇪', label: 'UAE', placeholder: '50 123 4567', pattern: /^5\d{8}$/, error: 'Please enter a valid UAE mobile number' },
-]
+import { trackFormSubmission } from '@/lib/analytics'
+import { ALL_COUNTRIES } from '@/data/countries'
+import { CountryPhoneInput } from '@/components/country-phone-input'
 
 function AnimatedCounter({
   value,
@@ -93,16 +88,28 @@ function ContactPage() {
     message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [selectedCountry, setSelectedCountry] = useState(countries[0])
+  const [selectedCountry, setSelectedCountry] = useState(ALL_COUNTRIES[0])
   const [phoneError, setPhoneError] = useState('')
+
+  const validatePhone = (phoneNum, country = selectedCountry) => {
+    if (!phoneNum) return ''
+    if (country?.pattern && country.pattern.test(phoneNum)) return ''
+    if (phoneNum.length < 6 || phoneNum.length > 15) {
+      return 'Please enter a valid phone number (6–15 digits)'
+    }
+    return ''
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (isSubmitting) return // Prevent multiple submissions
 
-    if (formData.phone && !selectedCountry.pattern.test(formData.phone)) {
-      setPhoneError(selectedCountry.error)
-      return
+    if (formData.phone) {
+      const err = validatePhone(formData.phone, selectedCountry)
+      if (err) {
+        setPhoneError(err)
+        return
+      }
     }
 
     console.log('Form submission started...') // Debug log
@@ -129,6 +136,9 @@ function ContactPage() {
       })
 
       console.log('API response:', res) // Debug log
+
+      // Track lead conversion event
+      trackFormSubmission('contact_page_form', { service: formData.service || 'General Inquiry' })
 
       // Reset form
       setFormData({
@@ -351,34 +361,24 @@ function ContactPage() {
                         >
                           Phone Number
                         </label>
-                        <div className="relative flex items-center">
-                          <div className="absolute left-0 pl-3 flex items-center pointer-events-auto z-10 border-r border-gray-200 pr-2">
-                            <select
-                              value={selectedCountry.code}
-                              onChange={handleCountryChange}
-                              className="bg-transparent text-base text-gray-800 focus:outline-none cursor-pointer pr-4 appearance-none outline-none"
-                            >
-                              {countries.map((c) => (
-                                <option key={c.label} value={c.code} className="text-base">
-                                  {c.flag} {c.code}
-                                </option>
-                              ))}
-                            </select>
-                            <ChevronDown size={10} className="text-gray-400 -ml-3 pointer-events-none" />
-                          </div>
-                          <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            value={formData.phone}
-                            onChange={handlePhoneChange}
-                            className={`w-full pl-24 pr-4 py-3 rounded-lg border focus:outline-none transition-colors text-base text-gray-800 ${phoneError ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-[#f1592a]'}`}
-                            placeholder={selectedCountry.placeholder}
-                          />
-                        </div>
-                        {phoneError && (
-                          <p className="text-red-500 text-xs mt-1">{phoneError}</p>
-                        )}
+                        <CountryPhoneInput
+                          id="phone"
+                          name="phone"
+                          selectedCountry={selectedCountry}
+                          onCountryChange={(country) => {
+                            setSelectedCountry(country)
+                            if (formData.phone) {
+                              setPhoneError(validatePhone(formData.phone, country))
+                            }
+                          }}
+                          phoneNumber={formData.phone}
+                          onPhoneChange={(val) => {
+                            setFormData((prev) => ({ ...prev, phone: val }))
+                            setPhoneError(validatePhone(val, selectedCountry))
+                          }}
+                          error={phoneError}
+                          size="lg"
+                        />
                       </div>
                     </div>
                     <div className=" relative">
@@ -463,7 +463,7 @@ function ContactPage() {
                           scale: 0.98,
                         }}
                         disabled={isSubmitting}
-                        className="group  px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center space-x-2 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="group cursor-pointer px-8 py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center space-x-2 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {isSubmitting ? (
                           <>
@@ -657,7 +657,7 @@ function ContactPage() {
                   <div className="space-y-2.5">
                     <Link
                       href="/careers"
-                      className="group flex items-center justify-between p-3 rounded-2xl bg-white/90 hover:bg-white border border-gray-100 hover:border-[#f1592a]/40 shadow-sm hover:shadow transition-all"
+                      className="py-1 group flex items-center justify-between transition-all"
                     >
                       <div className="flex items-center space-x-3">
                         <span className="text-base">💼</span>
@@ -670,7 +670,7 @@ function ContactPage() {
 
                     <Link
                       href="/custom-erp-solutions"
-                      className="group flex items-center justify-between p-3 rounded-2xl bg-white/90 hover:bg-white border border-gray-100 hover:border-[#f1592a]/40 shadow-sm hover:shadow transition-all"
+                      className="py-1 group flex items-center justify-between transition-all"
                     >
                       <div className="flex items-center space-x-3">
                         <span className="text-base">📊</span>
@@ -683,7 +683,7 @@ function ContactPage() {
 
                     <Link
                       href="/visitor-management"
-                      className="group flex items-center justify-between p-3 rounded-2xl bg-white/90 hover:bg-white border border-gray-100 hover:border-[#f1592a]/40 shadow-sm hover:shadow transition-all"
+                      className="py-1 group flex items-center justify-between transition-all"
                     >
                       <div className="flex items-center space-x-3">
                         <span className="text-base">🛒</span>

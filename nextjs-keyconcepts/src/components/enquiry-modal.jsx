@@ -3,6 +3,9 @@
 import { motion, AnimatePresence } from 'motion/react'
 import { X, ChevronLeft, ChevronRight, Check, Calendar, Building2, User, Phone, MessageSquare, ArrowRight, ShieldCheck, Clock, Award } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import { trackFormSubmission } from '@/lib/analytics'
+import { ALL_COUNTRIES } from '@/data/countries'
+import { CountryPhoneInput } from '@/components/country-phone-input'
 
 const clientLogos = [
   { name: 'Rajhans', src: '/assets/clientLogo/rajhans-logos.png' },
@@ -35,7 +38,7 @@ function EnquiryModal({ isOpen, onClose, initialProduct = '' }) {
     product: '',
   })
 
-  const [countryCode, setCountryCode] = useState('+91')
+  const [selectedCountry, setSelectedCountry] = useState(ALL_COUNTRIES[0])
 
   // Reset modal state on close or open
   useEffect(() => {
@@ -55,7 +58,7 @@ function EnquiryModal({ isOpen, onClose, initialProduct = '' }) {
         phone: '',
         product: '',
       })
-      setCountryCode('+91')
+      setSelectedCountry(ALL_COUNTRIES[0])
     }
   }, [isOpen, initialProduct])
 
@@ -109,8 +112,8 @@ function EnquiryModal({ isOpen, onClose, initialProduct = '' }) {
         errorMsg = 'Contact Number is required'
       } else if (!/^\d+$/.test(value)) {
         errorMsg = 'Phone number must contain digits only'
-      } else if (value.length < 10 || value.length > 15) {
-        errorMsg = 'Phone number must be between 10 and 15 digits'
+      } else if (value.length < 6 || value.length > 15) {
+        errorMsg = 'Phone number must be between 6 and 15 digits'
       }
     } else if (name === 'product') {
       if (!value) {
@@ -135,7 +138,7 @@ function EnquiryModal({ isOpen, onClose, initialProduct = '' }) {
   const isFormValid =
     formData.name.trim().length >= 3 &&
     /^\d+$/.test(formData.phone) &&
-    formData.phone.length >= 10 &&
+    formData.phone.length >= 6 &&
     formData.phone.length <= 15 &&
     formData.product !== '' &&
     !errors.name &&
@@ -145,6 +148,11 @@ function EnquiryModal({ isOpen, onClose, initialProduct = '' }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (isFormValid) {
+      trackFormSubmission('demo_request_modal', {
+        service: formData.product,
+        country: selectedCountry.name,
+        country_code: selectedCountry.code,
+      })
       setStep(3)
     }
   }
@@ -188,7 +196,7 @@ function EnquiryModal({ isOpen, onClose, initialProduct = '' }) {
               {/* Close Button */}
               <button
                 onClick={onClose}
-                className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white md:text-gray-500 md:bg-gray-100 md:hover:bg-gray-200 transition-colors"
+                className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center text-white md:text-gray-500 md:bg-gray-100 md:hover:bg-gray-200 transition-colors cursor-pointer"
                 aria-label="Close modal"
               >
                 <X size={18} />
@@ -304,9 +312,9 @@ function EnquiryModal({ isOpen, onClose, initialProduct = '' }) {
                               disabled={!isSelectable}
                               onClick={() => handleDateSelect(day)}
                               className={`aspect-square rounded-full text-sm font-semibold flex items-center justify-center transition-all ${isSelected
-                                ? 'bg-[#f1592a] text-white shadow-lg shadow-[#f1592a]/30'
+                                ? 'bg-[#f1592a] text-white shadow-lg shadow-[#f1592a]/30 cursor-pointer'
                                 : isSelectable
-                                  ? 'text-gray-800 hover:bg-[#f1592a]/10 hover:text-[#f1592a]'
+                                  ? 'text-gray-800 hover:bg-[#f1592a]/10 hover:text-[#f1592a] cursor-pointer'
                                   : 'text-gray-300 cursor-not-allowed'
                                 }`}
                             >
@@ -326,7 +334,7 @@ function EnquiryModal({ isOpen, onClose, initialProduct = '' }) {
                       <button
                         onClick={() => setStep(2)}
                         disabled={!selectedDate}
-                        className="px-6 py-2.5 bg-[#f1592a] text-white rounded-full font-semibold text-sm hover:bg-[#d94d24] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-md shadow-[#f1592a]/20"
+                        className="px-6 py-2.5 bg-[#f1592a] text-white rounded-full font-semibold text-sm hover:bg-[#d94d24] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-md shadow-[#f1592a]/20"
                       >
                         Continue
                       </button>
@@ -381,37 +389,21 @@ function EnquiryModal({ isOpen, onClose, initialProduct = '' }) {
                       <label className="block text-xs font-semibold text-gray-700 mb-1">
                         Contact Number *
                       </label>
-                      <div className="flex gap-2">
-                        <select
-                          value={countryCode}
-                          onChange={(e) => setCountryCode(e.target.value)}
-                          className="px-2.5 py-2 text-sm border border-gray-200 rounded-xl focus:ring-1 focus:ring-[#f1592a] focus:border-[#f1592a] outline-none bg-white font-medium cursor-pointer shrink-0"
-                        >
-                          <option value="+91">🇮🇳 +91</option>
-                          <option value="+1">🇺🇸 +1</option>
-                          <option value="+44">🇬🇧 +44</option>
-                          <option value="+971">🇦🇪 +971</option>
-                          <option value="+61">🇦🇺 +61</option>
-                          <option value="+1">🇨🇦 +1</option>
-                        </select>
-                        <div className="relative flex-1">
-                          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                            <Phone size={16} />
-                          </div>
-                          <input
-                            type="text"
-                            name="phone"
-                            value={formData.phone}
-                            onChange={handleInputChange}
-                            className={`block w-full pl-9 pr-3 py-2 text-sm border rounded-xl focus:ring-1 focus:ring-[#f1592a] focus:border-[#f1592a] transition-all outline-none ${errors.phone ? 'border-red-500' : 'border-gray-200'
-                              }`}
-                            placeholder="e.g. 9876543210"
-                          />
-                        </div>
-                      </div>
-                      {errors.phone && (
-                        <p className="text-xs text-red-500 mt-1">{errors.phone}</p>
-                      )}
+                      <CountryPhoneInput
+                        id="modal-phone"
+                        name="phone"
+                        selectedCountry={selectedCountry}
+                        onCountryChange={(country) => {
+                          setSelectedCountry(country)
+                        }}
+                        phoneNumber={formData.phone}
+                        onPhoneChange={(val) => {
+                          setFormData((prev) => ({ ...prev, phone: val }))
+                          validateField('phone', val)
+                        }}
+                        error={errors.phone}
+                        size="md"
+                      />
                     </div>
 
                     {/* Company Name */}
@@ -478,7 +470,7 @@ function EnquiryModal({ isOpen, onClose, initialProduct = '' }) {
                       <button
                         type="submit"
                         disabled={!isFormValid}
-                        className="px-6 py-2.5 bg-[#f1592a] text-white rounded-full font-semibold text-sm hover:bg-[#d94d24] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-md shadow-[#f1592a]/20"
+                        className="px-6 py-2.5 bg-[#f1592a] text-white rounded-full font-semibold text-sm hover:bg-[#d94d24] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-md shadow-[#f1592a]/20"
                       >
                         Confirm Booking
                       </button>
@@ -513,7 +505,7 @@ function EnquiryModal({ isOpen, onClose, initialProduct = '' }) {
                             Contact Info
                           </p>
                           <p className="text-sm font-semibold text-gray-800">
-                            {countryCode} {formData.phone}
+                            {selectedCountry.flag} {selectedCountry.code} {formData.phone}
                           </p>
                         </>
                       )}

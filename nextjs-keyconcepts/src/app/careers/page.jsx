@@ -189,8 +189,8 @@ const perksAndBenefits = [
 
 const cultureImages = [
   {
-    url: 'https://images.unsplash.com/photo-1758873268663-5a362616b5a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    alt: 'Team Collaboration',
+    url: '/assets/ourStory/ganpati-visarjan-26.jpg',
+    alt: 'Team Celebration',
   },
   {
     url: '/assets/ourStory/womens-Day-7.jpg',
@@ -205,7 +205,7 @@ const cultureImages = [
     alt: 'Coding Together',
   },
   {
-    url: 'https://images.unsplash.com/photo-1758873272809-7947b9a73fe5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    url: '/assets/ourStory/7988079.jpg',
     alt: 'Creative Brainstorming',
   },
 ]
@@ -1006,43 +1006,14 @@ function CareersPage() {
                     whileTap={{
                       scale: 0.95,
                     }}
-                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all font-semibold flex items-center justify-center space-x-2 group"
+                    className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-[#f1592a] rounded-full shadow-2xl hover:shadow-white/50 transition-all font-semibold flex items-center justify-center space-x-2 group cursor-pointer"
                   >
                     <span className="text-sm md:text-md">Start a Conversation</span>
                     <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                   </motion.button>
                 </a>
               </div>
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  delay: 0.3,
-                }}
-                className="mt-10 flex flex-wrap items-center justify-center gap-8 text-white/80"
-              >
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />{' '}
-                  <span className="text-sm md:text-md">Solve Real Problems</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />{' '}
-                  <span className="text-sm md:text-md">Work With Teams</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />{' '}
-                  <span className="text-sm md:text-md">Keep Learning Daily</span>
-                </div>
-              </motion.div>
+
               <motion.div
                 initial={{
                   opacity: 0,
@@ -1064,14 +1035,14 @@ function CareersPage() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white">
                   <a
                     href="mailto:careers@keyconcepts.co.in"
-                    className="flex items-center space-x-2 hover:text-[#f1592a] transition-colors"
+                    className="flex items-center space-x-2 hover:text-[#fde5d4] transition-colors"
                   >
                     <MapPin size={18} /> <span>careers@keyconcepts.co.in</span>
                   </a>
                   <span className="hidden sm:block text-gray-600">|</span>
                   <a
                     href="tel:+919374356357"
-                    className="flex items-center space-x-2 hover:text-[#f1592a] transition-colors"
+                    className="flex items-center space-x-2 hover:text-[#fde5d4] transition-colors"
                   >
                     <MapPin size={18} /> <span>+91 9374 356 357</span>
                   </a>

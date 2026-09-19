@@ -122,7 +122,7 @@ async function IndustryTrendsPage() {
                   placeholder="Enter your email address"
                   className="flex-1 md:px-6 md:py-4 px-4 py-3 text-sm md:text-md border border-white/40 bg-white/20 backdrop-blur-sm rounded-full text-white placeholder-white/80 focus:outline-none focus:ring-2 focus:ring-white"
                 />
-                <button className="px-6 md:px-8 py-3 md:py-4 text-sm md:text-md bg-white text-[#f1592a] rounded-full font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap shadow-2xl hover:shadow-white/50">
+                <button className="px-6 md:px-8 py-3 md:py-4 text-sm md:text-md bg-white text-[#f1592a] rounded-full font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap shadow-2xl hover:shadow-white/50 cursor-pointer">
                   Subscribe Now
                 </button>
               </div>

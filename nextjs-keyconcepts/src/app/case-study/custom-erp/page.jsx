@@ -2,6 +2,7 @@
 
 import LayoutWrapper from '@/components/layout-wrapper'
 import { motion } from 'motion/react'
+import { ScrollRevealTimeline } from '@/components/scroll-reveal-timeline'
 import {
   Shield,
   Zap,
@@ -76,28 +77,28 @@ const departmentSuffering = [
   {
     dept: 'EXPORTS',
     color: 'border-red-100 bg-red-50/40 text-red-950',
-    desc: 'Manually compiled regulatory export documents for every single shipment. Took 4 hours per shipment — creating a bottleneck at dispatch every time a container was ready.',
+    desc: 'Manually compiled regulatory export documents for every single shipment. Took 4 hours per shipment - creating a bottleneck at dispatch every time a container was ready.',
   },
 ]
 
 const resultDepartments = [
   {
-    title: 'PURCHASE — NOW DRIVEN BY REAL DEMAND',
+    title: 'PURCHASE - NOW DRIVEN BY REAL DEMAND',
     icon: ShoppingBag,
     desc: 'Procurement auto-calculates raw material requirements based on confirmed sales orders and active production schedules. Overstocking cut by 35% within four months.',
   },
   {
-    title: 'SALES — REAL-TIME INVENTORY VISIBILITY',
+    title: 'SALES - REAL-TIME INVENTORY VISIBILITY',
     icon: Database,
     desc: 'Sales reps see live stock levels, batch statuses, and production line availability directly from their phones. Delivery dates promised to clients are accurate.',
   },
   {
-    title: 'PRODUCTION — VISUAL BATCH PLANNING',
+    title: 'PRODUCTION - VISUAL BATCH PLANNING',
     icon: Factory,
     desc: 'Production manager plans runs on a visual drag-and-drop schedule that automatically validates raw material availability before a batch is scheduled. Zero mid-batch halts.',
   },
   {
-    title: 'EXPORTS — 25-MINUTE DOCUMENTATION',
+    title: 'EXPORTS - 25-MINUTE DOCUMENTATION',
     icon: FileText,
     desc: 'Export document compiler auto-generates localized invoices, packing lists, and chemical certificates from batch data. Processing time cut from 4 hours to 25 minutes.',
   },
@@ -126,7 +127,7 @@ const specificallyBuilt = [
   },
   {
     title: 'Multi-Department Access Matrix',
-    desc: 'Role-based dashboards giving Purchase, Sales, Production, and Exports the exact views they need — no clutter.',
+    desc: 'Role-based dashboards giving Purchase, Sales, Production, and Exports the exact views they need - no clutter.',
   },
   {
     title: 'Deep Custom Odoo Integration',
@@ -148,7 +149,7 @@ const timelineSteps = [
   {
     time: 'Weeks 9–14',
     title: 'Module Build & Integration',
-    desc: 'Built feature by feature — inventory first, then procurement triggers, then production planner, then export compiler. Tested each module with actual historical batch data.',
+    desc: 'Built feature by feature - inventory first, then procurement triggers, then production planner, then export compiler. Tested each module with actual historical batch data.',
   },
   {
     time: 'Weeks 15–20',
@@ -310,7 +311,7 @@ export default function CustomERPCaseStudyPage() {
                   className="pl-6 border-l-4 border-[#f1592a] bg-[#f1592a]/5 py-5 pr-4 rounded-r-2xl"
                 >
                   <blockquote className="text-gray-800 italic text-sm md:text-base font-semibold leading-relaxed">
-                    "We had one email thread for the whole company. Purchase, Sales, Production, Exports — everyone was working out of the same chain. If one person missed an update, something broke."
+                    "We had one email thread for the whole company. Purchase, Sales, Production, Exports - everyone was working out of the same chain. If one person missed an update, something broke."
                   </blockquote>
                   <p className="text-xs font-bold text-[#f1592a] uppercase mt-3 tracking-wider">— Director of Operations, Chemical Manufacturer</p>
                 </motion.div>
@@ -324,7 +325,7 @@ export default function CustomERPCaseStudyPage() {
                   The company wasn't failing because their products were bad or their market was shrinking. They were failing because operating four departments without integration meant every growth milestone created four times as much operational chaos.
                 </motion.p>
 
-                {/* Section 2: How Each Department Was Working — And Suffering */}
+                {/* Section 2: How Each Department Was Working - And Suffering */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -332,7 +333,7 @@ export default function CustomERPCaseStudyPage() {
                   className="space-y-6 pt-4"
                 >
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900">
-                    How Each Department Was Working — And Suffering
+                    How Each Department Was Working - And Suffering
                   </h3>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -348,7 +349,7 @@ export default function CustomERPCaseStudyPage() {
                   </div>
 
                   <p className="text-gray-600 text-sm md:text-base leading-relaxed pt-2">
-                    The problem wasn't that the teams were incompetent — they were working extremely hard. But because their tools didn't talk to each other, every team's effort was undermined by every other team's blind spots.
+                    The problem wasn't that the teams were incompetent - they were working extremely hard. But because their tools didn't talk to each other, every team's effort was undermined by every other team's blind spots.
                   </p>
                 </motion.div>
 
@@ -363,7 +364,7 @@ export default function CustomERPCaseStudyPage() {
                     WHAT WE FOUND
                   </span>
                   <p className="text-gray-700 text-sm md:text-base leading-relaxed">
-                    Instead of buying a standard ERP and trying to force their process into it, what they needed was a system designed around how a chemical manufacturer actually works — lot numbers, batch tracking, chemical formulations, and export documentation.
+                    Instead of buying a standard ERP and trying to force their process into it, what they needed was a system designed around how a chemical manufacturer actually works - lot numbers, batch tracking, chemical formulations, and export documentation.
                   </p>
                 </motion.div>
 
@@ -381,7 +382,7 @@ export default function CustomERPCaseStudyPage() {
                     This wasn't the company's first attempt at solving this. They had already bought two off-the-shelf ERP software packages over the previous three years. Both were abandoned within six months of implementation.
                   </p>
                   <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                    The reason was simple: off-the-shelf software is built for retail or standard assembly manufacturing. <strong className="text-gray-900 font-semibold">Chemical manufacturing has specific requirements that retail software doesn't understand.</strong> Formulation scaling, batch/lot tracking, chemical compliance certificates, multi-stage production runs — none of this fitted into the standard modules without massive, expensive customization that still didn't work right.
+                    The reason was simple: off-the-shelf software is built for retail or standard assembly manufacturing. <strong className="text-gray-900 font-semibold">Chemical manufacturing has specific requirements that retail software doesn't understand.</strong> Formulation scaling, batch/lot tracking, chemical compliance certificates, multi-stage production runs - none of this fitted into the standard modules without massive, expensive customization that still didn't work right.
                   </p>
                   <p className="text-gray-600 text-sm md:text-base leading-relaxed">
                     Every time the software failed to handle a chemical-specific task, the team went back to Excel and WhatsApp. Within months, the ERP was an empty shell that nobody used, and the old chaos was back.
@@ -468,7 +469,7 @@ export default function CustomERPCaseStudyPage() {
                 The Result: One System. Four Aligned Departments.
               </h2>
               <p className="text-md md:text-lg text-gray-600 text-center leading-relaxed">
-                We built a custom ERP using Odoo as a base — customized from the ground up for chemical manufacturing. The system connected all four departments into one real-time workflow. <strong className="text-gray-900 font-semibold">Every department now sees what every other department is doing, in real time.</strong>
+                We built a custom ERP using Odoo as a base - customized from the ground up for chemical manufacturing. The system connected all four departments into one real-time workflow. <strong className="text-gray-900 font-semibold">Every department now sees what every other department is doing, in real time.</strong>
               </p>
             </motion.div>
 
@@ -557,30 +558,7 @@ export default function CustomERPCaseStudyPage() {
             </motion.div>
 
             {/* Vertical Timeline */}
-            <div className="max-w-4xl mx-auto relative pl-6 border-l border-gray-200 space-y-12">
-              {timelineSteps.map((step, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.05 }}
-                  className="relative group"
-                >
-                  <div className="absolute -left-[33px] top-1 w-4.5 h-4.5 rounded-full border-2 border-white bg-gray-300 group-hover:bg-[#f1592a] group-hover:scale-120 transition-all duration-300 shadow-sm" />
-
-                  <div className="bg-white border border-gray-100 hover:border-[#f1592a]/20 hover:shadow-lg transition-all rounded-3xl p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="space-y-2">
-                      <div className="flex items-center space-x-2">
-                        <span className="text-xs md:text-sm font-bold text-[#f1592a]">{step.time}</span>
-                      </div>
-                      <h3 className="text-lg font-bold text-gray-900 leading-snug">{step.title}</h3>
-                      <p className="text-gray-600 text-xs md:text-sm leading-relaxed">{step.desc}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <ScrollRevealTimeline steps={timelineSteps} />
           </div>
         </section>
 
@@ -651,7 +629,7 @@ export default function CustomERPCaseStudyPage() {
                 className="pl-6 border-l-4 border-[#f1592a] bg-[#f1592a]/5 py-6 pr-6 rounded-r-3xl"
               >
                 <blockquote className="text-gray-800 italic text-sm md:text-base font-semibold leading-relaxed">
-                  "For the first time in five years, I open my laptop in the morning and see the whole business — Purchase, Sales, Production, Exports. Live, accurate, connected. No phone calls to figure out where a batch is. Everything is right there."
+                  "For the first time in five years, I open my laptop in the morning and see the whole business - Purchase, Sales, Production, Exports. Live, accurate, connected. No phone calls to figure out where a batch is. Everything is right there."
                 </blockquote>
                 <p className="text-xs font-bold text-[#f1592a] uppercase mt-3 tracking-wider">— Managing Director, Chemical Manufacturer</p>
               </motion.div>
@@ -673,10 +651,10 @@ export default function CustomERPCaseStudyPage() {
                   What This Means for Your Business
                 </h2>
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                  If your business has outgrown spreadsheet tracking but off-the-shelf software feels wrong for how you actually work, you don't need a bigger software vendor — you need a system built around your specific operational reality. A custom ERP doesn't force your business into a software vendor's template. It digitises your actual workflow.
+                  If your business has outgrown spreadsheet tracking but off-the-shelf software feels wrong for how you actually work, you don't need a bigger software vendor - you need a system built around your specific operational reality. A custom ERP doesn't force your business into a software vendor's template. It digitises your actual workflow.
                 </p>
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                  The key isn't building a system with a thousand features. The key is building a system that your team actually uses — because it makes their daily work simpler, not harder. That's the difference between an ERP project that succeeds and one that gets abandoned.
+                  The key isn't building a system with a thousand features. The key is building a system that your team actually uses - because it makes their daily work simpler, not harder. That's the difference between an ERP project that succeeds and one that gets abandoned.
                 </p>
               </motion.div>
             </div>
@@ -715,7 +693,7 @@ export default function CustomERPCaseStudyPage() {
                 </h2>
 
                 <p className="text-md md:text-lg text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed">
-                  No pitch, no pressure. Just an honest conversation about how your departments work today — and what it would look like if they were all finally aligned.
+                  No pitch, no pressure. Just an honest conversation about how your departments work today - and what it would look like if they were all finally aligned.
                 </p>
 
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-4">

@@ -66,7 +66,7 @@ const company = [
     name: 'Our Story',
     description: 'Learn about our journey',
     icon: Heart,
-    link: '/our-story',
+    link: '/keyconcepts-story',
   },
   {
     name: 'Process',
@@ -695,21 +695,21 @@ function MegaMenuHeader() {
                 Home
               </Link>{' '}
               <Link
-                href="/services"
+                href="/product-development"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="px-4 py-3 rounded-xl text-gray-700 hover:bg-gradient-to-r hover:from-[#f1592a]/5 hover:to-[#ff7a45]/5 hover:text-[#f1592a] transition-all font-medium"
               >
                 Services
               </Link>{' '}
               <Link
-                href="/services"
+                href="/visitor-management"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="px-4 py-3 rounded-xl text-gray-700 hover:bg-gradient-to-r hover:from-[#f1592a]/5 hover:to-[#ff7a45]/5 hover:text-[#f1592a] transition-all font-medium"
               >
                 Our Platforms
               </Link>{' '}
               <Link
-                href="/about"
+                href="/keyconcepts-story"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="px-4 py-3 rounded-xl text-gray-700 hover:bg-gradient-to-r hover:from-[#f1592a]/5 hover:to-[#ff7a45]/5 hover:text-[#f1592a] transition-all font-medium"
               >

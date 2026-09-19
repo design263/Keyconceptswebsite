@@ -8,29 +8,44 @@ import { faqSchema } from '@/lib/structured-data'
 
 export const faqs = [
   {
-    question: 'What services does Key Concepts offer as a software development company?',
+    question: 'What does Key Concepts specialise in?',
     answer:
-      'We provide comprehensive custom software development, mobile app development, custom CRM development, web development, and certified Odoo ERP implementation tailored to optimize your business workflows and scale your operations.',
+      'Key Concepts specialises in AI-native product engineering, custom software development, enterprise automation, ERP solutions, and digital product development. We work with businesses to build, modernise, and scale software systems.',
   },
   {
-    question: 'Why should we choose Key Concepts as our ERP software company?',
+    question: 'How can Key Concepts help businesses adopt AI?',
     answer:
-      'Since 2009, Key Concepts has engineered high-uptime enterprise systems. As a trusted ERP software company, we offer certified Odoo ERP consulting, custom module development, data migrations, and dedicated AMC support to ensure your business operations run smoothly.',
+      'We help businesses identify practical AI opportunities and integrate AI into existing or new software systems. This includes workflow automation, document intelligence, AI-powered features, and business process optimisation.',
   },
   {
-    question: 'What technologies do you use for mobile app development?',
+    question: 'Does Key Concepts build complete SaaS products?',
     answer:
-      'Our mobile app development team builds high-performance native iOS and Android apps, as well as cross-platform solutions using React Native and Flutter. We manage the entire lifecycle, from design to App Store and Google Play deployment.',
+      'Yes. Key Concepts can support the SaaS product lifecycle from product discovery and UX to engineering, AI integration, deployment, maintenance, and ongoing improvements.',
   },
   {
-    question: 'How does custom CRM development help my business grow?',
+    question: 'Can Key Concepts modernise an existing legacy application?',
     answer:
-      'Our custom CRM development services build tailored tools to track leads, automate sales pipelines, centralize customer communication, and deliver analytics. This helps eliminate manual processes, increases sales efficiency, and supports business scale.',
+      'Yes. We can assess existing applications, identify modernisation opportunities, and incrementally improve architecture, technology, performance, and maintainability while considering existing business processes.',
   },
   {
-    question: 'What web development stacks do you specialize in?',
+    question: 'Do you develop custom ERP and enterprise systems?',
     answer:
-      'We specialize in high-performance web development utilizing Next.js, React, Node.js, and Tailwind CSS. We focus on building fast, responsive, secure, and SEO-optimized web applications that deliver outstanding conversion rates.',
+      'Yes. We develop custom ERP and enterprise software tailored to specific business processes, integrations, workflows, reporting, and operational requirements.',
+  },
+  {
+    question: 'Can Key Concepts work as our long-term product engineering team?',
+    answer:
+      'Yes. We can work as an extended product engineering partner, supporting ongoing development, maintenance, enhancements, technology upgrades, and product scaling.',
+  },
+  {
+    question: 'Which industries does Key Concepts have experience in?',
+    answer:
+      'Our experience spans areas including insurance and regtech, manufacturing, real estate and infrastructure, SaaS and technology, financial services, sports and recreation, legal technology, and trade and commerce.',
+  },
+  {
+    question: 'Where is Key Concepts located and do you work with global clients?',
+    answer:
+      'Key Concepts Innovations Pvt. Ltd. is based in Surat, Gujarat, India, and works with startups and enterprises across India and global markets. We partner with clients worldwide on software, SaaS, AI, ERP, and digital product development initiatives.',
   },
 ]
 

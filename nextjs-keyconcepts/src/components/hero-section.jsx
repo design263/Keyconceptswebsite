@@ -215,7 +215,7 @@ function HeroSection() {
               {' '}
               <Sparkles className="text-[#f1592a]" size={18} />{' '}
               <span className="text-xs md:text-sm font-medium text-gray-700">
-                16 Years · 400+ Clients · India, UK & USA
+                17+ Years · 400+ Clients
               </span>
             </motion.div>{' '}
             <div className="space-y-4">
@@ -253,7 +253,7 @@ function HeroSection() {
                 }}
                 className="text-md lg:text-lg text-gray-600 leading-relaxed font-medium"
               >
-                Whether you're a startup with a napkin idea or a growing business that's outgrown its current systems - we listen first, understand your constraints, and then build technology that actually fits your world. No jargon. No surprises. Just results.
+                Whether you're a startup with a napkin idea or a growing business that's outgrown its current systems - we listen first, understand your constraints, and then build technology that actually fits your world. <br></br><span className="text-[#f1592a] font-semibold">No jargon. No surprises. Just results.</span>
               </motion.p>
             </div>{' '}
             <motion.div
@@ -266,7 +266,7 @@ function HeroSection() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2"
+                  className="group w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-full shadow-2xl hover:shadow-[#f1592a]/50 transition-all flex items-center justify-center space-x-2 cursor-pointer"
                 >
                   <span className="text-sm md:text-base font-semibold">Start a Conversation</span>
                   <ArrowRight
@@ -275,13 +275,13 @@ function HeroSection() {
                   />
                 </motion.button>
               </Link>
-              <Link href="/our-story" className="w-[80%] sm:w-auto">
+              <Link href="/insights/case-studies" className="w-[80%] sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-white group w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-full shadow-2xl border border-gray-200 rounded-full text-gray-800 hover:border-[#f1592a] hover:text-[#f1592a] transition-all flex items-center justify-center space-x-2"
+                  className="bg-white group w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 shadow-2xl border border-gray-200 rounded-full text-gray-800 hover:border-[#f1592a] hover:text-[#f1592a] transition-all flex items-center justify-center space-x-2 cursor-pointer"
                 >
-                  <span className="text-sm md:text-base font-semibold">Our Story</span>
+                  <span className="text-sm md:text-base font-semibold">See Our Work</span>
                   <ArrowRight
                     className="group-hover:translate-x-1 transition-transform"
                     size={20}
@@ -319,8 +319,12 @@ function HeroSection() {
               }}
               className="absolute top-10 right-10 w-20 h-20 bg-white/60 backdrop-blur-sm rounded-2xl shadow-xl border border-white/60 flex items-center justify-center"
             >
-              {' '}
-              <div className="w-12 h-12 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-xl" />
+              <div className="w-12 h-12 bg-gradient-to-br from-[#f1592a] to-[#ff7a45] rounded-xl flex items-center justify-center text-white shadow-md select-none font-bold text-xs tracking-wider">
+                <span className="flex items-center gap-1">
+                  <Sparkles size={13} className="text-white" />
+                  <span>AI</span>
+                </span>
+              </div>
             </motion.div>{' '}
             <motion.div
               animate={{
@@ -334,8 +338,11 @@ function HeroSection() {
               }}
               className="absolute bottom-16 left-10 w-16 h-16 bg-white/60 backdrop-blur-sm rounded-xl shadow-xl border border-white/60 flex items-center justify-center"
             >
-              {' '}
-              <div className="w-10 h-10 bg-gradient-to-br from-gray-600 to-gray-800 rounded-lg" />
+              <div className="w-10 h-10 bg-gradient-to-br from-gray-700 to-gray-900 rounded-lg flex items-center justify-center text-white shadow-md select-none">
+                <span className="font-mono font-extrabold text-sm tracking-tight text-white">
+                  &lt;/&gt;
+                </span>
+              </div>
             </motion.div>{' '}
             <motion.div
               animate={{

@@ -44,6 +44,11 @@ const nextConfig = {
         destination: '/custom-erp-solutions',
         permanent: true,
       },
+      {
+        source: '/our-story',
+        destination: '/keyconcepts-story',
+        permanent: true,
+      },
     ]
   },
   async headers() {

@@ -49,9 +49,9 @@ export default async function CaseStudyDetailPage({ params }) {
         data={[
           articleSchema(caseStudy, slug),
           breadcrumbSchema([
-            { name: 'Home', url: SITE_URL },
-            { name: 'Case Studies', url: `${SITE_URL}/insights/case-studies` },
-            { name: caseStudy.title, url: `${SITE_URL}/case-study/${slug}` },
+            { name: 'Home', url: '/' },
+            { name: 'Case Studies', url: '/insights/case-studies' },
+            { name: caseStudy.title, url: `/case-study/${slug}` },
           ]),
         ]}
       />
