@@ -112,6 +112,16 @@ export const pageSeo = {
       'Key Concepts careers, developer jobs Surat, software jobs Surat, AI careers Gujarat',
     path: '/careers',
   },
+  services: {
+    title: {
+      absolute: 'Software Development Services | Web, Mobile, ERP & MVP | Key Concepts',
+    },
+    description:
+      'Complete IT services from Key Concepts: product development, web solutions, mobile apps, custom ERP, MVP studio, branding, and ongoing support.',
+    keywords:
+      'Key Concepts services, web development, mobile apps, custom ERP, MVP development, software support, Surat',
+    path: '/services',
+  },
   'product-development': {
     title: {
       absolute: 'Product Development & Product Engineering Services | Key Concepts',
@@ -320,20 +330,26 @@ export function createPageMetadata(pageKey, overrides = {}) {
     'mvp-development': 'mvp-studio',
     'odoo-erp': 'custom-erp-solutions',
     'our-story': 'keyconcepts-story',
+    about: 'keyconcepts-story',
+    'branding-services': 'services',
   }
   const resolvedKey = aliases[pageKey] || pageKey
   const page = pageSeo[resolvedKey]
 
+  // Never throw during build — unknown keys fall back to home SEO
   if (!page && !overrides.title && !overrides.description) {
-    throw new Error(`Unknown SEO page key: ${pageKey}`)
+    console.warn(`[seo] Unknown page key "${pageKey}", falling back to home metadata`)
   }
 
-  const title = overrides.title ?? page?.title
+  const fallback = pageSeo.home
+
+  const meta = page || fallback
+  const title = overrides.title ?? meta?.title
   const description = trimMetaDescription(
-    overrides.description ?? page?.description,
+    overrides.description ?? meta?.description,
   )
-  const keywords = overrides.keywords ?? page?.keywords
-  const rawPath = overrides.path ?? page?.path ?? '/'
+  const keywords = overrides.keywords ?? meta?.keywords
+  const rawPath = overrides.path ?? page?.path ?? `/${String(pageKey).replace(/^\/+/, '')}`
   const path = rawPath.startsWith('/') ? rawPath : `/${rawPath}`
 
   // Production canonical URL strictly uses HTTPS and production domain
