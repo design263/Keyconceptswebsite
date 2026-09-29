@@ -37,7 +37,7 @@ const mobileNavMenus = [
     items: [
       { href: '/keyconcepts-story', label: 'Our Story', description: 'Learn about our journey', icon: Heart },
       { href: '/process', label: 'Process', description: 'How we deliver exceptional results', icon: Target },
-      // { href: '/about#team', label: 'Team', description: 'Meet the people behind us', icon: Users },
+      // { href: '/keyconcepts-story', label: 'Team', description: 'Meet the people behind us', icon: Users },
       { href: '/careers', label: 'Careers', description: 'Join our growing team', icon: Briefcase },
     ],
     cta: { href: '/contact', label: 'Join Our Team' },
@@ -581,7 +581,7 @@ function MegaMenuHeader() {
                           className="group/item"
                         >
                           <Link
-                            href="/about#team"
+                            href="/keyconcepts-story"
                             className="block h-full p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
                           >
                             <div className="relative w-12 h-12 mb-4">

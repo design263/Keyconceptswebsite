@@ -90,15 +90,6 @@ function Footer() {
                   Home
                 </Link>
               </li>{' '}
-              {/* <li>
-                {' '}
-                <Link
-                  href="/services"
-                  className="text-gray-400 hover:text-[#f1592a] transition-colors text-sm"
-                >
-                  Products
-                </Link>
-              </li>{' '} */}
               <li>
                 {' '}
                 <Link

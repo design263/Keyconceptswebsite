@@ -1,8 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Link } from 'next/link'
-import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 import { motion, AnimatePresence } from 'motion/react'
 import {
   Menu,
@@ -11,13 +10,11 @@ import {
   Users,
   Target,
   Package,
-  Vote,
   Sparkles,
   Building2,
   Layers,
   Rocket,
   Settings,
-  Shield,
   Heart,
   Briefcase,
   Lightbulb,
@@ -31,7 +28,6 @@ function MegaMenuHeader() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeMegaMenu, setActiveMegaMenu] = useState(null)
-  const pathname = usePathname()
   const menuTimeoutRef = useRef(null)
   const { openModal } = useEnquiryModal()
   const { openModal: openCareerModal } = useCareerModal()
@@ -217,17 +213,6 @@ function MegaMenuHeader() {
                             </p>
                           </Link>
                         </motion.div>
-                        <motion.div
-                          initial={{
-                            opacity: 0,
-                            y: 20,
-                          }}
-                          animate={{
-                            opacity: 1,
-                            y: 0,
-                          }}
-                          transition={{
-                            delay: 0.15,
                       </div>
                       <motion.div
                         initial={{
@@ -381,6 +366,27 @@ function MegaMenuHeader() {
                           }}
                           transition={{
                             delay: 0.1,
+                          }}
+                          className="group/item"
+                        >
+                          <Link
+                            href="/claim-genie"
+                            className="block h-full p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
+                          >
+                            <div className="relative w-12 h-12 mb-4">
+                              <div className="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center group-hover/item:bg-white transition-all">
+                                <Sparkles className="text-gray-700" size={24} strokeWidth={1.5} />
+                              </div>
+                              <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-[#f1592a] rounded-full border-2 border-white" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 mb-2 group-hover/item:text-[#f1592a] transition-colors">
+                              Claim Genie
+                            </h3>
+                            <p className="text-sm text-gray-600 leading-relaxed">
+                              AI-powered claims automation platform
+                            </p>
+                          </Link>
+                        </motion.div>
                       </div>
                       <motion.div
                         initial={{
@@ -401,7 +407,7 @@ function MegaMenuHeader() {
                             <Package className="text-[#f1592a]" size={20} />
                           </div>
                           <p className="text-gray-900 font-semibold">
-                            Looking for a custom platform? Let's build it together.
+                            Looking for a custom platform? Let&apos;s build it together.
                           </p>
                         </div>
                         <button
@@ -532,7 +538,7 @@ function MegaMenuHeader() {
                           className="group/item"
                         >
                           <Link
-                            href="/about#team"
+                            href="/keyconcepts-story"
                             className="block h-full p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
                           >
                             <div className="relative w-12 h-12 mb-4">
@@ -776,25 +782,25 @@ function MegaMenuHeader() {
                 Home
               </Link>
               <Link
-                href="/services"
+                href="/product-development"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="px-4 py-3 rounded-xl text-gray-700 hover:bg-gradient-to-r hover:from-[#f1592a]/5 hover:to-[#ff7a45]/5 hover:text-[#f1592a] transition-all font-medium"
               >
-                Services
+                Product Development
               </Link>
               <Link
-                href="/services"
+                href="/visitor-management"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="px-4 py-3 rounded-xl text-gray-700 hover:bg-gradient-to-r hover:from-[#f1592a]/5 hover:to-[#ff7a45]/5 hover:text-[#f1592a] transition-all font-medium"
               >
                 Our Platforms
               </Link>
               <Link
-                href="/about"
+                href="/keyconcepts-story"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="px-4 py-3 rounded-xl text-gray-700 hover:bg-gradient-to-r hover:from-[#f1592a]/5 hover:to-[#ff7a45]/5 hover:text-[#f1592a] transition-all font-medium"
               >
-                Company
+                Our Story
               </Link>
               <Link
                 href="/insights/trends"

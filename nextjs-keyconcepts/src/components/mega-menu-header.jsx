@@ -234,7 +234,7 @@ function MegaMenuHeader() {
                           >
                             {' '}
                             <Link
-                              href={service.link || '/services'}
+                              href={service.link || '/'}
                               className="block h-full p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
                             >
                               {' '}
@@ -365,7 +365,7 @@ function MegaMenuHeader() {
                           >
                             {' '}
                             <Link
-                              href={product.link || '/services'}
+                              href={product.link || '/'}
                               className="block h-full p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
                             >
                               {' '}

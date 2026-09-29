@@ -49,6 +49,26 @@ const nextConfig = {
         destination: '/keyconcepts-story',
         permanent: true,
       },
+      {
+        source: '/services',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/web-solutions',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/about',
+        destination: '/keyconcepts-story',
+        permanent: true,
+      },
+      {
+        source: '/terms-of-use',
+        destination: '/terms-of-service',
+        permanent: true,
+      },
     ]
   },
   async headers() {
@@ -70,6 +90,14 @@ const nextConfig = {
             value: 'public, max-age=31536000, immutable',
           },
         ],
+      },
+      {
+        source: '/cookie-policy',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+      {
+        source: '/terms-of-service',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
       },
     ]
   },

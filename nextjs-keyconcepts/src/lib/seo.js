@@ -112,16 +112,6 @@ export const pageSeo = {
       'Key Concepts careers, developer jobs Surat, software jobs Surat, AI careers Gujarat',
     path: '/careers',
   },
-  services: {
-    title: {
-      absolute: 'Software Development Services | Web, Mobile, ERP & MVP | Key Concepts',
-    },
-    description:
-      'Complete IT services from Key Concepts: product development, web solutions, mobile apps, custom ERP, MVP studio, branding, and ongoing support.',
-    keywords:
-      'Key Concepts services, web development, mobile apps, custom ERP, MVP development, software support, Surat',
-    path: '/services',
-  },
   'product-development': {
     title: {
       absolute: 'Product Development & Product Engineering Services | Key Concepts',
@@ -161,16 +151,6 @@ export const pageSeo = {
     keywords:
       'application support, software maintenance, web app support, mobile app maintenance, performance optimization',
     path: '/support-maintenance',
-  },
-  'web-solutions': {
-    title: {
-      absolute: 'Web Development | Next.js, E-commerce & APIs | Key Concepts',
-    },
-    description:
-      'Professional web development: business websites, e-commerce, web apps, Chrome extensions, and APIs using Next.js and modern technologies.',
-    keywords:
-      'web development Surat, Next.js development, ecommerce website, web application, API development',
-    path: '/web-solutions',
   },
   'mobile-development': {
     title: {
@@ -311,6 +291,7 @@ export const pageSeo = {
     keywords:
       'terms of service, terms and conditions, terms of use, service agreement, Key Concepts terms',
     path: '/terms-of-service',
+    noIndex: true,
   },
   'cookie-policy': {
     title: {
@@ -321,6 +302,7 @@ export const pageSeo = {
     keywords:
       'cookie policy, web cookies, tracking technologies, browser cookies, user tracking',
     path: '/cookie-policy',
+    noIndex: true,
   },
 }
 
@@ -330,8 +312,6 @@ export function createPageMetadata(pageKey, overrides = {}) {
     'mvp-development': 'mvp-studio',
     'odoo-erp': 'custom-erp-solutions',
     'our-story': 'keyconcepts-story',
-    about: 'keyconcepts-story',
-    'branding-services': 'services',
   }
   const resolvedKey = aliases[pageKey] || pageKey
   const page = pageSeo[resolvedKey]
@@ -362,17 +342,30 @@ export function createPageMetadata(pageKey, overrides = {}) {
 
   const fullTitle = resolveFullTitle(title)
 
-  const robots = overrides.robots ?? {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  }
+  const defaultRobots = page?.noIndex
+    ? {
+        index: false,
+        follow: false,
+        nocache: true,
+        googleBot: {
+          index: false,
+          follow: false,
+          noimageindex: true,
+        },
+      }
+    : {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large',
+          'max-snippet': -1,
+        },
+      }
+
+  const robots = overrides.robots ?? defaultRobots
 
   return {
     title: { absolute: fullTitle },

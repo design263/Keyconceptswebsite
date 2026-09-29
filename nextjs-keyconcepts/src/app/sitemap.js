@@ -74,8 +74,16 @@ async function getCaseStudyRoutes() {
 }
 
 export default async function sitemap() {
+  const noIndexPaths = new Set(
+    Object.values(pageSeo)
+      .filter((page) => page.noIndex || page.path === '/blog')
+      .map((page) => page.path)
+  )
+  // Always exclude legacy blog path even if not flagged
+  noIndexPaths.add('/blog')
+
   const staticRoutes = Object.values(pageSeo)
-    .filter((page) => page.path !== '/blog')
+    .filter((page) => !noIndexPaths.has(page.path))
     .map((page) => ({
       url: `${SITE_URL}${page.path}`,
       lastModified: new Date(),

@@ -259,7 +259,7 @@ function MegaMenuHeader() {
                             key={service.name}
                           >
                             <Link
-                              href={service.link || '/services'}
+                              href={service.link || '/'}
                               className="block h-full p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
                             >
                               <div className="relative w-12 h-12 mb-4">
@@ -375,7 +375,7 @@ function MegaMenuHeader() {
                             key={product.name}
                           >
                             <Link
-                              href={product.link || '/services'}
+                              href={product.link || '/'}
                               className="block h-full p-5 rounded-xl border border-gray-100 hover:border-[#f1592a]/20 hover:bg-gray-50 transition-all"
                             >
                               <div className="relative w-12 h-12 mb-4">
@@ -672,25 +672,25 @@ function MegaMenuHeader() {
                 Home
               </Link>
               <Link
-                href="/services"
+                href="/product-development"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="px-4 py-3 rounded-xl text-gray-700 hover:bg-gradient-to-r hover:from-[#f1592a]/5 hover:to-[#ff7a45]/5 hover:text-[#f1592a] transition-all font-medium"
               >
-                Services
+                Product Development
               </Link>
               <Link
-                href="/services"
+                href="/visitor-management"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="px-4 py-3 rounded-xl text-gray-700 hover:bg-gradient-to-r hover:from-[#f1592a]/5 hover:to-[#ff7a45]/5 hover:text-[#f1592a] transition-all font-medium"
               >
                 Our Platforms
               </Link>
               <Link
-                href="/about"
+                href="/keyconcepts-story"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="px-4 py-3 rounded-xl text-gray-700 hover:bg-gradient-to-r hover:from-[#f1592a]/5 hover:to-[#ff7a45]/5 hover:text-[#f1592a] transition-all font-medium"
               >
-                Company
+                Our Story
               </Link>
               <Link
                 href="/insights/trends"
