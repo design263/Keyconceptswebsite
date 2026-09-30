@@ -60,6 +60,26 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/branding-services',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/mobile-development',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/visitor-management-system',
+        destination: 'https://visitorz.io/',
+        permanent: true,
+      },
+      {
+        source: '/visitor-management-system/:path*',
+        destination: 'https://visitorz.io/',
+        permanent: true,
+      },
+      {
         source: '/about',
         destination: '/keyconcepts-story',
         permanent: true,

@@ -152,16 +152,6 @@ export const pageSeo = {
       'application support, software maintenance, web app support, mobile app maintenance, performance optimization',
     path: '/support-maintenance',
   },
-  'mobile-development': {
-    title: {
-      absolute: 'Mobile App Development | iOS & Android Apps | Key Concepts',
-    },
-    description:
-      'Native and cross-platform mobile apps by Key Concepts. UI/UX, development, testing, and App Store or Play Store deployment.',
-    keywords:
-      'mobile app development Surat, iOS app development, Android app development, cross platform apps',
-    path: '/mobile-development',
-  },
   'claim-genie': {
     title: {
       absolute: 'AI-Powered Insurance Claims Management Platform | Key Concepts',

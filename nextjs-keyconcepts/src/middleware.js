@@ -6,9 +6,12 @@ const REDIRECTS = {
   '/our-story': '/keyconcepts-story',
   '/services': '/',
   '/web-solutions': '/',
+  '/branding-services': '/',
+  '/mobile-development': '/',
   '/odoo-erp': '/custom-erp-solutions',
   '/blog': '/insights/trends',
   '/terms-of-use': '/terms-of-service',
+  '/visitor-management-system': 'https://visitorz.io/',
 }
 
 const NOINDEX_PATHS = new Set(['/cookie-policy', '/terms-of-service'])
@@ -18,6 +21,10 @@ export function middleware(request) {
   const destination = REDIRECTS[pathname]
 
   if (destination) {
+    if (destination.startsWith('http://') || destination.startsWith('https://')) {
+      return NextResponse.redirect(destination, 308)
+    }
+
     const url = request.nextUrl.clone()
     url.pathname = destination
     return NextResponse.redirect(url, 308)
@@ -42,6 +49,12 @@ export const config = {
     '/services/:path*',
     '/web-solutions',
     '/web-solutions/:path*',
+    '/branding-services',
+    '/branding-services/:path*',
+    '/mobile-development',
+    '/mobile-development/:path*',
+    '/visitor-management-system',
+    '/visitor-management-system/:path*',
     '/odoo-erp',
     '/odoo-erp/:path*',
     '/blog',
