@@ -1,18 +1,77 @@
 import { Job } from "../models/Job.js";
 import { paginatedResponse } from "../utils/apiResponse.js";
 
-const buildFilters = ({ q, status }) => {
+const buildFilters = (query = {}) => {
+  const { q, status, department, location, employmentType, experience, fromDate, toDate } = query;
   const filter = {};
-  if (status) filter.status = status;
-  if (q) {
+
+  if (status && status.trim() !== "" && status !== "all") {
+    filter.status = status.trim();
+  }
+  if (department && department.trim() !== "" && department !== "all") {
+    filter.department = { $regex: department.trim(), $options: "i" };
+  }
+  if (location && location.trim() !== "" && location !== "all") {
+    filter.location = { $regex: location.trim(), $options: "i" };
+  }
+  if (employmentType && employmentType.trim() !== "" && employmentType !== "all") {
+    filter.employmentType = { $regex: employmentType.trim(), $options: "i" };
+  }
+  if (experience && experience.trim() !== "" && experience !== "all") {
+    filter.experience = { $regex: experience.trim(), $options: "i" };
+  }
+
+  if ((fromDate && fromDate.trim() !== "") || (toDate && toDate.trim() !== "")) {
+    filter.createdAt = {};
+    if (fromDate && fromDate.trim() !== "") {
+      const from = new Date(fromDate.trim());
+      if (!isNaN(from.getTime())) {
+        filter.createdAt.$gte = from;
+      }
+    }
+    if (toDate && toDate.trim() !== "") {
+      const to = new Date(toDate.trim());
+      if (!isNaN(to.getTime())) {
+        to.setHours(23, 59, 59, 999);
+        filter.createdAt.$lte = to;
+      }
+    }
+    if (Object.keys(filter.createdAt).length === 0) {
+      delete filter.createdAt;
+    }
+  }
+
+  if (q && q.trim() !== "") {
+    const term = q.trim();
     filter.$or = [
-      { title: { $regex: q, $options: "i" } },
-      { department: { $regex: q, $options: "i" } },
-      { location: { $regex: q, $options: "i" } },
+      { title: { $regex: term, $options: "i" } },
+      { department: { $regex: term, $options: "i" } },
+      { location: { $regex: term, $options: "i" } },
     ];
   }
   return filter;
 };
+
+export const getJobFilterOptions = async (req, res) => {
+  try {
+    const [departments, locations, employmentTypes, experiences] = await Promise.all([
+      Job.distinct("department"),
+      Job.distinct("location"),
+      Job.distinct("employmentType"),
+      Job.distinct("experience"),
+    ]);
+
+    return res.json({
+      departments: departments.filter(Boolean).sort(),
+      locations: locations.filter(Boolean).sort(),
+      employmentTypes: employmentTypes.filter(Boolean).sort(),
+      experiences: experiences.filter(Boolean).sort(),
+    });
+  } catch (error) {
+    return res.status(500).json({ message: "Failed to fetch filter options" });
+  }
+};
+
 
 const normalizeList = (value) => {
   if (Array.isArray(value)) return value.map((item) => String(item).trim()).filter(Boolean);

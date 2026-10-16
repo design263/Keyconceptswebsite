@@ -33,7 +33,13 @@ async function request(path, options = {}) {
 
     if (!response.ok) {
       const errorMessage = typeof data === 'object' ? data.message : data || "Request failed";
-      throw new Error(errorMessage);
+      const error = new Error(errorMessage);
+      if (typeof data === 'object' && data !== null) {
+        error.data = data;
+        error.alreadyApplied = Boolean(data.alreadyApplied);
+      }
+      error.status = response.status;
+      throw error;
     }
 
     return data;
@@ -90,8 +96,12 @@ export { request };
 
 // API endpoints constants
 export const endpoints = {
+  // Dashboard
+  DASHBOARD_STATS: '/dashboard/stats',
+
   // Jobs
   JOBS: '/jobs',
+  JOB_FILTER_OPTIONS: '/jobs/filter-options',
   JOB_BY_ID: (id) => `/jobs/${id}`,
 
   // Blogs
@@ -106,10 +116,35 @@ export const endpoints = {
   
   // Applications
   APPLICATIONS: '/applications',
+  APPLICATION_FILTER_OPTIONS: '/applications/filter-options',
+  APPLICATION_BY_ID: (id) => `/applications/${id}`,
+  APPLICATION_STATUS: (id) => `/applications/${id}/status`,
+  APPLICATION_ROUNDS: (id) => `/applications/${id}/rounds`,
+  APPLICATION_ROUND_UPDATE: (id, roundId) => `/applications/${id}/rounds/${roundId}`,
   
-  // Contact
+  // Contact Leads
   CONTACT: '/contact',
+  CONTACT_LEADS: '/contact-leads',
+  CONTACT_LEAD_BY_ID: (id) => `/contact-leads/${id}`,
+  CONTACT_LEAD_STATUS: (id) => `/contact-leads/${id}/status`,
+  CONTACT_LEAD_ASSIGN: (id) => `/contact-leads/${id}/assign`,
+  CONTACT_LEAD_ACTIVITIES: (id) => `/contact-leads/${id}/activities`,
+  CONTACT_LEAD_DETAILS: (id) => `/contact-leads/${id}/details`,
+  CONTACT_LEAD_FILTER_OPTIONS: '/contact-leads/filter-options',
+  CONTACT_LEAD_VIEWED: (id) => `/contact-leads/${id}/viewed`,
   
+  // Interviewers
+  INTERVIEWERS: '/interviewer',
+  INTERVIEWER_CREATE: '/interviewer/create',
+  INTERVIEWER_UPDATE: (id) => `/interviewer/update/${id}`,
+  INTERVIEWER_DELETE: (id) => `/interviewer/delete/${id}`,
+
+  // Lead Assignees
+  LEAD_ASSIGNEES: '/lead-assignee',
+  LEAD_ASSIGNEE_CREATE: '/lead-assignee/create',
+  LEAD_ASSIGNEE_UPDATE: (id) => `/lead-assignee/update/${id}`,
+  LEAD_ASSIGNEE_DELETE: (id) => `/lead-assignee/delete/${id}`,
+
   // Auth (if needed)
   LOGIN: '/auth/login',
   REGISTER: '/auth/register',

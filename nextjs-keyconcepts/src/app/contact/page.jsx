@@ -115,7 +115,7 @@ function ContactPage() {
     console.log('Form submission started...') // Debug log
     setIsSubmitting(true)
     try {
-      const fullPhone = `${selectedCountry.code} ${formData.phone}`
+      const fullPhone = `${selectedCountry.code} ${formData.phone.trim()}`
       const budgetVal = formData.approximateBudget || 'Prefer not to say / Not sure yet'
 
       // Send form data to API using contact-leads endpoint like React version
@@ -130,6 +130,8 @@ function ContactPage() {
       const res = await api.post('/contact-leads', {
         name: formData.name,
         email: formData.email,
+        phone: fullPhone,
+        company: formData.company,
         subject: formData.service || 'General Inquiry',
         approximateBudget: budgetVal,
         message: `${formData.message}${formData.company ? `\nCompany: ${formData.company}` : ''}${formData.phone ? `\nPhone: ${fullPhone}` : ''}${budgetVal ? `\nApproximate Budget: ${budgetVal}` : ''}`,
@@ -359,7 +361,7 @@ function ContactPage() {
                           htmlFor="phone"
                           className="block text-sm font-medium text-gray-700 mb-2"
                         >
-                          Phone Number
+                          Phone Number <span className="text-red-500">*</span>
                         </label>
                         <CountryPhoneInput
                           id="phone"

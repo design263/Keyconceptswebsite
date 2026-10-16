@@ -11,10 +11,14 @@ import authRoutes from "./routes/authRoutes.js";
 import jobRoutes from "./routes/jobRoutes.js";
 import applicationRoutes from "./routes/applicationRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
+import interviewerRoutes from "./routes/interviewerRoutes.js";
+import leadAssigneeRoutes from "./routes/leadAssigneeRoutes.js";
 import blogRoutes from "./routes/blogRoutes.js";
 import caseStudyRoutes from "./routes/caseStudyRoutes.js";
+import dashboardRoutes from "./routes/dashboardRoutes.js";
 import { connectDB } from "./config/db.js";
 import { errorHandler, notFound } from "./middlewares/errorHandler.js";
+import { startReminderScheduler } from "./services/reminderScheduler.js";
 
 const app = express();
 
@@ -85,6 +89,9 @@ app.use("/api/blogs", blogRoutes);
 app.use("/api/case-studies", caseStudyRoutes);
 app.use("/api/applications", applicationRoutes);
 app.use("/api/contact-leads", contactRoutes);
+app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/", interviewerRoutes);
+app.use("/api/", leadAssigneeRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
@@ -95,6 +102,7 @@ connectDB()
   .then(() => {
     app.listen(port, () => {
       console.log(`Server running on port ${port}`);
+      startReminderScheduler();
     });
   })
   .catch((error) => {

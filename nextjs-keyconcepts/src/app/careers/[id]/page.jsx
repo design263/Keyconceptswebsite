@@ -68,7 +68,7 @@
 //   const submitApplication = async (e) => {
 //     e.preventDefault()
 //     if (isSubmitting) return // Prevent multiple submissions
-    
+
 //     setIsSubmitting(true)
 //     try {
 //       const target = e.currentTarget
@@ -434,6 +434,8 @@ import {
   Bookmark,
   X,
   Upload,
+  Info,
+  ChevronDown,
 } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -443,6 +445,7 @@ import { useState, useEffect } from 'react'
 import { api, endpoints } from '@/lib/api'
 import { shareContent } from '@/lib/shareContent'
 import { submitJobApplication, validateResumeFile } from '@/lib/submitJobApplication'
+import { countries } from '@/data/countries'
 
 function JobDetailPage({ params }) {
   const resolvedParams = use(params)
@@ -451,6 +454,7 @@ function JobDetailPage({ params }) {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [dragActive, setDragActive] = useState(false)
+  const [submissionFeedback, setSubmissionFeedback] = useState(null)
 
   const [applicationForm, setApplicationForm] = useState({
     fullName: '',
@@ -459,16 +463,51 @@ function JobDetailPage({ params }) {
     linkedin: '',
     coverLetter: '',
   })
+  const [selectedCountry, setSelectedCountry] = useState(countries[0])
+  const [phoneError, setPhoneError] = useState('')
+
+  const handlePhoneChange = (e) => {
+    const val = e.target.value.replace(/\D/g, '')
+    setApplicationForm((prev) => ({ ...prev, phone: val }))
+    if (!val) {
+      setPhoneError('')
+      return
+    }
+    if (!selectedCountry.pattern.test(val)) {
+      setPhoneError(selectedCountry.error)
+    } else {
+      setPhoneError('')
+    }
+  }
+
+  const handleCountryChange = (e) => {
+    const selected = countries.find((c) => c.code === e.target.value)
+    if (selected) {
+      setSelectedCountry(selected)
+      if (applicationForm.phone) {
+        if (!selected.pattern.test(applicationForm.phone)) {
+          setPhoneError(selected.error)
+        } else {
+          setPhoneError('')
+        }
+      }
+    }
+  }
   const [resumeFile, setResumeFile] = useState(null)
   const handleFile = (file) => {
     if (!file) return
 
     const error = validateResumeFile(file)
     if (error) {
-      alert(error)
+      setSubmissionFeedback({
+        type: 'error',
+        title: 'Resume Required',
+        message: error,
+      })
       return
     }
 
+    setSubmissionFeedback(null)
     setResumeFile(file)
   }
   const handleDrag = (e) => {
@@ -531,30 +570,90 @@ function JobDetailPage({ params }) {
     e.preventDefault()
     if (isSubmitting || !job?.id) return
 
+    setSubmissionFeedback(null)
+
+    if (!applicationForm.phone || !applicationForm.phone.trim()) {
+      setPhoneError('Please enter your mobile number')
+      return
+    }
+    if (!selectedCountry.pattern.test(applicationForm.phone.trim())) {
+      setPhoneError(selectedCountry.error)
+      return
+    }
+
     const resumeError = validateResumeFile(resumeFile)
     if (resumeError) {
-      alert(resumeError)
+      setSubmissionFeedback({
+        type: 'error',
+        title: 'Resume Required',
+        message: resumeError,
+      })
       return
     }
 
     setIsSubmitting(true)
     try {
+      const fullPhone = `${selectedCountry.code} ${applicationForm.phone.trim()}`
       const response = await submitJobApplication({
         jobId: job.id,
         fullName: applicationForm.fullName,
         email: applicationForm.email,
-        phone: applicationForm.phone,
+        phone: fullPhone,
         coverLetter: applicationForm.coverLetter,
         resumeFile,
       })
 
-      setIsModalOpen(false)
+      if (response?.alreadyApplied) {
+        setSubmissionFeedback({
+          type: 'in_progress',
+          title: 'Application In Progress',
+          message:
+            response?.message ||
+            'Thank you for reaching out again! We have received your application for this position and it is currently in progress with our recruitment team. We will reach out to you soon with updates.',
+        })
+        return
+      }
+
+      setSubmissionFeedback({
+        type: 'success',
+        title: 'Application Received!',
+        message: response?.message || 'Thank you for applying! Your application has been successfully submitted. Our recruitment team will review your profile and be in touch soon.',
+      })
       setApplicationForm({ fullName: '', email: '', phone: '', linkedin: '', coverLetter: '' })
+      setSelectedCountry(countries[0])
+      setPhoneError('')
       setResumeFile(null)
-      alert(response?.message || 'Application submitted successfully!')
+
+      setTimeout(() => {
+        setIsModalOpen(false)
+        setSubmissionFeedback(null)
+      }, 3500)
     } catch (error) {
-      console.error('Error submitting application:', error)
-      alert(error?.message || 'Failed to submit application. Please try again.')
+      const isAlreadyApplied =
+        error?.alreadyApplied ||
+        error?.data?.alreadyApplied ||
+        (error?.message && (
+          error.message.includes('in progress') ||
+          error.message.includes('already applied') ||
+          error.message.includes('reaching out again')
+        ))
+
+      if (isAlreadyApplied) {
+        setSubmissionFeedback({
+          type: 'in_progress',
+          title: 'Application In Progress',
+          message:
+            error?.message ||
+            'Thank you for reaching out again! We have received your application for this position and it is currently in progress with our recruitment team. We will reach out to you soon with updates.',
+        })
+      } else {
+        console.warn('Error submitting application:', error?.message || error)
+        setSubmissionFeedback({
+          type: 'error',
+          title: 'Submission Notice',
+          message: error?.message || 'Failed to submit application. Please try again.',
+        })
+      }
     } finally {
       setIsSubmitting(false)
     }
@@ -565,10 +664,15 @@ function JobDetailPage({ params }) {
 
     const error = validateResumeFile(file)
     if (error) {
-      alert(error)
+      setSubmissionFeedback({
+        type: 'error',
+        title: 'Resume Format Issue',
+        message: error,
+      })
       return
     }
 
+    setSubmissionFeedback(null)
     setResumeFile(file)
   }
 
@@ -659,7 +763,7 @@ function JobDetailPage({ params }) {
                     <Share2 size={16} strokeWidth={2} />
                     <span>Share</span>
                   </motion.button>
-                
+
                 </div>
               </div>
             </div>
@@ -677,13 +781,13 @@ function JobDetailPage({ params }) {
                 <div className="flex flex-wrap gap-2">
                   {job?.skills?.length
                     ? job.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-[#f1592a]/10 to-[#ff7a45]/10 text-[#f1592a] rounded-full text-xs sm:text-sm font-semibold border border-[#f1592a]/20"
-                        >
-                          {skill}
-                        </span>
-                      ))
+                      <span
+                        key={skill}
+                        className="px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-[#f1592a]/10 to-[#ff7a45]/10 text-[#f1592a] rounded-full text-xs sm:text-sm font-semibold border border-[#f1592a]/20"
+                      >
+                        {skill}
+                      </span>
+                    ))
                     : <span className="text-gray-500 text-sm">No skills listed</span>}
                 </div>
               </div>
@@ -694,11 +798,11 @@ function JobDetailPage({ params }) {
                 <div className="space-y-3">
                   {job?.responsibilities?.length
                     ? job.responsibilities.map((item, index) => (
-                        <div key={index} className="flex items-start gap-3">
-                          <CheckCircle className="text-[#f1592a] flex-shrink-0 mt-1" size={18} strokeWidth={2} />
-                          <p className="text-gray-700 leading-relaxed text-sm sm:text-base">{item}</p>
-                        </div>
-                      ))
+                      <div key={index} className="flex items-start gap-3">
+                        <CheckCircle className="text-[#f1592a] flex-shrink-0 mt-1" size={18} strokeWidth={2} />
+                        <p className="text-gray-700 leading-relaxed text-sm sm:text-base">{item}</p>
+                      </div>
+                    ))
                     : <span className="text-gray-500 text-sm">No responsibilities listed</span>}
                 </div>
               </div>
@@ -709,11 +813,11 @@ function JobDetailPage({ params }) {
                 <div className="space-y-3">
                   {job?.requirements?.length
                     ? job.requirements.map((item, index) => (
-                        <div key={index} className="flex items-start gap-3">
-                          <CheckCircle className="text-[#f1592a] flex-shrink-0 mt-1" size={18} strokeWidth={2} />
-                          <p className="text-gray-700 leading-relaxed text-sm sm:text-base">{item}</p>
-                        </div>
-                      ))
+                      <div key={index} className="flex items-start gap-3">
+                        <CheckCircle className="text-[#f1592a] flex-shrink-0 mt-1" size={18} strokeWidth={2} />
+                        <p className="text-gray-700 leading-relaxed text-sm sm:text-base">{item}</p>
+                      </div>
+                    ))
                     : <span className="text-gray-500 text-sm">No requirements listed</span>}
                 </div>
               </div>
@@ -724,11 +828,11 @@ function JobDetailPage({ params }) {
                 <div className="space-y-3">
                   {job?.niceToHave?.length
                     ? job.niceToHave.map((item, index) => (
-                        <div key={index} className="flex items-start gap-3">
-                          <div className="w-2 h-2 bg-[#f1592a] rounded-full flex-shrink-0 mt-2" />
-                          <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{item}</p>
-                        </div>
-                      ))
+                      <div key={index} className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-[#f1592a] rounded-full flex-shrink-0 mt-2" />
+                        <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{item}</p>
+                      </div>
+                    ))
                     : <span className="text-gray-500 text-sm">No additional qualifications listed</span>}
                 </div>
               </div>
@@ -739,14 +843,14 @@ function JobDetailPage({ params }) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {job?.benefits?.length
                     ? job.benefits.map((benefit, index) => (
-                        <div
-                          key={index}
-                          className="flex items-start gap-3 p-3 sm:p-4 bg-gray-50 rounded-xl border border-gray-200"
-                        >
-                          <CheckCircle className="text-[#f1592a] flex-shrink-0 mt-0.5" size={16} strokeWidth={2} />
-                          <p className="text-gray-700 text-sm leading-relaxed">{benefit}</p>
-                        </div>
-                      ))
+                      <div
+                        key={index}
+                        className="flex items-start gap-3 p-3 sm:p-4 bg-gray-50 rounded-xl border border-gray-200"
+                      >
+                        <CheckCircle className="text-[#f1592a] flex-shrink-0 mt-0.5" size={16} strokeWidth={2} />
+                        <p className="text-gray-700 text-sm leading-relaxed">{benefit}</p>
+                      </div>
+                    ))
                     : <span className="text-gray-500 text-sm">No benefits listed</span>}
                 </div>
               </div>
@@ -798,59 +902,82 @@ function JobDetailPage({ params }) {
 
               {/* Modal form */}
               <div className="px-5 sm:px-8 py-5 sm:py-6">
-        <form onSubmit={submitApplication}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <form onSubmit={submitApplication}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Full Name <span className="text-red-500">*</span></label>
-              <input
-                type="text"
-                value={applicationForm.fullName}
-                onChange={(e) => setApplicationForm((prev) => ({ ...prev, fullName: e.target.value }))}
-                required
-                className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
-                placeholder="Enter your full name"
-                />
-            </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Full Name <span className="text-red-500">*</span></label>
+                      <input
+                        type="text"
+                        value={applicationForm.fullName}
+                        onChange={(e) => setApplicationForm((prev) => ({ ...prev, fullName: e.target.value }))}
+                        required
+                        className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
+                        placeholder="Enter your full name"
+                      />
+                    </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Email Address <span className="text-red-500">*</span></label>
-              <input
-                type="email"
-                value={applicationForm.email}
-                onChange={(e) => setApplicationForm((prev) => ({ ...prev, email: e.target.value }))}
-                required
-                className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
-                placeholder="Enter your email address"
-              />
-            </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Email Address <span className="text-red-500">*</span></label>
+                      <input
+                        type="email"
+                        value={applicationForm.email}
+                        onChange={(e) => setApplicationForm((prev) => ({ ...prev, email: e.target.value }))}
+                        required
+                        className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
+                        placeholder="Enter your email address"
+                      />
+                    </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number <span className="text-red-500">*</span>  </label>
-              <input
-                type="tel"
-                value={applicationForm.phone}
-                onChange={(e) => setApplicationForm((prev) => ({ ...prev, phone: e.target.value }))}
-                required
-                className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
-                placeholder="Enter your phone number"
-                />
-            </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Phone Number <span className="text-red-500">*</span>
+                      </label>
+                      <div className="relative flex items-center">
+                        <div className="absolute left-0 pl-2.5 flex items-center pointer-events-auto z-10 border-r border-gray-300 pr-2">
+                          <select
+                            value={selectedCountry.code}
+                            onChange={handleCountryChange}
+                            className="bg-transparent text-sm text-gray-800 focus:outline-none cursor-pointer pr-3.5 appearance-none outline-none"
+                          >
+                            {countries.map((c) => (
+                              <option key={c.label} value={c.code} className="text-sm">
+                                {c.flag} {c.code}
+                              </option>
+                            ))}
+                          </select>
+                          <ChevronDown size={10} className="text-gray-400 -ml-2.5 pointer-events-none" />
+                        </div>
+                        <input
+                          type="tel"
+                          placeholder={selectedCountry.placeholder}
+                          value={applicationForm.phone}
+                          onChange={handlePhoneChange}
+                          required
+                          className={`block w-full pl-24 pr-3 py-2.5 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] text-sm ${
+                            phoneError ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-[#f1592a]'
+                          }`}
+                        />
+                      </div>
+                      {phoneError && (
+                        <p className="text-red-500 text-xs mt-1">{phoneError}</p>
+                      )}
+                    </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">LinkedIn Profile</label>
-              <input
-                type="url"
-                className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
-                placeholder="Enter your LinkedIn profile"
-                />
-            </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">LinkedIn Profile</label>
+                      <input
+                        type="url"
+                        className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
+                        placeholder="Enter your LinkedIn profile"
+                      />
+                    </div>
 
-            {/* Cover Letter — full width on both mobile and desktop */}
-           
+                    {/* Cover Letter — full width on both mobile and desktop */}
 
-            {/* Resume upload — full width */}
-            <div className="col-span-1 sm:col-span-2">
+
+                    {/* Resume upload — full width */}
+                    <div className="col-span-1 sm:col-span-2">
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Resume/CV <span className="text-red-500">*</span>
                       </label>
@@ -864,11 +991,10 @@ function JobDetailPage({ params }) {
       relative flex flex-col items-center justify-center
       px-6 py-10 border-2 border-dashed rounded-xl
       transition-all duration-300 cursor-pointer
-      ${
-        dragActive
-          ? 'border-[#f1592a] bg-orange-50'
-          : 'border-gray-300 hover:border-[#f1592a] hover:bg-gray-50'
-      }
+      ${dragActive
+                            ? 'border-[#f1592a] bg-orange-50'
+                            : 'border-gray-300 hover:border-[#f1592a] hover:bg-gray-50'
+                          }
     `}
                       >
                         <input
@@ -913,37 +1039,83 @@ function JobDetailPage({ params }) {
                       )}
                     </div>
                     <div className="col-span-1 sm:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-1">Cover Letter <span className="text-red-500">*</span></label>
-              <textarea
-                className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm resize-none"
-                placeholder="Enter your cover letter"
-                value={applicationForm.coverLetter}
-                onChange={(e) => setApplicationForm((prev) => ({ ...prev, coverLetter: e.target.value }))}
-                required
-                rows={4}
-              />
-            </div>
-          </div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Cover Letter <span className="text-red-500">*</span></label>
+                      <textarea
+                        className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm resize-none"
+                        placeholder="Enter your cover letter"
+                        value={applicationForm.coverLetter}
+                        onChange={(e) => setApplicationForm((prev) => ({ ...prev, coverLetter: e.target.value }))}
+                        required
+                        rows={4}
+                      />
+                    </div>
+                  </div>
 
-          {/* Action buttons — stacked on mobile, side-by-side on sm+ */}
-          <div className="mt-6 flex flex-col-reverse sm:flex-row sm:justify-end gap-3">
-            <button
-              type="button"
-              onClick={() => setIsModalOpen(false)}
-              className="w-full sm:w-auto px-6 py-3 border border-gray-300 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f1592a] transition-colors"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full sm:w-auto px-6 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-[#f1592a] to-[#ff7a45] hover:from-[#ff7a45] hover:to-[#f1592a] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f1592a] transition-all shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
-            >
-              {isSubmitting ? 'Submitting...' : 'Submit Application'}
-            </button>
-          </div>
-        </form>
-      </div>
+                  {/* Action buttons — stacked on mobile, side-by-side on sm+ */}
+                  <div className="mt-6 flex flex-col-reverse sm:flex-row sm:justify-end gap-3">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsModalOpen(false)
+                        setSubmissionFeedback(null)
+                      }}
+                      className="w-full sm:w-auto px-6 py-3 border border-gray-300 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f1592a] transition-colors"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full sm:w-auto px-6 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-[#f1592a] to-[#ff7a45] hover:from-[#ff7a45] hover:to-[#f1592a] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f1592a] transition-all shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                    </button>
+                  </div>
+
+                  {/* Feedback Notice below form controls */}
+                  {submissionFeedback && (
+                    <div
+                      role="status"
+                      className={`mt-6 p-4 sm:p-5 rounded-2xl border transition-all duration-300 ${submissionFeedback.type === 'in_progress'
+                          ? 'bg-amber-50/90 border-amber-200/90 text-amber-950 shadow-sm'
+                          : submissionFeedback.type === 'success'
+                            ? 'bg-emerald-50/90 border-emerald-200/90 text-emerald-950 shadow-sm'
+                            : 'bg-rose-50/90 border-rose-200/90 text-rose-950 shadow-sm'
+                        }`}
+                    >
+                      <div className="flex items-start gap-3.5">
+                        <div
+                          className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5 ${submissionFeedback.type === 'in_progress'
+                              ? 'bg-amber-100 text-amber-700'
+                              : submissionFeedback.type === 'success'
+                                ? 'bg-emerald-100 text-emerald-700'
+                                : 'bg-rose-100 text-rose-700'
+                            }`}
+                        >
+                          {submissionFeedback.type === 'in_progress' && <Clock className="w-5 h-5" />}
+                          {submissionFeedback.type === 'success' && <CheckCircle className="w-5 h-5" />}
+                          {submissionFeedback.type === 'error' && <Info className="w-5 h-5" />}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between gap-2">
+                            <h4 className="text-sm font-semibold tracking-tight">
+                              {submissionFeedback.title}
+                            </h4>
+                            {submissionFeedback.type === 'in_progress' && (
+                              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-200/80 text-amber-900">
+                                Active Review
+                              </span>
+                            )}
+                          </div>
+                          <p className="mt-1 text-sm leading-relaxed opacity-90">
+                            {submissionFeedback.message}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </form>
+              </div>
             </motion.div>
           </div>
         )}

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { body } from "express-validator";
-import { createJob, deleteJob, getJob, listJobs, updateJob } from "../controllers/jobController.js";
+import { createJob, deleteJob, getJob, getJobFilterOptions, listJobs, updateJob } from "../controllers/jobController.js";
 import { protect } from "../middlewares/auth.js";
 import { validate } from "../middlewares/validate.js";
 
@@ -27,6 +27,7 @@ const jobValidation = [
 ];
 
 router.get("/", listJobs);
+router.get("/filter-options", getJobFilterOptions);
 router.get("/:id", getJob);
 router.post("/", protect, jobValidation, validate, createJob);
 router.put("/:id", protect, jobValidation, validate, updateJob);

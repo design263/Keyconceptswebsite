@@ -36,11 +36,13 @@ const Field = ({ label, children }) => (
 
 const StatusBadge = ({ status }) =>
   status === 'active' ? (
-    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-700">
+    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200/80 shadow-2xs">
+      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
       Active
     </span>
   ) : (
-    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-50 text-red-600">
+    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-50 text-red-600 border border-red-200/80 shadow-2xs">
+      <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
       Inactive
     </span>
   )
@@ -134,14 +136,14 @@ export default function AdminCaseStudiesPage() {
   ]
 
   return (
-    <div className="space-y-5">
-      <div className="flex items-center justify-between">
+    <div className="w-full min-w-0 space-y-4 pb-8">
+      <div className="shrink-0 flex items-center justify-between">
         <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-[#f1592a]/10 flex items-center justify-center">
-            <Award size={18} className="text-[#f1592a]" />
+          <div className="w-8 h-8 rounded-xl bg-[#f1592a]/10 flex items-center justify-center">
+            <Award size={16} className="text-[#f1592a]" />
           </div>
           <div>
-            <h1 className="text-lg font-bold text-foreground leading-tight">Case Studies</h1>
+            <h1 className="text-base font-bold text-foreground leading-tight">Case Studies</h1>
             <p className="text-xs text-muted-foreground">{caseStudies.total} total case studies</p>
           </div>
         </div>
@@ -156,9 +158,9 @@ export default function AdminCaseStudiesPage() {
               toggleForm()
             }
           }}
-          className="flex items-center gap-2 px-4 py-2 rounded-sm text-sm font-semibold transition-all duration-200 bg-[#f1592a] text-white hover:bg-[#f1592a]/90 shadow-sm shadow-[#f1592a]/20"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition-all duration-200 bg-[#f1592a] text-white hover:bg-[#f1592a]/90 shadow-sm shadow-[#f1592a]/20"
         >
-          <Plus size={15} /> Add Case Study
+          <Plus size={14} /> Add Case Study
         </button>
       </div>
 
@@ -352,18 +354,32 @@ export default function AdminCaseStudiesPage() {
           setPage(1)
         }}
         renderRow={(caseStudy) => (
-          <tr key={caseStudy._id} className="hover:bg-orange-50/40 transition-colors duration-150 group">
-            <td className="px-5 py-3 font-semibold text-foreground">{caseStudy.title}</td>
-            <td className="px-5 py-3 text-muted-foreground">{caseStudy.client}</td>
-            <td className="px-5 py-3 text-muted-foreground">{caseStudy.industry}</td>
-            <td className="px-5 py-3 text-muted-foreground">{caseStudy.featured ? 'Yes' : 'No'}</td>
-            <td className="px-5 py-3">
+          <tr key={caseStudy._id} className="hover:bg-orange-50/30 transition-colors duration-150 group">
+            <td className="px-4 py-3 font-semibold text-gray-900 text-xs sm:text-sm whitespace-nowrap">
+              {caseStudy.title}
+            </td>
+            <td className="px-4 py-3 text-gray-600 text-xs sm:text-sm whitespace-nowrap">
+              {caseStudy.client || '-'}
+            </td>
+            <td className="px-4 py-3 text-gray-600 text-xs sm:text-sm whitespace-nowrap">
+              {caseStudy.industry || '-'}
+            </td>
+            <td className="px-4 py-3 text-gray-600 text-xs sm:text-sm whitespace-nowrap">
+              {caseStudy.featured ? (
+                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-50 text-amber-700 border border-amber-200/60">
+                  Featured
+                </span>
+              ) : (
+                <span className="text-gray-400 text-xs">No</span>
+              )}
+            </td>
+            <td className="px-4 py-3 whitespace-nowrap">
               <StatusBadge status={caseStudy.status} />
             </td>
-            <td className="px-5 py-2">
-              <div className="flex items-center gap-3">
+            <td className="px-4 py-3 whitespace-nowrap">
+              <div className="flex items-center gap-2">
                 <button
-                  title="Edit"
+                  title="Edit Case Study"
                   onClick={() => {
                     setEditingId(caseStudy._id)
                     setCaseStudyForm({
@@ -383,13 +399,14 @@ export default function AdminCaseStudiesPage() {
                       requestAnimationFrame(() => requestAnimationFrame(() => setFormVisible(true)))
                     }
                   }}
-                  className="p-1.5 rounded-sm text-blue-600 bg-blue-50 transition-all"
+                  className="h-7 w-7 rounded-md text-blue-600 bg-blue-50 hover:bg-blue-100 border border-blue-200/60 transition-all flex items-center justify-center shadow-2xs"
                 >
-                  <Pencil className="text-blue-600" size={15} />
+                  <Pencil size={13} />
                 </button>
                 <button
-                  title="Delete"
+                  title="Delete Case Study"
                   onClick={async () => {
+                    if (!window.confirm(`Are you sure you want to delete "${caseStudy.title}"?`)) return
                     try {
                       await api.delete(endpoints.CASE_STUDY_BY_ID(caseStudy._id), token)
                       toast.success('Case study deleted successfully')
@@ -398,9 +415,9 @@ export default function AdminCaseStudiesPage() {
                       toast.error(err?.message || 'Failed to delete case study')
                     }
                   }}
-                  className="p-1.5 rounded-sm text-destructive bg-destructive/10 transition-all"
+                  className="h-7 w-7 rounded-md text-red-600 bg-red-50 hover:bg-red-100 border border-red-200/60 transition-all flex items-center justify-center shadow-2xs"
                 >
-                  <Trash2 className="text-red-600" size={15} />
+                  <Trash2 size={13} />
                 </button>
               </div>
             </td>

@@ -29,6 +29,8 @@ import {
   X,
   FileText,
   Upload,
+  Info,
+  ChevronDown,
 } from 'lucide-react'
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
 import Link from 'next/link'
@@ -36,6 +38,7 @@ import { useEffect, useState } from 'react'
 import { api, endpoints } from '@/lib/api'
 import { submitJobApplication, validateResumeFile } from '@/lib/submitJobApplication'
 import { PageLoader } from '@/components/page-loader'
+import { countries } from '@/data/countries'
 
 const whyWorkHere = [
   {
@@ -376,15 +379,52 @@ function CareersPage() {
     phone: '',
     coverLetter: '',
   })
+  const [selectedCountry, setSelectedCountry] = useState(countries[0])
+  const [phoneError, setPhoneError] = useState('')
+  const [submissionFeedback, setSubmissionFeedback] = useState(null)
+
+  const handlePhoneChange = (e) => {
+    const val = e.target.value.replace(/\D/g, '')
+    setApplicationForm((prev) => ({ ...prev, phone: val }))
+    if (!val) {
+      setPhoneError('')
+      return
+    }
+    if (!selectedCountry.pattern.test(val)) {
+      setPhoneError(selectedCountry.error)
+    } else {
+      setPhoneError('')
+    }
+  }
+
+  const handleCountryChange = (e) => {
+    const selected = countries.find((c) => c.code === e.target.value)
+    if (selected) {
+      setSelectedCountry(selected)
+      if (applicationForm.phone) {
+        if (!selected.pattern.test(applicationForm.phone)) {
+          setPhoneError(selected.error)
+        } else {
+          setPhoneError('')
+        }
+      }
+    }
+  }
+
   const handleFile = (file) => {
     if (!file) return
 
     const error = validateResumeFile(file)
     if (error) {
-      alert(error)
+      setSubmissionFeedback({
+        type: 'error',
+        title: 'Resume Format Issue',
+        message: error,
+      })
       return
     }
 
+    setSubmissionFeedback(null)
     setResumeFile(file)
   }
 
@@ -412,13 +452,17 @@ function CareersPage() {
   const openModal = (role) => {
     setSelectedRole(role)
     setIsModalOpen(true)
+    setSubmissionFeedback(null)
   }
 
   const closeModal = () => {
     setSelectedRole(null)
     setIsModalOpen(false)
     setApplicationForm({ fullName: '', email: '', phone: '', coverLetter: '' })
+    setSelectedCountry(countries[0])
+    setPhoneError('')
     setResumeFile(null)
+    setSubmissionFeedback(null)
   }
 
   const submitApplication = async (e) => {
@@ -426,28 +470,89 @@ function CareersPage() {
     if (isSubmitting || !selectedRole) return
 
     const jobId = selectedRole._id || selectedRole.id
+    setSubmissionFeedback(null)
+
+    if (!applicationForm.phone || !applicationForm.phone.trim()) {
+      setPhoneError('Please enter your mobile number')
+      return
+    }
+    if (!selectedCountry.pattern.test(applicationForm.phone.trim())) {
+      setPhoneError(selectedCountry.error)
+      return
+    }
+
     const resumeError = validateResumeFile(resumeFile)
     if (resumeError) {
-      alert(resumeError)
+      setSubmissionFeedback({
+        type: 'error',
+        title: 'Resume Required',
+        message: resumeError,
+      })
       return
     }
 
     setIsSubmitting(true)
     try {
+      const fullPhone = `${selectedCountry.code} ${applicationForm.phone.trim()}`
       const response = await submitJobApplication({
         jobId,
         fullName: applicationForm.fullName,
         email: applicationForm.email,
-        phone: applicationForm.phone,
+        phone: fullPhone,
         coverLetter: applicationForm.coverLetter,
         resumeFile,
       })
 
-      alert(response?.message || 'Application submitted successfully!')
-      closeModal()
+      if (response?.alreadyApplied) {
+        setSubmissionFeedback({
+          type: 'in_progress',
+          title: 'Application In Progress',
+          message:
+            response?.message ||
+            'Thank you for reaching out again! We have received your application for this position and it is currently in progress with our recruitment team. We will reach out to you soon with updates.',
+        })
+        return
+      }
+
+      setSubmissionFeedback({
+        type: 'success',
+        title: 'Application Received!',
+        message:
+          response?.message ||
+          'Thank you for applying! Your application has been successfully submitted. Our recruitment team will review your profile and be in touch soon.',
+      })
+      setApplicationForm({ fullName: '', email: '', phone: '', coverLetter: '' })
+      setResumeFile(null)
+
+      setTimeout(() => {
+        closeModal()
+      }, 3500)
     } catch (error) {
-      console.error('Error submitting application:', error)
-      alert(error?.message || 'Failed to submit application. Please try again.')
+      const isAlreadyApplied =
+        error?.alreadyApplied ||
+        error?.data?.alreadyApplied ||
+        (error?.message && (
+          error.message.includes('in progress') ||
+          error.message.includes('already applied') ||
+          error.message.includes('reaching out again')
+        ))
+
+      if (isAlreadyApplied) {
+        setSubmissionFeedback({
+          type: 'in_progress',
+          title: 'Application In Progress',
+          message:
+            error?.message ||
+            'Thank you for reaching out again! We have received your application for this position and it is currently in progress with our recruitment team. We will reach out to you soon with updates.',
+        })
+      } else {
+        console.warn('Error submitting application:', error?.message || error)
+        setSubmissionFeedback({
+          type: 'error',
+          title: 'Submission Notice',
+          message: error?.message || 'Failed to submit application. Please try again.',
+        })
+      }
     } finally {
       setIsSubmitting(false)
     }
@@ -1109,18 +1214,37 @@ function CareersPage() {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Phone Number <span className="text-red-500">*</span>{' '}
+                        Phone Number <span className="text-red-500">*</span>
                       </label>
-                      <input
-                        type="tel"
-                        placeholder="Enter your phone number"
-                        value={applicationForm.phone}
-                        onChange={(e) =>
-                          setApplicationForm((prev) => ({ ...prev, phone: e.target.value }))
-                        }
-                        required
-                        className="block w-full px-3 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-[#f1592a] text-sm"
-                      />
+                      <div className="relative flex items-center">
+                        <div className="absolute left-0 pl-2.5 flex items-center pointer-events-auto z-10 border-r border-gray-300 pr-2">
+                          <select
+                            value={selectedCountry.code}
+                            onChange={handleCountryChange}
+                            className="bg-transparent text-sm text-gray-800 focus:outline-none cursor-pointer pr-3.5 appearance-none outline-none"
+                          >
+                            {countries.map((c) => (
+                              <option key={c.label} value={c.code} className="text-sm">
+                                {c.flag} {c.code}
+                              </option>
+                            ))}
+                          </select>
+                          <ChevronDown size={10} className="text-gray-400 -ml-2.5 pointer-events-none" />
+                        </div>
+                        <input
+                          type="tel"
+                          placeholder={selectedCountry.placeholder}
+                          value={applicationForm.phone}
+                          onChange={handlePhoneChange}
+                          required
+                          className={`block w-full pl-24 pr-3 py-2.5 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] text-sm ${
+                            phoneError ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-[#f1592a]'
+                          }`}
+                        />
+                      </div>
+                      {phoneError && (
+                        <p className="text-red-500 text-xs mt-1">{phoneError}</p>
+                      )}
                     </div>
 
                     <div>
@@ -1232,6 +1356,49 @@ function CareersPage() {
                       {isSubmitting ? 'Submitting...' : 'Submit Application'}
                     </button>
                   </div>
+
+                  {/* Feedback Notice below form controls */}
+                  {submissionFeedback && (
+                    <div
+                      role="status"
+                      className={`mt-6 p-4 sm:p-5 rounded-2xl border transition-all duration-300 ${submissionFeedback.type === 'in_progress'
+                          ? 'bg-amber-50/90 border-amber-200/90 text-amber-950 shadow-sm'
+                          : submissionFeedback.type === 'success'
+                            ? 'bg-emerald-50/90 border-emerald-200/90 text-emerald-950 shadow-sm'
+                            : 'bg-rose-50/90 border-rose-200/90 text-rose-950 shadow-sm'
+                        }`}
+                    >
+                      <div className="flex items-start gap-3.5">
+                        <div
+                          className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5 ${submissionFeedback.type === 'in_progress'
+                              ? 'bg-amber-100 text-amber-700'
+                              : submissionFeedback.type === 'success'
+                                ? 'bg-emerald-100 text-emerald-700'
+                                : 'bg-rose-100 text-rose-700'
+                            }`}
+                        >
+                          {submissionFeedback.type === 'in_progress' && <Clock className="w-5 h-5" />}
+                          {submissionFeedback.type === 'success' && <CheckCircle className="w-5 h-5" />}
+                          {submissionFeedback.type === 'error' && <Info className="w-5 h-5" />}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between gap-2">
+                            <h4 className="text-sm font-semibold tracking-tight">
+                              {submissionFeedback.title}
+                            </h4>
+                            {submissionFeedback.type === 'in_progress' && (
+                              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-200/80 text-amber-900">
+                                Active Review
+                              </span>
+                            )}
+                          </div>
+                          <p className="mt-1 text-sm leading-relaxed opacity-90">
+                            {submissionFeedback.message}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </form>
               </div>
             </div>

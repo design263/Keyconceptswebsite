@@ -1,9 +1,10 @@
 'use client'
 
 import { motion, AnimatePresence } from 'motion/react'
-import { X, Mail, Phone, User, FileText, Briefcase, Upload } from 'lucide-react'
-import { useState } from 'react'
+import { X, Mail, Phone, User, FileText, Briefcase, Upload, Clock, CheckCircle, Info, ChevronDown } from 'lucide-react'
+import { useState, useEffect } from 'react'
 import { api, endpoints } from '@/lib/api'
+import { countries } from '@/data/countries'
 function CareerModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
     name: '',
@@ -14,31 +15,73 @@ function CareerModal({ isOpen, onClose }) {
     coverLetter: '',
     resume: null,
   })
+  const [selectedCountry, setSelectedCountry] = useState(countries[0])
+  const [phoneError, setPhoneError] = useState('')
+  const [availableJobs, setAvailableJobs] = useState([])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [submissionFeedback, setSubmissionFeedback] = useState(null)
+
+  useEffect(() => {
+    let active = true
+    if (isOpen) {
+      api.get(endpoints.JOBS)
+        .then((res) => {
+          if (!active) return
+          const list = res?.data || (Array.isArray(res) ? res : [])
+          setAvailableJobs(list.filter((j) => j.status === 'active'))
+        })
+        .catch(() => {})
+    }
+    return () => {
+      active = false
+    }
+  }, [isOpen])
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
+    setSubmissionFeedback(null)
+
+    if (!formData.phone || !formData.phone.trim()) {
+      setPhoneError('Please enter your mobile number')
+      setIsSubmitting(false)
+      return
+    }
+
+    if (!selectedCountry.pattern.test(formData.phone.trim())) {
+      setPhoneError(selectedCountry.error)
+      setIsSubmitting(false)
+      return
+    }
+
     try {
-      // Create FormData for file upload
-      const formData = new FormData()
-      Object.keys(formData).forEach(key => {
-        if (formData[key]) {
-          formData.append(key, formData[key])
-        }
-      })
-      
-      // Add form fields
-      Object.keys(formData).forEach(key => {
-        if (key !== 'resume') {
-          formData.append(key, formData[key])
-        }
-      })
-      
-      await api.post(endpoints.APPLICATIONS, formData)
+      const fullPhone = `${selectedCountry.code} ${formData.phone.trim()}`
+      const submitData = new FormData()
+      submitData.append('jobId', formData.position)
+      submitData.append('fullName', formData.name.trim())
+      submitData.append('email', formData.email.trim())
+      submitData.append('phone', fullPhone)
+      submitData.append('coverLetter', formData.coverLetter.trim() || `Experience: ${formData.experience}`)
+      if (formData.resume) {
+        submitData.append('resume', formData.resume)
+      }
+
+      const response = await api.post(endpoints.APPLICATIONS, submitData)
+
+      if (response?.alreadyApplied) {
+        setIsSubmitting(false)
+        setSubmissionFeedback({
+          type: 'in_progress',
+          title: 'Application In Progress',
+          message:
+            response?.message ||
+            'Thank you for reaching out again! We have received your application for this position and it is currently in progress with our recruitment team. We will reach out to you soon with updates.',
+        })
+        return
+      }
+
       setSubmitSuccess(true)
-      
+
       // Reset form
       setFormData({
         name: '',
@@ -49,13 +92,39 @@ function CareerModal({ isOpen, onClose }) {
         coverLetter: '',
         resume: null,
       })
-      
+      setSelectedCountry(countries[0])
+      setPhoneError('')
+
       setTimeout(() => {
         onClose()
       }, 1000)
     } catch (error) {
-      console.error('Error submitting application:', error)
       setIsSubmitting(false)
+      const isAlreadyApplied =
+        error?.alreadyApplied ||
+        error?.data?.alreadyApplied ||
+        (error?.message && (
+          error.message.includes('in progress') ||
+          error.message.includes('already applied') ||
+          error.message.includes('reaching out again')
+        ))
+
+      if (isAlreadyApplied) {
+        setSubmissionFeedback({
+          type: 'in_progress',
+          title: 'Application In Progress',
+          message:
+            error?.message ||
+            'Thank you for reaching out again! We have received your application for this position and it is currently in progress with our recruitment team. We will reach out to you soon with updates.',
+        })
+      } else {
+        console.warn('Error submitting application:', error?.message || error)
+        setSubmissionFeedback({
+          type: 'error',
+          title: 'Submission Notice',
+          message: error?.message || 'Failed to submit application. Please try again.',
+        })
+      }
     }
   }
   const handleChange = (e) => {
@@ -64,6 +133,40 @@ function CareerModal({ isOpen, onClose }) {
       [e.target.name]: e.target.value,
     })
   }
+
+  const handlePhoneChange = (e) => {
+    const val = e.target.value.replace(/\D/g, '')
+    setFormData((prev) => ({
+      ...prev,
+      phone: val,
+    }))
+
+    if (!val) {
+      setPhoneError('')
+      return
+    }
+
+    if (!selectedCountry.pattern.test(val)) {
+      setPhoneError(selectedCountry.error)
+    } else {
+      setPhoneError('')
+    }
+  }
+
+  const handleCountryChange = (e) => {
+    const selected = countries.find((c) => c.code === e.target.value)
+    if (selected) {
+      setSelectedCountry(selected)
+      if (formData.phone) {
+        if (!selected.pattern.test(formData.phone)) {
+          setPhoneError(selected.error)
+        } else {
+          setPhoneError('')
+        }
+      }
+    }
+  }
+
   const handleFileChange = (e) => {
     const file = e.target.files?.[0] || null
     setFormData({
@@ -244,45 +347,56 @@ function CareerModal({ isOpen, onClose }) {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {' '}
                       <div>
-                        {' '}
                         <label
                           htmlFor="phone"
                           className="block text-xs font-semibold text-gray-700 mb-1.5"
                         >
                           Phone Number *
-                        </label>{' '}
-                        <div className="relative">
-                          {' '}
-                          <Phone
-                            className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
-                            size={18}
-                          />{' '}
+                        </label>
+                        <div className="relative flex items-center">
+                          <div className="absolute left-0 pl-2.5 flex items-center pointer-events-auto z-10 border-r border-gray-200 pr-2">
+                            <select
+                              value={selectedCountry.code}
+                              onChange={handleCountryChange}
+                              className="bg-transparent text-xs text-gray-800 focus:outline-none cursor-pointer pr-3 appearance-none outline-none"
+                            >
+                              {countries.map((c) => (
+                                <option key={c.label} value={c.code} className="text-xs">
+                                  {c.flag} {c.code}
+                                </option>
+                              ))}
+                            </select>
+                            <ChevronDown size={10} className="text-gray-400 -ml-2 pointer-events-none" />
+                          </div>
                           <input
                             type="tel"
                             id="phone"
                             name="phone"
                             required
+                            placeholder={selectedCountry.placeholder}
                             value={formData.phone}
-                            onChange={handleChange}
-                            className="w-full pl-10 pr-3 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-transparent transition-all"
-                            placeholder="+1 (555) 000-0000"
+                            onChange={handlePhoneChange}
+                            className={`w-full pl-22 pr-3 py-2.5 text-sm bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-transparent transition-all ${
+                              phoneError ? 'border-red-500' : 'border-gray-200'
+                            }`}
                           />
                         </div>
-                      </div>{' '}
+                        {phoneError && (
+                          <p className="text-red-500 text-xs mt-1">{phoneError}</p>
+                        )}
+                      </div>
                       <div>
-                        {' '}
                         <label
                           htmlFor="position"
                           className="block text-xs font-semibold text-gray-700 mb-1.5"
                         >
                           Position Applying For *
-                        </label>{' '}
+                        </label>
                         <div className="relative">
-                          {' '}
                           <Briefcase
                             className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
                             size={18}
-                          />{' '}
+                          />
                           <select
                             id="position"
                             name="position"
@@ -291,16 +405,24 @@ function CareerModal({ isOpen, onClose }) {
                             onChange={handleChange}
                             className="w-full pl-10 pr-3 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-transparent transition-all appearance-none"
                           >
-                            {' '}
-                            <option value="">Select a position</option>{' '}
-                            <option value="frontend-developer">Frontend Developer</option>{' '}
-                            <option value="backend-developer">Backend Developer</option>{' '}
-                            <option value="fullstack-developer">Full Stack Developer</option>{' '}
-                            <option value="ui-ux-designer">UI/UX Designer</option>{' '}
-                            <option value="project-manager">Project Manager</option>{' '}
-                            <option value="business-analyst">Business Analyst</option>{' '}
-                            <option value="odoo-developer">Odoo Developer</option>{' '}
-                            <option value="other">Other</option>
+                            <option value="">Select a position</option>
+                            {availableJobs.length > 0 ? (
+                              availableJobs.map((j) => (
+                                <option key={j._id} value={j._id}>
+                                  {j.title} ({j.department})
+                                </option>
+                              ))
+                            ) : (
+                              <>
+                                <option value="frontend-developer">Frontend Developer</option>
+                                <option value="backend-developer">Backend Developer</option>
+                                <option value="fullstack-developer">Full Stack Developer</option>
+                                <option value="ui-ux-designer">UI/UX Designer</option>
+                                <option value="project-manager">Project Manager</option>
+                                <option value="business-analyst">Business Analyst</option>
+                                <option value="odoo-developer">Odoo Developer</option>
+                              </>
+                            )}
                           </select>
                         </div>
                       </div>
@@ -434,6 +556,48 @@ function CareerModal({ isOpen, onClose }) {
                         'Submit Application'
                       )}
                     </motion.button>{' '}
+                    {/* Feedback Notice below form controls */}
+                    {submissionFeedback && (
+                      <div
+                        role="status"
+                        className={`mt-4 p-4 rounded-xl border transition-all duration-300 ${submissionFeedback.type === 'in_progress'
+                            ? 'bg-amber-50/90 border-amber-200/90 text-amber-950 shadow-sm'
+                            : submissionFeedback.type === 'success'
+                              ? 'bg-emerald-50/90 border-emerald-200/90 text-emerald-950 shadow-sm'
+                              : 'bg-rose-50/90 border-rose-200/90 text-rose-950 shadow-sm'
+                          }`}
+                      >
+                        <div className="flex items-start gap-3">
+                          <div
+                            className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 ${submissionFeedback.type === 'in_progress'
+                                ? 'bg-amber-100 text-amber-700'
+                                : submissionFeedback.type === 'success'
+                                  ? 'bg-emerald-100 text-emerald-700'
+                                  : 'bg-rose-100 text-rose-700'
+                              }`}
+                          >
+                            {submissionFeedback.type === 'in_progress' && <Clock className="w-4 h-4" />}
+                            {submissionFeedback.type === 'success' && <CheckCircle className="w-4 h-4" />}
+                            {submissionFeedback.type === 'error' && <Info className="w-4 h-4" />}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between gap-2">
+                              <h4 className="text-xs font-semibold tracking-tight">
+                                {submissionFeedback.title}
+                              </h4>
+                              {submissionFeedback.type === 'in_progress' && (
+                                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-amber-200/80 text-amber-900">
+                                  Active Review
+                                </span>
+                              )}
+                            </div>
+                            <p className="mt-1 text-xs leading-relaxed opacity-90">
+                              {submissionFeedback.message}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                     <p className="text-center text-xs text-gray-500 pt-1">
                       We respect your privacy. Your information will never be shared.
                     </p>
