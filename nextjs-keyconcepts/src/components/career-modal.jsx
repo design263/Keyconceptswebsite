@@ -364,7 +364,7 @@ function CareerModal({ isOpen, onClose }) {
                               className="bg-transparent text-xs text-gray-800 focus:outline-none cursor-pointer pr-3 appearance-none outline-none"
                             >
                               {countries.map((c) => (
-                                <option key={c.label} value={c.code} className="text-xs">
+                                <option key={c.iso} value={c.code} className="text-xs">
                                   {c.flag} {c.code}
                                 </option>
                               ))}

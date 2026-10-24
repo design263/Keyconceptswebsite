@@ -942,7 +942,7 @@ function JobDetailPage({ params }) {
                             className="bg-transparent text-sm text-gray-800 focus:outline-none cursor-pointer pr-3.5 appearance-none outline-none"
                           >
                             {countries.map((c) => (
-                              <option key={c.label} value={c.code} className="text-sm">
+                              <option key={c.iso} value={c.code} className="text-sm">
                                 {c.flag} {c.code}
                               </option>
                             ))}
