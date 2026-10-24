@@ -4,7 +4,10 @@ import { motion, AnimatePresence } from 'motion/react'
 import { X, Mail, Phone, User, FileText, Briefcase, Upload, Clock, CheckCircle, Info, ChevronDown } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { api, endpoints } from '@/lib/api'
-import { countries } from '@/data/countries'
+import { ALL_COUNTRIES } from '@/data/countries'
+
+const countries = ALL_COUNTRIES;
+
 function CareerModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
     name: '',
@@ -31,7 +34,7 @@ function CareerModal({ isOpen, onClose }) {
           const list = res?.data || (Array.isArray(res) ? res : [])
           setAvailableJobs(list.filter((j) => j.status === 'active'))
         })
-        .catch(() => {})
+        .catch(() => { })
     }
     return () => {
       active = false
@@ -376,9 +379,8 @@ function CareerModal({ isOpen, onClose }) {
                             placeholder={selectedCountry.placeholder}
                             value={formData.phone}
                             onChange={handlePhoneChange}
-                            className={`w-full pl-22 pr-3 py-2.5 text-sm bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-transparent transition-all ${
-                              phoneError ? 'border-red-500' : 'border-gray-200'
-                            }`}
+                            className={`w-full pl-22 pr-3 py-2.5 text-sm bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f1592a] focus:border-transparent transition-all ${phoneError ? 'border-red-500' : 'border-gray-200'
+                              }`}
                           />
                         </div>
                         {phoneError && (
@@ -561,19 +563,19 @@ function CareerModal({ isOpen, onClose }) {
                       <div
                         role="status"
                         className={`mt-4 p-4 rounded-xl border transition-all duration-300 ${submissionFeedback.type === 'in_progress'
-                            ? 'bg-amber-50/90 border-amber-200/90 text-amber-950 shadow-sm'
-                            : submissionFeedback.type === 'success'
-                              ? 'bg-emerald-50/90 border-emerald-200/90 text-emerald-950 shadow-sm'
-                              : 'bg-rose-50/90 border-rose-200/90 text-rose-950 shadow-sm'
+                          ? 'bg-amber-50/90 border-amber-200/90 text-amber-950 shadow-sm'
+                          : submissionFeedback.type === 'success'
+                            ? 'bg-emerald-50/90 border-emerald-200/90 text-emerald-950 shadow-sm'
+                            : 'bg-rose-50/90 border-rose-200/90 text-rose-950 shadow-sm'
                           }`}
                       >
                         <div className="flex items-start gap-3">
                           <div
                             className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 ${submissionFeedback.type === 'in_progress'
-                                ? 'bg-amber-100 text-amber-700'
-                                : submissionFeedback.type === 'success'
-                                  ? 'bg-emerald-100 text-emerald-700'
-                                  : 'bg-rose-100 text-rose-700'
+                              ? 'bg-amber-100 text-amber-700'
+                              : submissionFeedback.type === 'success'
+                                ? 'bg-emerald-100 text-emerald-700'
+                                : 'bg-rose-100 text-rose-700'
                               }`}
                           >
                             {submissionFeedback.type === 'in_progress' && <Clock className="w-4 h-4" />}

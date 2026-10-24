@@ -38,7 +38,9 @@ import { useEffect, useState } from 'react'
 import { api, endpoints } from '@/lib/api'
 import { submitJobApplication, validateResumeFile } from '@/lib/submitJobApplication'
 import { PageLoader } from '@/components/page-loader'
-import { countries } from '@/data/countries'
+import { ALL_COUNTRIES } from '@/data/countries'
+
+const countries = ALL_COUNTRIES;
 
 const whyWorkHere = [
   {
@@ -1237,9 +1239,8 @@ function CareersPage() {
                           value={applicationForm.phone}
                           onChange={handlePhoneChange}
                           required
-                          className={`block w-full pl-24 pr-3 py-2.5 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] text-sm ${
-                            phoneError ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-[#f1592a]'
-                          }`}
+                          className={`block w-full pl-24 pr-3 py-2.5 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f1592a] text-sm ${phoneError ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-[#f1592a]'
+                            }`}
                         />
                       </div>
                       {phoneError && (
@@ -1362,19 +1363,19 @@ function CareersPage() {
                     <div
                       role="status"
                       className={`mt-6 p-4 sm:p-5 rounded-2xl border transition-all duration-300 ${submissionFeedback.type === 'in_progress'
-                          ? 'bg-amber-50/90 border-amber-200/90 text-amber-950 shadow-sm'
-                          : submissionFeedback.type === 'success'
-                            ? 'bg-emerald-50/90 border-emerald-200/90 text-emerald-950 shadow-sm'
-                            : 'bg-rose-50/90 border-rose-200/90 text-rose-950 shadow-sm'
+                        ? 'bg-amber-50/90 border-amber-200/90 text-amber-950 shadow-sm'
+                        : submissionFeedback.type === 'success'
+                          ? 'bg-emerald-50/90 border-emerald-200/90 text-emerald-950 shadow-sm'
+                          : 'bg-rose-50/90 border-rose-200/90 text-rose-950 shadow-sm'
                         }`}
                     >
                       <div className="flex items-start gap-3.5">
                         <div
                           className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5 ${submissionFeedback.type === 'in_progress'
-                              ? 'bg-amber-100 text-amber-700'
-                              : submissionFeedback.type === 'success'
-                                ? 'bg-emerald-100 text-emerald-700'
-                                : 'bg-rose-100 text-rose-700'
+                            ? 'bg-amber-100 text-amber-700'
+                            : submissionFeedback.type === 'success'
+                              ? 'bg-emerald-100 text-emerald-700'
+                              : 'bg-rose-100 text-rose-700'
                             }`}
                         >
                           {submissionFeedback.type === 'in_progress' && <Clock className="w-5 h-5" />}
