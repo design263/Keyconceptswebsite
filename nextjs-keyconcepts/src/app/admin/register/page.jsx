@@ -37,36 +37,36 @@ export default function AdminRegisterPage() {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <form onSubmit={submit} className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl border border-gray-200 space-y-4">
         <h1 className="text-2xl font-bold">Admin Registration</h1>
-        <input 
-          className="w-full border border-gray-200 rounded-lg px-4 py-3" 
-          placeholder="Email" 
-          type="email" 
-          value={form.email} 
-          onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))} 
-          required 
+        <input
+          className="w-full border border-gray-200 rounded-lg px-4 py-3"
+          placeholder="Email"
+          type="email"
+          value={form.email}
+          onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
+          required
         />
-        <input 
-          className="w-full border border-gray-200 rounded-lg px-4 py-3" 
-          placeholder="Password" 
-          type="password" 
-          value={form.password} 
-          onChange={(e) => setForm((prev) => ({ ...prev, password: e.target.value }))} 
-          required 
+        <input
+          className="w-full border border-gray-200 rounded-lg px-4 py-3"
+          placeholder="Password"
+          type="password"
+          value={form.password}
+          onChange={(e) => setForm((prev) => ({ ...prev, password: e.target.value }))}
+          required
         />
-        <input 
-          className="w-full border border-gray-200 rounded-lg px-4 py-3" 
-          placeholder="Confirm Password" 
-          type="password" 
-          value={form.confirmPassword} 
-          onChange={(e) => setForm((prev) => ({ ...prev, confirmPassword: e.target.value }))} 
-          required 
+        <input
+          className="w-full border border-gray-200 rounded-lg px-4 py-3"
+          placeholder="Confirm Password"
+          type="password"
+          value={form.confirmPassword}
+          onChange={(e) => setForm((prev) => ({ ...prev, confirmPassword: e.target.value }))}
+          required
         />
-        <input 
-          className="w-full border border-gray-200 rounded-lg px-4 py-3" 
-          placeholder="Registration Key (optional)" 
-          type="text" 
-          value={form.registrationKey} 
-          onChange={(e) => setForm((prev) => ({ ...prev, registrationKey: e.target.value }))} 
+        <input
+          className="w-full border border-gray-200 rounded-lg px-4 py-3"
+          placeholder="Registration Key (optional)"
+          type="text"
+          value={form.registrationKey}
+          onChange={(e) => setForm((prev) => ({ ...prev, registrationKey: e.target.value }))}
         />
 
         {error && <p className="text-red-500 text-sm">{error}</p>}
@@ -74,7 +74,7 @@ export default function AdminRegisterPage() {
         <button className="w-full bg-gradient-to-r from-[#f1592a] to-[#ff7a45] text-white rounded-lg py-3 font-semibold">Create Admin Account</button>
 
         <p className="text-sm text-gray-600 text-center">
-          Already registered? <Link className="text-[#f1592a]" href="/admin/login">Sign in</Link>
+          Already registered? <Link className="text-[#f1592a]" href="/admin-login">Sign in</Link>
         </p>
       </form>
     </div>
